@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/template', function () {
-    return view('template.template');
-});
+Route::view('/', 'welcome');
+
+
+Route::get('/morador', 'MoradorController@index');
