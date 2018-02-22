@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ola</h1>
-    @yield('content')
+    <div>
+        @yield('nav')
+    </div>
+    
 
 </body>
 </html>

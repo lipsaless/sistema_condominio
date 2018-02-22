@@ -11,7 +11,13 @@
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'template.template');
 
 
 Route::get('/morador', 'MoradorController@index');
+
+Route::view('/nav', 'template.nav.nav');
+
+//ROTAS DE LOGIN
+Route::get('/Login',['uses' => 'MoradorController@moradorLogin']);
+Route::post('/Login',['as' => 'login.login', 'uses' => 'MoradorController@moradorLogin']);
