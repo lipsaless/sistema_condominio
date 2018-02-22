@@ -11,7 +11,9 @@
 |
 */
 
-Route::view('/', 'template.template');
+Route::get('/', function() {
+    return view('template.conteudo.conteudo');
+});
 
 
 Route::get('/morador', 'MoradorController@index');
@@ -19,5 +21,8 @@ Route::get('/morador', 'MoradorController@index');
 Route::view('/nav', 'template.nav.nav');
 
 //ROTAS DE LOGIN
-Route::get('/Login',['uses' => 'MoradorController@moradorLogin']);
-Route::post('/Login',['as' => 'login.login', 'uses' => 'MoradorController@moradorLogin']);
+Route::get('/Login',['uses' => 'LoginController@login']);
+Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@login']);
+
+//ROTAS DO SISTEMA
+Route::view('/sistema','sistema.menu.menu');

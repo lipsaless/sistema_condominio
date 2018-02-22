@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApartamentoTable extends Migration
+class CreateMoradorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateApartamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartamento', function (Blueprint $table) {
-            $table->increments('id_apartamento');
-            $table->increments('id_bloco');
-            $table->string('no_apartamento');
+        Schema::create('morador', function (Blueprint $table) {
+            $table->integer('id_morador');
+            $table->integer('id_usuario');
+            $table->integer('id_apartamento');
+            $table->integer('id_morador_tipo');
             $table->dateTime('dt_inicio');
             $table->dateTime('dt_fim');
             $table->timestamps();
@@ -30,6 +31,6 @@ class CreateApartamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartamento');
+        Schema::dropIfExists('morador');
     }
 }

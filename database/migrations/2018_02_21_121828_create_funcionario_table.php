@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMoradorTable extends Migration
+class CreateFuncionarioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateMoradorTable extends Migration
      */
     public function up()
     {
-        Schema::create('morador', function (Blueprint $table) {
-            $table->integer('id_morador');
-            $table->integer('id_apartamento');
-            $table->string('no_morador');
-            $table->string('ds_email');
+        Schema::create('funcionario', function (Blueprint $table) {
+            $table->increments('id_funcionario');
+            $table->increments('id_usuario');
             $table->dateTime('dt_inicio');
             $table->dateTime('dt_fim');
             $table->timestamps();
@@ -31,6 +29,6 @@ class CreateMoradorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('morador');
+        Schema::dropIfExists('funcionario');
     }
 }

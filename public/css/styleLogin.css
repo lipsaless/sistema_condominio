@@ -13,7 +13,7 @@
 div.background {
     position: absolute;
     left: 0;
-    width: 100%;
+    width: calc(100% - 300px);
     height: 100%;
     background: url('../assets/img/login-background.jpg') no-repeat;
     background-size: cover;
@@ -31,7 +31,7 @@ section#conteudo-view {
     background-color: #1b2836;
 }
 
-section#conteudo-view h1 {
+section#conteudo-view h2 {
     float: left;
     width: 100%;
     font: 3em 'Oxygen', sans-serif;;
@@ -46,8 +46,15 @@ section#conteudo-view p {
     font: .8em 'Fjalla One', sans-serif;
     color: #ffffff;
 }
+
+section#conteudo-view h1 {
+    color: #f3f3f3fa;
+    width: 100%;
+    text-align: center;
+}
+
 section#conteudo-view form {
-    margin-top: 40px;
+    margin-top: 20%;
 }
 section#conteudo-view form,
 section#conteudo-view form label {
@@ -70,7 +77,7 @@ section#conteudo-view label input {
     border-radius: 20px;
     padding: 0 20px;
     border: 2px solid #60706a;
-    color: #9595;
+    color: #000000;
     font: 1em 'Arial';
     margin-top: 10px;
 }

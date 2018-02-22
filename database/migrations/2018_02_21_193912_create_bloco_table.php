@@ -14,7 +14,11 @@ class CreateBlocoTable extends Migration
     public function up()
     {
         Schema::create('bloco', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_bloco');
+            $table->increments('id_condominio');
+            $table->string('no_bloco');
+            $table->dateTime('dt_inicio');
+            $table->dateTime('dt_fim');
             $table->timestamps();
         });
     }

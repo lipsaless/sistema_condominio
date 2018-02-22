@@ -12,9 +12,4 @@ class MoradorController extends Controller
     	$moradores = Morador::all();
         return view('morador.morador')->with("Moradores", $moradores);
     }
-
-    public function moradorLogin()
-    {
-        return view('login.login');
-    }
 }
