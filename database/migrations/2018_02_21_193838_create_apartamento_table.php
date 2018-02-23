@@ -17,7 +17,7 @@ class CreateApartamentoTable extends Migration
             $table->increments('id_apartamento');
             $table->increments('id_bloco');
             $table->string('no_apartamento');
-            $table->dateTime('dt_inicio');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('dt_fim');
             $table->timestamps();
         });

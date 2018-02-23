@@ -15,6 +15,7 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id_usuario');
+            $table->integer('id_condominio');
             $table->integer('id_morador');
             $table->integer('id_funcionario');
             $table->string('no_morador');
@@ -27,6 +28,8 @@ class CreateUsuariosTable extends Migration
             $table->integer('nu_celular_funcionario');
             $table->integer('nu_telefone_morador');
             $table->integer('nu_telefone_funcionario');
+            $table->char('sg_sexo_morador');
+            $table->char('sg_sexo_funcionario');
             $table->string('ds_email_morador');
             $table->string('ds_email_funcionario');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));

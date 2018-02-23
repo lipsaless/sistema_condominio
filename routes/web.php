@@ -22,7 +22,7 @@ Route::view('/nav', 'template.nav.nav');
 
 //ROTAS DE LOGIN
 Route::get('/Login',['uses' => 'LoginController@login']);
-Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@login']);
+Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@outh']);
 
 //ROTAS DO SISTEMA
-Route::view('/sistema','sistema.menu.menu');
+Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema']);
