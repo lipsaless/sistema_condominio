@@ -15,7 +15,7 @@
                     <div id="img-condominio">
                         <img src="{{ asset('assets/img/cond.jpg') }}" alt="">
                     </div>
-                <a href="{{ asset('sistemamorador.morador') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar"><i class="fa fa-home"></i> Home </a>
+                <a href="menu.blade.php" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar"><i class="fa fa-home"></i> Home </a>
                 
                 <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="d-none d-md-inline">Reserva</span></a>
                 <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-user"></i> <span class="d-none d-md-inline">Morador </span></a>
