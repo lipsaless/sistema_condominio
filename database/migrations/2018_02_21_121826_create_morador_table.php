@@ -18,7 +18,7 @@ class CreateMoradorTable extends Migration
             $table->integer('id_usuario');
             $table->integer('id_apartamento');
             $table->integer('id_morador_tipo');
-            $table->dateTime('dt_inicio');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('dt_fim');
             $table->timestamps();
         });

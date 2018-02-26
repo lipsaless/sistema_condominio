@@ -1,15 +1,15 @@
+
+
 #sidebar {
     overflow: hidden;
     z-index: 3;
     width: 300px !important; 
+    position: absolute;
+    height: 100%;
 }
 
 #menu-close {
     position: absolute;    
-}
-
-a#menu1 {
-    margin-top: 40px !important;
 }
 
 #img-condominio {
@@ -22,6 +22,7 @@ a#menu1 {
     min-width: 400px;
     background-color: #333;
     min-height: 100vh;
+    position: absolute;
 }
 #sidebar i {
     margin-right: 6px;

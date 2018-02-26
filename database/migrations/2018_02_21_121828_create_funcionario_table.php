@@ -16,7 +16,7 @@ class CreateFuncionarioTable extends Migration
         Schema::create('funcionario', function (Blueprint $table) {
             $table->increments('id_funcionario');
             $table->increments('id_usuario');
-            $table->dateTime('dt_inicio');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('dt_fim');
             $table->timestamps();
         });

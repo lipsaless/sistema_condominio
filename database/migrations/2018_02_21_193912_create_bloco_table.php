@@ -17,7 +17,7 @@ class CreateBlocoTable extends Migration
             $table->increments('id_bloco');
             $table->increments('id_condominio');
             $table->string('no_bloco');
-            $table->dateTime('dt_inicio');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('dt_fim');
             $table->timestamps();
         });

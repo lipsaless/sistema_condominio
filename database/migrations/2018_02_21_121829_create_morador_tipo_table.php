@@ -17,7 +17,7 @@ class CreateMoradorTipoTable extends Migration
             $table->increments('id_morador_tipo');
             $table->string('no_morador_tipo');
             $table->string('ref_morador_tipo');
-            $table->dateTime('dt_inicio');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim');
             $table->timestamps();
         });

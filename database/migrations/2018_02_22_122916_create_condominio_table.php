@@ -16,7 +16,7 @@ class CreateCondominioTable extends Migration
         Schema::create('condominio', function (Blueprint $table) {
             $table->increments('id_condominio');
             $table->string('no_condominio');
-            $table->dateTime('dt_fim');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('dt_fim');
             $table->timestamps();
         });

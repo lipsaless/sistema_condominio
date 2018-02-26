@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('font-awesome/css/fontawesome-all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleLogin.css')}}">
 
     <!--FONTS GOOGLE-->
@@ -16,7 +16,7 @@
     <!--BOOTSTRAP CSS-->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/login.js') }}"></script>
 </head>
 <body>
@@ -34,7 +34,7 @@
             <i class="fa fa-building" style="font-size:48px;color: white;"></i> Condomínio
         </h2>
 
-        {!! Form::open(['route' =>'login.login', 'method' => 'post']) !!}
+        {!! Form::open(['route' =>'sistema', 'method' => 'post']) !!}
             <p>Acesse o Sistema</p>
 
             <label>
@@ -45,7 +45,7 @@
                 {!! Form::password('password', ['class'=>'input', 'placeholder'=>'Digite a senha'])!!}    
             <label>
 
-            {!! Form::submit('Entrar')!!}
+            {!! Form::submit('Entrar') !!}
         {!! Form::close() !!}
     </section>
 </body>

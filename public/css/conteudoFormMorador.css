@@ -1,0 +1,5 @@
+#form {
+    width: calc(100% - 300px);
+    size: cover;
+    margin-left: 300px !important;
+}
