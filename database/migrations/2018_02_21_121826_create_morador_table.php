@@ -14,7 +14,7 @@ class CreateMoradorTable extends Migration
     public function up()
     {
         Schema::create('morador', function (Blueprint $table) {
-            $table->integer('id_morador');
+            $table->increments('id_morador');
             $table->integer('id_usuario');
             $table->integer('id_apartamento');
             $table->integer('id_morador_tipo');

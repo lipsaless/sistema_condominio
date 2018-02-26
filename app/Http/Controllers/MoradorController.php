@@ -9,8 +9,7 @@ class MoradorController extends Controller
 {
     public function principal()
     {
-    	$moradores = Morador::all();
-        return view('morador.morador')->with("Moradores", $moradores);
+    	return view('sistema.morador.principal');
     }
 
     public function form()

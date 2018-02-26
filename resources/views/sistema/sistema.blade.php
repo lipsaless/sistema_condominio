@@ -6,10 +6,12 @@
     @include('sistema.nav.nav')
 </div>
 
-
-
 <div id="menu-sistema">
     @include('sistema.menu.menu')
+</div>
+
+<div id="principal-morador-sistema">
+    @yield('principal-morador')
 </div>
 
 <div id="form-morador-sistema">

@@ -15,9 +15,6 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id_usuario');
-            $table->integer('id_condominio');
-            $table->integer('id_morador');
-            $table->integer('id_funcionario');
             $table->string('no_morador');
             $table->string('no_funcionario');
             $table->integer('nu_cpf_morador');

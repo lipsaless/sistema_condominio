@@ -15,7 +15,7 @@ class CreateApartamentoTable extends Migration
     {
         Schema::create('apartamento', function (Blueprint $table) {
             $table->increments('id_apartamento');
-            $table->increments('id_bloco');
+            $table->integer('id_bloco');
             $table->string('no_apartamento');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('dt_fim');

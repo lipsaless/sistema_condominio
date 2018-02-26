@@ -11,14 +11,7 @@
 <!--jQuery-->
 <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
 
-<style>
-	#margin{
-		margin-top: 8%;
-	}
-	form {
-		height: 50%;
-	}
-</style>
+
 
 @section('form-morador')
 	<form id="form" class="ui form">
@@ -462,4 +455,9 @@
 </div>
 	</form>
 
+<script>
+	$(document).ready(function(){
+		$('.ui.dropdown').dropdown();
+	});
+</script>
 @stop
