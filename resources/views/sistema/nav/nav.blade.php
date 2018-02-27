@@ -4,9 +4,6 @@
 <!--FONT AWESOME-->
 <link rel="stylesheet" href="{{ asset('font-awesome/css/fontawesome.min.css') }}">
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <a class="navbar-brand" href="{{ route('login.login') }}">Sair</a>
-</nav>
 
 <!--BOOTSTRAP JS-->
 
