@@ -21,7 +21,7 @@ Route::get('/morador', 'MoradorController@index');
 Route::view('/nav', 'template.nav.nav');
 
 //ROTAS DE LOGIN
-Route::get('/Login',['uses' => 'LoginController@login']);
+Route::get('/Login',['as' => 'login', 'uses' => 'LoginController@login']);
 Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@outh']);
 
 //ROTAS DO SISTEMA
@@ -30,6 +30,6 @@ Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema'
 //MORADOR-MORADOR
 Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@principal']);
 //MORADOR-AUTOMOVEL
-Route::get('/morador/automovel', ['as' => 'morador/automovel', 'uses' => 'AutomovelController@principal']);
+Route::get('/morador/automovel', ['as' => 'morador-automovel', 'uses' => 'AutomovelController@principal']);
 //MORADOR-ANIMAL
-Route::get('/morador/animal', ['as' => 'morador/animal', 'uses' => 'AnimalController@principal']);
+Route::get('/morador/animal', ['as' => 'morador-animal', 'uses' => 'AnimalController@principal']);

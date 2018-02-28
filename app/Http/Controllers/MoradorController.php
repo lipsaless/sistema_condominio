@@ -9,6 +9,9 @@ class MoradorController extends Controller
 {
     public function principal()
     {
+        $model = new Morador();
+        $moradores = Morador::all()->toArray();
+        dump($moradores->toArray());
     	return view('sistema.morador.principal');
     }
 

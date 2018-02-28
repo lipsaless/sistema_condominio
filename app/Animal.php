@@ -7,4 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Animal extends Model
 {
     protected $table = 'animal';
+    protected $primary = 'id_animal';
+
+    public function getAll()
+    {
+        $query = $this->newQuery();
+        $query->join('morador', 'morador.id_morador', 'animal.id_morador');
+        $query->join('animal_tipo', 'animal_tipo.id_animal_tipo', 'animal.id_animal_tipo');
+        $query->whereNull('dt_fim');
+
+        $query->orderBy('dt_inicio');
+
+        return $query->get();
+    }
 }

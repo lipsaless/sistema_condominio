@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnimalTipo extends Model
 {
-    protected $table = 'animal';
+    protected $table = 'animal_tipo';
+    protected $primary = 'id_animal_tipo';
+
+    public function getAll()
+    {
+        $query = $this->newQuery();
+        $query->whereNull('dt_fim');
+
+        $query->orderBy('dt_inicio');
+
+        return $query->get();
+    }
 }

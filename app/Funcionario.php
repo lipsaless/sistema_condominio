@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Automovel extends Model
+class Funcionario extends Model
 {
-    protected $table = 'automovel';
-    protected $primary = 'id_automovel';
+    protected $table = 'funcionario';
+    protected $primary = 'id_funcionario';
 
     public function getAll()
     {
         $query = $this->newQuery();
-        $query->join('morador', 'morador.id_morador', 'automovel.id_morador');
+        $query->join('usuarios', 'usuarios.id_usuario', 'funcionario.id_usuario');
         $query->whereNull('dt_fim');
 
         $query->orderBy('dt_inicio');

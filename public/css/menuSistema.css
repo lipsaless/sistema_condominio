@@ -1,7 +1,43 @@
-nav {
-    background-color: #75ace4 !important;
-}
+/* Downloaded from https://www.codeseek.co/ */
+.marginlefting {
+    margin-left: 60px !important;
+  }
+   
+  .displayblock {
+    display: block !important;
+  }
+   
+  /* .sidebar .item i {
+    font-size: 24px;
+    margin-top: -5px !important;
+  } */
+   
+  .logo {
+    height: 48px !important;
+    padding: 10px !important;
+  }
+   
+  .logo img {
+    width: 100% !important;
+    height: 38px !important;
+  }
+   
+  .title.item {
+    /*padding: .92857143em 1.14285714em !important;*/
+  }
+   
+  .dropdown .menu .header {
+    padding-top: 3.9px!important;
+    padding-bottom: 3.9px!important;
+  }
 
-.side-nav .collapsible-header, .side-nav.fixed .collapsible-header {
-    color: #000000;
+  .logo img {
+      height: 18% !important;
+  }
+  a {
+      color: black;
+  }
+
+.pusher .ui menu {
+    background-color: #2ea3d0 !important;
 }
