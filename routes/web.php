@@ -28,7 +28,7 @@ Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@outh']);
 Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema']);
 
 //MORADOR-MORADOR
-Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@principal']);
+Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@form']);
 //MORADOR-AUTOMOVEL
 Route::get('/morador/automovel', ['as' => 'morador-automovel', 'uses' => 'AutomovelController@principal']);
 //MORADOR-ANIMAL

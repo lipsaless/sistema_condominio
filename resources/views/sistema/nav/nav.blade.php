@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class="pusher">
         <div class="ui menu asd borderless" style="border-radius: 0!important; border: 0; margin-left: 260px; -webkit-transition-duration: 0.1s;">
             <a class="item openbtn">
@@ -21,6 +22,8 @@
         </div>
     </div>
 
+=======
+>>>>>>> 2485a170fcb752bb23abd465a9183954b9f98dfc
 <!--BOOTSTRAP JS-->
 
 <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
