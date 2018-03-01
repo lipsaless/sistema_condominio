@@ -8,7 +8,7 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a class="active" href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
+        <li><a class="active" href="{{ route('login') }}" data-toggle="modal" data-target="#exampleModal">Login</a></li>
     </ul>
 </nav>
 

@@ -16,11 +16,8 @@ class MoradorController extends Controller
 
     public function form()
     {
+        $model = new Morador();
+        $moradores = Morador::all()->toArray();
         return view('sistema.morador.form');
-    }
-
-    public function inserir()
-    {
-
     }
 }

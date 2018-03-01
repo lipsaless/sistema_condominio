@@ -9,11 +9,15 @@ class FuncionarioController extends Controller
 {
     public function principal()
     {
+        $model = new Funcionario();
+        $moradores = Funcionario::all()->toArray();
         return view('sistema.funcionario.principal');
     }
 
     public function form()
     {
+        $model = new Funcionario();
+        $moradores = Funcionario::all()->toArray();
         return view('sistema.funcionario.form');
     }
 

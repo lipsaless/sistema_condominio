@@ -16,9 +16,4 @@ class ReservaLocalController extends Controller
     {
         return view('sistema.reserva-local.form');
     }
-
-    public function gravar()
-    {
-       
-    }
 }
