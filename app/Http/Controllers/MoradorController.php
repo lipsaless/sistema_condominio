@@ -11,18 +11,13 @@ class MoradorController extends Controller
     {
         $model = new Morador();
         $moradores = Morador::all()->toArray();
-        dump($moradores->toArray());
     	return view('sistema.morador.principal');
     }
 
     public function form()
     {
+        $model = new Morador();
+        $moradores = Morador::all()->toArray();
         return view('sistema.morador.form');
-    }
-
-    public function inserir()
-    {
-       $model = new Morador();
-
     }
 }
