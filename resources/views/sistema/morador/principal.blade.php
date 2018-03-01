@@ -11,7 +11,10 @@
 <!--jQuery-->
 <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
 
-@section('principal-morador')
+@section('view-principal')
+
+@include('sistema.consultar.consultar')
+
 <div id="principal-morador">
 <form>
   <div class="form-group">

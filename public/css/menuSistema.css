@@ -1,104 +1,45 @@
-<<<<<<< HEAD
-/* Downloaded from https://www.codeseek.co/ */
-.marginlefting {
-    margin-left: 60px !important;
-  }
-   
-  .displayblock {
-    display: block !important;
-  }
-   
-  /* .sidebar .item i {
-    font-size: 24px;
-    margin-top: -5px !important;
-  } */
-   
-  .logo {
-    height: 48px !important;
-    padding: 10px !important;
-  }
-   
-  .logo img {
-    width: 100% !important;
-    height: 38px !important;
-  }
-   
-  .title.item {
-    /*padding: .92857143em 1.14285714em !important;*/
-  }
-   
-  .dropdown .menu .header {
-    padding-top: 3.9px!important;
-    padding-bottom: 3.9px!important;
-  }
+#sidebar {
+  overflow: hidden;
+  z-index: 3;
+}
+#sidebar .list-group {
+  min-width: 300px;
+  min-height: 300vh;
+  background-color: rgb(5, 11, 53);
+}
 
-  .logo img {
-      height: 18% !important;
-  }
-  a {
-      color: black;
-  }
-
-.pusher .ui menu {
-    background-color: #2ea3d0 !important;
-=======
 #sidebar .list-group-item {
   border-radius: 0;
-  background-color: #333;
-  color: #ccc;
-  border-left: 0;
-  border-right: 0;
-  border-color: #2c2c2c;
   white-space: nowrap;
 }
 
-/* highlight active menu */
-#sidebar .list-group-item:not(.collapsed) {
-  background-color: #222;
-}
+@media (max-width:768px) {
+  #sidebar {
+      min-width: 35px;
+      max-width: 40px;
+      overflow-y: auto;
+      overflow-x: visible;
+      transition: all 0.25s ease;
+      transform: translateX(-45px);
+      position: fixed;
+  }
+  
+  #sidebar.show {
+      transform: translateX(0);
+  }
 
-/* closed state */
-#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
-content: " \f0d7";
-font-family: FontAwesome;
-display: inline;
-text-align: right;
-padding-left: 5px;
-}
-
-/* open state */
-#sidebar .list-group .list-group-item[aria-expanded="true"] {
-background-color: #222;
-}
-#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
-content: " \f0da";
-font-family: FontAwesome;
-display: inline;
-text-align: right;
-padding-left: 5px;
-}
-
-/* level 1*/
-#sidebar .list-group .collapse .list-group-item  {
-padding-left: 20px;
-}
-
-/* level 2*/
-#sidebar .list-group .collapse > .collapse .list-group-item {
-padding-left: 30px;
-}
-
-/* level 3*/
-#sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
-padding-left: 40px;
-}
-
-@media (max-width:48em) {
+  #sidebar::-webkit-scrollbar{ width: 0px; }
+  
+  #sidebar, #sidebar .list-group {
+      min-width: 35px;
+      overflow: visible;
+  }
   /* overlay sub levels on small screens */
-  #sidebar .list-group .collapse.in, #sidebar .list-group .collapsing {
-      position: absolute;
+  #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
+      position: relative;
       z-index: 1;
       width: 190px;
+      top: 0;
   }
   #sidebar .list-group > .list-group-item {
       text-align: center;
@@ -111,25 +52,36 @@ padding-left: 40px;
   }
 }
 
-/* change transition animation to width when entire sidebar is toggled */
-#sidebar.collapse {
--webkit-transition-timing-function: ease;
-     -o-transition-timing-function: ease;
-        transition-timing-function: ease;
--webkit-transition-duration: .2s;
-     -o-transition-duration: .2s;
-        transition-duration: .2s;
+.collapse.show {
+visibility: visible;
+}
+.collapsing {
+visibility: visible;
+height: 0;
+-webkit-transition-property: height, visibility;
+transition-property: height, visibility;
+-webkit-transition-timing-function: ease-out;
+transition-timing-function: ease-out;
+}
+.collapsing.width {
+-webkit-transition-property: width, visibility;
+transition-property: width, visibility;
+width: 0;
+height: 100%;
+-webkit-transition-timing-function: ease-out;
+transition-timing-function: ease-out;
 }
 
-#sidebar.collapsing {
-opacity: 0.8;
-width: 0;
--webkit-transition-timing-function: ease-in;
-     -o-transition-timing-function: ease-in;
-        transition-timing-function: ease-in;
--webkit-transition-property: width;
-     -o-transition-property: width;
-        transition-property: width;
+a['data-toggle="collapse"'] {
+  display: block;
+  position: absolute;
+}
 
->>>>>>> 2485a170fcb752bb23abd465a9183954b9f98dfc
+a {
+  color: white !important;
+  background-color: rgb(5, 11, 53) !important;
+}
+
+div .collapse {
+  padding-left: 30px;
 }

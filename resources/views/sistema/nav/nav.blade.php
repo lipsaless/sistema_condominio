@@ -1,30 +1,19 @@
-
-<<<<<<< HEAD
-<div class="pusher">
-        <div class="ui menu asd borderless" style="border-radius: 0!important; border: 0; margin-left: 260px; -webkit-transition-duration: 0.1s;">
-            <a class="item openbtn">
-                <!--<i class="fas fa-bars"></i>-->
-            </a>
-            
-            <div class="right menu">
-            <div class="ui dropdown item">
-                Language <i class="dropdown icon"></i>
-                <div class="menu">
-                <a class="item">English</a>
-                <a class="item">Russian</a>
-                <a class="item">Spanish</a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ui primary button"><a href="{{ route('login') }}">Sair</a></div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-=======
->>>>>>> 2485a170fcb752bb23abd465a9183954b9f98dfc
-<!--BOOTSTRAP JS-->
-
-<script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<a href="/" class="navbar-brand mr-auto"><img src="" alt="logo" class="nav-logo"></a>
+<div class="navbar-collapse collapse" id="collapsingNavbar">
+  
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Center</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-toggle="collapse">Link</a>
+    </li>
+  </ul>
+</div>
+</nav>

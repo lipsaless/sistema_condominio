@@ -1,83 +1,37 @@
-
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>INSPINIA | Dashboard v.2</title>
-
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('font-awesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('css/animate.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('css/menuSistema.css') }}" rel="stylesheet">
-
-</head>
-
-<body>
-    
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in" id="sidebar">
-            <div class="list-group panel">
-                <a href="#menu1" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-dashboard"></i> <span class="hidden-sm-down">Item 1</span> </a>
-                <div class="collapse" id="menu1">
-                    <a href="#menu1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 1 </a>
-                    <div class="collapse" id="menu1sub1">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 1 a</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 2 b</a>
-                        <a href="#menu1sub1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 3 c </a>
-                        <div class="collapse" id="menu1sub1sub1">
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem 3 c.1</a>
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem 3 c.2</a>
-                        </div>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 4 d</a>
-                        <a href="#menu1sub1sub2" class="list-group-item" data-toggle="collapse"  aria-expanded="false">Subitem 5 e </a>
-                        <div class="collapse" id="menu1sub1sub2">
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub2">Subitem 5 e.1</a>
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub2">Subitem 5 e.2</a>
-                        </div>
-                    </div>
-                    <a href="#" class="list-group-item" data-parent="#menu1">Subitem 2</a>
-                    <a href="#" class="list-group-item" data-parent="#menu1">Subitem 3</a>
+    <div class="row d-flex d-md-block flex-nowrap wrapper">
+        <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+            <div class="list-group border-0 card bg-faded text-center text-md-left">
+                <div id="img">
+                    <img src="{{ asset('assets/img/predios.png') }}" alt="">
                 </div>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-film"></i> <span class="hidden-sm-down">Item 2</span></a>
-                <a href="#menu3" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-book"></i> <span class="hidden-sm-down">Item 3 </span></a>
-                <div class="collapse" id="menu3">
-                    <a href="#" class="list-group-item" data-parent="#menu3">3.1</a>
-                    <a href="#menu3sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">3.2 </a>
-                    <div class="collapse" id="menu3sub2">
-                        <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 a</a>
-                        <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 b</a>
-                        <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 c</a>
+                <hr style="background: white; padding: 1px;">
+                <a href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i> Home</a>
+                <a href="#reserva" class="list-group-item" data-toggle="collapse">Reserva</a>
+                    <div class="collapse" id="reserva">
+                        <a href="#" class="list-group-item">Reserva</a>
+                        <a href="#" class="list-group-item">Local de Reserva</a>
                     </div>
-                    <a href="#" class="list-group-item" data-parent="#menu3">3.3</a>
+                <a href="#morador" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-user"></i> Morador</a>
+                <div class="collapse" id="morador">
+                    <a href="{{ route('morador-principal') }}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user"></i> Morador</a>
+                    <a href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-car"></i> Automóveis</a>
+                    <a href="#" class="list-group-item" data-parent="#menu3"><i class="fas fa-paw"></i> Animais</a>
                 </div>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-heart"></i> <span class="hidden-sm-down">Item 4</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-list"></i> <span class="hidden-sm-down">Item 5</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-clock-o"></i> <span class="hidden-sm-down">Link</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-th"></i> <span class="hidden-sm-down">Link</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-gear"></i> <span class="hidden-sm-down">Link</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-calendar"></i> <span class="hidden-sm-down">Link</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Link</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Link</span></a>
-                <a href="#" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-star"></i> <span class="hidden-sm-down">Link</span></a>
+                <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">Funcionários</span></a>
+                <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-cogs"></i> <span class="hidden-sm-down">Configurações</span></a>
             </div>
         </div>
-        <main class="col-md-9 col-xs-11 p-l-2 p-t-2">
-            <a href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
-            <hr>
-            <div class="page-header">
-                <h1>Bootstrap 4 Sidebar Menu</h1>
-            </div>
-            <p class="lead">A responsive, multi-level vertical accordion.</p>
-        </main>
+
+        
     </div>
 </div>
 
-</body>
-</html>
+<script>
+    $(document).ready(function( $ ){
+        
+        $('a[data-toggle="collapse"]').click(function() {
+            $(this).next('div').slideToggle();
+        });
+    });
+</script>

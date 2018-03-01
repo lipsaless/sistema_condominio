@@ -8,6 +8,6 @@ class SistemaController extends Controller
 {
     public function sistema()
     {
-        return view('sistema.sistema');
+        return view('sistema.home.home');
     }
 }
