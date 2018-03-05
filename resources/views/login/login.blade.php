@@ -34,7 +34,7 @@
             <i class="fa fa-building" style="font-size:48px;color: white;"></i> Condomínio
         </h2>
 
-        {!! Form::open(['route' =>'login.login', 'method' => 'post']) !!}
+        {!! Form::open(['route' =>'sistema', 'method' => 'post']) !!}
             <p>Acesse o Sistema</p>
 
             <label>

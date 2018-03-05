@@ -18,8 +18,8 @@ class CreateAnimalTable extends Migration
             $table->integer('id_morador');
             $table->integer('id_animal_tipo');
             $table->string('no_animal');
-            $table->string('no_apelido');
-            $table->string('no_raça');
+            $table->string('no_apelido')->nullable();
+            $table->string('no_raça')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim');
             $table->timestamps();

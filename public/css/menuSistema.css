@@ -1,6 +1,6 @@
 #sidebar {
-  overflow: hidden;
-  z-index: 3;
+  /*overflow: hidden;
+  z-index: 3;*/
 }
 #sidebar .list-group {
   min-width: 300px;
@@ -31,8 +31,8 @@
   #sidebar::-webkit-scrollbar{ width: 0px; }
   
   #sidebar, #sidebar .list-group {
-      min-width: 35px;
-      overflow: visible;
+      /*min-width: 35px;
+      overflow: visible;*/
   }
   /* overlay sub levels on small screens */
   #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
@@ -41,13 +41,16 @@
       width: 190px;
       top: 0;
   }
+
   #wrapper.toggled #sidebar-wrapper {
     width: 250px;
   }
+
   #page-content-wrapper {
     padding: 20px;
     position: relative;
   }
+  
   #wrapper.toggled #page-content-wrapper {
     position: relative;
     margin-right: 0;
@@ -59,24 +62,12 @@
 } */
 
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-  content: '\e259';
+  /*content: '\e259';
   display: block;
   position: absolute;
   right: 20px;
   font-family: 'Glyphicons Halflings';
-  font-size: 0.6em;
-}
-
-.sidebar-nav li a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
+  font-size: 0.6em;*/
 }
 
 #sub-links {
@@ -109,9 +100,10 @@ a['data-toggle="collapse"'] {
   position: absolute;
 }
 
-a {
+#a-menu {
   color: white !important;
   background-color: rgb(5, 11, 53) !important;
+  padding: 21px;
 }
 
 div .collapse {

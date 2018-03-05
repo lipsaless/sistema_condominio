@@ -29,7 +29,11 @@ Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema'
 
 //MORADOR-MORADOR
 Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@principal']);
+Route::get('/morador/morador/cadastro', ['as' => 'morador-form', 'uses' => 'MoradorController@form']);
+Route::get('/morador/morador/grid', ['as' => 'morador-grid', 'uses' => 'MoradorController@grid']);
+
 //MORADOR-AUTOMOVEL
 Route::get('/morador/automovel', ['as' => 'morador-automovel', 'uses' => 'AutomovelController@principal']);
+
 //MORADOR-ANIMAL
 Route::get('/morador/animal', ['as' => 'morador-animal', 'uses' => 'AnimalController@principal']);

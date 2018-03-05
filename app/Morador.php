@@ -21,4 +21,9 @@ class Morador extends Model
 
         return $query->get();
     }
+
+    public function salvar($allParams)
+    {
+        ;
+    }
 }
