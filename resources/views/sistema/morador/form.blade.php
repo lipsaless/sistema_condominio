@@ -1,18 +1,19 @@
 <form id="form-morador">
     <h2 class="text-center">Cadastro de Morador</h2>
+    <hr>
     <div class="row">
         <div class="col-md-3">
-            <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
+            <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
             <select class="form-control">
                 <option></option>
             </select>
         </div>
         <div class="col-md-4">
-            <label for="no_morador" class="font-weight-bold">Nome do Morador:</label>
+            <label for="no_morador" class="font-weight-bold">Nome do Morador: *</label>
             <input type="text" class="form-control" id="no_morador">
         </div>
         <div class="col-md-3">
-            <label for="no_morador_tipo" class="font-weight-bold">Tipo de Morador:</label>
+            <label for="no_morador_tipo" class="font-weight-bold">Tipo de Morador: *</label>
             <select class="form-control">
                 <option>Normal</option>
                 <option>Proprietário</option>
@@ -22,7 +23,7 @@
     </div>
     <div class="row my-3">
         <div class="col-md-2">
-            <label for="sg_sexo_morador" class="font-weight-bold">Sexo:</label>
+            <label for="sg_sexo_morador" class="font-weight-bold">Sexo: *</label>
             <select class="form-control">
                 <option>Masculino</option>
                 <option>Feminino</option>
@@ -33,12 +34,22 @@
             <input type="text" class="form-control" id="nu_rg_morador">
         </div>
         <div class="col-md-2">
-            <label for="nu_cpf_morador" class="font-weight-bold">CPF:</label>
+            <label for="nu_cpf_morador" class="font-weight-bold">CPF: *</label>
             <input type="text" class="form-control" id="nu_cpf_morador">
         </div>
         <div class="col-md-3">
             <label for="dt_nascimento_morador" class="font-weight-bold">Data de Nascimento:</label>
             <input type="text" class="form-control" id="dt_nascimento_morador">
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-md-2">
+            <label for="nu_telefone_morador" class="font-weight-bold">Telefone: </label>
+            <input type="text" class="form-control" id="nu_telefone_morador">
+        </div>
+        <div class="col-md-3">
+            <label for="nu_celular_morador" class="font-weight-bold">Celular:</label>
+            <input type="text" class="form-control" id="nu_celular_morador">
         </div>
         <div class="col-md-10 my-5">
             <button id="btn-option-save" class="ui positive button" style=" float: right; right: 10;">
@@ -54,6 +65,8 @@
     $(document).ready(function() {
         $('#nu_cpf_morador').mask('999.999.999-99');
         $('#nu_rg_morador').mask('9.999.999');
+        $('#nu_telefone_morador').mask('(99)9999-9999');
+        $('#nu_celular_morador').mask('(99)9.9999-9999');
         $("#dt_nascimento_morador").datepicker({
             dateFormat: 'dd/mm/yy',
             dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
