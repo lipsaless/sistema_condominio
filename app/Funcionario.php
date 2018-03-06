@@ -12,7 +12,7 @@ class Funcionario extends Model
     public function getAll()
     {
         $query = $this->newQuery();
-        $query->join('usuarios', 'usuarios.id_usuario', 'funcionario.id_usuario');
+        $query->join('usuario', 'usuario.id_usuario', 'funcionario.id_usuario');
         $query->whereNull('dt_fim');
 
         $query->orderBy('dt_inicio');

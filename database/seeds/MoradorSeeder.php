@@ -11,9 +11,13 @@ class MoradorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('morador')->insert([
+        $params = [
+            [
             'no_morador' => 'felipe',
             'ds_email' => 'filipesales@gmail.com'
-        ]);
+            ]
+        ];
+
+        DB::table('usuarios')->insert($params);
     }
 }

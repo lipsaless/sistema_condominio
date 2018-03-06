@@ -3,7 +3,7 @@
         <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
             <div class="list-group border-0 card bg-faded text-center text-md-left">
                 <div id="img">
-                    <img src="{{ asset('assets/img/predios.png') }}" alt="">
+                    <img id="img-menu" src="{{ asset('assets/img/predios.png') }}" alt="">
                 </div>
                 <hr style="background: white; padding: 1px;">
                 <a id="a-menu" href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i> Home</a>

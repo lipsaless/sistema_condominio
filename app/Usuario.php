@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuarios extends Model
+class Usuario extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'usuario';
     protected $primary = 'id_usuario';
 
     public function getAll($allParams = null)
     {
         $query = $this->newQuery();
-        $query->join('morador', 'morador.id_usuario', 'usuarios.id_usuario');
+        $query->join('morador', 'morador.id_usuario', 'usuario.id_usuario');
         $query->join('funcionario', 'funcionario.id_usuario', 'usuarios.id_usuario');
         $query->whereNull('dt_fim');
 

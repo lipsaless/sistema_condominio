@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuarios;
+use App\Usuario;
 use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
@@ -14,9 +14,5 @@ class UsuariosController extends Controller
         $id = $model->allParams['id_usuario'];
     }
 
-    public function edit($id)
-    {
-        $product = Product::findOrFail($id);
-        return view('products.edit',compact('product'));
-    }
+    
 }

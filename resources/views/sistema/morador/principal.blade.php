@@ -9,41 +9,41 @@
 @section('view-principal')
     <!--NOVO-->
     <div id="buttons">
-        <div class="col-md-12">
-            <button id="btn-option-search" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
+        <div class="col-md-12 row">
+            <button id="btn-option-back" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
                 <i class="fa fa-reply"></i>
-                <a>Voltar</a>
+                <a id="voltar" href="{{ route('morador-principal') }}" style="color: black !important; text-decoration: none !important;">Voltar</a>
             </button>
-            <button id="btn-option-save" data-module="" class="ui positive button btn-resp col-xs-12" style="display:none">
-                <i class="fa fa-check"></i>
-                Salvar
-            </button>
-            <button id="btn-option-new" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo">
+            <button id="btn-option-new" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-form') }}">
                 <i class="fa fa-plus"></i>
                 <a id="novo" href="{{ route('morador-form') }}" style="color: white !important; text-decoration: none !important;">Novo</a>
             </button>
         </div>
     </div>
 
+
+    <div id="form-morador-cadastro"></div>
+
     <div id="principal-morador">
         <form action="{{ route('morador-grid') }}">
-            <div class="form-row">
+            <div class="row">
                 <div class="col-md-4">
-                    <label for="no_apartamento">Apartamento</label>
+                    <label for="no_apartamento">Apartamento:</label>
                     <input type="text" name="no_apartamento" id="apartamento" class="form-control">
                 </div>
                 <div class="col-md-3">
-                    <label for="">Morador</label>
+                    <label for="">Morador:</label>
                     <input type="text" class="form-control">
                 </div>
-                <div class="col-md-3">
-                    <label for="">Bloco</label>
-                    <select class="custom-select my-1 mr-sm-1">
+                <div class="col-md-2">
+                    <label for="">Bloco:</label>
+                    <select class="custom-select">
                         <option value="">Select</option>
                     </select>
                 </div>
-                <div class="">
-                    <button type="submit" class="btn btn-primary mb-3 my-4">Consultar</button>
+                <div class="col-md-2">
+                    <div>&nbsp;</div>
+                    <button class="ui black button">Consultar</button>
                 </div>
             </div>
         </form>
@@ -54,7 +54,25 @@
 
     <script>
         $(document).ready(function(){
-            $('#principal-morador').submit(function() [
+
+            $('#btn-option-new').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: "GET",
+                    url: $(this).attr("data-action"),
+                    data: $(this).serialize(),
+                    success: function(formHtml) {
+                        $('#principal-morador').hide();
+                        $('#btn-option-new').css("display", "none");
+                        $('#btn-option-back').css("display", "block");
+                        $('#btn-option-save').css("display", "block");
+                        $('#form-morador-cadastro').html(formHtml);
+                    }
+                });
+            });
+
+
+            $('#principal-morador').submit(function() {
                 $.ajax({
                     type: "POST",
                     url: $(this).attr("action"),
@@ -75,13 +93,18 @@
                         text += '			</tr>';
                         text += '		</thead>';
                         text += '		<tbody>';
+                        text += '             <tr>';
+                        text += '               <td></td>';
+                        text += '               <td></td>';
+                        text += '               <td></td>';
+                        text += '       </tbody>';
 
                     $('grid-moradores').html(text);
 
                     });
 
                     return false;
-            ]);
+            });
         });
     </script>
 @stop

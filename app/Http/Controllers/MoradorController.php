@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Morador;
-use App\Usuarios;
 use Illuminate\Http\Request;
 
 class MoradorController extends Controller
@@ -26,9 +25,10 @@ class MoradorController extends Controller
     {
         $model = new Morador;
         $model->no_morador = $request->input('no_morador'); // Vem do Form
-        $model->id_apartamento = $request->input('no_email'); // Vem do Form
-        $model->no_apartamento = $request->input('no_email'); // Vem do Form
-        $model->nu_telefone = $request->input('nu_telefone'); // Vem do Form
+        $model->no_apartamento = $request->input('no_apartamento'); // Vem do Form
+        $model->no_morador_tipo = $request->input('no_morador_tipo'); // Vem do Form
+        $model->nu_morador_telefone = $request->input('nu_morador_telefone'); // Vem do Form
+        $model->ds_email_morador = $request->input('ds_email_morador'); // Vem do Form
 
         $model->salvar();
     }

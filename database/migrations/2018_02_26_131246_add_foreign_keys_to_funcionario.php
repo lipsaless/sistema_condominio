@@ -15,7 +15,7 @@ class AddForeignKeysToFuncionario extends Migration
     {
         Schema::table('funcionario', function(Blueprint $table)
 		{
-            $table->foreign('id_usuario', 'fk_usuarios__funcionario')->references('id_usuario')->on('usuarios')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('id_usuario', 'fk_usuario__funcionario')->references('id_usuario')->on('usuario')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
     }
 
@@ -28,7 +28,7 @@ class AddForeignKeysToFuncionario extends Migration
     {
         Schema::table('funcionario', function(Blueprint $table)
 		{
-            $table->dropForeign('fk_usuarios__funcionario');
+            $table->dropForeign('fk_usuario__funcionario');
 		});
     }
 }
