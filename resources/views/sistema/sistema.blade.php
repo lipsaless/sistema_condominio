@@ -2,6 +2,7 @@
 <!--MY STYLE-->
 <link rel="stylesheet" href="{{ asset('css/sistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/menuSistema.css') }}">
+<link rel="stylesheet" href="{{ asset('css/menuHomeSistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalMorador.css') }}">
 <link rel="stylesheet" href="{{ asset('css/conteudoFormMorador.css') }}">

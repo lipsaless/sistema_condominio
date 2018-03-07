@@ -1,9 +1,13 @@
 #principal-morador {
-    margin-left: 400px;
+    margin-left: 350px;
+    margin-right: 20px;
     padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9 !important;
 }
 
 #buttons {
-    margin-left: 400px;
+    margin-left: 350px;
     padding: 30px;
 }

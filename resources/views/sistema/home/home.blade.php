@@ -2,7 +2,7 @@
 
 @section('view-principal')
 <body>
-<main class="col-md-10 float-left col px-5 px-md-3 py-3 main">
+<main id="menu-home" class="col-md-10">
             <h1 class="display-3 hidden-xs-down" style="text-align: center;">Condomínio </h1>
             <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">

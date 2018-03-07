@@ -27,15 +27,15 @@
     <div id="principal-morador">
         <form action="{{ route('morador-grid') }}">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="no_apartamento">Apartamento:</label>
                     <input type="text" name="no_apartamento" id="apartamento" class="form-control">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="">Morador:</label>
                     <input type="text" class="form-control">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <label for="">Bloco:</label>
                     <select class="custom-select">
                         <option value="">Select</option>

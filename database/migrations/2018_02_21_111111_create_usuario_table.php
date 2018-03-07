@@ -25,14 +25,14 @@ class CreateUsuarioTable extends Migration
             $table->integer('nu_celular_funcionario')->nullable();
             $table->integer('nu_telefone_morador')->nullable();
             $table->integer('nu_telefone_funcionario')->nullable();
-            $table->char('sg_sexo_morador');
-            $table->char('sg_sexo_funcionario');
-            $table->date('dt_nascimento_morador');
-            $table->date('dt_nascimento_funcionario');
+            $table->char('sg_sexo_morador')->nullable();
+            $table->char('sg_sexo_funcionario')->nullable();
+            $table->date('dt_nascimento_morador')->nullable();
+            $table->date('dt_nascimento_funcionario')->nullable();
             $table->string('ds_email_morador')->nullable();
-            $table->string('ds_email_funcionario')->nullable();
+            $table->string('ds_email_funcionario')->nullable()->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->dateTime('dt_fim');
+            $table->dateTime('dt_fim')->nullable();
             $table->timestamps();
         });
     }

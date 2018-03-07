@@ -14,10 +14,10 @@ class MoradorSeeder extends Seeder
         $params = [
             [
             'no_morador' => 'felipe',
-            'ds_email' => 'filipesales@gmail.com'
+            'ds_email_morador' => 'filipesales@gmail.com'
             ]
         ];
 
-        DB::table('usuarios')->insert($params);
+        DB::table('usuario')->insert($params);
     }
 }
