@@ -19,4 +19,13 @@ class Automovel extends Model
 
         return $query->get();
     }
+
+    public function salvar($allParams)
+    {
+        $id = $allParams['id_automovel'];
+
+        if ($id == null) {
+            $id->insert($allParams);
+        }
+    }
 }

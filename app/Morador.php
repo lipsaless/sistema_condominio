@@ -15,8 +15,8 @@ class Morador extends Model
         $query->join('usuario', 'morador.id_usuario', 'usuario.id_usuario');
         $query->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento');
         $query->join('morador_tipo', 'morador_tipo.id_morador_tipo', 'morador.id_morador_tipo');
+        $query->select('no_morador','usuario.id_usuario');
         $query->whereNull('dt_fim');
-
         $query->orderBy('dt_inicio');
 
         return $query->get();
@@ -24,7 +24,10 @@ class Morador extends Model
 
     public function salvar($allParams)
     {
-        $allParams['id_usuario'];
-        dd($allParams);
+        $id = $allParams['id_usuario'];
+        
+        if ($id == null) {
+            $id->insert($allParams);
+        }
     }
 }

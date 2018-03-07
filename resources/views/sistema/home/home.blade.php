@@ -17,8 +17,8 @@
                     <div class="card card-inverse card-success">
                         <div class="card-block bg-success">
 
-                            <h6 class="text-uppercase">Usuários</h6>
-                            <h1 class="display-1">134</h1>
+                            <h6 class="text-uppercase text-center">Moradores</h6>
+                            <h1 class="display-1 text-center">134</h1>
                         </div>
                     </div>
                 </div>
@@ -26,8 +26,8 @@
                     <div class="card card-inverse card-danger">
                         <div class="card-block bg-danger">
 
-                            <h6 class="text-uppercase">Postagens</h6>
-                            <h1 class="display-1">87</h1>
+                            <h6 class="text-uppercase text-center">Reservas</h6>
+                            <h1 class="display-1 text-center">87</h1>
                         </div>
                     </div>
                 </div>
@@ -35,8 +35,8 @@
                     <div class="card card-inverse card-info">
                         <div class="card-block bg-info">
 
-                            <h6 class="text-uppercase">Tweets</h6>
-                            <h1 class="display-1">125</h1>
+                            <h6 class="text-uppercase text-center">Automóveis</h6>
+                            <h1 class="display-1 text-center">125</h1>
                         </div>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
                     <div class="card card-inverse card-warning">
                         <div class="card-block bg-warning">
 
-                            <h6 class="text-uppercase">Shares</h6>
-                            <h1 class="display-1">36</h1>
+                            <h6 class="text-uppercase text-center">Funcionários</h6>
+                            <h1 class="display-1 text-center">36</h1>
                         </div>
                     </div>
                 </div>

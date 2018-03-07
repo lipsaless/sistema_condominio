@@ -30,8 +30,9 @@ class MoradorController extends Controller
 
     public function gravar(Request $request)
     {
-        $dados = $request->all()->except('_token');
+        $dados = $request->all();
         Morador::create($dados);
+        
 
         // $model = new Morador;
         // $model->no_morador = $request->input('no_morador'); // Vem do Form

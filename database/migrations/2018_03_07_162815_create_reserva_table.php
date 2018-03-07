@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutomovelTable extends Migration
+class CreateReservaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAutomovelTable extends Migration
      */
     public function up()
     {
-        Schema::create('automovel', function (Blueprint $table) {
-            $table->increments('id_automovel');
-            $table->integer('id_morador');
-            $table->string('no_automovel');
-            $table->string('no_modelo')->nullable();
-            $table->string('nu_placa');
-            $table->string('no_cor')->nullable();
+        Schema::create('reserva', function (Blueprint $table) {
+            $table->increments('id_reserva');
+            $table->string('no_reserva');
+            $table->string('ref_reserva');
+            $table->time('hr_reserva');
+            $table->date('dt_reserva');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim');
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateAutomovelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('automovel');
+        Schema::dropIfExists('reserva');
     }
 }

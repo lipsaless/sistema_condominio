@@ -31,6 +31,8 @@ class CreateUsuarioTable extends Migration
             $table->date('dt_nascimento_funcionario')->nullable();
             $table->string('ds_email_morador')->nullable();
             $table->string('ds_email_funcionario')->nullable()->nullable();
+            $table->string('ds_senha_morador')->nullable();
+            $table->string('ds_senha_funcionario')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();

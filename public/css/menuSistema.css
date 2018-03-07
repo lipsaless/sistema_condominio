@@ -3,7 +3,8 @@
   z-index: 3;*/
 }
 #sidebar .list-group {
-  min-width: 300px;
+  /*min-width: 150px;*/
+  width: 258px;
   min-height: 400vh;
   background-color: rgb(5, 11, 53);
 }
@@ -477,7 +478,7 @@ a['data-toggle="collapse"'] {
 #a-menu {
   color: white !important;
   background-color: rgb(5, 11, 53) !important;
-  padding: 21px;
+  padding: 18px;
 }
 
 div .collapse {

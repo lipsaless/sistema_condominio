@@ -12,15 +12,17 @@
         <div class="col-md-12 row">
             <button id="btn-option-back" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
                 <i class="fa fa-reply"></i>
-                <a id="voltar" href="{{ route('morador-principal') }}" style="color: black !important; text-decoration: none !important;">Voltar</a>
+                <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
             </button>
             <button id="btn-option-new" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-form') }}">
                 <i class="fa fa-plus"></i>
                 <a id="novo" href="{{ route('morador-form') }}" style="color: white !important; text-decoration: none !important;">Novo</a>
             </button>
         </div>
+        <h1 class="text-center">Morador</h1>
     </div>
 
+   
 
     <div id="form-morador-cadastro"></div>
 
@@ -28,15 +30,15 @@
         <form action="{{ route('morador-grid') }}">
             <div class="row">
                 <div class="col-md-3">
-                    <label for="no_apartamento">Apartamento:</label>
+                    <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
                     <input type="text" name="no_apartamento" id="apartamento" class="form-control">
                 </div>
                 <div class="col-md-4">
-                    <label for="">Morador:</label>
+                    <label for="" class="font-weight-bold">Morador:</label>
                     <input type="text" class="form-control">
                 </div>
                 <div class="col-md-3">
-                    <label for="">Bloco:</label>
+                    <label for="" class="font-weight-bold">Bloco:</label>
                     <select class="custom-select">
                         <option value="">Select</option>
                     </select>
@@ -49,8 +51,9 @@
         </form>
     </div>
 
-    <div id="grid-moradores"></div>
+    <hr>
 
+    <div id="grid-moradores"></div>
 
     <script>
         $(document).ready(function(){
@@ -66,11 +69,11 @@
                         $('#btn-option-new').css("display", "none");
                         $('#btn-option-back').css("display", "block");
                         $('#btn-option-save').css("display", "block");
+                        $('h1').css("display", "none");
                         $('#form-morador-cadastro').html(formHtml);
                     }
                 });
             });
-
 
             $('#principal-morador').submit(function() {
                 $.ajax({
@@ -102,7 +105,6 @@
                     $('grid-moradores').html(text);
 
                     });
-
                     return false;
             });
         });

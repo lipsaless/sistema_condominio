@@ -20,4 +20,9 @@ class ReservaController extends Controller
         $moradores = Reserva::all()->toArray();
         return view('sistema.reserva.form');
     }
+
+    public function gravar()
+    {
+        
+    }
 }

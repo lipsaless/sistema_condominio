@@ -6,6 +6,15 @@
 <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalMorador.css') }}">
 <link rel="stylesheet" href="{{ asset('css/conteudoFormMorador.css') }}">
+<link rel="stylesheet" href="{{ asset('css/automovelFormSistema.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalAutomovel.css') }}">
+<link rel="stylesheet" href="{{ asset('css/animalFormSistema.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalAnimal.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalFuncionario.css') }}">
+<link rel="stylesheet" href="{{ asset('css/funcionarioFormSistema.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalReserva.css') }}">
+<link rel="stylesheet" href="{{ asset('css/reservaFormSistema.css') }}">
+<link rel="stylesheet" href="{{ asset('principal/principal.js') }}">
 
 <!--PRINCIPAL JS-->
 <script src="{{ asset('principal/principal.js') }}"></script>

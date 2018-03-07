@@ -57,7 +57,7 @@
             <input type="text" class="form-control" id="ds_email_morador" name="ds_email_morador">
         </div>
         <div class="col-md-12 my-5">
-            <button id="btn-option-save" class="ui positive button" style=" float: right; right: 0;">
+            <button id="btn-option-save" type ="submit" class="ui positive button" style=" float: right; right: 0;">
                 <i class="fa fa-check"></i>
                 <a id="salvar" href="" style="color: black !important; text-decoration: none !important;">Salvar</a>
             </button>
@@ -68,6 +68,14 @@
 
 <script>
     $(document).ready(function() {
+        $('#btn-option-back').click(function(e){
+            e.preventDefault();
+            $('#btn-option-back').hide();
+            $('#btn-option-new').show();
+            $('#form-morador').hide();
+            $('#principal-morador').show();
+            $('h1').show();
+        });
         $('#nu_cpf_morador').mask('999.999.999-99');
         $('#nu_rg_morador').mask('9.999.999');
         $('#nu_telefone_morador').mask('(99)9999-9999');

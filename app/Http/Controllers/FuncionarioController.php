@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class FuncionarioController extends Controller
 {
+    public $title = 'Funcionários';
+
     public function principal()
     {
         $model = new Funcionario();

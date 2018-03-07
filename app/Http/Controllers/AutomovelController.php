@@ -21,8 +21,16 @@ class AutomovelController extends Controller
         return view('sistema.automovel.form');
     }
 
-    public function gravar()
+    public function gravar(Request $request)
     {
-       
+        $dados = $request->all();
+        dd($dados);
+        // $dados->salvar();
+    
+        if ($inserir) {
+            echo 'inserido com sucesso!';
+        } else {
+            echo 'falha ao inserir';
+        }
     }
 }
