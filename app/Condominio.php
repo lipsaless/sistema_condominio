@@ -8,6 +8,7 @@ class Condominio extends Model
 {
     protected $table = 'condominio';
     protected $primary = 'id_condominio';
+    protected $guarded = [];
 
     public function getAll()
     {

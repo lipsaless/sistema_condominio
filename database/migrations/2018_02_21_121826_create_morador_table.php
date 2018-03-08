@@ -15,11 +15,19 @@ class CreateMoradorTable extends Migration
     {
         Schema::create('morador', function (Blueprint $table) {
             $table->increments('id_morador');
-            $table->integer('id_usuario');
-            $table->integer('id_apartamento');
+            $table->integer('id_apartamento')->nullable();
             $table->integer('id_morador_tipo');
+            $table->string('no_morador',255);
+            $table->string('nu_cpf_morador',11);
+            $table->string('nu_rg_morador',7);
+            $table->string('nu_celular_morador',11);
+            $table->string('nu_telefone_morador',10);
+            $table->char('sg_sexo_morador')->nullable();
+            $table->date('dt_nascimento_morador');
+            $table->string('ds_email_morador');
+            $table->string('ds_senha_morador');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;
-            $table->dateTime('dt_fim');
+            $table->dateTime('dt_fim')->nullable();
             $table->timestamps();
         });
     }

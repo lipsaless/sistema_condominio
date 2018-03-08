@@ -21,7 +21,7 @@ class CreateAutomovelTable extends Migration
             $table->string('nu_placa');
             $table->string('no_cor')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->dateTime('dt_fim');
+            $table->dateTime('dt_fim')->nullable();
             $table->timestamps();
         });
     }

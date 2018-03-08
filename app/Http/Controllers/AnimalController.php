@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Animal;
+use App\AnimalTipo;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -17,8 +18,20 @@ class AnimalController extends Controller
 
     public function form()
     {
-        $model = new Animal();
-        $moradores = Animal::all()->toArray();
-        return view('sistema.animal.form');
+        $modelTipo = new AnimalTipo();
+        $tipos = $modelTipo->getAll();
+        return view('sistema.animal.form', ['tipos' => $tipos]);
+    }
+
+    public function gravar(Request $request)
+    {
+        $model = new Animal($request->all());
+        $inserir = $model->save();
+
+        if ($inserir) {
+            echo 'inserido com sucesso';
+        } else {
+            echo 'falha ao inserir';
+        }
     }
 }

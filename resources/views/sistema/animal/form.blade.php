@@ -1,11 +1,11 @@
 
-<form id="form-morador-animal">
+<form id="form-morador-animal" method="post" action="{{ route('morador-animal-gravar') }}">
     <h2 class="text-center">Cadastro de Animais de Estimação</h2>
     <hr>
     <div class="row">
         <div class="col-md-3">
-            <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
-            <select class="form-control" name="no_apartamento" id="no_apartamento">
+            <label for="id_apartamento" class="font-weight-bold">Apartamento: *</label>
+            <select class="form-control" name="id_apartamento" id="id_apartamento">
                 <option value=""></option>
                 <option value=""></option>
             </select>
@@ -13,8 +13,9 @@
         <div class="col-md-4">
             <label for="no_animal_tipo" class="font-weight-bold">Tipo: *</label>
             <select class="form-control" name="no_animal_tipo" id="no_animal_tipo">
-                <option value="">Cachorro</option>
-                <option value="">Gato</option>
+                <?php foreach ($tipos as $value): ?>
+                    <option value="<?php echo $value->id_animal_tipo; ?>"><?php echo $value->no_animal_tipo; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="col-md-3">
@@ -34,7 +35,7 @@
         <div class="col-md-12 my-5">
             <button id="btn-option-save" class="ui positive button" style=" float: right; right: 0;">
                 <i class="fa fa-check"></i>
-                <a id="salvar" href="" style="color: black !important; text-decoration: none !important;">Salvar</a>
+                Salvar
             </button>
         </div>
     </div>

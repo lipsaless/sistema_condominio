@@ -16,7 +16,7 @@ Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema'
 //MORADOR-MORADOR
 Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@principal']);
 Route::get('/morador/morador/cadastro', ['as' => 'morador-form', 'uses' => 'MoradorController@form']);
-Route::get('/morador/morador/gravar', ['as' => 'morador-gravar', 'uses' => 'MoradorController@gravar']);
+Route::post('/morador/morador/gravar', ['as' => 'morador-gravar', 'uses' => 'MoradorController@gravar']);
 Route::get('/morador/morador/grid', ['as' => 'morador-grid', 'uses' => 'MoradorController@grid']);
 
 //MORADOR-AUTOMOVEL
@@ -27,6 +27,7 @@ Route::get('/morador/automovel/grid', ['as' => 'morador-automovel-grid', 'uses' 
 //MORADOR-ANIMAL
 Route::get('/morador/animal', ['as' => 'morador-animal-principal', 'uses' => 'AnimalController@principal']);
 Route::get('/morador/animal/cadastro', ['as' => 'morador-animal-form', 'uses' => 'AnimalController@form']);
+Route::post('/morador/animal/gravar', ['as' => 'morador-animal-gravar', 'uses' => 'AnimalController@gravar']);
 Route::get('/morador/animal/grid', ['as' => 'morador-animal-grid', 'uses' => 'AnimalController@grid']);
 
 //FUNCIONÁRIO

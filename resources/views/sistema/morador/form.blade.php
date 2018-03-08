@@ -1,11 +1,10 @@
-<form id="form-morador" action="{{ route('morador-gravar') }}">
-    {{csrf_field()}}
+<form id="form-morador" action="{{ route('morador-gravar') }}" method="post">
     <h2 class="text-center">Cadastro de Morador</h2>
     <hr>
     <div class="row">
         <div class="col-md-3">
-            <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
-            <select class="form-control" id="no_apartamento" name="no_apartamento">
+            <label for="id_apartamento" class="font-weight-bold">Apartamento: *</label>
+            <select class="form-control" id="id_apartamento" name="id_apartamento">
                 <option></option>
             </select>
         </div>
@@ -14,12 +13,13 @@
             <input type="text" class="form-control" id="no_morador" name="no_morador">
         </div>
         <div class="col-md-4">
-            <label for="no_morador_tipo" class="font-weight-bold">Tipo de Morador: *</label>
-            <select class="form-control" id="no_morador_tipo" name="no_morador_tipo">
-                <option>Normal</option>
-                <option>Proprietário</option>
-                <option>Inquilino</option>
+            <label for="id_morador_tipo" class="font-weight-bold">Tipo de Morador: *</label>
+            <select class="form-control" id="id_morador_tipo" name="id_morador_tipo">
+                <?php foreach($tipos as $value) :?>
+                    <option value="<?php echo $value->id_morador_tipo; ?>"><?php echo $value->no_morador_tipo; ?></option>
+                <?php endforeach; ?>
             </select>
+                
         </div>
     </div>
     <div class="row my-3">
@@ -59,7 +59,7 @@
         <div class="col-md-12 my-5">
             <button id="btn-option-save" type ="submit" class="ui positive button" style=" float: right; right: 0;">
                 <i class="fa fa-check"></i>
-                <a id="salvar" href="" style="color: black !important; text-decoration: none !important;">Salvar</a>
+                Salvar
             </button>
         </div>
     </div>
@@ -76,10 +76,10 @@
             $('#principal-morador').show();
             $('h1').show();
         });
-        $('#nu_cpf_morador').mask('999.999.999-99');
-        $('#nu_rg_morador').mask('9.999.999');
-        $('#nu_telefone_morador').mask('(99)9999-9999');
-        $('#nu_celular_morador').mask('(99)9.9999-9999');
+        // $('#nu_cpf_morador').mask('999.999.999-99');
+        // $('#nu_rg_morador').mask('9.999.999');
+        // $('#nu_telefone_morador').mask('(99)9999-9999');
+        // $('#nu_celular_morador').mask('(99)9.9999-9999');
         $("#dt_nascimento_morador").datepicker({
             dateFormat: 'dd/mm/yy',
             dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],

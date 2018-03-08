@@ -8,6 +8,7 @@ class Bloco extends Model
 {
     protected $table = 'bloco';
     protected $primary = 'id_bloco';
+    protected $guarded = [];
 
     public function getAll()
     {

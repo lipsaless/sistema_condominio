@@ -481,6 +481,11 @@ a['data-toggle="collapse"'] {
   padding: 18px;
 }
 
+#a-menu:hover {
+  color: black !important;
+  background-color: white !important;
+}
+
 div .collapse {
   padding-left: 30px;
 }

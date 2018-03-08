@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnimalTable extends Migration
+class CreateReservaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAnimalTable extends Migration
      */
     public function up()
     {
-        Schema::create('animal', function (Blueprint $table) {
-            $table->increments('id_animal');
-            $table->integer('id_morador');
-            $table->integer('id_animal_tipo');
-            $table->string('no_animal');
-            $table->string('no_apelido')->nullable();
-            $table->string('no_raça')->nullable();
+        Schema::create('reserva', function (Blueprint $table) {
+            $table->increments('id_reserva');
+            $table->string('no_reserva');
+            $table->string('ref_reserva');
+            $table->dateTime('hr_reserva');
+            $table->date('dt_reserva');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateAnimalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animal');
+        Schema::dropIfExists('reserva');
     }
 }

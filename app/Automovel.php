@@ -8,6 +8,7 @@ class Automovel extends Model
 {
     protected $table = 'automovel';
     protected $primary = 'id_automovel';
+    protected $guarded = [];
 
     public function getAll()
     {

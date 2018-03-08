@@ -3,10 +3,10 @@ button {
 }
 
 #form-morador {
-    margin-left: 350px;
+    margin-left: 300px;
     margin-right: 20px;
     padding: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9; !important; 
+    background-color: #f9f9f9 !important; 
 }
