@@ -1,4 +1,5 @@
 #principal-morador-automovel {
+    width: calc(100% - 258px);
     margin-left: 300px;
     margin-right: 20px;
     padding: 30px;

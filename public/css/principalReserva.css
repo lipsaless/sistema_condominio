@@ -1,6 +1,7 @@
 #principal-reserva {
-    margin-left: 350px;
-    margin-right: 20px;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    margin-right: 50px;
     padding: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;

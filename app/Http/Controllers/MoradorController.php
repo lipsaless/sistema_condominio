@@ -41,4 +41,32 @@ class MoradorController extends Controller
             echo 'falha ao inserir';
         }
     }
+
+    public function grid()
+    {
+        $model = new Morador;
+        return $model->buscar();
+    }
+
+    public function editar($id)
+    {
+        $model = new Produto;
+        $modelTipo = new MoradorTipo;
+
+        $tipos = $modelTipo->buscar();
+        $status = $modelStatus->buscar();
+        $obj = $model->find($id);
+
+        return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj]);
+    }
+    public function excluir($id)
+    {
+        $model = new Morador;
+        $obj = $model->find($id);
+        
+        $obj->dt_fim = date('Y-m-d H:i:s');
+        $obj->update();
+        
+        return response([]);
+    }
 }

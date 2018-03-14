@@ -17,7 +17,9 @@ Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema'
 Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@principal']);
 Route::get('/morador/morador/cadastro', ['as' => 'morador-form', 'uses' => 'MoradorController@form']);
 Route::post('/morador/morador/gravar', ['as' => 'morador-gravar', 'uses' => 'MoradorController@gravar']);
-Route::get('/morador/morador/grid', ['as' => 'morador-grid', 'uses' => 'MoradorController@grid']);
+Route::post('/morador/morador/grid', ['as' => 'morador-grid', 'uses' => 'MoradorController@grid']);
+Route::get('/morador/morador/editar/{id?}', ['as' => 'morador-editar', 'uses' => 'MoradorController@editar']);
+Route::get('/morador/morador/excluir/{id?}', ['as' => 'morador-excluir', 'uses' => 'MoradorController@excluir']);
 
 //MORADOR-AUTOMOVEL
 Route::get('/morador/automovel', ['as' => 'morador-automovel-principal', 'uses' => 'AutomovelController@principal']);

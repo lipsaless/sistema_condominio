@@ -3,6 +3,7 @@ button {
 }
 
 #form-morador {
+    width: calc(100% - 300px);
     margin-left: 300px;
     margin-right: 20px;
     padding: 30px;

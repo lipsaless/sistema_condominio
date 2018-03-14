@@ -1,4 +1,5 @@
 #form-funcionario {
+    width: calc(100% - 300px);
     margin-left: 350px;
     margin-right: 20px;
     padding: 30px;

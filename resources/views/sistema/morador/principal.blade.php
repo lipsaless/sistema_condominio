@@ -27,7 +27,7 @@
     <div id="form-morador-cadastro"></div>
 
     <div id="principal-morador">
-        <form action="{{ route('morador-grid') }}">
+        <!--<form action="{{ route('morador-grid') }}" method="POST">-->
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -48,7 +48,7 @@
                     <button class="ui black button">Consultar</button>
                 </div>
             </div>
-        </form>
+        <!--</form>-->
     </div>
 
     <hr>
@@ -85,24 +85,67 @@
                     //MONTAR GRID
                     text = '';
 
-                        text += '	<table class="table user-list">';
+                        text += '	<table class="ui table">';
                         text += '   	<thead>';
                         text += '       	<tr>';
                         text += '           	<th width="40"><span></span></th>';
                         text += '            	<th><span>Morador</span></th>';
-                        text += '            	<th><span>Apt/Bloco</span></th>';
+                        text += '            	<th><span>Apartamento/Bloco</span></th>';
                         text += '            	<th><span>Tipo</span></th>';
                         text += '            	<th>&nbsp;</th>';
                         text += '			</tr>';
                         text += '		</thead>';
                         text += '		<tbody>';
-                        text += '             <tr>';
-                        text += '               <td></td>';
-                        text += '               <td></td>';
-                        text += '               <td></td>';
-                        text += '       </tbody>';
 
-                    $('grid-moradores').html(text);
+                            $.each(data, function(key, rs) {
+                                text += '           <tr>';
+                                text += '               <td></td>';
+                                text += '               <td>'+rs.no_morador+'</td>';
+                                text += '               <td>'+rs.no_apartamento + rs.no_bloco +'</td>';
+                                text += '               <td>'+rs.no_morador_tipo+'</td>';
+                                text += '               <td style="text-align: center;">';
+                                text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;">Editar</button>';
+                                text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;">Excluir</button>';
+                                text += '               </td>';
+                                text += '               </tr>'
+                            });
+                        
+                        text += '       </tbody>';
+                        text += '    </table>';
+
+                    //GRID-MORADOR
+                    $('#grid-moradores').html(text);
+
+                    //EDITAR MORADOR
+                    $('.morador-editar').click(function(e){
+                        e.preventDefault();
+                        $.ajax({
+                            type: "GET",
+                            url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
+                            data: $(this).serialize(),
+                            success: function(formHtml) {
+                                $('#principal-morador').hide();
+                                $('#btn-option-new').css("display", "none");
+                                $('#btn-option-back').css("display", "block");
+                                $('#btn-option-save').css("display", "block");
+                                $('h1').css("display", "none");
+                                $('#form-morador-cadastro').html(formHtml);
+                            }
+                        });
+                    });
+
+                    //EXCLUIR MORADOR
+                    $('.morador-excluir').click(function(e){
+                        e.preventDefault();
+                        $.ajax({
+                            type: "GET",
+                            url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
+                            data: $(this).serialize(),
+                            success: function(formHtml) {
+                                $('#principal-morador').submit();
+                            }
+                        });
+                    });
 
                     });
                     return false;
