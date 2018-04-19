@@ -33,16 +33,18 @@ class MoradorController extends Controller
 
     public function form()
     {
+        $model = new Morador;
         $modelTipo = new MoradorTipo;
         $modelApartamento = new Apartamento;
         
         $tipos = $modelTipo->getAll();
         $apartamentos = $modelApartamento->getAll();
 
+        $obj = $model;
         $sexoMorador = ['Masculino', 'Feminino'];
         $sexo =  $sexoMorador;
 
-        return view('sistema.morador.form', ['tipos' => $tipos, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
+        return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
     }
 
     public function gravar(Request $request)

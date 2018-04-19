@@ -17,7 +17,7 @@ class Apartamento extends Model
         $query->select('apartamento.*','bloco.*');
         $query->whereNull('apartamento.dt_fim');
 
-        $query->orderBy('apartamento.dt_inicio');
+        $query->orderBy('apartamento.no_apartamento');
 
         return $query->get();
     }

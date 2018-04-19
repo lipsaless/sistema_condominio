@@ -1,22 +1,25 @@
 @extends('sistema.sistema')
 
 @section('view-principal')
-<div id="buttons">
-    <div class="col-md-12 row">
-        <button id="btn-option-back-morador-animal" data-module="" data-action="{{ route('morador-animal-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none">
-            <i class="fa fa-reply"></i>
-            <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
-        </button>
-        <button id="btn-option-new-animal-form" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-animal-form') }}">
-            <i class="fa fa-plus"></i>
-            <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
-        </button>
-    </div>
-</div>
+
 
 <div id="div-form-morador-animal"></div>
 
 <div id="principal-morador-animal">
+
+    <div id="buttons">
+        <div class="col-md-12 row">
+            <button id="btn-option-back-morador-animal" data-module="" data-action="{{ route('morador-animal-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none">
+                <i class="fa fa-reply"></i>
+                <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
+            </button>
+            <button id="btn-option-new-animal-form" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-animal-form') }}">
+                <i class="fa fa-plus"></i>
+                <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
+            </button>
+        </div>
+    </div>
+
     <form action="{{ route('morador-animal-grid') }}">
         <div class="row">
             <div class="col-md-3">

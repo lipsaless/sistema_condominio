@@ -9,8 +9,13 @@
     #info-moradores_info, #info-moradores_length {
         font-weight: bold;
     }
+    #info-moradores_filter {
+        font-weight: bold;
+        text-align: left;
+    }
     select[name="info-moradores_length"] {
         padding: 10px;
+        border-radius: 5px;
     }
     th {
         font-size: 12pt;
@@ -32,14 +37,14 @@
                     <i class="fa fa-reply"></i>
                     <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
                 </button>
-            <button id="btn-option-new" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-form') }}">
-                <i class="fa fa-plus"></i>
+                <button id="btn-option-new" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-form') }}">
+                    <i class="fa fa-plus"></i>
                     <a id="novo" href="{{ route('morador-form') }}" style="color: white !important; text-decoration: none !important;">Novo</a>
                 </button>
             </div>
         </div>
 
-        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST">
+        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display: none">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -110,8 +115,8 @@
                         text += '	<table id="info-moradores" class="ui table">';
                         text += '   	<thead>';
                         text += '       	<tr>';
-                        text += '            	<th><span>Morador</span></th>';
-                        text += '            	<th><span>Apartamento/Bloco</span></th>';
+                        text += '            	<th><span><i class="fas fa-user"></i> Morador</span></th>';
+                        text += '            	<th><span><i class="fas fa-building"></i> Apartamento/Bloco</span></th>';
                         text += '            	<th><span>Tipo</span></th>';
                         text += '            	<th>&nbsp;</th>';
                         text += '			</tr>';
@@ -120,7 +125,7 @@
 
                             $.each(data, function(key, rs) {
                                 text += '           <tr id="'+rs.id_morador+'">';
-                                text += '               <td><i class="fas fa-user"></i> '+ rs.no_morador+'</td>';
+                                text += '               <td>'+ rs.no_morador+'</td>';
                                 text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
                                 text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                                 text += '               <td style="text-align: center;">';
@@ -150,7 +155,7 @@
                             "sLoadingRecords": "Carregando...",
                             "sProcessing": "Processando...",
                             "sZeroRecords": "Nenhum registro encontrado",
-                            "sSearch": "Pesquisar",
+                            "sSearch": "Nome ou Apartamento",
                             "oPaginate": {
                                 "sNext": "Próximo",
                                 "sPrevious": "Anterior",

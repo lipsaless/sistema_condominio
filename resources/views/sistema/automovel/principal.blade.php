@@ -1,23 +1,26 @@
 @extends('sistema.sistema')
 
 @section('view-principal')
-<div id="buttons">
-    <div class="col-md-12 row">
-        <button id="btn-option-back-morador-automovel" class="ui basic button btn-resp col-xs-12" style="display:none">
-            <i class="fa fa-reply"></i>
-            <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
-        </button>
-        <button id="btn-option-new-automovel-form" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-automovel-form') }}">
-            <i class="fa fa-plus"></i>
-            <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
-        </button>
-    </div>
-    <h1 class="text-center">Automovel</h1>
-</div>
 
+<h1 class="text-center">Automovel</h1>
 <div id="div-form-morador-automovel"></div>
 
 <div id="principal-morador-automovel">
+
+    <div id="buttons">
+        <div class="col-md-12 row">
+            <button id="btn-option-back-morador-automovel" class="ui basic button btn-resp col-xs-12" style="display:none">
+                <i class="fa fa-reply"></i>
+                <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
+            </button>
+            <button id="btn-option-new-automovel-form" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-automovel-form') }}">
+                <i class="fa fa-plus"></i>
+                <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
+            </button>
+        </div>
+        
+    </div>
+
     <form action="{{ route('morador-automovel-grid') }}">
         <div class="row">
             <div class="col-md-3">

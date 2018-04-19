@@ -7,26 +7,26 @@
 </style>
 
 @section('view-principal')
-    <!--NOVO-->
-    <div id="buttons">
-        <div class="col-md-12 row">
-            <button id="btn-option-back-funcionario" data-module="" data-action="{{ route('funcionario-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none">
-                <i class="fa fa-reply"></i>
-                <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
-            </button>
-            <button id="btn-option-new-funcionario" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('funcionario-form') }}">
-                <i class="fa fa-plus"></i>
-                <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
-            </button>
-        </div>
-        <h1 class="text-center">Funcionários</h1>
-    </div>
-
-   
+<h1 class="text-center">Funcionários</h1>
 
     <div id="div-form-funcionario-cadastro"></div>
 
     <div id="principal-funcionario">
+        <!--NOVO-->
+        <div id="buttons">
+            <div class="col-md-12 row">
+                <button id="btn-option-back-funcionario" data-module="" data-action="{{ route('funcionario-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none">
+                    <i class="fa fa-reply"></i>
+                    <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
+                </button>
+                <button id="btn-option-new-funcionario" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('funcionario-form') }}">
+                    <i class="fa fa-plus"></i>
+                    <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
+                </button>
+            </div>
+            
+        </div>
+
         <form action="{{ route('funcionario-grid') }}">
             <div class="row">
                 <div class="col-md-4">
