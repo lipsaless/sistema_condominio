@@ -13,6 +13,14 @@ Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@outh']);
 //ROTAS DO SISTEMA
 Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema']);
 
+//VISITANTE
+Route::get('/visitante', ['as' => 'visitante-principal', 'uses' => 'visitanteController@principal']);
+Route::get('/visitante/form', ['as' => 'visitante-form', 'uses' => 'visitanteController@form']);
+Route::get('/visitante/grid', ['as' => 'visitante-grid', 'uses' => 'visitanteController@grid']);
+Route::post('visitante/excluir{id}', ['as' => 'visitante-excluir', 'uses' => 'visitanteController@excluir']);
+Route::post('visitante/editar/{id}', ['as' => 'visitante-editar', 'uses' => 'visitanteController@grid']);
+Route::get('/visitante/gravar', ['as' => 'morador-gravar', 'uses' => 'visitanteController@gravar']);
+
 //MORADOR-MORADOR
 Route::get('/morador/morador', ['as' => 'morador-principal', 'uses' => 'MoradorController@principal']);
 Route::get('/morador/morador/cadastro', ['as' => 'morador-form', 'uses' => 'MoradorController@form']);
@@ -43,3 +51,11 @@ Route::get('/reserva/reserva', ['as' => 'reserva-principal', 'uses' => 'ReservaC
 Route::get('/reserva/cadastro', ['as' => 'reserva-form', 'uses' => 'ReservaController@form']);
 Route::get('/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'ReservaController@gravar']);
 Route::get('/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);
+
+//CONFIGURACOES
+Route::get('/configuracoes', ['as' => 'configuracoes-principal', 'uses' => 'ReservaController@principal']);
+Route::get('/reserva/cadastro', ['as' => 'reserva-form', 'uses' => 'ReservaController@form']);
+Route::get('/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'ReservaController@gravar']);
+Route::get('/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);
+
+

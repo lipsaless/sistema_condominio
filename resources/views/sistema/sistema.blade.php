@@ -25,6 +25,10 @@
 <!--jQuery-->
 <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
 
+<!-- Datatable -->
+<script src="{{ asset('DataTable/datatables.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('DataTables/dataTables.semanticui.css') }}">
+
 <!--jQuery MASK-->
 <script src="{{ asset('jQuery-Mask/jquery.mask.js') }}"></script>
 

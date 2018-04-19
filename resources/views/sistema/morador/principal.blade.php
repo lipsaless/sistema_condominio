@@ -1,5 +1,4 @@
 @extends('sistema.sistema')
-
 <style>
     #novo:hover {
         color: white;
@@ -27,33 +26,43 @@
     <div id="form-morador-cadastro"></div>
 
     <div id="principal-morador">
-        <!--<form action="{{ route('morador-grid') }}" method="POST">-->
+        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
-                    <input type="text" name="no_apartamento" id="apartamento" class="form-control">
+                    <select id="no_apartamento" class="custom-select">
+                            <option value="">Selecione</option>
+                        <?php foreach ($apartamentos as $apt): ?>
+                            <option value="<?php echo $apt->id_apartamento; ?>"><?php echo $apt->no_apartamento; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="col-md-4">
-                    <label for="" class="font-weight-bold">Morador:</label>
-                    <input type="text" class="form-control">
+                    <label for="no_morador" class="font-weight-bold">Morador:</label>
+                    <input type="text" id="no_morador" class="form-control" name="no_morador">
                 </div>
                 <div class="col-md-3">
-                    <label for="" class="font-weight-bold">Bloco:</label>
-                    <select class="custom-select">
-                        <option value="">Select</option>
+                    <label for="no_bloco" class="font-weight-bold">Bloco:</label>
+                    <select id="no_bloco" class="custom-select">
+                        <option value="">Selecione</option>
+                        <?php foreach ($blocos as $bloco): ?>
+                            <option value="<?php echo $bloco->id_bloco; ?>"><?php echo $bloco->no_bloco; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <div>&nbsp;</div>
-                    <button class="ui black button">Consultar</button>
+                    <button id="btn-consultar-morador" type="submit" class="ui black button">Consultar</button>
                 </div>
             </div>
-        <!--</form>-->
+        </form>
+
+        <hr>
+
+        <div id="grid-moradores"></div>
     </div>
 
-    <hr>
-
-    <div id="grid-moradores"></div>
+    
 
     <script>
         $(document).ready(function(){
@@ -75,7 +84,9 @@
                 });
             });
 
-            $('#principal-morador').submit(function() {
+            $('#principal-morador-consultar').submit(function(e) {
+                e.preventDefault();
+
                 $.ajax({
                     type: "POST",
                     url: $(this).attr("action"),
@@ -85,10 +96,9 @@
                     //MONTAR GRID
                     text = '';
 
-                        text += '	<table class="ui table">';
+                        text += '	<table id="example" class="ui table">';
                         text += '   	<thead>';
                         text += '       	<tr>';
-                        text += '           	<th width="40"><span></span></th>';
                         text += '            	<th><span>Morador</span></th>';
                         text += '            	<th><span>Apartamento/Bloco</span></th>';
                         text += '            	<th><span>Tipo</span></th>';
@@ -98,16 +108,15 @@
                         text += '		<tbody>';
 
                             $.each(data, function(key, rs) {
-                                text += '           <tr>';
-                                text += '               <td></td>';
+                                text += '           <tr id="'+rs.id_morador+'">';
                                 text += '               <td>'+rs.no_morador+'</td>';
-                                text += '               <td>'+rs.no_apartamento + rs.no_bloco +'</td>';
+                                text += '               <td>'+rs.no_apartamento+'</td>';
                                 text += '               <td>'+rs.no_morador_tipo+'</td>';
                                 text += '               <td style="text-align: center;">';
                                 text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;">Editar</button>';
                                 text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;">Excluir</button>';
                                 text += '               </td>';
-                                text += '               </tr>'
+                                text += '           </tr>'
                             });
                         
                         text += '       </tbody>';
@@ -150,6 +159,9 @@
                     });
                     return false;
             });
+
+            $('#btn-consultar-morador').click();
+            $('#grid-morador').DataTable();
         });
     </script>
 @stop

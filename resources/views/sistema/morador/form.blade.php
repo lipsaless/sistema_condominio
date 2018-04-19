@@ -5,16 +5,20 @@
         <div class="col-md-3">
             <label for="id_apartamento" class="font-weight-bold">Apartamento: *</label>
             <select class="form-control" id="id_apartamento" name="id_apartamento">
-                <option></option>
+                    <option value="">Selecione</option>
+                <?php foreach ($apartamentos as $apt): ?>
+                    <option value="<?php echo $apt->id_apartamento; ?>"><?php echo $apt->no_apartamento; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="col-md-5">
             <label for="no_morador" class="font-weight-bold">Nome do Morador: *</label>
-            <input type="text" class="form-control" id="no_morador" name="no_morador">
+            <input type="text" class="form-control" id="no_morador" name="no_morador" value="">
         </div>
         <div class="col-md-4">
             <label for="id_morador_tipo" class="font-weight-bold">Tipo de Morador: *</label>
             <select class="form-control" id="id_morador_tipo" name="id_morador_tipo">
+                    <option value="">Selecione</option>
                 <?php foreach($tipos as $value) :?>
                     <option value="<?php echo $value->id_morador_tipo; ?>"><?php echo $value->no_morador_tipo; ?></option>
                 <?php endforeach; ?>
@@ -26,8 +30,10 @@
         <div class="col-md-3">
             <label for="sg_sexo_morador" class="font-weight-bold">Sexo: *</label>
             <select id="sg_sexo_morador" name="sg_sexo_morador" class="form-control">
-                <option>Masculino</option>
-                <option>Feminino</option>
+                <option value="">Selecione</option>
+                <?php foreach ($sexo as $value): ?>
+                    <option><?php echo $value; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="col-md-3">
@@ -76,10 +82,12 @@
             $('#principal-morador').show();
             $('h1').show();
         });
-        // $('#nu_cpf_morador').mask('999.999.999-99');
-        // $('#nu_rg_morador').mask('9.999.999');
-        // $('#nu_telefone_morador').mask('(99)9999-9999');
-        // $('#nu_celular_morador').mask('(99)9.9999-9999');
+        
+        $('#nu_cpf_morador').mask('999.999.999-99');
+        $('#nu_rg_morador').mask('9.999.999');
+        $('#nu_telefone_morador').mask('(99)9999-9999');
+        $('#nu_celular_morador').mask('(99)9.9999-9999');
+        $("#dt_nascimento_morador").mask('99/99/9999');
         $("#dt_nascimento_morador").datepicker({
             dateFormat: 'dd/mm/yy',
             dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],

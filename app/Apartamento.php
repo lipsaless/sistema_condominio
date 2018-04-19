@@ -14,9 +14,9 @@ class Apartamento extends Model
     {
         $query = $this->newQuery();
         $query->join('bloco', 'bloco.id_bloco', 'apartamento.id_bloco');
-        $query->whereNull('dt_fim');
+        $query->whereNull('apartamento.dt_fim');
 
-        $query->orderBy('dt_inicio');
+        $query->orderBy('apartamento.dt_inicio');
 
         return $query->get();
     }

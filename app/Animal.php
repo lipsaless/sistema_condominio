@@ -15,10 +15,10 @@ class Animal extends Model
         $query = $this->newQuery();
         $query->join('morador', 'morador.id_morador', 'animal.id_morador');
         $query->join('animal_tipo', 'animal_tipo.id_animal_tipo', 'animal.id_animal_tipo');
-        $query->select('animal_tipo.id_animal_tipo', 'animal_tipo.no_animal_tipo', 'morador.id_apartamento');
-        $query->whereNull('dt_fim');
+        $query->select('animal.*','animal_tipo.id_animal_tipo', 'animal_tipo.no_animal_tipo', 'morador.*');
+        $query->whereNull('animal.dt_fim');
 
-        $query->orderBy('dt_inicio');
+        $query->orderBy('animal.dt_inicio');
 
         return $query->get();
     }

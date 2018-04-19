@@ -4,8 +4,11 @@
     <div class="row">
         <div class="col-md-3">
             <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
-            <select class="form-control">
-                <option></option>
+            <select class="custom-select">
+                    <option value="">Selecione</option>
+                <?php foreach ($apartamentos as $apt): ?>
+                    <option value="<?php echo $apt->id_apartamento; ?>"><?php echo $apt->no_apartamento; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="col-md-5">
@@ -42,6 +45,8 @@
 
 <script>
     $(document).ready(function() {
+        $('#nu_placa').mask({mask: 'AAA-9999'})
+
         $('#btn-option-back-morador-automovel').click(function(e){
             e.preventDefault();
             $('#btn-option-back-morador-automovel').hide();

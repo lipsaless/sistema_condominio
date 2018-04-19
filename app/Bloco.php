@@ -14,9 +14,9 @@ class Bloco extends Model
     {
         $query = $this->newQuery();
         $query->join('condominio', 'condominio.id_condominio', 'bloco.id_condominio');
-        $query->whereNull('dt_fim');
+        $query->whereNull('bloco.dt_fim');
 
-        $query->orderBy('dt_inicio');
+        $query->orderBy('bloco.dt_inicio');
 
         return $query->get();
     }

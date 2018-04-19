@@ -3,7 +3,7 @@
 @section('view-principal')
 <div id="buttons">
     <div class="col-md-12 row">
-        <button id="btn-option-back-morador-automovel" data-module="" data-action="{{ route('morador-automovel-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none">
+        <button id="btn-option-back-morador-automovel" class="ui basic button btn-resp col-xs-12" style="display:none">
             <i class="fa fa-reply"></i>
             <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
         </button>
@@ -22,7 +22,12 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
-                <input type="text" name="no_apartamento" id="apartamento" class="form-control">
+                <select class="custom-select">
+                        <option value="">Selecione</option>
+                    <?php foreach ($apartamentos as $apt): ?>
+                        <option value="<?php echo $apt->id_apartamento; ?>"><?php echo $apt->no_apartamento; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
             <div class="col-md-4">
                 <label for="" class="font-weight-bold">Morador:</label>
@@ -31,7 +36,10 @@
             <div class="col-md-3">
                 <label for="" class="font-weight-bold">Bloco:</label>
                 <select class="custom-select">
-                    <option value="">Select</option>
+                        <option value="">Selecione</option>
+                    <?php foreach ($blocos as $bloco): ?>
+                        <option value="<?php echo $bloco->id_bloco; ?>"><?php echo $bloco->no_bloco; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="col-md-2">

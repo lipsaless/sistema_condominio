@@ -1,9 +1,14 @@
 @extends('sistema.sistema')
 
 @section('view-principal')
+<style>
+    .card-block {
+        border-radius: 10px;
+    }
+</style>
 <body>
 <main id="menu-home" class="col-md-10">
-            <h1 class="display-3 hidden-xs-down" style="text-align: center;">Condomínio </h1>
+            <h1 class="display-3 hidden-xs-down" style="text-align: center;">Condomínio 4 Amigos </h1>
             <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -13,9 +13,8 @@ class Reserva extends Model
     public function getAll()
     {
         $query = $this->newQuery();
-        $query->whereNull('dt_fim');
-
-        $query->orderBy('dt_inicio');
+        $query->whereNull('reserva.dt_fim');
+        $query->orderBy('reserva.dt_inicio');
 
         return $query->get();
     }

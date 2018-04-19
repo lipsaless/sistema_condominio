@@ -14,19 +14,17 @@ class Automovel extends Model
     {
         $query = $this->newQuery();
         $query->join('morador', 'morador.id_morador', 'automovel.id_morador');
-        $query->whereNull('dt_fim');
-
-        $query->orderBy('dt_inicio');
+        $query->select('automovel.*','apartamento.*','morador.*');
+        $query->whereNull('automovel.dt_fim');
+        $query->orderBy('automovel.dt_inicio');
 
         return $query->get();
     }
 
-    public function salvar($allParams)
+    public function limparDados()
     {
-        $id = $allParams['id_automovel'];
-
-        if ($id == null) {
-            $id->insert($allParams);
-        }
+        $this->nu_cpf_morador = str_replace('.','', $this->nu_cpf_morador);
+        $this->nu_cpf_morador = str_replace('-','', $this->nu_cpf_morador);
+        $this->nu_rg_morador = str_replace('.','', $this->nu_rg_morador);
     }
 }
