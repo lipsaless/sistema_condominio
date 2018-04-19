@@ -21,8 +21,17 @@ class BlocoController extends Controller
         return view('sistema.bloco.form');
     }
 
-    public function gravar()
+    public function gravar(Request $request)
     {
-       
+        $model = new Bloco($request->all());
+        $model->limparDados();
+
+       $model->save();
+
+        if ($model) {
+            echo 'inserido com sucesso';
+        } else {
+            echo 'falha ao inserir';
+        }
     }
 }

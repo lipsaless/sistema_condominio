@@ -19,6 +19,15 @@ class ApartamentoController extends Controller
 
     public function gravar()
     {
-       
+        $model = new Apartamento($request->all());
+        $model->limparDados();
+
+       $model->save();
+
+        if ($model) {
+            echo 'inserido com sucesso';
+        } else {
+            echo 'falha ao inserir';
+        }
     }
 }

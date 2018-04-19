@@ -23,8 +23,17 @@ class FuncionarioController extends Controller
         return view('sistema.funcionario.form');
     }
 
-    public function gravar()
+    public function gravar(Request $request)
     {
-       
+        $model = new Funcionario($request->all());
+        $model->limparDados();
+
+       $model->save();
+
+        if ($model) {
+            echo 'inserido com sucesso';
+        } else {
+            echo 'falha ao inserir';
+        }
     }
 }

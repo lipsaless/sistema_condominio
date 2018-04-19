@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Reserva;
+use App\ReservaLocal;
+use App\Apartamento;
 use Illuminate\Http\Request;
 
 class ReservaController extends Controller
@@ -21,8 +23,17 @@ class ReservaController extends Controller
         return view('sistema.reserva.form');
     }
 
-    public function gravar()
+    public function gravar(Request $request)
     {
-        
+        $model = new Reserva($request->all());
+        $model->limparDados();
+
+       $model->save();
+
+        if ($model) {
+            echo 'inserido com sucesso';
+        } else {
+            echo 'falha ao inserir';
+        }
     }
 }

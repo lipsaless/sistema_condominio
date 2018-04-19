@@ -47,4 +47,31 @@ class AutomovelController extends Controller
         }
     }
 
+    public function grid()
+    {
+        $model = new Automovel;
+        return $model->getAll();
+    }
+
+    public function editar($id)
+    {
+        $model = new Automovel;
+        $modelApartamento = new Apartamento;
+
+        $obj = $model->find($id);
+        $apartamentos = $modelApartamento->getAll();
+
+        return view('sistema.automovel.form', ['obj' => $obj, 'apartamentos' => $apartamentos,]);
+    }
+    public function excluir($id)
+    {
+        $model = new Automovel;
+        $obj = $model->find($id);
+        
+        $obj->dt_fim = date('Y-m-d H:i:s');
+        $obj->update();
+        
+        return response([]);
+    }
+
 }

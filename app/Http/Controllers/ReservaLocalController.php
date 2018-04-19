@@ -16,4 +16,18 @@ class ReservaLocalController extends Controller
     {
         return view('sistema.reserva-local.form');
     }
+
+    public function gravar(Request $request)
+    {
+        $model = new ReservaLocal($request->all());
+        $model->limparDados();
+
+       $model->save();
+
+        if ($model) {
+            echo 'inserido com sucesso';
+        } else {
+            echo 'falha ao inserir';
+        }
+    }
 }
