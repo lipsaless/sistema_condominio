@@ -80,7 +80,7 @@
                 //MONTAR GRID
                 text = '';
 
-                    text += '	<table class="table user-list">';
+                    text += '	<table id="info-morador-automovel" class="table user-list">';
                     text += '   	<thead>';
                     text += '       	<tr>';
                     text += '           	<th width="40"><span></span></th>';
@@ -98,6 +98,8 @@
                     text += '       </tbody>';
 
                 $('grid-morador-automovel').html(text);
+
+                $('#info-morador-automovel').DataTable();
 
                 });
 
