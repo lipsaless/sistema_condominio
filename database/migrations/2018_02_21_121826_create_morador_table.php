@@ -19,10 +19,10 @@ class CreateMoradorTable extends Migration
             $table->integer('id_morador_tipo');
             $table->string('no_morador',255);
             $table->string('nu_cpf_morador',11);
-            $table->string('nu_rg_morador',7);
+            $table->string('nu_rg_morador',11);
             $table->string('nu_celular_morador',11)->nullable();
             $table->string('nu_telefone_morador',10)->nullable();
-            $table->char('sg_sexo_morador');
+            $table->char('sg_sexo_morador')->nullable();
             $table->date('dt_nascimento_morador');
             $table->string('ds_email_morador')->nullable();
             $table->string('ds_senha_morador')->nullable();

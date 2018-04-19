@@ -69,12 +69,16 @@ class MoradorController extends Controller
     {
         $model = new Morador;
         $modelTipo = new MoradorTipo;
+        $modelApartamento = new Apartamento;
 
+        $sexoMorador = ['Masculino', 'Feminino'];
+        $sexo =  $sexoMorador;
+
+        $obj = $model->find($id);
         $tipos = $modelTipo->getAll();
-        $status = $modelStatus->getAll();
-        $obj = $model->getAll($id);
+        $apartamentos = $modelApartamento->getAll();
 
-        return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj]);
+        return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
     }
     public function excluir($id)
     {

@@ -4,63 +4,64 @@
     <div class="row">
         <div class="col-md-3">
             <label for="id_apartamento" class="font-weight-bold">Apartamento: *</label>
-            <select class="form-control" id="id_apartamento" name="id_apartamento">
+            <select class="form-control" id="id_apartamento" name="id_apartamento" value="">
                     <option value="">Selecione</option>
                 <?php foreach ($apartamentos as $apt): ?>
-                    <option value="<?php echo $apt->id_apartamento; ?>"><?php echo $apt->no_apartamento; ?></option>
+                <?php $selecionado = ($apt->id_apartamento == $obj->id_apartamento) ? 'selected' : '' ?>
+                    <option value="<?php echo $apt->id_apartamento; ?>" <?php echo $selecionado; ?>><?php echo $apt->no_apartamento; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="col-md-5">
             <label for="no_morador" class="font-weight-bold">Nome do Morador: *</label>
-            <input type="text" class="form-control" id="no_morador" name="no_morador" value="">
+            <input type="text" class="form-control" id="no_morador" name="no_morador" value="{{ $obj->no_morador }}">
         </div>
         <div class="col-md-4">
             <label for="id_morador_tipo" class="font-weight-bold">Tipo de Morador: *</label>
-            <select class="form-control" id="id_morador_tipo" name="id_morador_tipo">
+            <select class="form-control" id="id_morador_tipo" name="id_morador_tipo" value="">
                     <option value="">Selecione</option>
                 <?php foreach($tipos as $value) :?>
-                    <option value="<?php echo $value->id_morador_tipo; ?>"><?php echo $value->no_morador_tipo; ?></option>
+                <?php $selecionado = ($value->id_morador_tipo == $obj->id_morador_tipo) ? 'selected' : '' ?>
+                    <option value="<?php echo $value->id_morador_tipo; ?>" <?php echo $selecionado; ?>><?php echo $value->no_morador_tipo; ?></option>
                 <?php endforeach; ?>
             </select>
-                
         </div>
     </div>
     <div class="row my-3">
         <div class="col-md-3">
             <label for="sg_sexo_morador" class="font-weight-bold">Sexo: *</label>
-            <select id="sg_sexo_morador" name="sg_sexo_morador" class="form-control">
+            <select id="sg_sexo_morador" name="sg_sexo_morador" class="form-control" value="">
                 <option value="">Selecione</option>
                 <?php foreach ($sexo as $value): ?>
-                    <option><?php echo $value; ?></option>
+                    <option value="{{ $obj->sg_sexo_morador }}"><?php echo $value; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="col-md-3">
             <label for="nu_rg_morador" class="font-weight-bold">RG:</label>
-            <input type="text" class="form-control" id="nu_rg_morador" name="nu_rg_morador">
+            <input type="text" class="form-control" id="nu_rg_morador" name="nu_rg_morador" value="{{ $obj->nu_rg_morador }}">
         </div>
         <div class="col-md-3">
             <label for="nu_cpf_morador" class="font-weight-bold">CPF: *</label>
-            <input type="text" class="form-control" id="nu_cpf_morador" name="nu_cpf_morador">
+            <input type="text" class="form-control" id="nu_cpf_morador" name="nu_cpf_morador" value="{{ $obj->nu_cpf_morador }}">
         </div>
         <div class="col-md-3">
             <label for="dt_nascimento_morador" class="font-weight-bold">Data de Nascimento:</label>
-            <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador">
+            <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="{{ $obj->dt_nascimento_morador }}">
         </div>
     </div>
     <div class="row my-3">
         <div class="col-md-3">
             <label for="nu_telefone_morador" class="font-weight-bold">Telefone: </label>
-            <input type="text" class="form-control" id="nu_telefone_morador" name="nu_telefone_morador">
+            <input type="text" class="form-control" id="nu_telefone_morador" name="nu_telefone_morador" value="{{ $obj->nu_telefone_morador }}">
         </div>
         <div class="col-md-4">
             <label for="nu_celular_morador" class="font-weight-bold">Celular:</label>
-            <input type="text" class="form-control" id="nu_celular_morador" name="nu_celular_morador">
+            <input type="text" class="form-control" id="nu_celular_morador" name="nu_celular_morador" value="{{ $obj->nu_celular_morador }}">
         </div>
         <div class="col-md-5">
             <label for="ds_email_morador" class="font-weight-bold">E-mail:</label>
-            <input type="text" class="form-control" id="ds_email_morador" name="ds_email_morador">
+            <input type="text" class="form-control" id="ds_email_morador" name="ds_email_morador" value="{{ $obj->ds_email_morador }}">
         </div>
         <div class="col-md-12 my-5">
             <button id="btn-option-save" type ="submit" class="ui positive button" style=" float: right; right: 0;">

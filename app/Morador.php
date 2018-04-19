@@ -19,7 +19,7 @@ class Morador extends Model
         $query->select('morador.*','apartamento.*','morador_tipo.*');
 
         if (!empty($allParams['no_morador'])) {
-            $query->where('morador.no_morador','LIKE', '%'.$allParams['no_morador'].'%');
+            $query->where('morador.no_morador','ILIKE', '%'.$allParams['no_morador'].'%');
         }
 
         $query->orderBy('morador.dt_inicio');

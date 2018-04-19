@@ -23,8 +23,6 @@ class Automovel extends Model
 
     public function limparDados()
     {
-        $this->nu_cpf_morador = str_replace('.','', $this->nu_cpf_morador);
-        $this->nu_cpf_morador = str_replace('-','', $this->nu_cpf_morador);
-        $this->nu_rg_morador = str_replace('.','', $this->nu_rg_morador);
+        $this->nu_placa = str_replace('-','', $this->nu_placa);
     }
 }
