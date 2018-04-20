@@ -6,7 +6,7 @@
   /*min-width: 150px;*/
   width: 258px;
   min-height: 400vh;
-  background-color: rgb(5, 11, 53);
+  background-color: #233142;
 }
 
 #sidebar .list-group-item {
@@ -477,7 +477,7 @@ a['data-toggle="collapse"'] {
 
 #a-menu {
   color: white !important;
-  background-color: rgb(5, 11, 53) !important;
+  background-color: #233142 !important;
   padding: 18px;
 }
 

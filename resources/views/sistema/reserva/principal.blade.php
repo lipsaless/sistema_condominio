@@ -7,24 +7,26 @@
 </style>
 
 @section('view-principal')
-    <!--NOVO-->
-    <div id="buttons">
-        <div class="col-md-12 row">
-            <button id="btn-option-back-reserva" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
-                <i class="fa fa-reply"></i>
-                <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
-            </button>
-            <button id="btn-option-new-reserva" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('reserva-form') }}">
-                <i class="fa fa-plus"></i>
-                <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
-            </button>
-        </div>
-        <h1 class="text-center">Reserva</h1>
-    </div>
+    <h1 class="text-center">Reserva</h1>
 
     <div id="form-reserva-cadastro"></div>
 
     <div id="principal-reserva">
+    
+         <!--NOVO-->
+        <div id="buttons">
+            <div class="col-md-12 row">
+                <button id="btn-option-back-reserva" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
+                    <i class="fa fa-reply"></i>
+                    <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
+                </button>
+                <button id="btn-option-new-reserva" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('reserva-form') }}">
+                    <i class="fa fa-plus"></i>
+                    <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
+                </button>
+            </div>
+        </div>
+
         <form action="{{ route('reserva-grid') }}">
             <div class="row">
                 <div class="col-md-3">

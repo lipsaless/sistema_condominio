@@ -52,8 +52,8 @@ Route::get('/reserva/cadastro', ['as' => 'reserva-form', 'uses' => 'ReservaContr
 Route::get('/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'ReservaController@gravar']);
 Route::get('/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);
 
-//CONFIGURACOES
-Route::get('/configuracoes', ['as' => 'configuracoes-principal', 'uses' => 'ReservaController@principal']);
+//RESERVA
+Route::get('/reserva', ['as' => 'reserva-principal', 'uses' => 'ReservaController@principal']);
 Route::get('/reserva/cadastro', ['as' => 'reserva-form', 'uses' => 'ReservaController@form']);
 Route::get('/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'ReservaController@gravar']);
 Route::get('/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);

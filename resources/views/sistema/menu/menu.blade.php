@@ -1,6 +1,9 @@
 <style>
     #menu-sistema {
-        margin-top: -21px;
+        margin-top: -23px;
+    }
+    .card {
+        border-radius: none;
     }
 </style>
 
@@ -11,7 +14,8 @@
                 <!-- <div id="img">
                     <img id="img-menu" src="{{ asset('assets/img/img-condominio.jpg') }}" alt="">
                 </div> -->
-                <hr style="background: white; padding: 1px;">
+                <h3 style="text-align: center; color: white;">Condomínio 4Amigos</h3>
+                <hr style="">
                 <a id="a-menu" href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i> Home</a>
                 <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>  Visitantes </a>
                 <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>  Reserva <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>

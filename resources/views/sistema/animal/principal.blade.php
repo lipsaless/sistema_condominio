@@ -1,7 +1,7 @@
 @extends('sistema.sistema')
 
 @section('view-principal')
-
+<h1>animal</h1>
 
 <div id="div-form-morador-animal"></div>
 

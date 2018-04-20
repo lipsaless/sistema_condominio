@@ -7,11 +7,12 @@
 </style>
 
 @section('view-principal')
-<h1 class="text-center">Funcionários</h1>
+    <h1 class="text-center">Funcionários</h1>
 
     <div id="div-form-funcionario-cadastro"></div>
 
     <div id="principal-funcionario">
+
         <!--NOVO-->
         <div id="buttons">
             <div class="col-md-12 row">
