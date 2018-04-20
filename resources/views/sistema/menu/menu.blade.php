@@ -1,3 +1,9 @@
+<style>
+    #menu-sistema {
+        margin-top: -21px;
+    }
+</style>
+
 <div id="menu-sistema" class="container-fluid">
     <div class="row d-flex d-md-block flex-nowrap wrapper">
         <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
