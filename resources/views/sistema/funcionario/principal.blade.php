@@ -25,10 +25,9 @@
                     <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
                 </button>
             </div>
-            
         </div>
 
-        <form action="{{ route('funcionario-grid') }}">
+        <form id="principal-funcionario-consultar" action="{{ route('funcionario-grid') }}" method="POST" class="display:none;">
             <div class="row">
                 <div class="col-md-4">
                     <label for="" class="font-weight-bold">Nome:</label>
@@ -36,13 +35,15 @@
                 </div>
                 <div class="col-md-2">
                     <div>&nbsp;</div>
-                    <button class="ui black button">Consultar</button>
+                    <button id="btn-consultar-funcionario" type="submit" class="ui black button">Consultar</button>
                 </div>
             </div>
         </form>
+        <hr>
+        <div id="grid-funcionarios"></div>
     </div>
 
-    <div id="grid-funcionarios"></div>
+    
 
 
     <script>
@@ -66,7 +67,7 @@
             });
 
 
-            $('#principal-funcionario').submit(function() {
+            $('#principal-funcionario-consultar').submit(function() {
                 $.ajax({
                     type: "POST",
                     url: $(this).attr("action"),
@@ -76,29 +77,66 @@
                     //MONTAR GRID
                     text = '';
 
-                        text += '	<table class="table user-list">';
+                        text += '	<table id="info-funcionarios" class="table user-list">';
                         text += '   	<thead>';
                         text += '       	<tr>';
                         text += '           	<th width="40"><span></span></th>';
-                        text += '            	<th><span>Morador</span></th>';
+                        text += '            	<th><span>Funcionário</span></th>';
                         text += '            	<th><span>Apt/Bloco</span></th>';
                         text += '            	<th><span>Tipo</span></th>';
                         text += '            	<th>&nbsp;</th>';
                         text += '			</tr>';
                         text += '		</thead>';
                         text += '		<tbody>';
-                        text += '             <tr>';
-                        text += '               <td></td>';
-                        text += '               <td></td>';
-                        text += '               <td></td>';
+                            $.each(data, function(key, rs) {
+                                    text += '           <tr id="'+rs.id_funcionario+'">';
+                                    text += '               <td>'+rs.no_funcionario+'</td>';
+                                    text += '               <td><a class="ui blue label"></a></td>';
+                                    text += '               <td style="font-weight: bold;"></td>';
+                                    text += '               <td style="text-align: center;">';
+                                    text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_funcionario+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-pencil-alt"></i>  Editar</button>';
+                                    text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_funcionario+'" style="text-align: center;"><i class="fas fa-times"></i>  Excluir</button>';
+                                    text += '               </td>';
+                                    text += '           </tr>'
+                            });
                         text += '       </tbody>';
+                        text += '     </table>';
 
-                    $('grid-funcionarios').html(text);
+                    $('#grid-funcionarios').html(text);
+
+                    //DATA-TABLE
+                    $('#info-funcionarios').DataTable({
+                        //Tradução
+                        "language": {
+                            "sEmptyTable": "Nenhum registro encontrado",
+                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                            "sInfoPostFix": "",
+                            "sInfoThousands": ".",
+                            "sLengthMenu": "_MENU_ resultados por página",
+                            "sLoadingRecords": "Carregando...",
+                            "sProcessing": "Processando...",
+                            "sZeroRecords": "Nenhum registro encontrado",
+                            "sSearch": "Nome ou Apartamento",
+                            "oPaginate": {
+                                "sNext": "Próximo",
+                                "sPrevious": "Anterior",
+                                "sFirst": "Primeiro",
+                                "sLast": "Último"
+                            },
+                            "oAria": {
+                                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                                "sSortDescending": ": Ordenar colunas de forma descendente"
+                            }
+                        }
+                    });
 
                     });
 
                     return false;
             });
+            $('#btn-consultar-funcionario').click();
         });
     </script>
 @stop

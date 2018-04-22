@@ -44,16 +44,10 @@ Route::get('/morador/animal/grid', ['as' => 'morador-animal-grid', 'uses' => 'An
 Route::get('/funcionario', ['as' => 'funcionario-principal', 'uses' => 'FuncionarioController@principal']);
 Route::get('/funcionario/cadastro', ['as' => 'funcionario-form', 'uses' => 'FuncionarioController@form']);
 Route::get('/funcionario/gravar', ['as' => 'funcionario-gravar', 'uses' => 'FuncionarioController@gravar']);
-Route::get('/funcionario/grid', ['as' => 'funcionario-grid', 'uses' => 'FuncionarioController@grid']);
-
-//FUNCIONÁRIO
-Route::get('/reserva/reserva', ['as' => 'reserva-principal', 'uses' => 'ReservaController@principal']);
-Route::get('/reserva/cadastro', ['as' => 'reserva-form', 'uses' => 'ReservaController@form']);
-Route::get('/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'ReservaController@gravar']);
-Route::get('/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);
+Route::post('/funcionario/grid', ['as' => 'funcionario-grid', 'uses' => 'FuncionarioController@grid']);
 
 //RESERVA
-Route::get('/reserva', ['as' => 'reserva-principal', 'uses' => 'ReservaController@principal']);
+Route::get('/reserva/reserva', ['as' => 'reserva-principal', 'uses' => 'ReservaController@principal']);
 Route::get('/reserva/cadastro', ['as' => 'reserva-form', 'uses' => 'ReservaController@form']);
 Route::get('/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'ReservaController@gravar']);
 Route::get('/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);

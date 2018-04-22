@@ -1,5 +1,6 @@
+<h2 class="text-center">Cadastro de Morador</h2>
 <form id="form-morador" action="{{ route('morador-gravar') }}" method="post">
-    <h2 class="text-center">Cadastro de Morador</h2>
+    
     <hr>
     <div class="row">
         <div class="col-md-3">

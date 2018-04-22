@@ -15,10 +15,11 @@ class CreateFuncionarioTable extends Migration
     {
         Schema::create('funcionario', function (Blueprint $table) {
             $table->increments('id_funcionario');
-            $table->integer('nu_cpf_funcionario');
+            $table->string('no_funcionario');
+            $table->string('nu_cpf_funcionario');
             $table->string('nu_rg_funcionario')->nullable();
-            $table->integer('nu_celular_funcionario')->nullable();
-            $table->integer('nu_telefone_funcionario')->nullable();
+            $table->string('nu_celular_funcionario')->nullable();
+            $table->string('nu_telefone_funcionario')->nullable();
             $table->char('sg_sexo_funcionario')->nullable();
             $table->date('dt_nascimento_funcionario')->nullable();
             $table->string('ds_email_funcionario')->nullable()->nullable();

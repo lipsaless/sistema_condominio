@@ -33,7 +33,7 @@
         <!--NOVO-->
         <div id="buttons">
             <div class="col-md-12 row">
-                <button id="btn-option-back" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
+                <button id="btn-option-back" data-module="" class="ui basic button btn-resp col-xs-12">
                     <i class="fa fa-reply"></i>
                     <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
                 </button>
@@ -202,15 +202,10 @@
                             }
                         });
                     });
-
                     });
                     return false;
             });
-
             $('#btn-consultar-morador').click();
-            
-
-
         });
     </script>
 @stop

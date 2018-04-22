@@ -23,6 +23,12 @@ class FuncionarioController extends Controller
         return view('sistema.funcionario.form');
     }
 
+    public function grid()
+    {
+        $model = new Funcionario;
+        return $model->getAll();
+    }
+
     public function gravar(Request $request)
     {
         $model = new Funcionario($request->all());
