@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ReservaLocal;
+use App\Model\ReservaLocal;
 use Illuminate\Http\Request;
 
 class ReservaLocalController extends Controller

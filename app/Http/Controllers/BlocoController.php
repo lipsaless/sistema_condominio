@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Bloco;
+use App\Model\Bloco;
 use Illuminate\Http\Request;
 
 class BlocoController extends Controller

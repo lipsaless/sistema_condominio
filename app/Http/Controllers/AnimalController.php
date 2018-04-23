@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Animal;
-use App\AnimalTipo;
+use App\Model\Animal;
+use App\Model\AnimalTipo;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller

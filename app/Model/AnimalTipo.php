@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Condominio extends Model
+class AnimalTipo extends Model
 {
-    protected $table = 'condominio';
-    protected $primary = 'id_condominio';
+    protected $table = 'animal_tipo';
+    protected $primary = 'id_animal_tipo';
     protected $guarded = [];
 
     public function getAll()

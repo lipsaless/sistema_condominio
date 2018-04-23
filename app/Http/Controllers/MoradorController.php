@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Morador;
-use App\MoradorTipo;
-use App\Bloco;
-use App\Apartamento;
+use App\Model\Morador;
+use App\Model\MoradorTipo;
+use App\Model\Bloco;
+use App\Model\Apartamento;
 use Illuminate\Http\Request;
 
 class MoradorController extends Controller

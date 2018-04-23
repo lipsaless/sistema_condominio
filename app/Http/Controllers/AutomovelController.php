@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Automovel;
-use App\Apartamento;
-use App\Bloco;
+use App\Model\Automovel;
+use App\Model\Apartamento;
+use App\Model\Bloco;
 use Illuminate\Http\Request;
 
 class AutomovelController extends Controller

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Reserva;
-use App\ReservaLocal;
-use App\Apartamento;
+use App\Model\Reserva;
+use App\Model\ReservaLocal;
+use App\Model\Apartamento;
 use Illuminate\Http\Request;
 
 class ReservaController extends Controller
