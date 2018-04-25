@@ -5,10 +5,17 @@
     .card-block {
         border-radius: 10px;
     }
+    .display-3 {
+        font-size: 2em;
+    }
+    #table-info-home {
+        
+    }
 </style>
 <body>
+
+<h1 class="display-3 hidden-xs-down" style="text-align: center;">Condomínio 4 Amigos </h1>
 <main id="menu-home" class="col-md-10">
-            <h1 class="display-3 hidden-xs-down" style="text-align: center;">Condomínio 4 Amigos </h1>
             <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -23,7 +30,7 @@
                         <div class="card-block bg-success">
 
                             <h6 class="text-uppercase text-center">Moradores</h6>
-                            <h1 class="display-1 text-center">134</h1>
+                            <h1 class="display-1 text-center"><?php echo $contagemMorador; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -83,29 +90,9 @@
 
             <a id="features"></a>
             <hr>
-            <p class="lead mt-5">
-                Are you ready for Bootstap 4? It's the 4th generation of this popular responsive framework. Bootstrap 4 will include some interesting new features such as flexbox, 5 grid sizes (now including xl), cards, `em` sizing, CSS normalization (reboot) and larger
-                font sizes.
-            </p>
             <div class="row my-4">
-                <div class="col-lg-3 col-md-4">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="//placehold.it/740x180/bbb/fff?text=..." alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Layouts</h4>
-                            <p class="card-text">Flexbox provides simpler, more flexible layout options like vertical centering.</p>
-                            <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                    </div>
-                    <div class="card card-inverse bg-inverse mt-3">
-                        <div class="card-block">
-                            <h3 class="card-title">Flexbox</h3>
-                            <p class="card-text">Flexbox is now the default, and Bootstrap 4 supports SASS out of the box.</p>
-                            <a href="#" class="btn btn-outline-secondary">Outline</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8">
+                
+                <div id="table-info-home" class="col-lg-9 col-md-8">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead class="thead-inverse">

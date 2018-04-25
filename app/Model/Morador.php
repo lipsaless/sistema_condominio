@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use DB; 
 use Illuminate\Database\Eloquent\Model;
 
 class Morador extends Model
@@ -41,5 +42,11 @@ class Morador extends Model
         $this->nu_celular_morador = str_replace('-','', $this->nu_celular_morador);
         $this->dt_nascimento_morador = str_replace('/','-', $this->dt_nascimento_morador);
         $this->sg_sexo_morador = str_replace(' ','', $this->sg_sexo_morador);
+    }
+
+    public function contagemMorador()
+    {
+        $moradores = DB::table('morador')->count();
+        return $moradores;
     }
 }

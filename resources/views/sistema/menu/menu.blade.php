@@ -3,7 +3,7 @@
         margin-top: -23px;
     }
     .card {
-        border-radius: none;
+        border-radius: 0 !important;
     }
 </style>
 

@@ -1,6 +1,7 @@
+<h2 class="text-center">Cadastro de Funcionário</h2>
 <form id="form-funcionario" action="{{ route('funcionario-gravar') }}">
     {{csrf_field()}}
-    <h2 class="text-center">Cadastro de Funcionário</h2>
+    
     <hr>
     <div class="row">
         <div class="col-md-5">

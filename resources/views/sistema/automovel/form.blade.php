@@ -1,5 +1,5 @@
+<h2 class="text-center">Cadastro de Automóvel</h2>
 <form id="form-morador-automovel">
-    <h2 class="text-center">Cadastro de Automóvel</h2>
     <hr>
     <div class="row">
         <div class="col-md-3">

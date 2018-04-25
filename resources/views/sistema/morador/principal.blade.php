@@ -1,28 +1,7 @@
 @extends('sistema.sistema')
-<style>
-    #novo:hover {
-        color: white;
-    }
-    .ui.grid>.row {
-        display: flex !important;
-    }
-    #info-moradores_info, #info-moradores_length {
-        font-weight: bold;
-    }
-    #info-moradores_filter {
-        font-weight: bold;
-        text-align: left;
-    }
-    select[name="info-moradores_length"] {
-        padding: 10px;
-        border-radius: 5px;
-    }
-    th {
-        font-size: 12pt;
-    }
-</style>
 
 @section('view-principal')
+
 <h1 class="text-center">Morador</h1>
 
     <!-- Form -->
@@ -33,7 +12,7 @@
         <!--NOVO-->
         <div id="buttons">
             <div class="col-md-12 row">
-                <button id="btn-option-back" data-module="" class="ui basic button btn-resp col-xs-12">
+                <button id="btn-option-back" data-module="" class="ui basic button col-xs-12">
                     <i class="fa fa-reply"></i>
                     <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
                 </button>
@@ -44,7 +23,7 @@
             </div>
         </div>
 
-        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display: none">
+        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display: none;">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -82,6 +61,7 @@
 
     <script>
         $(document).ready(function(){
+            $('#btn-option-back').hide()
 
             $('#btn-option-new').click(function(e){
                 e.preventDefault();
@@ -92,7 +72,7 @@
                     success: function(formHtml) {
                         $('#principal-morador').hide();
                         $('#btn-option-new').css("display", "none");
-                        $('#btn-option-back').css("display", "block");
+                        $('#btn-option-back').show();
                         $('#btn-option-save').css("display", "block");
                         $('h1').css("display", "none");
                         $('#form-morador-cadastro').html(formHtml);
@@ -192,18 +172,40 @@
 
                     //EXCLUIR MORADOR
                     $('.morador-excluir').click(function(e){
+
+                        //MSG
+                         Command: toastr["success"]("Cadastro Excluído!")
+                            toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-center",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            }
+
+
                         e.preventDefault();
                         $.ajax({
                             type: "GET",
                             url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
                             data: $(this).serialize(),
                             success: function(formHtml) {
-                                $('#principal-morador').submit();
+                                $('#btn-consultar-morador').click();
                             }
                         });
                     });
-                    });
                     return false;
+                    });
             });
             $('#btn-consultar-morador').click();
         });

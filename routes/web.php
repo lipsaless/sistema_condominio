@@ -11,7 +11,7 @@ Route::get('/Login',['as' => 'login', 'uses' => 'LoginController@login']);
 Route::post('/Login',['as' => 'login.login', 'uses' => 'LoginController@outh']);
 
 //ROTAS DO SISTEMA
-Route::get('/sistema', ['as' => 'sistema', 'uses' => 'SistemaController@sistema']);
+Route::get('/sistema', ['as' => 'sistema', 'uses' => 'HomeController@principal']);
 
 //VISITANTE
 Route::get('/visitante', ['as' => 'visitante-principal', 'uses' => 'VisitanteController@principal']);

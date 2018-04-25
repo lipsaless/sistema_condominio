@@ -53,12 +53,6 @@ class MoradorController extends Controller
         $model->limparDados();
 
        $model->save();
-
-        if ($model) {
-            echo 'inserido com sucesso';
-        } else {
-            echo 'falha ao inserir';
-        }
     }
 
     public function grid()
@@ -90,6 +84,10 @@ class MoradorController extends Controller
         $obj->dt_fim = date('Y-m-d H:i:s');
         $obj->update();
         
+        if ($obj) {
+            echo 'excluido com sucesso';
+        }
+
         return response([]);
     }
 }

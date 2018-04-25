@@ -3,6 +3,7 @@
 @section('view-principal')
 
 <h1 class="text-center">Automovel</h1>
+
 <div id="div-form-morador-automovel"></div>
 
 <div id="principal-morador-automovel">
@@ -21,7 +22,7 @@
         
     </div>
 
-    <form action="{{ route('morador-automovel-grid') }}">
+    <form id="principal-morador-automovel-consultar" action="{{ route('morador-automovel-grid') }}">
         <div class="row">
             <div class="col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -47,7 +48,7 @@
             </div>
             <div class="col-md-2">
                 <div>&nbsp;</div>
-                <button class="ui black button">Consultar</button>
+                <button type="submit" class="ui black button">Consultar</button>
             </div>
         </div>
     </form>
@@ -73,7 +74,7 @@
         });
 
 
-        $('#principal-morador-automovel').submit(function() {
+        $('#principal-morador-automovel-consultar').submit(function() {
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),

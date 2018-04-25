@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Morador;
 use App\Model\Automovel;
 use App\Model\Apartamento;
 use App\Model\Bloco;
@@ -22,10 +23,13 @@ class AutomovelController extends Controller
         return view('sistema.automovel.principal', ['apartamentos' => $apartamentos, 'blocos' => $blocos]);
     }
 
-    public function form()
+    public function form($allParams)
     {
         $model = new Automovel();
+        $modelMorador = new Morador();
         $modelApartamento = new Apartamento;
+
+        $moradorApartamento = 
 
         $moradores = Automovel::all()->toArray();
         $apartamentos = $modelApartamento->getAll();

@@ -482,8 +482,8 @@ a['data-toggle="collapse"'] {
 }
 
 #a-menu:hover {
-  color: black !important;
-  background-color: white !important;
+  /*color: black !important;*/
+  background-color: #293c54 !important;
 }
 
 div .collapse {
