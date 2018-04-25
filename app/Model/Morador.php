@@ -44,9 +44,9 @@ class Morador extends Model
         $this->sg_sexo_morador = str_replace(' ','', $this->sg_sexo_morador);
     }
 
-    public function contagemMorador()
+    public function getExMorador()
     {
-        $moradores = DB::table('morador')->count();
+        $moradores = DB::table('morador')->whereNull('morador.dt_fim')->count();
         return $moradores;
     }
 }

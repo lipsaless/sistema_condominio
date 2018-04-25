@@ -16,21 +16,21 @@
                 </div> -->
                 <h3 style="text-align: center; color: white;">Condomínio 4Amigos</h3>
                 <hr style="">
-                <a id="a-menu" href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i> Home</a>
-                <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>  Visitantes </a>
-                <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>  Reserva <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>
+                <a id="a-menu" href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i>&nbsp;&nbsp; Home</a>
+                <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-user-circle"></i>&nbsp;&nbsp; Visitantes </a>
+                <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>&nbsp;&nbsp; Reserva <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>
                     <div class="collapse" id="reserva">
-                        <a id="a-menu" href="{{ route('reserva-principal') }}" class="list-group-item">Reserva</a>
-                        <a id="a-menu" href="#" class="list-group-item">Local de Reserva</a>
+                        <a id="a-menu" href="{{ route('reserva-principal') }}" class="list-group-item">&nbsp;&nbsp; Reserva</a>
+                        <a id="a-menu" href="#" class="list-group-item">&nbsp;&nbsp; Local de Reserva</a>
                     </div>
                 <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-users"></i> Moradores <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>
                 <div class="collapse" id="morador">
-                    <a id="a-menu" href="{{ route('morador-principal') }}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user"></i> Morador</a>
-                    <a id="a-menu" href="{{ route('morador-automovel-principal') }}" class="list-group-item" data-toggle="collapse"><i class="fas fa-car"></i> Automóveis</a>
-                    <a id="a-menu" href="{{ route('morador-animal-principal') }}" class="list-group-item"><i class="fas fa-paw"></i> Animais de estimação</a>
+                    <a id="a-menu" href="{{ route('morador-principal') }}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user"></i>&nbsp;&nbsp; Morador</a>
+                    <a id="a-menu" href="{{ route('morador-automovel-principal') }}" class="list-group-item" data-toggle="collapse"><i class="fas fa-car"></i>&nbsp;&nbsp; Automóveis</a>
+                    <a id="a-menu" href="{{ route('morador-animal-principal') }}" class="list-group-item"><i class="fas fa-paw"></i>&nbsp;&nbsp; Animais de estimação</a>
                 </div>
-                <a id="a-menu" href="{{ route('funcionario-principal') }}" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">Funcionários</span></a>
-                <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-cogs"></i> <span class="hidden-sm-down">Configurações</span></a>
+                <a id="a-menu" href="{{ route('funcionario-principal') }}" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Funcionários</span></a>
+                <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-cogs"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Configurações</span></a>
             </div>
         </div>
     </div>

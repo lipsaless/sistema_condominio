@@ -20,6 +20,8 @@ class MoradorController extends Controller
 
     public function principal()
     {
+        $title = 'Morador';
+
         $model = new Morador();
         $modelApartamento = new Apartamento;
         $modelBloco = new Bloco;
@@ -28,11 +30,13 @@ class MoradorController extends Controller
         $apartamentos = $modelApartamento->getAll();
         $moradores = Morador::all()->toArray();
 
-    	return view('sistema.morador.principal', ['blocos' => $blocos, 'apartamentos' => $apartamentos]);
+    	return view('sistema.morador.principal', ['title' => $title, 'blocos' => $blocos, 'apartamentos' => $apartamentos]);
     }
 
     public function form()
     {
+        $title = 'Cadastro de Morador';
+
         $model = new Morador;
         $modelTipo = new MoradorTipo;
         $modelApartamento = new Apartamento;
@@ -44,7 +48,7 @@ class MoradorController extends Controller
         $sexoMorador = ['Masculino', 'Feminino'];
         $sexo =  $sexoMorador;
 
-        return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
+        return view('sistema.morador.form', ['title' => $title, 'tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
     }
 
     public function gravar(Request $request)
@@ -76,6 +80,7 @@ class MoradorController extends Controller
 
         return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
     }
+
     public function excluir($id)
     {
         $model = new Morador;
@@ -83,10 +88,6 @@ class MoradorController extends Controller
         
         $obj->dt_fim = date('Y-m-d H:i:s');
         $obj->update();
-        
-        if ($obj) {
-            echo 'excluido com sucesso';
-        }
 
         return response([]);
     }

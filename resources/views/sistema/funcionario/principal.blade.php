@@ -80,8 +80,8 @@
                         text += '	<table id="info-funcionarios" class="table user-list">';
                         text += '   	<thead>';
                         text += '       	<tr>';
-                        text += '           	<th width="40"><span></span></th>';
-                        text += '            	<th><span>Funcionário</span></th>';
+                        text += '           	<th width="40"><span>Funcionário</span></th>';
+                        text += '            	<th><span></span></th>';
                         text += '            	<th><span>Apt/Bloco</span></th>';
                         text += '            	<th><span>Tipo</span></th>';
                         text += '            	<th>&nbsp;</th>';

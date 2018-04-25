@@ -48,19 +48,6 @@
 <link rel="stylesheet" href="{{ asset('semantic/semantic.min.css') }}">
 <link rel="stylesheet" href="{{ asset('semantic/semantic.min.js') }}">
 
-<div id="loading" class="ui segment" style="position: absolute;">
-  <div class="ui active dimmer">
-    <div class="ui text loader">Loading</div>
-  </div>
-  <p></p>
-</div>
-
-<script>
-    $(document).ready(function() {
-        $('#loading').hide();
-    })
-</script>
-
 <!--CONTEÚDO-->
 <div id="nav-sistema">
     @include('sistema.nav.nav')

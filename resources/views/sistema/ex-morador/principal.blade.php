@@ -2,28 +2,11 @@
 
 @section('view-principal')
 
-<h1 class="text-center"><?php echo $title; ?></h1>
+<h1 class="text-center">Ex - Moradores</h1>
 
-    <!-- Form -->
-    <div id="form-morador-cadastro"></div>
+    <div id="principal-ex-morador">
 
-    <div id="principal-morador">
-
-        <!--NOVO-->
-        <div id="buttons">
-            <div class="col-md-12 row">
-                <button id="btn-option-back" data-module="" class="ui basic button col-xs-12" style="display: none">
-                    <i class="fa fa-reply"></i>
-                    <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
-                </button>
-                <button id="btn-option-new" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-form') }}">
-                    <i class="fa fa-plus"></i>
-                    <a id="novo" href="{{ route('morador-form') }}" style="color: white !important; text-decoration: none !important;">Novo</a>
-                </button>
-            </div>
-        </div>
-
-        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display: none;">
+        <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST" style="display: none;">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -49,12 +32,12 @@
                 </div>
                 <div class="col-md-2">
                     <div>&nbsp;</div>
-                    <button id="btn-consultar-morador" type="submit" class="ui black button">Consultar</button>
+                    <button id="btn-consultar-ex-morador" type="submit" class="ui black button">Consultar</button>
                 </div>
             </div>
         </form>
         <hr>
-        <div id="grid-moradores"></div>
+        <div id="grid-ex-moradores"></div>
     </div>
 
     
@@ -62,24 +45,24 @@
 <script>
     $(document).ready(function(){
         
-        $('#btn-option-new').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: $(this).attr("data-action"),
-                data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#principal-morador').hide();
-                    $('#btn-option-new').css("display", "none");
-                    $('#btn-option-back').show();
-                    $('#btn-option-save').css("display", "block");
-                    $('h1').css("display", "none");
-                    $('#form-morador-cadastro').html(formHtml);
-                }
-            });
-        });
+        // $('#btn-option-new').click(function(e){
+        //     e.preventDefault();
+        //     $.ajax({
+        //         type: "GET",
+        //         url: $(this).attr("data-action"),
+        //         data: $(this).serialize(),
+        //         success: function(formHtml) {
+        //             $('#principal-morador').hide();
+        //             $('#btn-option-new').css("display", "none");
+        //             $('#btn-option-back').show();
+        //             $('#btn-option-save').css("display", "block");
+        //             $('h1').css("display", "none");
+        //             $('#form-morador-cadastro').html(formHtml);
+        //         }
+        //     });
+        // });
 
-        $('#principal-morador-consultar').submit(function(e) {
+        $('#principal-ex-morador-consultar').submit(function(e) {
             e.preventDefault();
 
             $.ajax({
@@ -91,10 +74,10 @@
                 //MONTAR GRID
                 text = '';
 
-                    text += '	<table id="info-moradores" class="ui table">';
+                    text += '	<table id="info-ex-moradores" class="ui table">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '            	<th><span><i class="fas fa-user"></i><?php echo $title; ?></span></th>';
+                    text += '            	<th><span><i class="fas fa-user"></i> Morador</span></th>';
                     text += '            	<th><span><i class="fas fa-building"></i> Apartamento/Bloco</span></th>';
                     text += '            	<th><span>Tipo</span></th>';
                     text += '            	<th>&nbsp;</th>';
@@ -108,8 +91,8 @@
                             text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-pencil-alt"></i>  Editar</button>';
-                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times"></i>  Excluir</button>';
+                            text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-pencil-alt"></i>  Dados</button>';
+                            text += '                   <button id="ex-morador-recuperar" class="ui red button ex-morador-recuperar" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times"></i>  Recuperar</button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -117,11 +100,11 @@
                     text += '       </tbody>';
                     text += '    </table>';
 
-                //GRID-MORADOR
-                $('#grid-moradores').html(text);
+                //GRID-EX-MORADOR
+                $('#grid-ex-moradores').html(text);
 
                 //DATA-TABLE
-                $('#info-moradores').DataTable({
+                $('#info-ex-moradores').DataTable({
                     //Tradução
                     "language": {
                         "sEmptyTable": "Nenhum registro encontrado",
@@ -152,28 +135,28 @@
                 // $('[data-html]').popup();
 
                 //EDITAR MORADOR
-                $('.morador-editar').click(function(e){
-                    e.preventDefault();
-                    $.ajax({
-                        type: "GET",
-                        url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
-                        data: $(this).serialize(),
-                        success: function(formHtml) {
-                            $('#principal-morador').hide();
-                            $('#btn-option-new').css("display", "none");
-                            $('#btn-option-back').css("display", "block");
-                            $('#btn-option-save').css("display", "block");
-                            $('h1').css("display", "none");
-                            $('#form-morador-cadastro').html(formHtml);
-                        }
-                    });
+                $('.ex-morador-dados').click(function(e){
+                    // e.preventDefault();
+                    // $.ajax({
+                    //     type: "GET",
+                    //     url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
+                    //     data: $(this).serialize(),
+                    //     success: function(formHtml) {
+                    //         $('#principal-morador').hide();
+                    //         $('#btn-option-new').css("display", "none");
+                    //         $('#btn-option-back').css("display", "block");
+                    //         $('#btn-option-save').css("display", "block");
+                    //         $('h1').css("display", "none");
+                    //         $('#form-morador-cadastro').html(formHtml);
+                    //     }
+                    // });
                 });
 
                 //EXCLUIR MORADOR
-                $('.morador-excluir').click(function(e){
+                $('.ex-morador-recuperar').click(function(e){
 
                     //MSG
-                    Command: toastr["success"]("Cadastro Excluído!")
+                    Command: toastr["success"]("Morador recuperado!")
                     toastr.options = {
                     "closeButton": true,
                     "debug": false,
@@ -196,16 +179,16 @@
                     e.preventDefault();
                     $.ajax({
                         type: "GET",
-                        url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
+                        url: '{{ route("ex-morador-recuperar") }}' + '/' + $(this).attr("data-action"),
                         data: $(this).serialize()
                     }).done(function() {
-                        $('#btn-consultar-morador').click();
+                        $('#btn-consultar-ex-morador').click();
                     });
                 });
                 //return false;
                 });
         });
-        $('#btn-consultar-morador').click();
+        $('#btn-consultar-ex-morador').click();
     });
 </script>
 @stop

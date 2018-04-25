@@ -29,6 +29,11 @@ Route::post('/morador/morador/grid', ['as' => 'morador-grid', 'uses' => 'Morador
 Route::get('/morador/morador/editar/{id?}', ['as' => 'morador-editar', 'uses' => 'MoradorController@editar']);
 Route::get('/morador/morador/excluir/{id?}', ['as' => 'morador-excluir', 'uses' => 'MoradorController@excluir']);
 
+//EX-MORADOR
+Route::get('/ex-morador', ['as' => 'ex-morador-principal', 'uses' => 'MoradorController@principal']);
+Route::post('/ex-morador/grid', ['as' => 'ex-morador-grid', 'uses' => 'MoradorController@grid']);
+Route::get('/ex-morador/recuperar/{id?}', ['as' => 'ex-morador-recuperar', 'uses' => 'ExMoradorController@recuperar']);
+
 //MORADOR-AUTOMOVEL
 Route::get('/morador/automovel', ['as' => 'morador-automovel-principal', 'uses' => 'AutomovelController@principal']);
 Route::get('/morador/automovel/cadastro', ['as' => 'morador-automovel-form', 'uses' => 'AutomovelController@form']);
