@@ -30,7 +30,7 @@
                         <div class="card-block bg-success">
 
                             <h6 class="text-uppercase text-center">Moradores</h6>
-                            <h1 class="display-1 text-center"><?php echo $contagemMorador; ?></h1>
+                            <h1 id="count-morador" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -454,4 +454,21 @@
             <!--/row-->
         </main>
 </body>
+
+<script>
+    $(document).ready(function() {
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function demo() {
+            for (var i = 0; i < <?php echo $contagemMorador?>; i++) {
+                await sleep(1);
+                $("#count-morador").html(i);
+            }
+        }
+
+        demo();
+    });
+</script>
 @stop

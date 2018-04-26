@@ -44,23 +44,6 @@
 
 <script>
     $(document).ready(function(){
-        
-        // $('#btn-option-new').click(function(e){
-        //     e.preventDefault();
-        //     $.ajax({
-        //         type: "GET",
-        //         url: $(this).attr("data-action"),
-        //         data: $(this).serialize(),
-        //         success: function(formHtml) {
-        //             $('#principal-morador').hide();
-        //             $('#btn-option-new').css("display", "none");
-        //             $('#btn-option-back').show();
-        //             $('#btn-option-save').css("display", "block");
-        //             $('h1').css("display", "none");
-        //             $('#form-morador-cadastro').html(formHtml);
-        //         }
-        //     });
-        // });
 
         $('#principal-ex-morador-consultar').submit(function(e) {
             e.preventDefault();

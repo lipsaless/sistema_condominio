@@ -28,6 +28,7 @@
                     <a id="a-menu" href="{{ route('morador-principal') }}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user"></i>&nbsp;&nbsp; Morador</a>
                     <a id="a-menu" href="{{ route('morador-automovel-principal') }}" class="list-group-item" data-toggle="collapse"><i class="fas fa-car"></i>&nbsp;&nbsp; Automóveis</a>
                     <a id="a-menu" href="{{ route('morador-animal-principal') }}" class="list-group-item"><i class="fas fa-paw"></i>&nbsp;&nbsp; Animais de estimação</a>
+                    <a id="a-menu" href="{{ route('ex-morador-principal') }}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user"></i>&nbsp;&nbsp; Morador</a>
                 </div>
                 <a id="a-menu" href="{{ route('funcionario-principal') }}" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Funcionários</span></a>
                 <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-cogs"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Configurações</span></a>
