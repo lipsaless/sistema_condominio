@@ -8,8 +8,8 @@
     .display-3 {
         font-size: 2em;
     }
-    #table-info-home {
-        
+    .card {
+        border: 0 !important;
     }
 </style>
 <body>
@@ -462,29 +462,41 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        async function demo() {
+        async function countMorador() {
             for (var i = 0; i < <?php echo $contagemMorador ?>; i++) {
-                await sleep(1);
-                $("#count-morador").html(i);
+                await sleep(0.5);
+                $("#count-morador").html(i + 1);
             }
-
-            // for (var i = 0; i < <?php //echo $contagemAutomovel ?>; i++) {
-            //     await sleep(1);
-            //     $("#count-automovel").html(i);
-            // }
-
-            // for (var i = 0; i < <?php //echo $contagemReserva ?>; i++) {
-            //     await sleep(1);
-            //     $("#count-reserva").html(i);
-            // }
-
-            // for (var i = 0; i < <?php //echo $contagemFuncionario ?>; i++) {
-            //     await sleep(1);
-            //     $("#count-funcionario").html(i);
-            // }
         }
 
-        demo();
+        async function countAutomovel()
+        {
+            for (var i = 0; i < 300; i++) {
+                await sleep(1);
+                $("#count-automovel").html(i + 1);
+            }
+        }
+        
+        async function countReserva()
+        {
+            for (var i = 0; i < 400; i++) {
+                await sleep(1);
+                $("#count-reserva").html(i + 1);
+            }
+        }
+        
+        async function countFuncionario()
+        {
+            for (var i = 0; i < 250; i++) {
+                await sleep(1);
+                $("#count-funcionario").html(i + 1);
+            }
+        }
+        
+        countMorador();
+        countAutomovel();
+        countReserva();
+        countFuncionario();
     });
 </script>
 @stop
