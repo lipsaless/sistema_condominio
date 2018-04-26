@@ -35,20 +35,20 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <div class="card card-inverse card-danger">
-                        <div class="card-block bg-danger">
-
-                            <h6 class="text-uppercase text-center">Reservas</h6>
-                            <h1 class="display-1 text-center">87</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-info">
                         <div class="card-block bg-info">
 
                             <h6 class="text-uppercase text-center">Automóveis</h6>
-                            <h1 class="display-1 text-center">125</h1>
+                            <h1 id="count-reserva" class="display-1 text-center">0</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card card-inverse card-danger">
+                        <div class="card-block bg-danger">
+
+                            <h6 class="text-uppercase text-center">Reservas</h6>
+                            <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div class="card-block bg-warning">
 
                             <h6 class="text-uppercase text-center">Funcionários</h6>
-                            <h1 class="display-1 text-center">36</h1>
+                            <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -457,15 +457,31 @@
 
 <script>
     $(document).ready(function() {
+        //Carregar contagem da home
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         async function demo() {
-            for (var i = 0; i < <?php echo $contagemMorador?>; i++) {
+            for (var i = 0; i < <?php echo $contagemMorador ?>; i++) {
                 await sleep(1);
                 $("#count-morador").html(i);
             }
+
+            // for (var i = 0; i < <?php //echo $contagemAutomovel ?>; i++) {
+            //     await sleep(1);
+            //     $("#count-automovel").html(i);
+            // }
+
+            // for (var i = 0; i < <?php //echo $contagemReserva ?>; i++) {
+            //     await sleep(1);
+            //     $("#count-reserva").html(i);
+            // }
+
+            // for (var i = 0; i < <?php //echo $contagemFuncionario ?>; i++) {
+            //     await sleep(1);
+            //     $("#count-funcionario").html(i);
+            // }
         }
 
         demo();
