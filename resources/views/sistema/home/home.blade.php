@@ -1,9 +1,10 @@
 @extends('sistema.sistema')
 
 @section('view-principal')
+
 <style>
     .card-block {
-        border-radius: 10px;
+    border-radius: 5px;
     }
     .display-3 {
         font-size: 2em;
@@ -11,10 +12,26 @@
     .card {
         border: 0 !important;
     }
+    .bg-info {
+        background-color: #3F72AF !important;
+        color: white;
+    }
+    .text-info {
+        color: white !important;
+        border: 0px solid #ccc;
+        border-radius: 5px;
+        background-color: #393E46;
+        font-style: italic;
+        padding: 10px;
+    }
+    h2 {
+        text-align: center;
+    }
 </style>
+
 <body>
 
-<h1 class="display-3 hidden-xs-down" style="text-align: center;">Condomínio 4 Amigos </h1>
+<h1 id="no_condominio" class="display-3 hidden-xs-down" style="text-align: center;">Condomínio 4 Amigos </h1>
 <main id="menu-home" class="col-md-10">
             <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
@@ -27,9 +44,8 @@
             <div class="row mb-3">
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-success">
-                        <div class="card-block bg-success">
-
-                            <h6 class="text-uppercase text-center">Moradores</h6>
+                        <div class="card-block bg-info">
+                            <h6 class="text-info text-center">Moradores</h6>
                             <h1 id="count-morador" class="display-1 text-center">0</h1>
                         </div>
                     </div>
@@ -37,26 +53,23 @@
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-info">
                         <div class="card-block bg-info">
-
-                            <h6 class="text-uppercase text-center">Automóveis</h6>
+                            <h6 class="text-info text-center">Automóveis</h6>
                             <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-danger">
-                        <div class="card-block bg-danger">
-
-                            <h6 class="text-uppercase text-center">Reservas</h6>
+                        <div class="card-block bg-info">
+                            <h6 class="text-info text-center">Reservas</h6>
                             <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-warning">
-                        <div class="card-block bg-warning">
-
-                            <h6 class="text-uppercase text-center">Funcionários</h6>
+                        <div class="card-block bg-info">
+                            <h6 class="text-info text-center">Funcionários</h6>
                             <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>
@@ -65,119 +78,8 @@
             <!--/row-->
 
             <hr>
-            <div class="row placeholders mb-3">
-                <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/dddddd/fff?text=1" class="mx-auto img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-                    <h4>Responsive</h4>
-                    <span class="text-muted">Device agnostic</span>
-                </div>
-                <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/e4e4e4/fff?text=2" class="mx-auto img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-                    <h4>Frontend</h4>
-                    <span class="text-muted">UI / UX oriented</span>
-                </div>
-                <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/d6d6d6/fff?text=3" class="mx-auto img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-                    <h4>HTML5</h4>
-                    <span class="text-muted">Standards-based</span>
-                </div>
-                <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/e0e0e0/fff?text=4" class="center-block img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-                    <h4>Framework</h4>
-                    <span class="text-muted">CSS and JavaScript</span>
-                </div>
-            </div>
 
-            <a id="features"></a>
-            <hr>
-            <div class="row my-4">
-                
-                <div id="table-info-home" class="col-lg-9 col-md-8">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Label</th>
-                                    <th>Header</th>
-                                    <th>Column</th>
-                                    <th>Data</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>responsive</td>
-                                    <td>bootstrap</td>
-                                    <td>cards</td>
-                                    <td>grid</td>
-                                </tr>
-                                <tr>
-                                    <td>1,002</td>
-                                    <td>rwd</td>
-                                    <td>web designers</td>
-                                    <td>theme</td>
-                                    <td>responsive</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>free</td>
-                                    <td>open-source</td>
-                                    <td>download</td>
-                                    <td>template</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>frontend</td>
-                                    <td>developer</td>
-                                    <td>coding</td>
-                                    <td>card panel</td>
-                                </tr>
-                                <tr>
-                                    <td>1,004</td>
-                                    <td>migration</td>
-                                    <td>bootstrap 4</td>
-                                    <td>mobile-first</td>
-                                    <td>design</td>
-                                </tr>
-                                <tr>
-                                    <td>1,005</td>
-                                    <td>navbar</td>
-                                    <td>sticky</td>
-                                    <td>jumbtron</td>
-                                    <td>header</td>
-                                </tr>
-                                <tr>
-                                    <td>1,006</td>
-                                    <td>collapse</td>
-                                    <td>affix</td>
-                                    <td>submenu</td>
-                                    <td>flexbox</td>
-                                </tr>
-                                <tr>
-                                    <td>1,007</td>
-                                    <td>layout</td>
-                                    <td>examples</td>
-                                    <td>themes</td>
-                                    <td>grid</td>
-                                </tr>
-                                <tr>
-                                    <td>1,008</td>
-                                    <td>migration</td>
-                                    <td>bootstrap 4</td>
-                                    <td>flexbox</td>
-                                    <td>design</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!--/row-->
-
-            <a id="more"></a>
-            <hr>
-            <h2 class="sub-header mt-5">Use card decks for equal height rows of cards</h2>
+            <h2 class="sub-header mt-5">Tópicos importantes</h2>
             <div class="mb-3">
                 <div class="card-deck">
                     <div class="card card-inverse card-success text-center">
@@ -216,16 +118,46 @@
             </div>
             <!--/row-->
 
-            <a id="flexbox"></a>
             <hr>
-            <h2 class="mt-5">Masonry-style grid columns</h2>
-            <h6>with Bootstrap 4 flexbox</h6>
+
+            <div class="row my-4">
+                <div id="table-info-home" class="col-lg-9 col-md-8">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Label</th>
+                                    <th>Header</th>
+                                    <th>Column</th>
+                                    <th>Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,001</td>
+                                    <td>responsive</td>
+                                    <td>bootstrap</td>
+                                    <td>cards</td>
+                                    <td>grid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+
+            <hr>
+
+            <!-- Fotos -->
+            <h2 class="mt-5">Fotos</h2>
 
             <div class="card-columns mb-3">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="//placehold.it/600x200/444/fff?text=..." alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('assets/img/home1.jpg') }}" alt="Residencial 4 amigos">
                     <div class="card-block">
-                        <h4 class="card-title">New XL Grid Tier</h4>
+                        <h4 class="card-title">Residencial 4 amigos</h4>
                         <p class="card-text">With screens getting smaller, Bootstrap 4 introduces a new grid breakpoint with the col-xl-* classes. This extra tier extends the media query range all the way down to 576 px. Eventhough the new XL tier would make one think it’s
                             been added to support extra large screens, it’s actually the opposite.</p>
                     </div>
@@ -241,30 +173,18 @@
                     </blockquote>
                 </div>
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="//placehold.it/600x200/bbb/fff?text=..." alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('assets/img/home1.jpg') }}." alt="Residencial 4 amigos">
                     <div class="card-block">
                         <h4 class="card-title">Card title</h4>
                         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
-                </div>
-                <div class="card card-block card-inverse card-primary text-center">
-                    <blockquote class="card-blockquote">
-                        <p>Create masonry or Pinterest-style card layouts in Bootstrap 4.</p>
-                        <footer>
-                            <small>
-                              Someone famous in <cite title="Source Title">Bootstrap</cite>
-                            </small>
-                        </footer>
-                    </blockquote>
                 </div>
                 <div class="card card-block text-center">
                     <h4 class="card-title">Clever heading</h4>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
                 </div>
                 <div class="card">
-                    <img class="card-img img-fluid" src="//placehold.it/600x200/777/fff?text=..." alt="Card image">
+                    <img class="card-img img-fluid" src="{{ asset('assets/img/home1.jpg') }}" alt="Residencial 4 amigos">
                 </div>
                 <div class="card card-block text-right">
                     <blockquote class="card-blockquote">
@@ -276,30 +196,6 @@
                         </footer>
                     </blockquote>
                 </div>
-                <div class="card card-block">
-                    <h4 class="card-title">Responsive</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="card">
-                    <div class="card-block">
-                        <ul class="list-unstyled">
-                            <li class="text-capitalize"><code class="text-lowercase">text-capitalize</code> Capitalize each word</li>
-                            <li class="text-uppercase"><code class="text-lowercase">text-uppercase</code> Uppercase text</li>
-                            <li class="text-success"><code>text-success</code> Contextual colors for text</li>
-                            <li><code>text-muted</code> <span class="text-muted">Lighten with muted</span></li>
-                            <li><code>text-info</code> <span class="text-muted">Info text color</span></li>
-                            <li><code>text-danger</code> <span class="text-muted">Danger text color</span></li>
-                            <li><code>text-warning</code> <span class="text-muted">Warning text color</span></li>
-                            <li><code>text-primary</code> <span class="text-primary">Primary text color</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card card-block">
-                    <h4 class="card-title">Heading</h4>
-                    <p class="card-text">So now that you've seen some of what Bootstrap 4 has to offer, are you going to give it a try?</p>
-                    <p class="card-text"><small class="text-muted">Last updated 12 mins ago</small></p>
-                </div>
             </div>
             <!--/card-columns-->
 
@@ -307,20 +203,6 @@
             <hr>
             <h2 class="sub-header mt-5">Interesting layouts and elements</h2>
             <div class="row mb-3">
-                <div class="col-lg-6">
-
-                    <div class="card">
-                        <div class="card-header">
-                            Bye .well, .panel &amp; .thumbnail
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title">Replaced with .card</h4>
-                            <p class="card-text">All of these Bootstrap 3.x components have been dropped entirely for the new card component.</p>
-                            <button type="button" class="btn btn-secondary btn-lg">Large</button>
-                        </div>
-                    </div>
-
-                </div>
                 <div class="col-lg-6">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
@@ -404,7 +286,6 @@
                                     <div class="col-sm-5"><img src="//placehold.it/170" class="float-right img-responsive img-rounded"></div>
                                 </div>
                                 <hr>
-                                <a href="javascript:;" class="btn btn-info btn-block">Read More Profiles</a>
                                 <div class="spacer5"></div>
                             </div>
                             <div class="tab-pane" id="tab3">
@@ -445,9 +326,6 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mt-4">
-                        <a href="/go/KrUO8QpyXP/bootstrao-4-dashboard" target="_ext">Get this Bootstrap 4 admin dashboard at Codeply</a>
-                    </p>
                 </div>
                 <!--/col-->
             </div>
@@ -497,6 +375,9 @@
         countAutomovel();
         countReserva();
         countFuncionario();
+
+        // const titulo = document.querySelector('#no_condominio');
+        // typeWriter(titulo);
     });
 </script>
 @stop

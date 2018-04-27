@@ -1,4 +1,4 @@
-<h2 class="text-center">Cadastro de Morador</h2>
+<h1 class="text-center">Cadastro de Morador</h1>
 <form id="form-morador" action="{{ route('morador-gravar') }}" method="post">
     
     <hr>
@@ -78,7 +78,10 @@
 
 <script>
     $(document).ready(function() {
-        $('#btn-option-back').click(function(e){
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
+
+        $('#btn-option-back').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back').hide();
             $('#btn-option-new').show();

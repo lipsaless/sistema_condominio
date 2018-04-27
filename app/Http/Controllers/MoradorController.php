@@ -56,7 +56,7 @@ class MoradorController extends Controller
         $model = new Morador($request->all());
         $model->limparDados();
 
-       $model->save();
+        $model->save();
     }
 
     public function grid()

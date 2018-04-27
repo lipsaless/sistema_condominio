@@ -2,14 +2,14 @@
 
 @section('view-principal')
 
+<!-- Title -->
 <h1 class="text-center"><?php echo $title; ?></h1>
 
-    <!-- Form -->
-    <div id="form-morador-cadastro"></div>
-
+<!-- Form -->
+<div id="form-morador-cadastro"></div>
+    <!-- Principal -->
     <div id="principal-morador">
-
-        <!--NOVO-->
+        <!--Buttons-->
         <div id="buttons">
             <div class="col-md-12 row">
                 <button id="btn-option-back" data-module="" class="ui basic button col-xs-12" style="display: none">
@@ -23,6 +23,7 @@
             </div>
         </div>
 
+        <!-- Consultar -->
         <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display: none;">
             <div class="row">
                 <div class="col-md-3">
@@ -54,6 +55,7 @@
             </div>
         </form>
         <hr>
+        <!-- Grid -->
         <div id="grid-moradores"></div>
     </div>
 
@@ -61,8 +63,11 @@
 
 <script>
     $(document).ready(function(){
-        
-        $('#btn-option-new').click(function(e){
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
+
+        /*Form*/ 
+        $('#btn-option-new').unbind('click').click(function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
@@ -79,6 +84,7 @@
             });
         });
 
+        /*Consultar*/
         $('#principal-morador-consultar').submit(function(e) {
             e.preventDefault();
 
@@ -117,10 +123,10 @@
                     text += '       </tbody>';
                     text += '    </table>';
 
-                //GRID-MORADOR
+                /*Grid*/
                 $('#grid-moradores').html(text);
 
-                //DATA-TABLE
+                /*Data-Table*/
                 $('#info-moradores').DataTable({
                     //Tradução
                     "language": {
@@ -148,11 +154,8 @@
                     }
                 });
 
-                //POPUP
-                // $('[data-html]').popup();
-
-                //EDITAR MORADOR
-                $('.morador-editar').click(function(e){
+                /*Edit*/
+                $('.morador-editar').unbind('click').click(function(e){
                     e.preventDefault();
                     $.ajax({
                         type: "GET",
@@ -169,10 +172,10 @@
                     });
                 });
 
-                //EXCLUIR MORADOR
-                $('.morador-excluir').click(function(e){
+                /*Excluir*/
+                $('.morador-excluir').unbind('click').click(function(e){
 
-                    //MSG
+                    /*Message*/
                     Command: toastr["success"]("Cadastro Excluído!")
                     toastr.options = {
                     "closeButton": true,
@@ -199,13 +202,14 @@
                         url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
                         data: $(this).serialize()
                     }).done(function() {
-                        $('#btn-consultar-morador').click();
+                        /*Submit conultar*/
+                        $('#btn-consultar-morador').unbind('click').click();
                     });
                 });
-                //return false;
                 });
         });
-        $('#btn-consultar-morador').click();
+        /*Submit conultar*/
+        $('#btn-consultar-morador').unbind('click').click();
     });
 </script>
 @stop

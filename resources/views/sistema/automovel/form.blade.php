@@ -1,4 +1,7 @@
+<!-- Title -->
 <h2 class="text-center">Cadastro de Automóvel</h2>
+
+<!-- Form -->
 <form id="form-morador-automovel">
     <hr>
     <div class="row">
@@ -40,14 +43,18 @@
             </button>
         </div>
     </div>
-    
 </form>
 
 <script>
     $(document).ready(function() {
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
+
+        /*Mask*/
         $('#nu_placa').mask({mask: 'AAA-9999'})
 
-        $('#btn-option-back-morador-automovel').click(function(e){
+        /*Voltar*/
+        $('#btn-option-back-morador-automovel').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back-morador-automovel').hide();
             $('#btn-option-new-automovel-form').show();

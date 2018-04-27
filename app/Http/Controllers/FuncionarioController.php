@@ -20,7 +20,10 @@ class FuncionarioController extends Controller
     {
         $model = new Funcionario();
         $moradores = Funcionario::all()->toArray();
-        return view('sistema.funcionario.form');
+
+        $sexoMorador = ['Masculino', 'Feminino'];
+        $sexo =  $sexoMorador;
+        return view('sistema.funcionario.form', ['sexo' => $sexo]);
     }
 
     public function grid()
@@ -34,12 +37,6 @@ class FuncionarioController extends Controller
         $model = new Funcionario($request->all());
         $model->limparDados();
 
-       $model->save();
-
-        if ($model) {
-            echo 'inserido com sucesso';
-        } else {
-            echo 'falha ao inserir';
-        }
+        $model->save();
     }
 }

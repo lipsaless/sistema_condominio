@@ -2,12 +2,15 @@
 
 @section('view-principal')
 
+<!-- Title -->
 <h1 class="text-center">Automovel</h1>
 
+<!-- Form -->
 <div id="div-form-morador-automovel"></div>
 
+<!-- Principal -->
 <div id="principal-morador-automovel">
-
+    <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">
             <button id="btn-option-back-morador-automovel" class="ui basic button btn-resp col-xs-12" style="display:none">
@@ -19,10 +22,10 @@
                 <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
             </button>
         </div>
-        
     </div>
 
-    <form id="principal-morador-automovel-consultar" action="{{ route('morador-automovel-grid') }}">
+    <!-- Consultar -->
+    <form id="principal-morador-automovel-consultar" action="{{ route('morador-automovel-grid') }}" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -52,11 +55,18 @@
             </div>
         </div>
     </form>
+    <hr>
+    <!-- Grid -->
+    <div id="grid-morador-automovel"></div>
 </div>
 
 <script>
     $(document).ready(function(){
-        $('#btn-option-new-automovel-form').click(function(e){
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
+
+        /*Form*/
+        $('#btn-option-new-automovel-form').unbind('click').click(function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
@@ -73,7 +83,7 @@
             });
         });
 
-
+        /*Consultar*/
         $('#principal-morador-automovel-consultar').submit(function() {
             $.ajax({
                 type: "POST",
@@ -81,7 +91,7 @@
                 data: $(this).serialize(),
                 dataType: "json"
             }).done(function(data){
-                //MONTAR GRID
+
                 text = '';
 
                     text += '	<table id="info-morador-automovel" class="table user-list">';
@@ -101,13 +111,14 @@
                     text += '               <td></td>';
                     text += '       </tbody>';
 
+                /*Grid*/
                 $('grid-morador-automovel').html(text);
 
+                /*Data-Table*/
                 $('#info-morador-automovel').DataTable();
 
-                });
-
-                return false;
+            });
+            return false;
         });
     });
 </script>

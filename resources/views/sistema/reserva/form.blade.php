@@ -1,3 +1,4 @@
+<!-- Form -->
 <form id="form-reserva">
     <h2 class="text-center">Cadastro de Reserva</h2>
     <hr>
@@ -33,7 +34,8 @@
 
 <script>
     $(document).ready(function() {
-        $('#btn-option-back-reserva').click(function(e){
+        /*Voltar*/
+        $('#btn-option-back-reserva').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back-reserva').hide();
             $('#btn-option-new-reserva').show();

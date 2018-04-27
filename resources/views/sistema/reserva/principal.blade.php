@@ -7,13 +7,15 @@
 </style>
 
 @section('view-principal')
-    <h1 class="text-center">Reserva</h1>
 
-    <div id="form-reserva-cadastro"></div>
+<!-- Title -->
+<h1 class="text-center">Reserva</h1>
 
+<!-- Form -->
+<div id="form-reserva-cadastro"></div>
+    <!-- Principal -->
     <div id="principal-reserva">
-    
-         <!--NOVO-->
+        <!--Buttons-->
         <div id="buttons">
             <div class="col-md-12 row">
                 <button id="btn-option-back-reserva" data-module="" class="ui basic button btn-resp col-xs-12" style="display:none">
@@ -27,7 +29,8 @@
             </div>
         </div>
 
-        <form action="{{ route('reserva-grid') }}">
+        <!-- Consultar -->
+        <form id="principal-reserva-consultar" action="{{ route('reserva-grid') }}" method="POST">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -49,65 +52,64 @@
                 </div>
             </div>
         </form>
+        <hr>
+        <!-- Grid -->
+        <div id="grid-reservas"></div>
     </div>
 
-    <div id="grid-reservas"></div>
-
-
-    <script>
-        $(document).ready(function(){
-
-            $('#btn-option-new-reserva').click(function(e){
-                e.preventDefault();
-                $.ajax({
-                    type: "GET",
-                    url: $(this).attr("data-action"),
-                    data: $(this).serialize(),
-                    success: function(formHtml) {
-                        $('#principal-reserva').hide();
-                        $('#btn-option-new-reserva').css("display", "none");
-                        $('#btn-option-back-reserva').css("display", "block");
-                        $('#btn-option-save').css("display", "block");
-                        $('h1').css("display", "none");
-                        $('#form-reserva-cadastro').html(formHtml);
-                    }
-                });
-            });
-
-
-            $('#principal-reserva').submit(function() {
-                $.ajax({
-                    type: "POST",
-                    url: $(this).attr("action"),
-                    data: $(this).serialize(),
-                    dataType: "json"
-                }).done(function(data){
-                    //MONTAR GRID
-                    text = '';
-
-                        text += '	<table class="table user-list">';
-                        text += '   	<thead>';
-                        text += '       	<tr>';
-                        text += '           	<th width="40"><span></span></th>';
-                        text += '            	<th><span>Morador</span></th>';
-                        text += '            	<th><span>Apt/Bloco</span></th>';
-                        text += '            	<th><span>Tipo</span></th>';
-                        text += '            	<th>&nbsp;</th>';
-                        text += '			</tr>';
-                        text += '		</thead>';
-                        text += '		<tbody>';
-                        text += '             <tr>';
-                        text += '               <td></td>';
-                        text += '               <td></td>';
-                        text += '               <td></td>';
-                        text += '       </tbody>';
-
-                    $('grid-reservas').html(text);
-
-                    });
-
-                    return false;
+<script>
+    $(document).ready(function(){
+        /*Form*/
+        $('#btn-option-new-reserva').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#principal-reserva').hide();
+                    $('#btn-option-new-reserva').css("display", "none");
+                    $('#btn-option-back-reserva').css("display", "block");
+                    $('#btn-option-save').css("display", "block");
+                    $('h1').css("display", "none");
+                    $('#form-reserva-cadastro').html(formHtml);
+                }
             });
         });
-    </script>
+
+        /*Form*/
+        $('#principal-reserva').submit(function() {
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                dataType: "json"
+            }).done(function(data){
+
+                text = '';
+
+                    text += '	<table class="table user-list">';
+                    text += '   	<thead>';
+                    text += '       	<tr>';
+                    text += '           	<th width="40"><span>Reserva</span></th>';
+                    text += '            	<th><span>Apt/Bloco</span></th>';
+                    text += '            	<th><span>Tipo</span></th>';
+                    text += '            	<th>&nbsp;</th>';
+                    text += '			</tr>';
+                    text += '		</thead>';
+                    text += '		<tbody>';
+                    text += '             <tr>';
+                    text += '               <td></td>';
+                    text += '               <td></td>';
+                    text += '               <td></td>';
+                    text += '       </tbody>';
+
+                /*Grid*/
+                $('grid-reservas').html(text);
+
+            });
+            return false;
+        });
+    });
+</script>
 @stop

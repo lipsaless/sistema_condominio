@@ -2,10 +2,11 @@
 
 @section('view-principal')
 
+<!-- Title -->
 <h1 class="text-center">Ex - Moradores</h1>
-
+    <!-- Principal -->
     <div id="principal-ex-morador">
-
+        <!-- Form -->
         <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST">
             <div class="row">
                 <div class="col-md-3">
@@ -37,17 +38,21 @@
             </div>
         </form>
         <hr>
+        <!-- Grid -->
         <div id="grid-ex-moradores"></div>
     </div>
 
-    <!-- Modal Dados -->
+    <!-- Dados -->
     <div class="ui hidden modal">
         <div class="header">Header</div>
     </div>
 
 <script>
     $(document).ready(function(){
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
 
+        /*Consultar*/
         $('#principal-ex-morador-consultar').submit(function(e) {
             e.preventDefault();
 
@@ -57,7 +62,7 @@
                 data: $(this).serialize(),
                 dataType: "json"
             }).done(function(data){
-                //MONTAR GRID
+                
                 text = '';
 
                     text += '	<table id="info-ex-moradores" class="ui table">';
@@ -86,12 +91,12 @@
                     text += '       </tbody>';
                     text += '    </table>';
 
-                //GRID-EX-MORADOR
+                /*Grid*/
                 $('#grid-ex-moradores').html(text);
 
-                //DATA-TABLE
+                /*Data-Table*/
                 $('#info-ex-moradores').DataTable({
-                    //Tradução
+                    /*Tradução*/
                     "language": {
                         "sEmptyTable": "Nenhum registro encontrado",
                         "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -117,18 +122,15 @@
                     }
                 });
 
-                //POPUP
-                // $('[data-html]').popup();
-
-                //EDITAR MORADOR
-                $('.ex-morador-dados').click(function(e){
+                /*Edit*/
+                $('.ex-morador-dados').unbind('click').click(function(e){
                     $('.ui.modal').modal('show');
                 });
 
-                //EXCLUIR MORADOR
-                $('.ex-morador-recuperar').click(function(e){
+                /*Excluir*/
+                $('.ex-morador-recuperar').unbind('click').click(function(e){
 
-                    //MSG
+                    /*Message*/
                     Command: toastr["success"]("Morador recuperado!")
                     toastr.options = {
                     "closeButton": true,
@@ -148,20 +150,19 @@
                     "hideMethod": "fadeOut"
                     }
 
-
                     e.preventDefault();
                     $.ajax({
                         type: "GET",
                         url: '{{ route("ex-morador-recuperar") }}' + '/' + $(this).attr("data-action"),
                         data: $(this).serialize()
                     }).done(function() {
-                        $('#btn-consultar-ex-morador').click();
+                        $('#btn-consultar-ex-morador').unbind('click').click();
                     });
                 });
-                //return false;
                 });
         });
-        $('#btn-consultar-ex-morador').click();
+        /*Submit consult*/
+        $('#btn-consultar-ex-morador').unbind('click').click();
     });
 </script>
 @stop

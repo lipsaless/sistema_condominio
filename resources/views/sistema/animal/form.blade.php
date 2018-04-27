@@ -13,8 +13,8 @@
         <div class="col-md-4">
             <label for="no_animal_tipo" class="font-weight-bold">Tipo: *</label>
             <select class="form-control" name="no_animal_tipo" id="no_animal_tipo">
-                <?php foreach ($tipos as $value): ?>
-                    <option value="<?php echo $value->id_animal_tipo; ?>"><?php echo $value->no_animal_tipo; ?></option>
+                <?php foreach ($tipos as $tipo): ?>
+                    <option value="<?php echo $tipo->id_animal_tipo; ?>"><?php echo $tipo->no_animal_tipo; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

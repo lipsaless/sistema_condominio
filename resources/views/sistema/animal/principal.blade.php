@@ -1,12 +1,16 @@
 @extends('sistema.sistema')
 
 @section('view-principal')
+
+<!-- Title -->
 <h1>animal</h1>
 
+<!-- Form -->
 <div id="div-form-morador-animal"></div>
 
+<!-- Principal -->
 <div id="principal-morador-animal">
-
+    <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">
             <button id="btn-option-back-morador-animal" data-module="" data-action="{{ route('morador-animal-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none">
@@ -20,7 +24,8 @@
         </div>
     </div>
 
-    <form action="{{ route('morador-animal-grid') }}">
+    <!-- Consultar -->
+    <form id="principal-morador-animal-consultar" action="{{ route('morador-animal-grid') }}" method="POST" style="display: none;">
         <div class="row">
             <div class="col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -33,9 +38,9 @@
             <div class="col-md-3">
                 <label for="" class="font-weight-bold">Tipo:</label>
                 <select class="custom-select">
-                    <option value="">Todos</option>
-                    <option value="">Cachorro</option>
-                    <option value="">Gato</option>
+                    <?php foreach ($tipos as $tipo): ?>
+                        <option value="<?php echo $tipo->id_animal_tipo; ?>"><?php echo $tipo->no_animal_tipo; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="col-md-2">
@@ -44,11 +49,15 @@
             </div>
         </div>
     </form>
+    <hr>
+    <!-- Grid -->
+    <div id="grid-moradores"></div>
 </div>
 
 <script>
     $(document).ready(function(){
-        $('#btn-option-new-animal-form').click(function(e){
+        /*Form*/
+        $('#btn-option-new-animal-form').unbind('click').click(function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
@@ -66,7 +75,7 @@
             return false;
         });
 
-
+        /*Consultar*/
         $('#principal-morador-animal').submit(function() {
             $.ajax({
                 type: "POST",
@@ -74,7 +83,7 @@
                 data: $(this).serialize(),
                 dataType: "json"
             }).done(function(data){
-                //MONTAR GRID
+                
                 text = '';
 
                     text += '	<table class="table user-list">';
@@ -94,11 +103,11 @@
                     text += '               <td></td>';
                     text += '       </tbody>';
 
+                /*Grid*/
                 $('grid-morador-animal').html(text);
 
-                });
-
-                return false;
+            });
+            return false;
         });
     });
 </script>

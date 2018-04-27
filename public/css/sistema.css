@@ -6,3 +6,19 @@ body {
 {
     margin-top: 10px !important;
 }
+
+h1::after {
+    /*content: '|';*/
+    margin-left: 5px !important;
+    opacity: 1 !important;
+    animation: pisca .7s infinite !important; 
+}
+
+@keyframes pisca {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
