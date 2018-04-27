@@ -13,7 +13,7 @@ class HomeController extends Controller
         $model = new Morador;
 
         //contagem de moradores cadastrados
-        $contagemMoradores = $model->getExMorador();
+        $contagemMoradores = $model->countMorador();
 
         return view('sistema.home.home', ['contagemMorador' => $contagemMoradores]);
     }

@@ -6,7 +6,7 @@
 
     <div id="principal-ex-morador">
 
-        <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST" style="display: none;">
+        <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -40,7 +40,10 @@
         <div id="grid-ex-moradores"></div>
     </div>
 
-    
+    <!-- Modal Dados -->
+    <div class="ui hidden modal">
+        <div class="header">Header</div>
+    </div>
 
 <script>
     $(document).ready(function(){
@@ -74,8 +77,8 @@
                             text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-pencil-alt"></i>  Dados</button>';
-                            text += '                   <button id="ex-morador-recuperar" class="ui red button ex-morador-recuperar" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times"></i>  Recuperar</button>';
+                            text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-search"></i>  Dados</button>';
+                            text += '                   <button id="ex-morador-recuperar" class="ui red button ex-morador-recuperar" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-undo"></i>  Recuperar</button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -119,20 +122,7 @@
 
                 //EDITAR MORADOR
                 $('.ex-morador-dados').click(function(e){
-                    // e.preventDefault();
-                    // $.ajax({
-                    //     type: "GET",
-                    //     url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
-                    //     data: $(this).serialize(),
-                    //     success: function(formHtml) {
-                    //         $('#principal-morador').hide();
-                    //         $('#btn-option-new').css("display", "none");
-                    //         $('#btn-option-back').css("display", "block");
-                    //         $('#btn-option-save').css("display", "block");
-                    //         $('h1').css("display", "none");
-                    //         $('#form-morador-cadastro').html(formHtml);
-                    //     }
-                    // });
+                    $('.ui.modal').modal('show');
                 });
 
                 //EXCLUIR MORADOR

@@ -16,7 +16,7 @@ class AutomovelController extends Controller
         $modelApartamento = new Apartamento;
         $modelBloco = new Bloco;
 
-        $moradores = Automovel::all()->toArray();
+        $automoveis = Automovel::all()->toArray();
         $apartamentos = $modelApartamento->getAll();
         $blocos = $modelBloco->getAll();
 

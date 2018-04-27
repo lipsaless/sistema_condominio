@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalMorador.css') }}">
 <link rel="stylesheet" href="{{ asset('css/formMorador.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalExMorador.css') }}">
 <link rel="stylesheet" href="{{ asset('css/formAutomovel.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalAutomovel.css') }}">
 <link rel="stylesheet" href="{{ asset('css/formAnimal.css') }}">
@@ -24,6 +25,8 @@
 
 <!--jQuery-->
 <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('semantic/semantic.js') }}">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.js') }}">
 
 <!--TOASTR MSG-->
 <link rel="stylesheet" href="{{ asset('toastr/toastr.css') }}">
@@ -45,8 +48,8 @@
 <link rel="stylesheet" href="{{ asset('font-awesome/css/fontawesome.min.css') }}">
 
 <!--SEMANTIC CSS-->
-<link rel="stylesheet" href="{{ asset('semantic/semantic.min.css') }}">
-<link rel="stylesheet" href="{{ asset('semantic/semantic.min.js') }}">
+<link rel="stylesheet" href="{{ asset('semantic/semantic.css') }}">
+
 
 <!--CONTEÚDO-->
 <div id="nav-sistema">
