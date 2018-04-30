@@ -7,7 +7,7 @@
     <!-- Principal -->
     <div id="principal-ex-morador">
         <!-- Form -->
-        <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST">
+        <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST" style="display: none;">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>

@@ -29,6 +29,9 @@
 <link rel="stylesheet" href="{{ asset('semantic/semantic.js') }}">
 <link rel="stylesheet" href="{{ asset('css/bootstrap.js') }}">
 
+<link rel="stylesheet" href="{{ asset('jQuery-modal/remodal.css') }}">
+<script src="{{ asset('jQuery-modal/remodal.js') }}"></script>
+
 <!--TOASTR MSG-->
 <link rel="stylesheet" href="{{ asset('toastr/toastr.css') }}">
 <script rel="stylesheet" src="{{ asset('toastr/toastr.min.js') }}"></script>

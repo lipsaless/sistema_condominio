@@ -2,6 +2,17 @@
 
 @section('view-principal')
 
+<style>
+    .modal {
+        top: 0 !important;
+        left: 0 !important;
+    }
+</style>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 <!-- Title -->
 <h1 class="text-center"><?php echo $title; ?></h1>
 
@@ -59,6 +70,11 @@
         <div id="grid-moradores"></div>
     </div>
 
+
+    <div id="ex1" class="modal">
+  <p>Thanks for clicking. That felt good.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
     
 
 <script>
@@ -100,7 +116,7 @@
                     text += '	<table id="info-moradores" class="ui table">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '            	<th><span><i class="fas fa-user"></i><?php echo $title; ?></span></th>';
+                    text += '            	<th><span><i class="fas fa-user"></i> <?php echo $title; ?></span></th>';
                     text += '            	<th><span><i class="fas fa-building"></i> Apartamento/Bloco</span></th>';
                     text += '            	<th><span>Tipo</span></th>';
                     text += '            	<th>&nbsp;</th>';
@@ -114,8 +130,9 @@
                             text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-pencil-alt"></i>  Editar</button>';
-                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times"></i>  Excluir</button>';
+                            text += '                   <button id="morador-editar" class="ui blue button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" data-content="Dados"><i class="fas fa-search" data-remodal="1"></i></button>';
+                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
+                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times" title="Excluir"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
