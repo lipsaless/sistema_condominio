@@ -2,7 +2,7 @@
 <h2 class="text-center">Cadastro de Funcionário</h2>
 
 <!-- Form -->
-<form id="form-funcionario" action="{{ route('funcionario-gravar') }}">
+<form id="form-funcionario" action="{{ route('funcionario-gravar') }}" method="POST">
     <hr>
     <div class="row">
         <div class="col-md-5">
@@ -57,7 +57,7 @@
 <script>
     $(document).ready(function() {
         /*Voltar*/
-        $('#btn-option-back-funcionario').click(function(e){
+        $('#btn-option-back-funcionario').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back-funcionario').hide();
             $('#btn-option-new-funcionario').show();

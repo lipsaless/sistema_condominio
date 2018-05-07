@@ -8,11 +8,6 @@
     border-radius: 5px;
 }
 
-#buttons {
-    margin-left: 0;
-    padding: 21px;
-}
-
 #novo:hover {
     color: white;
 }

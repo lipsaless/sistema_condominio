@@ -29,16 +29,13 @@
 <link rel="stylesheet" href="{{ asset('semantic/semantic.js') }}">
 <link rel="stylesheet" href="{{ asset('css/bootstrap.js') }}">
 
-<link rel="stylesheet" href="{{ asset('jQuery-modal/remodal.css') }}">
-<script src="{{ asset('jQuery-modal/remodal.js') }}"></script>
-
 <!--TOASTR MSG-->
 <link rel="stylesheet" href="{{ asset('toastr/toastr.css') }}">
 <script rel="stylesheet" src="{{ asset('toastr/toastr.min.js') }}"></script>
 
 <!-- Datatable -->
+<link rel="stylesheet" href="{{ asset('DataTable/dataTables.semanticui.css') }}">
 <script src="{{ asset('DataTable/datatables.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('DataTables/dataTables.semanticui.css') }}">
 
 <!--jQuery MASK-->
 <script src="{{ asset('jQuery-Mask/jquery.mask.js') }}"></script>

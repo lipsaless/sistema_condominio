@@ -39,7 +39,7 @@
 
 <script>
     $(document).ready(function( $ ){
-        $('a[data-toggle="collapse"]').click(function() {
+        $('a[data-toggle="collapse"]').unbind('click').click(function() {
             $(this).next('div').slideToggle();
         });
     });

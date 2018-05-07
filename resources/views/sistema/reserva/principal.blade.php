@@ -60,7 +60,7 @@
 <script>
     $(document).ready(function(){
         /*Form*/
-        $('#btn-option-new-reserva').click(function(e){
+        $('#btn-option-new-reserva').unbind('click').click(function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",

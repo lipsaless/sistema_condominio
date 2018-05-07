@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class MoradorController extends Controller
 {
     private $morador;
-    protected $primaryKey = 'id_usuario';
 
     public function __construct(Request $morador)
     {
@@ -51,14 +50,6 @@ class MoradorController extends Controller
         return view('sistema.morador.form', ['title' => $title, 'tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
     }
 
-    public function gravar(Request $request)
-    {
-        $model = new Morador($request->all());
-        $model->limparDados();
-
-        $model->save();
-    }
-
     public function grid()
     {
         $model = new Morador;
@@ -79,6 +70,14 @@ class MoradorController extends Controller
         $apartamentos = $modelApartamento->getAll();
 
         return view('sistema.morador.form', ['tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
+    }
+
+    public function gravar(Request $request)
+    {
+        $model = new Morador($request->all());
+        $model->limparDados();
+
+        $model->save();
     }
 
     public function excluir($id)

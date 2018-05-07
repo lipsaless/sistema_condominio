@@ -44,7 +44,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#btn-option-back-morador-animal').click(function(e){
+        $('#btn-option-back-morador-animal').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back-morador-animal').hide();
             $('#btn-option-new-animal-form').show();

@@ -38,7 +38,7 @@
 
 <script>
   $(document).ready(function() {
-        $('#navbarDropdownMenuLink').click(function() {
+        $('#navbarDropdownMenuLink').unbind('click').click(function() {
             $(this).next('div').slideToggle();
         });
   });

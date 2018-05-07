@@ -17,7 +17,7 @@ class FuncionarioSeeder extends Seeder
          // Array que será inserido no banco
         $data = array();
             // Criar 4 moradores para cada apartamento
-            foreach (range(1, 4) as $i) {
+            foreach (range(1, 70) as $i) {
                 $data[] = [
                     'no_funcionario' => $faker->name,
                     'nu_cpf_funcionario' => $faker->cpf(false),

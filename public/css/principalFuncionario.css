@@ -8,3 +8,23 @@
     border-radius: 5px;
 }
 
+#novo:hover {
+    color: white;
+}
+.ui.grid>.row {
+    display: flex !important;
+}
+#info-moradores_info, #info-funcionarios_length {
+    font-weight: bold;
+}
+#info-funcionarios_filter {
+    font-weight: bold;
+    text-align: right;
+}
+select[name="info-funcionarios_length"] {
+    padding: 10px;
+    border-radius: 5px;
+}
+th {
+    font-size: 12pt;
+}

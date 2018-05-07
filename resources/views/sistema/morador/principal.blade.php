@@ -2,17 +2,6 @@
 
 @section('view-principal')
 
-<style>
-    .modal {
-        top: 0 !important;
-        left: 0 !important;
-    }
-</style>
-
-<!-- jQuery Modal -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
 <!-- Title -->
 <h1 class="text-center"><?php echo $title; ?></h1>
 
@@ -69,14 +58,7 @@
         <!-- Grid -->
         <div id="grid-moradores"></div>
     </div>
-
-
-    <div id="ex1" class="modal">
-  <p>Thanks for clicking. That felt good.</p>
-  <a href="#" rel="modal:close">Close</a>
-</div>
     
-
 <script>
     $(document).ready(function(){
         const titulo = document.querySelector('h1');
@@ -212,8 +194,8 @@
                     "hideMethod": "fadeOut"
                     }
 
-
                     e.preventDefault();
+
                     $.ajax({
                         type: "GET",
                         url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
@@ -223,7 +205,7 @@
                         $('#btn-consultar-morador').unbind('click').click();
                     });
                 });
-                });
+            });
         });
         /*Submit conultar*/
         $('#btn-consultar-morador').unbind('click').click();

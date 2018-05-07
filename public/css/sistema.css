@@ -7,6 +7,11 @@ body {
     margin-top: 10px !important;
 }
 
+#buttons {
+    margin-left: 0;
+    padding: 21px;
+}
+
 h1::after {
     /*content: '|';*/
     margin-left: 5px !important;

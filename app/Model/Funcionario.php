@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Funcionario extends Model
 {
-    protected $table = 'funcionario';
-    protected $primary = 'id_funcionario';
     protected $guarded = [];
-
-    public function getAll()
+    protected $table = 'funcionario';
+    protected $primaryKey = 'id_funcionario';
+    
+    public function getAll($allParams = null)
     {
         $query = $this->newQuery();
         $query->whereNull('funcionario.dt_fim');
-        $query->orderBy('funcionario.dt_inicio');
+        $query->select('funcionario.*');
+        $query->orderBy('funcionario.no_funcionario');
 
         return $query->get();
     }
