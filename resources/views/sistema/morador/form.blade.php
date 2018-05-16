@@ -1,6 +1,5 @@
 <h1 class="text-center">Cadastro de Morador</h1>
-<form id="form-morador" action="{{ route('morador-gravar') }}" method="post">
-    
+<form id="form-morador" action="{{ route('morador-gravar') }}" method="POST">
     <hr>
     <fieldset id="fieldset-morador">
         <legend>Dados</legend>
@@ -50,7 +49,7 @@
             </div>
             <div class="col-md-3">
                 <label for="dt_nascimento_morador" class="font-weight-bold">Data de Nascimento:</label>
-                <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="{{ $obj->dt_nascimento_morador }}">
+                <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="{{ $dtNascimento }}">
             </div>
         </div>
         <div class="row my-3">
@@ -90,7 +89,23 @@
             $('h1').show();
         });
         
-        $()
+        /*Form*/ 
+        $('#form-morador').submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#btn-option-back').hide();
+                    $('#btn-option-new').show();
+                    $('#form-morador').hide();
+                    $('#principal-morador').show();
+                    $('h1').show();
+                }
+            });
+        });
+
 
         $('#nu_cpf_morador').mask('999.999.999-99');
         $('#nu_rg_morador').mask('9.999.999');

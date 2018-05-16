@@ -34,7 +34,7 @@ class ExMoradorController extends Controller
         $model = new Morador;
         $obj = $model->find($id);
         
-        $obj->dt_fim = date('');
+        $obj->dt_fim = null;
         $obj->update();
 
         return response([]);

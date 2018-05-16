@@ -61,6 +61,58 @@
     
 <script>
     $(document).ready(function(){
+        // No caso do datatable o melhor jeito é fazer o click direto no document => $(document).find(SELETOR)
+        $(document).find('.morador-editar').unbind('click').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#principal-morador').hide();
+                    $('#btn-option-new').css("display", "none");
+                    $('#btn-option-back').css("display", "block");
+                    $('#btn-option-save').css("display", "block");
+                    $('h1').css("display", "none");
+                    $('#form-morador-cadastro').html(formHtml);
+                }
+            });
+        });
+
+        /*Excluir*/
+        $(document).find('.morador-excluir').unbind('click').click(function(e){
+            /*Message*/
+            Command: toastr["success"]("Cadastro Excluído!")
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            }
+
+            e.preventDefault();
+
+            $.ajax({
+                type: "GET",
+                url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize()
+            }).done(function() {
+                /*Submit conultar*/
+                $('#btn-consultar-morador').unbind('click').click();
+            });
+        });
+
         const titulo = document.querySelector('h1');
         typeWriter(titulo);
 
