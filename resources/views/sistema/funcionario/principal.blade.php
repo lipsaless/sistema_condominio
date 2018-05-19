@@ -50,6 +50,9 @@
 
 <script>
     $(document).ready(function(){
+        //START AJAX E STOP AJAX
+        ajax();
+
         /*Form*/
         $('#btn-option-new-funcionario').unbind('click').click(function(e){
             e.preventDefault();

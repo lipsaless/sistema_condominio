@@ -42,13 +42,46 @@
         <div id="grid-ex-moradores"></div>
     </div>
 
-    <!-- Dados -->
-    <div class="ui hidden modal">
-        <div class="header">Header</div>
-    </div>
-
 <script>
     $(document).ready(function(){
+        $(document).tooltip();
+
+        //START AJAX E STOP AJAX
+        ajax();
+
+        /*Excluir*/
+        $(document).on('click','.ex-morador-realocar',function(e){
+
+            /*Message*/
+            Command: toastr["success"]("Morador realocado!")
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            }
+
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '{{ route("ex-morador-recuperar") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize()
+            }).done(function() {
+                $('#btn-consultar-ex-morador').unbind('click').click();
+            });
+        });
+
         const titulo = document.querySelector('h1');
         typeWriter(titulo);
 
@@ -83,7 +116,7 @@
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
                             text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-search"></i>  Dados</button>';
-                            text += '                   <button id="ex-morador-recuperar" class="ui red button ex-morador-recuperar" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-undo"></i>  Recuperar</button>';
+                            text += '                   <button id="ex-morador-recuperar" class="ui red button ex-morador-realocar tooltip" data-action="'+rs.id_morador+'" title="Realocar morador" style="text-align: center;"><i class="fas fa-undo"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -159,7 +192,7 @@
                         $('#btn-consultar-ex-morador').unbind('click').click();
                     });
                 });
-                });
+            });
         });
         /*Submit consult*/
         $('#btn-consultar-ex-morador').unbind('click').click();

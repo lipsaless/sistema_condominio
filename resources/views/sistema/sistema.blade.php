@@ -16,22 +16,14 @@
 <link rel="stylesheet" href="{{ asset('css/formFuncionario.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalReserva.css') }}">
 <link rel="stylesheet" href="{{ asset('css/formReserva.css') }}">
-<link rel="stylesheet" href="{{ asset('principal/principal.js') }}">
-
-<!--PRINCIPAL JS-->
-<script src="{{ asset('principal/principal.js') }}"></script>
 
 <!--BOOTSTRAP CSS-->
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.js') }}">
 
 <!--jQuery-->
 <script src="{{ asset('jQuery/jquery-3.3.1.min.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('semantic/semantic.js') }}">
-<link rel="stylesheet" href="{{ asset('css/bootstrap.js') }}">
-
-<!--TOASTR MSG-->
-<link rel="stylesheet" href="{{ asset('toastr/toastr.css') }}">
-<script rel="stylesheet" src="{{ asset('toastr/toastr.min.js') }}"></script>
 
 <!-- Datatable -->
 <link rel="stylesheet" href="{{ asset('DataTable/dataTables.semanticui.css') }}">
@@ -51,12 +43,32 @@
 <!--SEMANTIC CSS-->
 <link rel="stylesheet" href="{{ asset('semantic/semantic.css') }}">
 
+<!--TOASTR MSG-->
+<link rel="stylesheet" href="{{ asset('toastr/toastr.css') }}">
+<script rel="stylesheet" src="{{ asset('toastr/toastr.min.js') }}"></script>
+
+<!--PRINCIPAL JS-->
+<script src="{{ asset('principal/principal.js') }}"></script>
+
 
 <!--CONTEÚDO-->
 <div id="nav-sistema">
     @include('sistema.nav.nav')
 </div>
 
+<!-- LOADER -->
+<div id="loader">
+    <div class="ui segment">
+        <div class="ui active dimmer">
+            <div class="ui big text loader">Carregando...</div>
+        </div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>
+
+<!-- MENU -->
 <div id="menu-sistema">
     @include('sistema.menu.menu')
     @yield('view-principal')

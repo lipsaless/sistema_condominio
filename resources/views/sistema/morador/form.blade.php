@@ -1,3 +1,11 @@
+<?php 
+    if ($obj->dt_nascimento_morador) {
+        $dataNascimento = date('d/m/Y', strtotime($obj->dt_nascimento_morador));
+    } else {
+        $dataNascimento = '';
+    }
+?>
+
 <h1 class="text-center">Cadastro de Morador</h1>
 <form id="form-morador" action="{{ route('morador-gravar') }}" method="POST">
     <input type="hidden" name="id_morador" value="{{ $obj->id_morador }}">
@@ -50,7 +58,7 @@
             </div>
             <div class="col-md-3">
                 <label for="dt_nascimento_morador" class="font-weight-bold">Data de Nascimento:</label>
-                <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="<?php echo date('d/m/Y', strtotime($obj->dt_nascimento_morador)); ?>">
+                <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="<?php echo $dataNascimento; ?>">
             </div>
         </div>
         <div class="row my-3">
@@ -93,6 +101,43 @@
         //FORMULÁRIO => salvar
         $('#form-morador').submit(function(e){
             e.preventDefault();
+            let apartamento = $('#id_apartamento').val();
+            let nomeMorador = $('#no_morador').val();
+            let tipoMorador = $('#id_morador_tipo').val();
+            let sexo = $('#sg_sexo_morador').val();
+            let cpf = $('#nu_cpf_morador').val();
+            let dtNascimento = $('#dt_nascimento_morador').val();
+
+            //VALIDAÇÃO => apartamento
+            if (!apartamento) {
+                return message('warning', 'Apartamento não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => nome morador
+            if (!nomeMorador) {
+                return message('warning', 'Nome do morador não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => tipo do morador
+            if (!tipoMorador) {
+                return message('warning', 'Tipo de morador não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => CPF
+            if (!cpf) {
+                return message('warning', 'CPF não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => data de nascimento
+            if (!dtNascimento) {
+                return message('warning', 'Data de nascimento não foi informada!');
+                return false;
+            }
+
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),
@@ -104,6 +149,9 @@
                     $('#principal-morador').show();
                     $('h1').show();
                     $('#btn-consultar-morador').click();
+
+                     //mensagem
+                     return message('success', 'Cadastro efetuado com sucesso!');
                 }
             });
         });
@@ -120,7 +168,9 @@
             dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
             dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
             monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+            nextText: 'Próximo',
+            prevText: 'Anterior'
         });
     });
 </script>

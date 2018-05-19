@@ -63,11 +63,10 @@ class AutomovelController extends Controller
         if (!empty($params['id_automovel'])) {
             $model = $model->find($params['id_automovel']);
         } else {
-            unset($params['id_morador']);
+            unset($params['id_automovel']);
         }
 
         $model->fill($params);
-        // $model = new Morador($request->all());
         
         $model->limparDados();
         

@@ -61,6 +61,11 @@
     
 <script>
     $(document).ready(function(){
+        $(document).tooltip();
+
+        //START AJAX E STOP AJAX
+        ajax();
+        
         //TABELA => Editar
         $(document).on('click', '.morador-editar',function(e){
             e.preventDefault();
@@ -81,25 +86,6 @@
 
         //TABELA => Excluir
         $(document).on('click', '.morador-excluir',function(e){
-            /*Message*/
-            Command: toastr["success"]("Cadastro Excluído!")
-            toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": true,
-            "positionClass": "toast-top-center",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-            }
 
             e.preventDefault();
 
@@ -110,6 +96,8 @@
             }).done(function() {
                 /*Submit conultar*/
                 $('#btn-consultar-morador').unbind('click').click();
+                //msg
+                return message('success', 'Morador excluído com sucesso!');
             });
         });
 
@@ -164,9 +152,9 @@
                             text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="morador-editar" class="ui blue button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" data-content="Dados"><i class="fas fa-search" data-remodal="1"></i></button>';
-                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
-                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times" title="Excluir"></i></button>';
+                            text += '                   <button id="morador-editar" class="ui green button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" title="Visualizar dados"><i class="fas fa-search" data-remodal="1"></i></button>';
+                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" title="Editar morador"><i class="fas fa-pencil-alt"></i></button>';
+                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;" title="Excluir morador"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -224,39 +212,19 @@
                 });
 
                 //PRINCIPAL => Excluir
-                $('.morador-excluir').unbind('click').click(function(e){
+                // $('.morador-excluir').unbind('click').click(function(e){
 
-                    /*Message*/
-                    Command: toastr["success"]("Cadastro Excluído!")
-                    toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": true,
-                    "positionClass": "toast-top-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "5000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                    }
+                //     e.preventDefault();
 
-                    e.preventDefault();
-
-                    $.ajax({
-                        type: "GET",
-                        url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
-                        data: $(this).serialize()
-                    }).done(function() {
-                        /*Submit conultar*/
-                        $('#btn-consultar-morador').unbind('click').click();
-                    });
-                });
+                //     $.ajax({
+                //         type: "GET",
+                //         url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
+                //         data: $(this).serialize()
+                //     }).done(function() {
+                //         /*Submit conultar*/
+                //         $('#btn-consultar-morador').unbind('click').click();
+                //     });
+                // });
             });
         });
         /*Submit conultar*/

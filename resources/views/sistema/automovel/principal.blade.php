@@ -64,19 +64,19 @@
     $(document).ready(function(){
 
         //TABELA => Editar
-        $(document).on('click', '.morador-editar',function(e){
+        $(document).on('click', '.morador-automovel-editar',function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
-                url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
+                url: '{{ route("morador-automovel-editar") }}' + '/' + $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#principal-morador').hide();
-                    $('#btn-option-new').css("display", "none");
-                    $('#btn-option-back').css("display", "block");
+                    $('#principal-morador-automovel').hide();
+                    $('#btn-option-new-morador-automovel').css("display", "none");
+                    $('#btn-option-back-morador-automovel').css("display", "block");
                     $('#btn-option-save').css("display", "block");
                     $('h1').css("display", "none");
-                    $('#form-morador-cadastro').html(formHtml);
+                    $('#form-morador-automovel-cadastro').html(formHtml);
                 }
             });
         });

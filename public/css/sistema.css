@@ -7,11 +7,13 @@ body {
     margin-top: 10px !important;
 }
 
+/*Botões*/
 #buttons {
     margin-left: 0;
     padding: 21px;
 }
 
+/*Títulos*/
 h1::after {
     /*content: '|';*/
     margin-left: 5px !important;
@@ -26,4 +28,26 @@ h1::after {
     50% {
         opacity: 0;
     }
+}
+
+.tooltip {
+    opacity: 1 !important;
+}
+
+/*Loader*/
+#loader {
+    position: absolute;
+    margin-top: 25%;
+}
+
+.ui.active.dimmer {
+    height: 32vh;
+    position: fixed;
+    width: 20%;
+    margin-left: 44%;
+    margin-top: 15%;
+}
+
+.toast {
+    opacity: 1 !important;
 }
