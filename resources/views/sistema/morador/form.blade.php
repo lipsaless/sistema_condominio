@@ -1,5 +1,6 @@
 <h1 class="text-center">Cadastro de Morador</h1>
 <form id="form-morador" action="{{ route('morador-gravar') }}" method="POST">
+    <input type="hidden" name="id_morador" value="{{ $obj->id_morador }}">
     <hr>
     <fieldset id="fieldset-morador">
         <legend>Dados</legend>
@@ -49,7 +50,7 @@
             </div>
             <div class="col-md-3">
                 <label for="dt_nascimento_morador" class="font-weight-bold">Data de Nascimento:</label>
-                <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="{{ $dtNascimento }}">
+                <input type="text" class="form-control" id="dt_nascimento_morador" name="dt_nascimento_morador" value="<?php echo date('d/m/Y', strtotime($obj->dt_nascimento_morador)); ?>">
             </div>
         </div>
         <div class="row my-3">
@@ -89,7 +90,7 @@
             $('h1').show();
         });
         
-        /*Form*/ 
+        //FORMULÁRIO => salvar
         $('#form-morador').submit(function(e){
             e.preventDefault();
             $.ajax({
@@ -102,6 +103,7 @@
                     $('#form-morador').hide();
                     $('#principal-morador').show();
                     $('h1').show();
+                    $('#btn-consultar-morador').click();
                 }
             });
         });

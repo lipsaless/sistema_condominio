@@ -25,7 +25,7 @@
     </div>
 
     <!-- Consultar -->
-    <form id="principal-morador-automovel-consultar" action="{{ route('morador-automovel-grid') }}" method="POST">
+    <form id="principal-morador-automovel-consultar" action="{{ route('morador-automovel-grid') }}" method="POST" style="display:none;">
         <div class="row">
             <div class="col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -62,6 +62,25 @@
 
 <script>
     $(document).ready(function(){
+
+        //TABELA => Editar
+        $(document).on('click', '.morador-editar',function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#principal-morador').hide();
+                    $('#btn-option-new').css("display", "none");
+                    $('#btn-option-back').css("display", "block");
+                    $('#btn-option-save').css("display", "block");
+                    $('h1').css("display", "none");
+                    $('#form-morador-cadastro').html(formHtml);
+                }
+            });
+        });
+
         const titulo = document.querySelector('h1');
         typeWriter(titulo);
 
@@ -91,28 +110,36 @@
                 data: $(this).serialize(),
                 dataType: "json"
             }).done(function(data){
-
+                //GRID
                 text = '';
 
                     text += '	<table id="info-morador-automovel" class="table user-list">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '           	<th width="40"><span></span></th>';
-                    text += '            	<th><span>Morador</span></th>';
-                    text += '            	<th><span>Apt/Bloco</span></th>';
-                    text += '            	<th><span>Tipo</span></th>';
+                    text += '           	<th width="40">Morador</th>';
+                    text += '            	<th><span>Apartamento/Bloco</span></th>';
+                    text += '            	<th><span>Automóvel</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
                     text += '		<tbody>';
-                    text += '             <tr>';
-                    text += '               <td></td>';
-                    text += '               <td></td>';
-                    text += '               <td></td>';
+                    $.each(data, function(key, rs) {
+                            text += '           <tr id="'+rs.id_automovel+'">';
+                            text += '               <td>'+ rs.no_morador+'</td>';
+                            text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td style="font-weight: bold;">'+rs.no_automovel+'</td>';
+                            text += '               <td style="text-align: center;">';
+                            text += '                   <button id="morador-editar" class="ui blue button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" data-content="Dados"><i class="fas fa-search" data-remodal="1"></i></button>';
+                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
+                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times" title="Excluir"></i></button>';
+                            text += '               </td>';
+                            text += '           </tr>'
+                        });
                     text += '       </tbody>';
+                    text += '   </table>';
 
                 /*Grid*/
-                $('grid-morador-automovel').html(text);
+                $('#grid-morador-automovel').html(text);
 
                 /*Data-Table*/
                 $('#info-morador-automovel').DataTable();

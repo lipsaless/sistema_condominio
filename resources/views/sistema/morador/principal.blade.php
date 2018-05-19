@@ -61,8 +61,8 @@
     
 <script>
     $(document).ready(function(){
-        // No caso do datatable o melhor jeito é fazer o click direto no document => $(document).find(SELETOR)
-        $(document).find('.morador-editar').unbind('click').click(function(e){
+        //TABELA => Editar
+        $(document).on('click', '.morador-editar',function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
@@ -79,8 +79,8 @@
             });
         });
 
-        /*Excluir*/
-        $(document).find('.morador-excluir').unbind('click').click(function(e){
+        //TABELA => Excluir
+        $(document).on('click', '.morador-excluir',function(e){
             /*Message*/
             Command: toastr["success"]("Cadastro Excluído!")
             toastr.options = {
@@ -116,7 +116,7 @@
         const titulo = document.querySelector('h1');
         typeWriter(titulo);
 
-        /*Form*/ 
+        //PRINCIPAL => novo cadastro
         $('#btn-option-new').unbind('click').click(function(e){
             e.preventDefault();
             $.ajax({
@@ -134,7 +134,7 @@
             });
         });
 
-        /*Consultar*/
+        //CONSULTAR
         $('#principal-morador-consultar').submit(function(e) {
             e.preventDefault();
 
@@ -144,7 +144,7 @@
                 data: $(this).serialize(),
                 dataType: "json"
             }).done(function(data){
-                //MONTAR GRID
+                //PRINCIPAL => Montar grid
                 text = '';
 
                     text += '	<table id="info-moradores" class="ui table">';
@@ -174,10 +174,10 @@
                     text += '       </tbody>';
                     text += '    </table>';
 
-                /*Grid*/
+                //PRINCIPAL => Mostrar grid
                 $('#grid-moradores').html(text);
 
-                /*Data-Table*/
+                //DATATABLE => tradução
                 $('#info-moradores').DataTable({
                     //Tradução
                     "language": {
@@ -205,7 +205,7 @@
                     }
                 });
 
-                /*Edit*/
+                //PRINCIPAL => Editar
                 $('.morador-editar').unbind('click').click(function(e){
                     e.preventDefault();
                     $.ajax({
@@ -223,7 +223,7 @@
                     });
                 });
 
-                /*Excluir*/
+                //PRINCIPAL => Excluir
                 $('.morador-excluir').unbind('click').click(function(e){
 
                     /*Message*/

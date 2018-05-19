@@ -66,24 +66,31 @@ class MoradorController extends Controller
         $sexo =  $sexoMorador;
 
         $obj = $model->find($id);
-        $dataNascimento = implode("/",array_reverse(explode("-",$obj->dt_nascimento_morador)));
+        //$dataNascimento = implode("/",array_reverse(explode("-",$obj->dt_nascimento_morador)));
         $tipos = $modelTipo->getAll();
         $apartamentos = $modelApartamento->getAll();
 
         return view('sistema.morador.form', ['tipos' => $tipos,
                                             'obj' => $obj,
                                             'apartamentos' =>$apartamentos,
-                                            'dtNascimento' => $dataNascimento,
                                             'sexo' => $sexo
                                             ]);
     }
 
     public function gravar(Request $request)
     {
-        $t = $request->all('dt_nascimento_morador');
-        $t = implode("-",array_reverse(explode("/",$t['dt_nascimento_morador'])));
-        dd($t = $request->all());
-        $model = new Morador($request->all());
+        $params = $request->all();
+
+        $model = new Morador;
+
+        if (!empty($params['id_morador'])) {
+            $model = $model->find($params['id_morador']);
+        } else {
+            unset($params['id_morador']);
+        }
+
+        $model->fill($params);
+        // $model = new Morador($request->all());
         
         $model->limparDados();
         

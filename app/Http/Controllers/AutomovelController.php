@@ -23,7 +23,7 @@ class AutomovelController extends Controller
         return view('sistema.automovel.principal', ['apartamentos' => $apartamentos, 'blocos' => $blocos]);
     }
 
-    public function form($allParams)
+    public function form()
     {
         $model = new Automovel();
         $modelMorador = new Morador();
@@ -35,20 +35,6 @@ class AutomovelController extends Controller
         $apartamentos = $modelApartamento->getAll();
 
         return view('sistema.automovel.form', ['apartamentos' => $apartamentos]);
-    }
-
-    public function gravar(Request $request)
-    {
-        $model = new Automovel($request->all());
-        $model->limparDados();
-
-       $model->save();
-
-        if ($model) {
-            echo 'inserido com sucesso';
-        } else {
-            echo 'falha ao inserir';
-        }
     }
 
     public function grid()
@@ -67,6 +53,27 @@ class AutomovelController extends Controller
 
         return view('sistema.automovel.form', ['obj' => $obj, 'apartamentos' => $apartamentos,]);
     }
+
+    public function gravar(Request $request)
+    {
+        $params = $request->all();
+
+        $model = new Automovel;
+
+        if (!empty($params['id_automovel'])) {
+            $model = $model->find($params['id_automovel']);
+        } else {
+            unset($params['id_morador']);
+        }
+
+        $model->fill($params);
+        // $model = new Morador($request->all());
+        
+        $model->limparDados();
+        
+        $model->save();
+    }
+
     public function excluir($id)
     {
         $model = new Automovel;

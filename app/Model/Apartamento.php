@@ -21,4 +21,15 @@ class Apartamento extends Model
 
         return $query->get();
     }
+
+    public function moradorPorApartamento($idApt)
+    {
+        $query = $this->newQuery();
+        $query->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento');
+        $query->where('apartamento.id_apt', '=', $idApt);
+        
+        $query->orderBy('morador.no_morador');
+
+        return $query->get();
+    }
 }
