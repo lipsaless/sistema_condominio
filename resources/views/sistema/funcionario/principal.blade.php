@@ -11,9 +11,6 @@
 <!-- Title -->
 <h1 class="text-center">Funcionários</h1>
 
-<!-- Form -->
-<div id="div-form-funcionario-cadastro"></div>
-
 <!-- Principal -->
 <div id="principal-funcionario">
     <!-- Buttons -->
@@ -29,6 +26,9 @@
             </button>
         </div>
     </div>
+
+    <!-- Form -->
+    <div id="div-form-funcionario-cadastro"></div>
 
     <!-- Consultar -->
     <form id="principal-funcionario-consultar" action="{{ route('funcionario-grid') }}" method="POST" style="display:none;">
@@ -51,10 +51,10 @@
 <script>
     $(document).ready(function(){
         //START AJAX E STOP AJAX
-        ajax();
+        // ajax();
 
         /*Form*/
-        $('#btn-option-new-funcionario').unbind('click').click(function(e){
+        $(document).on('click', '#btn-option-new-funcionario', function(e){
             e.preventDefault();
 
             $.ajax({
@@ -62,13 +62,47 @@
                 url: $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#principal-funcionario').hide();
+                    $('#grid-funcionarios').hide();
                     $('#btn-option-new-funcionario').css("display", "none");
                     $('#btn-option-back-funcionario').css("display", "block");
                     $('#btn-option-save').css("display", "block");
-                    $('h1').css("display", "none");
+                    $('h1').html('Cadastro de funcionário');
                     $('#div-form-funcionario-cadastro').html(formHtml);
+                    $('#div-form-funcionario-cadastro').show();
                 }
+            });
+        });
+
+        /*Edit*/
+        $(document).on('click', '.funcionario-editar', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '{{ route("funcionario-editar") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#grid-funcionarios').hide();
+                    $('#btn-option-new-funcionario').css("display", "none");
+                    $('#btn-option-back-funcionario').css("display", "block");
+                    $('#btn-option-save-funcionario').css("display", "block");
+                    $('h1').html('Editar funcionário');
+                    $('#div-form-funcionario-cadastro').html(formHtml);
+                    $('#div-form-funcionario-cadastro').show();
+                }
+            });
+        });
+
+        /*Excluir*/
+        $(document).on('click', '.funcionario-excluir', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: "GET",
+                url: '{{ route("funcionario-excluir") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize()
+            }).done(function() {
+                /*Submit conultar*/
+                $('#btn-consultar-funcionario').unbind('click').click();
             });
         });
 
@@ -102,7 +136,6 @@
                             text += '               <td>'+rs.no_funcionario+'</td>';
                             text += '               <td><a class="ui blue label">'+rs.ds_email_funcionario+'</a></td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="funcionario-editar" class="ui blue button funcionario-dados" data-action="'+id+'" style="text-align: center;"><i class="fas fa-search"></i></button>';
                             text += '                   <button id="funcionario-editar" class="ui blue button funcionario-editar" data-action="'+id+'" style="text-align: center;"><i class="fas fa-pencil-alt"></i></button>';
                             text += '                   <button id="funcionario-excluir" class="ui red button funcionario-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
@@ -141,60 +174,6 @@
                             "sSortDescending": ": Ordenar colunas de forma descendente"
                         }
                     }
-                });
-
-                /*Edit*/
-                $('.funcionario-editar').unbind('click').click(function(e){
-                    
-                    e.preventDefault();
-                    $.ajax({
-                        type: "GET",
-                        url: '{{ route("funcionario-editar") }}' + '/' + $(this).attr("data-action"),
-                        data: $(this).serialize(),
-                        success: function(formHtml) {
-                            $('#principal-funcionario').hide();
-                            $('#btn-option-new-funcionario').css("display", "none");
-                            $('#btn-option-back-funcionario').css("display", "block");
-                            $('#btn-option-save-funcionario').css("display", "block");
-                            $('h1').css("display", "none");
-                            $('#div-form-funcionario-cadastro').html(formHtml);
-                        }
-                    });
-                });
-
-                /*Excluir*/
-                $('.funcionario-excluir').unbind('click').click(function(e){
-
-                    /*Message*/
-                    Command: toastr["success"]("Cadastro Excluído!")
-                    toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": true,
-                    "positionClass": "toast-top-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "5000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                    }
-
-                    e.preventDefault();
-
-                    $.ajax({
-                        type: "GET",
-                        url: '{{ route("funcionario-excluir") }}' + '/' + $(this).attr("data-action"),
-                        data: $(this).serialize()
-                    }).done(function() {
-                        /*Submit conultar*/
-                        $('#btn-consultar-funcionario').unbind('click').click();
-                    });
                 });
             });
         });

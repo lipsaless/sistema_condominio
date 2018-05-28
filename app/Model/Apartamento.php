@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Apartamento extends Model
 {
     protected $table = 'apartamento';
-    protected $primary = 'id_apartamento';
+    protected $primaryKey = 'id_apartamento';
     protected $guarded = [];
 
     public function getAll()
@@ -17,7 +17,7 @@ class Apartamento extends Model
         $query->select('apartamento.*','bloco.*');
         $query->whereNull('apartamento.dt_fim');
 
-        $query->orderBy('apartamento.no_apartamento');
+        $query->orderBy('apartamento.id_bloco','ASC','apartamento.no_apartamento', 'ASC');
 
         return $query->get();
     }
@@ -25,8 +25,8 @@ class Apartamento extends Model
     public function moradorPorApartamento($idApt)
     {
         $query = $this->newQuery();
-        $query->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento');
-        $query->where('apartamento.id_apt', '=', $idApt);
+        $query->join('morador', 'morador.id_apartamento', 'apartamento.id_apartamento');
+        $query->where('apartamento.id_apartamento', '=', $idApt);
         
         $query->orderBy('morador.no_morador');
 

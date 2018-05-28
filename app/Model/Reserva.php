@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     protected $table = 'reserva';
-    protected $primary = 'id_reserva';
+    protected $primaryKey = 'id_reserva';
     protected $guarded = [];
 
     public function getAll()

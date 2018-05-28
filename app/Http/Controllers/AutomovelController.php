@@ -29,12 +29,12 @@ class AutomovelController extends Controller
         $modelMorador = new Morador();
         $modelApartamento = new Apartamento;
 
-        $moradorApartamento = 
+        $obj = $model;
 
         $moradores = Automovel::all()->toArray();
         $apartamentos = $modelApartamento->getAll();
 
-        return view('sistema.automovel.form', ['apartamentos' => $apartamentos]);
+        return view('sistema.automovel.form', ['obj' => $obj, 'apartamentos' => $apartamentos]);
     }
 
     public function grid()
@@ -46,12 +46,25 @@ class AutomovelController extends Controller
     public function editar($id)
     {
         $model = new Automovel;
+        $modelMorador = new Morador;
         $modelApartamento = new Apartamento;
 
         $obj = $model->find($id);
-        $apartamentos = $modelApartamento->getAll();
 
-        return view('sistema.automovel.form', ['obj' => $obj, 'apartamentos' => $apartamentos,]);
+        $morador = $modelMorador->getAll();
+        $apartamento = $modelApartamento->find($id);
+        return view('sistema.automovel.form', ['obj' => $obj, 'morador' => $morador, 'apartamento' => $apartamento]);
+    }
+
+    public function listaMoradores(Request $request)
+    {
+        $model = new Apartamento;
+
+        $idApt = $request->input('id_apartamento');
+        
+        $listaMoradores = $model->moradorPorApartamento($idApt);
+
+        return response()->json($listaMoradores);
     }
 
     public function gravar(Request $request)

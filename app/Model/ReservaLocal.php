@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReservaLocal extends Model
 {
     protected $table = 'reserva_local';
-    protected $primary = 'id_reserva_local';
+    protected $primaryKey = 'id_reserva_local';
     protected $guarded = [];
 
     public function getAll()

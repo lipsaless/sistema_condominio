@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bloco extends Model
 {
     protected $table = 'bloco';
-    protected $primary = 'id_bloco';
+    protected $primaryKey = 'id_bloco';
     protected $guarded = [];
 
     public function getAll()

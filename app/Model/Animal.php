@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Animal extends Model
 {
     protected $table = 'animal';
-    protected $primary = 'id_animal';
+    protected $primaryKey = 'id_animal';
     protected $guarded = [];
 
     public function getAll()

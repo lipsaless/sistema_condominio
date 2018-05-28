@@ -40,6 +40,9 @@ Route::post('/morador/automovel/gravar', ['as' => 'morador-automovel-gravar', 'u
 Route::get('/morador/automovel/editar/{id?}', ['as' => 'morador-automovel-editar', 'uses' => 'AutomovelController@editar']);
 Route::get('/morador/automovel/excluir/{id?}', ['as' => 'morador-automovel-excluir', 'uses' => 'AutomovelController@excluir']);
 
+//SISTEMA
+Route::get('/sistema/lista-morador', ['as' => 'morador-apt', 'uses' => 'AutomovelController@listaMoradores']);
+
 //MORADOR-ANIMAL
 Route::get('/morador/animal', ['as' => 'morador-animal-principal', 'uses' => 'AnimalController@principal']);
 Route::get('/morador/animal/cadastro', ['as' => 'morador-animal-form', 'uses' => 'AnimalController@form']);

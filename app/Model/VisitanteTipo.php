@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class VisitanteTipo extends Model
 {
     protected $table = 'visitante_tipo';
-    protected $primary = 'id_visitante_tipo';
+    protected $primaryKey = 'id_visitante_tipo';
     protected $guarded = [];
 
     public function getAll()

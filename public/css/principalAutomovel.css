@@ -8,3 +8,20 @@
     border-radius: 5px;
 }
 
+.ui.grid>.row {
+    display: flex !important;
+}
+#info-moradores_info, #info-morador-automovel_length {
+    font-weight: bold;
+}
+#info-moradores_filter {
+    font-weight: bold;
+    text-align: left;
+}
+select[name="info-moradores_length"] {
+    padding: 10px;
+    border-radius: 5px;
+}
+th {
+    font-size: 12pt;
+}

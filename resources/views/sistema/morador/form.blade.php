@@ -6,7 +6,7 @@
     }
 ?>
 
-<form id="form-morador" action="{{ route('morador-gravar') }}" method="POST"></form>
+<form id="form-morador" action="{{ route('morador-gravar') }}" method="POST">
     <input type="hidden" name="id_morador" value="{{ $obj->id_morador }}">
     <hr>
     <fieldset id="fieldset">
@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="id_apartamento" class="font-weight-bold">Apartamento: *</label>
-                <select class="form-control" id="id_apartamento" name="id_apartamento" value="">
+                <select class="form-control" id="id_apartamento" name="id_apartamento">
                         <option value="">Selecione</option>
                     <?php foreach ($apartamentos as $apt): ?>
                     <?php $selecionado = ($apt->id_apartamento == $obj->id_apartamento) ? 'selected' : '' ?>
@@ -85,9 +85,6 @@
 
 <script>
     $(document).ready(function() {
-        const titulo = document.querySelector('h1');
-        typeWriter(titulo);
-
         $('#btn-option-back').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back').hide();
@@ -146,16 +143,18 @@
                     $('#btn-option-back').hide();
                     $('#btn-option-new').show();
                     $('#form-morador').hide();
-                    $('#principal-morador').show();
-                    $('h1').show();
+                    $('#grid-moradores').show();
+                    $('h1').html('Moradores');
                     $('#btn-consultar-morador').click();
-
-                     //mensagem
-                     return message('success', 'Cadastro efetuado com sucesso!');
+                    //mensagem
+                    if (!$('[name="id_morador"]').val()) {
+                        return message('success', 'Cadastro efetuado com sucesso!');
+                    } else {
+                        return message('success', 'Morador editado com sucesso!');
+                    }
                 }
             });
         });
-
 
         $('#nu_cpf_morador').mask('999.999.999-99');
         $('#nu_rg_morador').mask('9.999.999');

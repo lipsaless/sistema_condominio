@@ -16,8 +16,9 @@ class Morador extends Model
         $query = $this->newQuery();
         $query->whereNull('morador.dt_fim');
         $query->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento');
+        $query->join('bloco', 'bloco.id_bloco', 'apartamento.id_bloco');
         $query->join('morador_tipo', 'morador_tipo.id_morador_tipo', 'morador.id_morador_tipo');
-        $query->select('morador.*','apartamento.*','morador_tipo.*');
+        $query->select('morador.*','apartamento.*','morador_tipo.*', 'bloco.*');
 
         if (!empty($allParams['no_morador'])) {
             $query->where('morador.no_morador','ILIKE', '%'.$allParams['no_morador'].'%');

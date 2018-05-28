@@ -1,5 +1,10 @@
-<!-- Title -->
-<h2 class="text-center">Cadastro de Funcionário</h2>
+<?php 
+    if ($obj->dt_nascimento_funcionario) {
+        $dataNascimento = date('d/m/Y', strtotime($obj->dt_nascimento_funcionario));
+    } else {
+        $dataNascimento = '';
+    }
+?>
 
 <!-- Form -->
 <form id="form-funcionario" action="{{ route('funcionario-gravar') }}" method="POST">
@@ -29,7 +34,7 @@
         </div>
         <div class="col-md-3">
             <label for="dt_nascimento_funcionario" class="font-weight-bold">Data de Nascimento:</label>
-            <input type="text" class="form-control" id="dt_nascimento_funcionario" name="dt_nascimento_funcionario" value="{{ $obj->dt_nascimento_funcionario }}">
+            <input type="text" class="form-control" id="dt_nascimento_funcionario" name="dt_nascimento_funcionario" value="<?php echo $dataNascimento; ?>">
         </div>
     </div>
     <div class="row my-3">
@@ -62,8 +67,8 @@
             $('#btn-option-back-funcionario').hide();
             $('#btn-option-new-funcionario').show();
             $('#form-funcionario').hide();
-            $('#principal-funcionario').show();
-            $('h1').show();
+            $('#grid-funcionarios').show();
+            $('h1').html('Funcionários');
         });
 
         /*Mask*/

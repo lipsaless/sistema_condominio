@@ -26,7 +26,6 @@ class ExMoradorController extends Controller
     {
         $model = new Morador;
         return $model->getExMorador();
-        dd($model);
     }
 
     public function recuperar($id)

@@ -64,12 +64,8 @@
 <script>
     $(document).ready(function(){
         $(document).tooltip();
-
-        const titulo = document.querySelector('h1');
-        typeWriter(titulo);
-
         //START AJAX E STOP AJAX
-        // ajax();
+        ajax();
         
         //PRINCIPAL => novo cadastro
         $(document).on('click', '#btn-option-new', function(e){
@@ -98,20 +94,20 @@
                 url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
+                    $('#grid-moradores').hide();
                     $('#btn-option-new').css("display", "none");
                     $('#btn-option-back').css('display','block');
                     $('#btn-option-save').css("display", "block");
-                    $('h1').css("display", "none");
+                    $('h1').html('Editar morador');
                     $('#form-morador-cadastro').html(formHtml);
+                    $('#form-morador-cadastro').show();
                 }
             });
         });
 
         //TABELA => Excluir
         $(document).on('click', '.morador-excluir',function(e){
-
             e.preventDefault();
-
             $.ajax({
                 type: "GET",
                 url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
@@ -151,8 +147,8 @@
                         $.each(data, function(key, rs) {
                             text += '           <tr id="'+rs.id_morador+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
-                            text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
-                            text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
+                            text += '               <td>'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
                             text += '                   <button id="morador-editar" class="ui green button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" title="Visualizar dados"><i class="fas fa-search" data-remodal="1"></i></button>';
                             text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" title="Editar morador"><i class="fas fa-pencil-alt"></i></button>';
@@ -196,22 +192,22 @@
                 });
 
                 //PRINCIPAL => Editar
-                $('.morador-editar').unbind('click').click(function(e){
-                    e.preventDefault();
-                    $.ajax({
-                        type: "GET",
-                        url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
-                        data: $(this).serialize(),
-                        success: function(formHtml) {
-                            $('#principal-morador').hide();
-                            $('#btn-option-new').css("display", "none");
-                            $('#btn-option-back').css("display", "block");
-                            $('#btn-option-save').css("display", "block");
-                            $('h1').css("display", "none");
-                            $('#form-morador-cadastro').html(formHtml);
-                        }
-                    });
-                });
+                // $('.morador-editar').unbind('click').click(function(e){
+                //     e.preventDefault();
+                //     $.ajax({
+                //         type: "GET",
+                //         url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
+                //         data: $(this).serialize(),
+                //         success: function(formHtml) {
+                //             $('#principal-morador').hide();
+                //             $('#btn-option-new').css("display", "none");
+                //             $('#btn-option-back').css("display", "block");
+                //             $('#btn-option-save').css("display", "block");
+                //             $('h1').css("display", "none");
+                //             $('#form-morador-cadastro').html(formHtml);
+                //         }
+                //     });
+                // });
 
                 //PRINCIPAL => Excluir
                 // $('.morador-excluir').unbind('click').click(function(e){

@@ -376,8 +376,8 @@
         countReserva();
         countFuncionario();
 
-        // const titulo = document.querySelector('#no_condominio');
-        // typeWriter(titulo);
+        const titulo = document.querySelector('#no_condominio');
+        typeWriter(titulo);
     });
 </script>
 @stop

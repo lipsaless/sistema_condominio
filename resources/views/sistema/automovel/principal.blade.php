@@ -62,10 +62,6 @@
 
 <script>
     $(document).ready(function(){
-
-        const titulo = document.querySelector('h1');
-        typeWriter(titulo);
-
          /*Form*/
          $('#btn-option-new-automovel-form').unbind('click').click(function(e){
             e.preventDefault();
@@ -85,6 +81,51 @@
             });
         });
 
+        /*Voltar*/
+        $('#btn-option-back-morador-automovel').unbind('click').click(function(e){
+            e.preventDefault();
+            $('#btn-option-back-morador-automovel').hide();
+            $('#btn-option-new-automovel-form').show();
+            $('#form-morador-automovel').hide();
+            $('#grid-morador-automovel').show();
+            $('#btn-morador-consulta').click();
+            $('h1').html('Automóveis');
+        });
+
+         //TABELA => Editar
+         $(document).on('click', '.morador-automovel-editar',function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '{{ route("morador-automovel-editar") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#grid-morador-automovel').hide();
+                    $('#btn-option-new-automovel-form').css("display", "none");
+                    $('#btn-option-back-morador-automovel').css("display", "block");
+                    $('#btn-option-save').css("display", "block");
+                    $('h1').html("Cadastro de automóvel");
+                    $('#div-form-morador-automovel').html(formHtml);
+                    $('#div-form-morador-automovel').show();
+                }
+            });
+        });
+
+        //TABELA => Excluir
+        $(document).on('click', '.morador-automovel-excluir',function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: '{{ route("morador-automovel-excluir") }}' + '/' + $(this).attr("data-action"),
+                data: $(this).serialize()
+            }).done(function() {
+                /*Submit conultar*/
+                $('#btn-consultar-morador-automovel').unbind('click').click();
+                //msg
+                return message('success', 'Automóvel excluído com sucesso!');
+            });
+        });
+
         //TABELA => Editar
         $(document).on('click', '.morador-automovel-editar',function(e){
             e.preventDefault();
@@ -93,11 +134,12 @@
                 url: '{{ route("morador-automovel-editar") }}' + '/' + $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#principal-morador-automovel').hide();
+                    $('#grid-morador-automovel').hide();
                     $('#btn-option-new-morador-automovel').css("display", "none");
                     $('#btn-option-back-morador-automovel').css("display", "block");
                     $('#btn-option-save').css("display", "block");
                     $('#form-morador-automovel-cadastro').html(formHtml);
+                    $('#div-form-morador-automovel').show();
                 }
             });
         });
@@ -117,7 +159,7 @@
                     text += '	<table id="info-morador-automovel" class="table user-list">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '           	<th width="40">Morador</th>';
+                    text += '           	<th width="40">Morador(a)</th>';
                     text += '            	<th><span>Apartamento/Bloco</span></th>';
                     text += '            	<th><span>Automóvel</span></th>';
                     text += '            	<th>&nbsp;</th>';
@@ -127,12 +169,11 @@
                     $.each(data, function(key, rs) {
                             text += '           <tr id="'+rs.id_automovel+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
-                            text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_automovel+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="morador-editar" class="ui blue button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" data-content="Dados"><i class="fas fa-search" data-remodal="1"></i></button>';
-                            text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
-                            text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;"><i class="fas fa-times" title="Excluir"></i></button>';
+                            text += '                   <button id="morador-automovel-editar" class="ui blue button morador-automovel-editar" data-action="'+rs.id_automovel+'" style="text-align: center;" data-html="Clique para editar" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
+                            text += '                   <button id="morador-automovel-excluir" class="ui red button morador-automovel-excluir" data-action="'+rs.id_automovel+'" style="text-align: center;"><i class="fas fa-times" title="Excluir"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -143,7 +184,32 @@
                 $('#grid-morador-automovel').html(text);
 
                 /*Data-Table*/
-                $('#info-morador-automovel').DataTable();
+                $('#info-morador-automovel').DataTable({
+                    //Tradução
+                    "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum registro encontrado",
+                        "sSearch": "Morador ou automóvel",
+                        "oPaginate": {
+                            "sNext": "Próximo",
+                            "sPrevious": "Anterior",
+                            "sFirst": "Primeiro",
+                            "sLast": "Último"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Ordenar colunas de forma ascendente",
+                            "sSortDescending": ": Ordenar colunas de forma descendente"
+                        }
+                    }
+                });
 
             });
         });

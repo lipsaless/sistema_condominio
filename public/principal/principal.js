@@ -6,7 +6,7 @@ function typeWriter(elemento) {
     });
 }
 
-//AJAX
+// AJAX
 // function ajax() 
 // {
 //     $(document).ajaxStart(function() {
@@ -70,4 +70,33 @@ function dataTableTraducao() {
         }
     }
     return $tradutor;
+}
+
+function carregarListaApt() {
+    $('#no_apartamento').autocomplete({
+        source: JSON.parse($('#lista-apt').val()),
+        select: function(evento, itemSelecionado) {
+            if (!itemSelecionado.item) {
+                $("#leitura-id-apt").val(null);
+            } else {
+                $("#lista-apt").val(itemSelecionado.item.id);
+                //AJAX
+                $.ajax({
+                    type: 'GET'
+                    ,url: $('#rota-morador-apt').val()
+                    ,dataType: 'json'
+                    ,data: {
+                        id_apartamento: itemSelecionado.item.id,
+                    }
+                }).done(function(data) {
+                    let html = '';
+                    $.each(data, function(key, rs) {
+                        html += '<option value="'+rs.id_morador+'">'+rs.no_morador+'</option>';
+                    });
+
+                    $('#id_morador').html(html);
+                });
+            }
+        }
+    })
 }
