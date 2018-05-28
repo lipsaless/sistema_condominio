@@ -14,7 +14,7 @@ class Automovel extends Model
     {
         $query = $this->newQuery();
         $query->join('morador', 'morador.id_morador', 'automovel.id_morador');
-        $query->select('automovel.*','apartamento.*','morador.*');
+        $query->select('automovel.*','morador.*');
         $query->whereNull('automovel.dt_fim');
         $query->orderBy('automovel.dt_inicio');
 

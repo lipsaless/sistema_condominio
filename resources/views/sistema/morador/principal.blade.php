@@ -3,16 +3,15 @@
 @section('view-principal')
 
 <!-- Title -->
-<h1 class="text-center"><?php echo $title; ?></h1>
+<h1 class="text-center">Moradores</h1>
+        
 
-<!-- Form -->
-<div id="form-morador-cadastro"></div>
     <!-- Principal -->
     <div id="principal-morador">
         <!--Buttons-->
         <div id="buttons">
             <div class="col-md-12 row">
-                <button id="btn-option-back" data-module="" class="ui basic button col-xs-12" style="display: none">
+                <button id="btn-option-back" class="ui basic button col-xs-12" style="display:none;">
                     <i class="fa fa-reply"></i>
                     <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
                 </button>
@@ -23,8 +22,11 @@
             </div>
         </div>
 
+        <!-- Form -->
+        <div id="form-morador-cadastro"></div>
+
         <!-- Consultar -->
-        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display: none;">
+        <form id="principal-morador-consultar" action="{{ route('morador-grid') }}" method="POST" style="display:none;">
             <div class="row">
                 <div class="col-md-3">
                     <label for="no_apartamento" class="font-weight-bold">Apartamento:</label>
@@ -63,9 +65,31 @@
     $(document).ready(function(){
         $(document).tooltip();
 
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
+
         //START AJAX E STOP AJAX
-        ajax();
+        // ajax();
         
+        //PRINCIPAL => novo cadastro
+        $(document).on('click', '#btn-option-new', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#grid-moradores').hide();
+                    $('#btn-option-new').css("display", "none");
+                    $('#btn-option-back').css("display", "block");
+                    $('#btn-option-save').css("display", "block");
+                    $('h1').html('Cadastro de morador');
+                    $('#form-morador-cadastro').html(formHtml);
+                    $('#form-morador-cadastro').show();
+                }
+            });
+        });
+
         //TABELA => Editar
         $(document).on('click', '.morador-editar',function(e){
             e.preventDefault();
@@ -74,9 +98,8 @@
                 url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#principal-morador').hide();
                     $('#btn-option-new').css("display", "none");
-                    $('#btn-option-back').css("display", "block");
+                    $('#btn-option-back').css('display','block');
                     $('#btn-option-save').css("display", "block");
                     $('h1').css("display", "none");
                     $('#form-morador-cadastro').html(formHtml);
@@ -98,27 +121,6 @@
                 $('#btn-consultar-morador').unbind('click').click();
                 //msg
                 return message('success', 'Morador excluído com sucesso!');
-            });
-        });
-
-        const titulo = document.querySelector('h1');
-        typeWriter(titulo);
-
-        //PRINCIPAL => novo cadastro
-        $('#btn-option-new').unbind('click').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: $(this).attr("data-action"),
-                data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#principal-morador').hide();
-                    $('#btn-option-new').css("display", "none");
-                    $('#btn-option-back').show();
-                    $('#btn-option-save').css("display", "block");
-                    $('h1').css("display", "none");
-                    $('#form-morador-cadastro').html(formHtml);
-                }
             });
         });
 

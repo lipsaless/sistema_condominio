@@ -3,17 +3,14 @@
 @section('view-principal')
 
 <!-- Title -->
-<h1 class="text-center">Automovel</h1>
-
-<!-- Form -->
-<div id="div-form-morador-automovel"></div>
+<h1 class="text-center">Automóveis</h1>
 
 <!-- Principal -->
 <div id="principal-morador-automovel">
     <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">
-            <button id="btn-option-back-morador-automovel" class="ui basic button btn-resp col-xs-12" style="display:none">
+            <button id="btn-option-back-morador-automovel" class="ui basic button col-xs-12" style="display:none;">
                 <i class="fa fa-reply"></i>
                 <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
             </button>
@@ -23,6 +20,9 @@
             </button>
         </div>
     </div>
+
+    <!-- Form -->
+    <div id="div-form-morador-automovel"></div>
 
     <!-- Consultar -->
     <form id="principal-morador-automovel-consultar" action="{{ route('morador-automovel-grid') }}" method="POST" style="display:none;">
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-2">
                 <div>&nbsp;</div>
-                <button type="submit" class="ui black button">Consultar</button>
+                <button id="btn-consultar-morador-automovel" type="submit" class="ui black button">Consultar</button>
             </div>
         </div>
     </form>
@@ -62,6 +62,28 @@
 
 <script>
     $(document).ready(function(){
+
+        const titulo = document.querySelector('h1');
+        typeWriter(titulo);
+
+         /*Form*/
+         $('#btn-option-new-automovel-form').unbind('click').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: $(this).attr("data-action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#grid-morador-automovel').hide();
+                    $('#btn-option-new-automovel-form').css("display", "none");
+                    $('#btn-option-back-morador-automovel').css("display", "block");
+                    $('#btn-option-save').css("display", "block");
+                    $('h1').html("Cadastro de automóvel");
+                    $('#div-form-morador-automovel').html(formHtml);
+                    $('#div-form-morador-automovel').show();
+                }
+            });
+        });
 
         //TABELA => Editar
         $(document).on('click', '.morador-automovel-editar',function(e){
@@ -75,35 +97,14 @@
                     $('#btn-option-new-morador-automovel').css("display", "none");
                     $('#btn-option-back-morador-automovel').css("display", "block");
                     $('#btn-option-save').css("display", "block");
-                    $('h1').css("display", "none");
                     $('#form-morador-automovel-cadastro').html(formHtml);
                 }
             });
         });
 
-        const titulo = document.querySelector('h1');
-        typeWriter(titulo);
-
-        /*Form*/
-        $('#btn-option-new-automovel-form').unbind('click').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: $(this).attr("data-action"),
-                data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#principal-morador-automovel').hide();
-                    $('#btn-option-new-automovel-form').css("display", "none");
-                    $('#btn-option-back-morador-automovel').css("display", "block");
-                    $('#btn-option-save').css("display", "block");
-                    $('h1').css("display", "none");
-                    $('#div-form-morador-automovel').html(formHtml);
-                }
-            });
-        });
-
         /*Consultar*/
-        $('#principal-morador-automovel-consultar').submit(function() {
+        $('#principal-morador-automovel-consultar').submit(function(e) {
+            e.preventDefault()
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),
@@ -145,8 +146,9 @@
                 $('#info-morador-automovel').DataTable();
 
             });
-            return false;
         });
+         /*Submit conultar*/
+         $('#btn-consultar-morador-automovel').unbind('click').click();
     });
 </script>
 @stop

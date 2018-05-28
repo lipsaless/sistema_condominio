@@ -6,11 +6,10 @@
     }
 ?>
 
-<h1 class="text-center">Cadastro de Morador</h1>
-<form id="form-morador" action="{{ route('morador-gravar') }}" method="POST">
+<form id="form-morador" action="{{ route('morador-gravar') }}" method="POST"></form>
     <input type="hidden" name="id_morador" value="{{ $obj->id_morador }}">
     <hr>
-    <fieldset id="fieldset-morador">
+    <fieldset id="fieldset">
         <legend>Dados</legend>
         <div class="row">
             <div class="col-md-3">
@@ -93,9 +92,10 @@
             e.preventDefault();
             $('#btn-option-back').hide();
             $('#btn-option-new').show();
-            $('#form-morador').hide();
-            $('#principal-morador').show();
-            $('h1').show();
+            $('#form-morador-cadastro').hide();
+            $('#grid-moradores').show()
+            $('#btn-morador-consulta').click();
+            $('h1').html('Moradores');
         });
         
         //FORMULÁRIO => salvar
