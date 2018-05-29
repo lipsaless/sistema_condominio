@@ -166,16 +166,20 @@
     background-color: #030303;
   }
   .toast-success {
-    background-color: #51A351;
+    background-color: #04B431;
+    width: 50% !important;
   }
   .toast-error {
-    background-color: #BD362F;
+    background-color: #FF0000;
+    width: 50% !important;
   }
   .toast-info {
-    background-color: #2F96B4;
+    background-color: #00BFFF;
+    width: 50% !important;
   }
   .toast-warning {
-    background-color: #F89406;
+    background-color: #FF8C00;
+    width: 50% !important;
   }
   .toast-progress {
     position: absolute;

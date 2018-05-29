@@ -18,7 +18,7 @@
     font-weight: bold;
     text-align: left;
 }
-select[name="info-moradores_length"] {
+select[name="info-morador-automovel_length"] {
     padding: 10px;
     border-radius: 5px;
 }

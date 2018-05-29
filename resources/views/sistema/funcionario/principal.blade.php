@@ -103,6 +103,9 @@
             }).done(function() {
                 /*Submit conultar*/
                 $('#btn-consultar-funcionario').unbind('click').click();
+
+                //msg
+                return message('success', 'Funcionário excluído com sucesso!');
             });
         });
 
@@ -124,6 +127,7 @@
                     text += '       	<tr>';
                     text += '            	<th><span><i class="fas fa-user"></i> Funcionário</span></th>';
                     text += '            	<th><span><i class="fas fa-cart"></i> E-mail</span></th>';
+                    text += '            	<th><span><i class="fas fa-phone"></i> Telefone/Celular</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
@@ -134,7 +138,8 @@
 
                             text += '           <tr id="'+id+'">';
                             text += '               <td>'+rs.no_funcionario+'</td>';
-                            text += '               <td><a class="ui blue label">'+rs.ds_email_funcionario+'</a></td>';
+                            text += '               <td style="font-style:italic; font-weight:bold;">'+rs.ds_email_funcionario+'</td>';
+                            text += '               <td><a class="ui yellow circule label" style="color:black !important;">'+rs.nu_telefone_funcionario+'</a> / <a class="ui yellow circule label" style="color:black !important;">'+rs.nu_celular_funcionario+'</a></td>';
                             text += '               <td style="text-align: center;">';
                             text += '                   <button id="funcionario-editar" class="ui blue button funcionario-editar" data-action="'+id+'" style="text-align: center;"><i class="fas fa-pencil-alt"></i></button>';
                             text += '                   <button id="funcionario-excluir" class="ui red button funcionario-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';

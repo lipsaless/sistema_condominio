@@ -48,9 +48,31 @@ class FuncionarioController extends Controller
 
     public function gravar(Request $request)
     {
-        $model = new Funcionario($request->all());
-        $model->limparDados();
+        $params = $request->all();
 
+        $model = new Funcionario;
+
+        if (!empty($params['id_funcionario'])) {
+            $model = $model->find($params['id_funcionario']);
+        } else {
+            unset($params['id_funcionario']);
+        }
+
+        $model->fill($params);
+        
+        $model->limparDados();
+        
         $model->save();
+    }
+
+    public function excluir($id)
+    {
+        $model = new Funcionario;
+        $obj = $model->find($id);
+        
+        $obj->dt_fim = date('Y-m-d H:i:s');
+        $obj->update();
+
+        return response([]);
     }
 }

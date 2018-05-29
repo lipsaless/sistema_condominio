@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Funcionario extends Model
@@ -33,5 +34,11 @@ class Funcionario extends Model
         $this->nu_celular_funcionario = str_replace('.','', $this->nu_celular_funcionario);
         $this->nu_celular_funcionario = str_replace('-','', $this->nu_celular_funcionario);
         $this->dt_nascimento_funcionario = str_replace('/','-', $this->dt_nascimento_funcionario);
+    }
+
+    public function countFuncionarios()
+    {
+        $funcionarios = DB::table('funcionario')->whereNull('funcionario.dt_fim')->count();
+        return $funcionarios;
     }
 }

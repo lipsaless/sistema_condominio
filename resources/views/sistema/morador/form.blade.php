@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-4">
                 <label for="id_morador_tipo" class="font-weight-bold">Tipo de Morador: *</label>
-                <select class="form-control" id="id_morador_tipo" name="id_morador_tipo" value="">
+                <select class="form-control" id="id_morador_tipo" name="id_morador_tipo">
                         <option value="">Selecione</option>
                     <?php foreach($tipos as $value) :?>
                     <?php $selecionado = ($value->id_morador_tipo == $obj->id_morador_tipo) ? 'selected' : '' ?>
@@ -156,6 +156,7 @@
             });
         });
 
+        //Mask
         $('#nu_cpf_morador').mask('999.999.999-99');
         $('#nu_rg_morador').mask('9.999.999');
         $('#nu_telefone_morador').mask('(99)9999-9999');

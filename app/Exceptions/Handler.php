@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Support\Facades\Log;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -48,6 +49,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        Log::info($exception->getMessage());
+
+        if ($request->wantsJson()) {
+            return response()->json(['type' => 'error', 'msg' => $exception->getMessage()]);
+        }
+
         return parent::render($request, $exception);
     }
 }

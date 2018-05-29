@@ -41,7 +41,7 @@ Route::get('/morador/automovel/editar/{id?}', ['as' => 'morador-automovel-editar
 Route::get('/morador/automovel/excluir/{id?}', ['as' => 'morador-automovel-excluir', 'uses' => 'AutomovelController@excluir']);
 
 //SISTEMA
-Route::get('/sistema/lista-morador', ['as' => 'morador-apt', 'uses' => 'AutomovelController@listaMoradores']);
+Route::get('/sistema/lista-morador', ['as' => 'morador-apt', 'uses' => 'AutomovelController@listaMoradoresPorApt']);
 
 //MORADOR-ANIMAL
 Route::get('/morador/animal', ['as' => 'morador-animal-principal', 'uses' => 'AnimalController@principal']);

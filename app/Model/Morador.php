@@ -55,8 +55,9 @@ class Morador extends Model
     {
         $moradores = DB::table('morador')->whereNotNull('morador.dt_fim')
         ->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento')
+        ->join('bloco', 'bloco.id_bloco', 'apartamento.id_bloco')
         ->join('morador_tipo', 'morador_tipo.id_morador_tipo', 'morador.id_morador_tipo')
-        ->select('morador.*','apartamento.*','morador_tipo.*');
+        ->select('morador.*','apartamento.*','morador_tipo.*', 'bloco.*');
         return $moradores->get();
     }
 }

@@ -54,7 +54,7 @@
                     <div class="card card-inverse card-info">
                         <div class="card-block bg-info">
                             <h6 class="text-info text-center">Automóveis</h6>
-                            <h1 id="count-reserva" class="display-1 text-center">0</h1>
+                            <h1 id="count-automovel" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <div class="card card-inverse card-warning">
                         <div class="card-block bg-info">
                             <h6 class="text-info text-center">Funcionários</h6>
-                            <h1 id="count-reserva" class="display-1 text-center">0</h1>
+                            <h1 id="count-funcionario" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -349,7 +349,7 @@
 
         async function countAutomovel()
         {
-            for (var i = 0; i < 300; i++) {
+            for (var i = 0; i < <?php echo $contagemAutomovel ?>; i++) {
                 await sleep(1);
                 $("#count-automovel").html(i + 1);
             }
@@ -357,7 +357,7 @@
         
         async function countReserva()
         {
-            for (var i = 0; i < 400; i++) {
+            for (var i = 0; i < 0; i++) {
                 await sleep(1);
                 $("#count-reserva").html(i + 1);
             }
@@ -365,7 +365,7 @@
         
         async function countFuncionario()
         {
-            for (var i = 0; i < 250; i++) {
+            for (var i = 0; i < <?php echo $contagemFuncionario ?>; i++) {
                 await sleep(1);
                 $("#count-funcionario").html(i + 1);
             }
@@ -376,8 +376,8 @@
         countReserva();
         countFuncionario();
 
-        const titulo = document.querySelector('#no_condominio');
-        typeWriter(titulo);
+        // const titulo = document.querySelector('#no_condominio');
+        // typeWriter(titulo);
     });
 </script>
 @stop

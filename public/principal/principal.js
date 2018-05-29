@@ -6,17 +6,36 @@ function typeWriter(elemento) {
     });
 }
 
-// AJAX
-// function ajax() 
+//AJAX
+// $(document).ready(function () 
 // {
-//     $(document).ajaxStart(function() {
-//         $('#loader').css('display', 'block')
-//     });
+    $(document).ajaxStart(function() {
+        $('#loader').show()
+    });
 
-//     $(document).ajaxStop(function() {
-//         $('#loader').css('display', 'none')
-//     });
-// }
+    $(document).ajaxStop(function() {
+        $('#loader').hide()
+    });
+// });
+
+function msg(json) {
+    toastr.options = {
+        // "closeButton": true,
+        "closeButton": true,
+        "newestOnTop": true,
+        "progressBar": true,
+        "showDuration": "600",
+        "progressBar": true,
+        "hideDuration": "500",
+        "timeOut": "8500",
+        "extendedTimeOut": "1000",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut",
+        "positionClass": "toast-top-center",
+    }
+    Command:toastr[json.type]('<strong>'+json.msg+'</strong>');
+}
 
 //MENSAGEM
 function message(type, msg) {
@@ -94,9 +113,14 @@ function carregarListaApt() {
                         html += '<option value="'+rs.id_morador+'">'+rs.no_morador+'</option>';
                     });
 
+                    $('#id_morador').css('opacity', '1 !important');
                     $('#id_morador').html(html);
                 });
             }
         }
     })
 }
+
+function formatted(campo) {
+    campo.substr(0, 3) + '-' + campo.substr(3, 3) + '-' + campo.substr(6,4);
+} 

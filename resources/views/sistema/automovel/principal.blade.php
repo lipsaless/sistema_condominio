@@ -126,24 +126,6 @@
             });
         });
 
-        //TABELA => Editar
-        $(document).on('click', '.morador-automovel-editar',function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: '{{ route("morador-automovel-editar") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#grid-morador-automovel').hide();
-                    $('#btn-option-new-morador-automovel').css("display", "none");
-                    $('#btn-option-back-morador-automovel').css("display", "block");
-                    $('#btn-option-save').css("display", "block");
-                    $('#form-morador-automovel-cadastro').html(formHtml);
-                    $('#div-form-morador-automovel').show();
-                }
-            });
-        });
-
         /*Consultar*/
         $('#principal-morador-automovel-consultar').submit(function(e) {
             e.preventDefault()
@@ -160,8 +142,11 @@
                     text += '   	<thead>';
                     text += '       	<tr>';
                     text += '           	<th width="40">Morador(a)</th>';
-                    text += '            	<th><span>Apartamento/Bloco</span></th>';
+                    text += '            	<th><span>Apartamento</span></th>';
+                    text += '            	<th><span>Bloco</span></th>';
                     text += '            	<th><span>Automóvel</span></th>';
+                    text += '            	<th><span>Placa</span></th>';
+                    text += '            	<th><span>Cor</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
@@ -169,8 +154,11 @@
                     $.each(data, function(key, rs) {
                             text += '           <tr id="'+rs.id_automovel+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
-                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
-                            text += '               <td style="font-weight: bold;">'+rs.no_automovel+'</td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
+                            text += '               <td>'+rs.no_automovel+'</td>';
+                            text += '               <td><a class="ui circular label">'+rs.nu_placa+'</a></td>';
+                            text += '               <td style="font-style:italic;">'+rs.no_cor+'</td>';
                             text += '               <td style="text-align: center;">';
                             text += '                   <button id="morador-automovel-editar" class="ui blue button morador-automovel-editar" data-action="'+rs.id_automovel+'" style="text-align: center;" data-html="Clique para editar" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
                             text += '                   <button id="morador-automovel-excluir" class="ui red button morador-automovel-excluir" data-action="'+rs.id_automovel+'" style="text-align: center;"><i class="fas fa-times" title="Excluir"></i></button>';

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
+
 use App\Model\Morador;
 use App\Model\Automovel;
 use App\Model\Apartamento;
@@ -34,13 +36,26 @@ class AutomovelController extends Controller
         $moradores = Automovel::all()->toArray();
         $apartamentos = $modelApartamento->getAll();
 
-        return view('sistema.automovel.form', ['obj' => $obj, 'apartamentos' => $apartamentos]);
+        $listaMoradores = '';
+
+        return view('sistema.automovel.form', ['obj' => $obj, 'apartamentos' => $apartamentos, 'listaMoradores' => $listaMoradores]);
     }
 
     public function grid()
     {
         $model = new Automovel;
         return $model->getAll();
+    }
+
+    public function listaMoradoresPorApt(Request $request)
+    {
+        $model = new Apartamento;
+
+        $idApt = $request->input('id_apartamento');
+        
+        $listaMoradores = $model->moradorPorApartamento($idApt);
+
+        return response()->json($listaMoradores);
     }
 
     public function editar($id)
@@ -51,20 +66,9 @@ class AutomovelController extends Controller
 
         $obj = $model->find($id);
 
-        $morador = $modelMorador->getAll();
-        $apartamento = $modelApartamento->find($id);
-        return view('sistema.automovel.form', ['obj' => $obj, 'morador' => $morador, 'apartamento' => $apartamento]);
-    }
-
-    public function listaMoradores(Request $request)
-    {
-        $model = new Apartamento;
-
-        $idApt = $request->input('id_apartamento');
+        $listaMoradores = $modelApartamento->moradorPorApartamento($obj->id_apartamento);
         
-        $listaMoradores = $model->moradorPorApartamento($idApt);
-
-        return response()->json($listaMoradores);
+        return view('sistema.automovel.form', ['obj' => $obj, 'listaMoradores' => $listaMoradores]);
     }
 
     public function gravar(Request $request)
@@ -80,10 +84,12 @@ class AutomovelController extends Controller
         }
 
         $model->fill($params);
-        
+
         $model->limparDados();
         
         $model->save();
+
+        return response()->json(['type' => 'success', 'msg' => 'Automóvel salvo com sucesso']);
     }
 
     public function excluir($id)

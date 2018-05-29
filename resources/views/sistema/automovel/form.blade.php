@@ -1,16 +1,25 @@
 <!-- Form -->
 <form id="form-morador-automovel" action="{{ route('morador-automovel-gravar') }}" method="POST">
+    <input type="hidden" name="id_automovel" value="{{ $obj->id_automovel }}">
+    <input type="hidden" id="id_apartamento" name="id_apartamento" value="{{ $obj->id_apartamento }}">
     <hr>
     <fieldset id="fieldset">
         <div class="row">
             <div class="col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
-                <input type="text" id="no_apartamento" class="form-control" value="">
+                <input type="text" id="no_apartamento" class="form-control" value="{{ $obj->no_apartamento }}">
                 <?php echo App\Helpers\Html::listaApt(); ?>
             </div>
             <div class="col-md-4">
                 <label for="id_morador" class="font-weight-bold">Morador: *</label>
-                <select name="id_morador" id="id_morador" class="custom-select" value=""></select>
+                <select name="id_morador" id="id_morador" class="custom-select">
+                    <?php if (!empty($listaMoradores)): ?>
+                    <?php foreach ($listaMoradores as $value): ?>
+                    <?php $selecionado = ($value->id_morador == $obj->id_morador) ? 'selected' : '' ?>
+                        <option value="<?php echo $value->id_morador; ?>" <?php echo $selecionado; ?>><?php echo $value->no_morador; ?></option>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+                </select>
             </div>
             <div class="col-md-4">
                 <label for="no_automovel" class="font-weight-bold">Nome do veículo: *</label>
@@ -19,7 +28,7 @@
         </div>
         <div class="row my-3">
             <div class="col-md-3">
-                <label for="no_modelo" class="font-weight-bold">Modelo do veículo: *</label>
+                <label for="no_modelo" class="font-weight-bold">Modelo do veículo: </label>
                 <input type="text" class="form-control" id="no_modelo" name="no_modelo" value="{{ $obj->no_modelo }}">
             </div>
             <div class="col-md-3">
@@ -27,7 +36,7 @@
                 <input type="text" class="form-control" id="nu_placa" name="nu_placa" value="{{ $obj->nu_placa }}">
             </div>
             <div class="col-md-3">
-                <label for="no_cor" class="font-weight-bold">Cor: *</label>
+                <label for="no_cor" class="font-weight-bold">Cor: </label>
                 <input type="text" class="form-control" id="no_cor" name="no_cor" value="{{ $obj->no_cor }}">
             </div>
             <div class="col-md-12 my-5">
@@ -47,11 +56,12 @@
 
         /*Mask*/
         $('#nu_placa').mask({mask: 'AAA-9999'});
+    });
 
-        //FORMULÁRIO => salvar
-        $('#form-morador-automovel').submit(function(e){
+    //FORMULÁRIO => salvar
+        $(document).unbind('submit').on('submit', '#form-morador-automovel', function(e){
             e.preventDefault();
-            let apartamento = $('#id_apartamento').val();
+            let apartamento = $('#no_apartamento').val();
             let nomeMorador = $('#id_morador').val();
             let nomeAutomovel = $('#no_automovel').val();
             let nomeModelo = $('#no_modelo').val();
@@ -60,36 +70,25 @@
 
             //VALIDAÇÃO => apartamento
             if (!apartamento) {
-                return message('warning', 'Apartamento não foi informado!');
+                return message('error', 'Apartamento não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => nome morador
             if (!nomeMorador) {
-                return message('warning', 'Morador não foi informado!');
+                return message('error', 'Morador não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => tipo do morador
             if (!nomeAutomovel) {
-                return message('warning', 'Nome do automóvel não foi informado!');
-                return false;
-            }
-
-            //VALIDAÇÃO => CPF
-            if (!nomeModelo) {
-                return message('warning', 'Modelo do carro não foi informado!');
+                return message('error', 'Nome do automóvel não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => data de nascimento
             if (!nuPlaca) {
-                return message('warning', 'Placa do automóvel não foi informada!');
-                return false;
-            }
-
-            if (!noCor) {
-                return message('warning', 'Cor não foi informada!');
+                return message('error', 'Placa do automóvel não foi informada!');
                 return false;
             }
 
@@ -97,18 +96,19 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#form-morador-automovel').hide();
-                    $('#btn-option-back-morador-automovel').hide();
-                    $('#btn-option-new-morador-automovel').show();
-                    $('#grid-morador-automovel').show();
-                    $('h1').html('Automóveis');
-                    $('#btn-consultar-morador-automovel').click();
-
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success' ) {
+                        $('#form-morador-automovel').hide();
+                        $('#btn-option-back-morador-automovel').hide();
+                        $('#btn-option-new-automovel-form').show();
+                        $('#grid-morador-automovel').show();
+                        $('h1').html('Automóveis');
+                        $('#btn-consultar-morador-automovel').click();
+                    }
                      //mensagem
-                     return message('success', 'Cadastro efetuado com sucesso!');
+                     return msg(json);
                 }
             });
         });
-    });
 </script>

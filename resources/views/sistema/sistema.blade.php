@@ -57,7 +57,7 @@
 </div>
 
 <!-- LOADER -->
-<!-- <div id="loader">
+<div id="loader" style="display:none;">
     <div class="ui segment">
         <div class="ui active dimmer">
             <div class="ui big text loader">Carregando...</div>
@@ -66,7 +66,7 @@
         <p></p>
         <p></p>
     </div>
-</div> -->
+</div>
 
 <!-- MENU -->
 <div id="menu-sistema">

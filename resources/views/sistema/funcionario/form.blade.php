@@ -8,6 +8,7 @@
 
 <!-- Form -->
 <form id="form-funcionario" action="{{ route('funcionario-gravar') }}" method="POST">
+    <input type="hidden" name="id_funcionario" value="{{ $obj->id_funcionario }}">
     <hr>
     <div class="row">
         <div class="col-md-5">
@@ -51,9 +52,9 @@
             <input type="text" class="form-control" id="ds_email_funcionario" name="ds_email_funcionario" value="{{ $obj->ds_email_funcionario }}">
         </div>
         <div class="col-md-12 my-5">
-            <button id="btn-option-save" class="ui positive button" style=" float: right; right: 0;">
+            <button id="btn-option-save" type="submit" class="ui positive button" style=" float: right; right: 0;">
                 <i class="fa fa-check"></i>
-                <a id="salvar" href="" style="color: black !important; text-decoration: none !important;">Salvar</a>
+                Salvar
             </button>
         </div>
     </div>
@@ -69,6 +70,31 @@
             $('#form-funcionario').hide();
             $('#grid-funcionarios').show();
             $('h1').html('Funcionários');
+        });
+
+        //FORMULÁRIO => salvar
+        $(document).unbind('submit').on('submit', '#form-funcionario', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                success: function(formHtml) {
+                    $('#btn-option-back-funcionario').hide();
+                    $('#btn-option-new-funcionario').show();
+                    $('#form-funcionario').hide();
+                    $('#grid-funcionarios').show();
+                    $('h1').html('Funcionarios');
+                    $('#btn-consultar-funcionario').click();
+                    //mensagem
+                    if (!$('[name="id_funcionario"]').val()) {
+                        return message('success', 'Cadastro efetuado com sucesso!');
+                    } else {
+                        return message('success', 'Funcionário editado com sucesso!');
+                    }
+                }
+            });
         });
 
         /*Mask*/

@@ -46,32 +46,8 @@
     $(document).ready(function(){
         $(document).tooltip();
 
-        //START AJAX E STOP AJAX
-        ajax();
-
         /*Excluir*/
         $(document).on('click','.ex-morador-realocar',function(e){
-
-            /*Message*/
-            Command: toastr["success"]("Morador realocado!")
-            toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": true,
-            "positionClass": "toast-top-center",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-            }
-
             e.preventDefault();
             $.ajax({
                 type: "GET",
@@ -79,11 +55,11 @@
                 data: $(this).serialize()
             }).done(function() {
                 $('#btn-consultar-ex-morador').unbind('click').click();
+
+                 //msg
+                 return message('success', 'Morador realocado com sucesso!');
             });
         });
-
-        const titulo = document.querySelector('h1');
-        typeWriter(titulo);
 
         /*Consultar*/
         $('#principal-ex-morador-consultar').submit(function(e) {
@@ -102,7 +78,8 @@
                     text += '   	<thead>';
                     text += '       	<tr>';
                     text += '            	<th><span><i class="fas fa-user"></i> Morador</span></th>';
-                    text += '            	<th><span><i class="fas fa-building"></i> Apartamento/Bloco</span></th>';
+                    text += '            	<th><span><i class="fas fa-building"></i> Apartamento</span></th>';
+                    text += '            	<th>Bloco</th>';
                     text += '            	<th><span>Tipo</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
@@ -112,7 +89,8 @@
                         $.each(data, function(key, rs) {
                             text += '           <tr id="'+rs.id_morador+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
-                            text += '               <td><a class="ui blue label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
                             text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-search"></i>  Dados</button>';

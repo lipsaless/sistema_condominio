@@ -13,6 +13,10 @@ body {
     padding: 21px;
 }
 
+#btn-option-save {
+    background-color: #12bb3a !important;
+}
+
 #fieldset {
     padding: 20px !important;
     border-radius: 5px !important;
@@ -56,3 +60,4 @@ h1::after {
 .toast {
     opacity: 1 !important;
 }
+

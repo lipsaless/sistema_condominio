@@ -65,7 +65,7 @@
     $(document).ready(function(){
         $(document).tooltip();
         //START AJAX E STOP AJAX
-        ajax();
+        // ajax();
         
         //PRINCIPAL => novo cadastro
         $(document).on('click', '#btn-option-new', function(e){
