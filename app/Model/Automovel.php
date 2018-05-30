@@ -3,9 +3,9 @@
 namespace App\Model;
 
 use DB; 
-use Illuminate\Database\Eloquent\Model;
+use App\Model\BaseModel;
 
-class Automovel extends Model
+class Automovel extends BaseModel
 {
     protected $table = 'automovel';
     protected $primaryKey = 'id_automovel';

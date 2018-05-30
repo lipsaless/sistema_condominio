@@ -28,23 +28,39 @@ class VisitanteController extends Controller
         return view('sistema.visitante.form', ['obj' => $obj, 'visitanteTipo' => $tipos]);
     }
 
-    public function gravar(Request $request)
-    {
-        $model = new Visitante($request->all());
-        $model->limparDados();
-
-       $model->save();
-
-        if ($model) {
-            echo 'inserido com sucesso';
-        } else {
-            echo 'falha ao inserir';
-        }
-    }
-
     public function grid()
     {
         $model = new Visitante;
         return $model->getAll();
+    }
+
+    public function gravar(Request $request)
+    {
+        $params = $request->all();
+
+        $model = new Visitante;
+
+        if (!empty($params['id_visitante'])) {
+            $model = $model->find($params['id_visitante']);
+        } else {
+            unset($params['id_visitante']);
+        }
+
+        $model->fill($params);
+        
+        $model->limparDados();
+        
+        $model->save();
+    }
+
+    public function excluir($id)
+    {
+        $model = new Visitante;
+        $obj = $model->find($id);
+        
+        $obj->dt_fim = date('Y-m-d H:i:s');
+        $obj->update();
+
+        return response([]);
     }
 }

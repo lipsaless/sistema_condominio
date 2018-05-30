@@ -1,9 +1,11 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!--MY STYLE-->
 <link rel="stylesheet" href="{{ asset('css/sistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalVisitante.css') }}">
 <link rel="stylesheet" href="{{ asset('css/menuSistema.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalReservaLocal.css') }}"
 <link rel="stylesheet" href="{{ asset('css/menuHomeSistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalMorador.css') }}">
@@ -51,6 +53,7 @@
 <!--PRINCIPAL JS-->
 <script src="{{ asset('principal/principal.js') }}"></script>
 
+<div class="container-fluid">
 
 <!--CONTEÚDO-->
 <div id="nav-sistema">
@@ -75,3 +78,4 @@
     @yield('view-principal')
 </div>
 
+</div>

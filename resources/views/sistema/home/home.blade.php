@@ -61,7 +61,7 @@
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-danger">
                         <div class="card-block bg-info">
-                            <h6 class="text-info text-center">Reservas</h6>
+                            <h6 class="text-info text-center">Visitantes</h6>
                             <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>

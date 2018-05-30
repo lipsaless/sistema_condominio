@@ -21,7 +21,7 @@
                 <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>&nbsp;&nbsp; Reserva <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>
                     <div class="collapse" id="reserva">
                         <a id="a-menu" href="{{ route('reserva-principal') }}" class="list-group-item">&nbsp;&nbsp; Reserva</a>
-                        <a id="a-menu" href="#" class="list-group-item">&nbsp;&nbsp; Local de Reserva</a>
+                        <a id="a-menu" href="{{ route('reserva-local-principal') }}" class="list-group-item">&nbsp;&nbsp; Local de Reserva</a>
                     </div>
                 <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-users"></i> Moradores <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>
                 <div class="collapse" id="morador">

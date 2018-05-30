@@ -5,7 +5,6 @@
 <!-- Title -->
 <h1 class="text-center">Moradores</h1>
         
-
     <!-- Principal -->
     <div id="principal-morador">
         <!--Buttons-->

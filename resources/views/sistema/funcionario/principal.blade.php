@@ -167,7 +167,7 @@
                         "sLoadingRecords": "Carregando...",
                         "sProcessing": "Processando...",
                         "sZeroRecords": "Nenhum registro encontrado",
-                        "sSearch": "Nome ou E-mail",
+                        "sSearch": "Nome",
                         "oPaginate": {
                             "sNext": "Próximo",
                             "sPrevious": "Anterior",

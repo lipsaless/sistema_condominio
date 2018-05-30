@@ -51,12 +51,15 @@
             <label for="ds_email_funcionario" class="font-weight-bold">E-mail:</label>
             <input type="text" class="form-control" id="ds_email_funcionario" name="ds_email_funcionario" value="{{ $obj->ds_email_funcionario }}">
         </div>
-        <div class="col-md-12 my-5">
-            <button id="btn-option-save" type="submit" class="ui positive button" style=" float: right; right: 0;">
+    </div>
+    <div class="row"> 
+        <div class="col-md-3 offset-md-4 my-5">
+            <button id="btn-option-save" type="submit" class="ui positive fluid button" style=" float: right; right: 0;">
                 <i class="fa fa-check"></i>
                 Salvar
             </button>
         </div>
+    </div>
     </div>
 </form>
 

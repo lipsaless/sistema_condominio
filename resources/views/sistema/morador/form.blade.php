@@ -12,18 +12,13 @@
     <fieldset id="fieldset">
         <legend>Dados</legend>
         <div class="row">
-            <div class="col-md-3">
-                <label for="id_apartamento" class="font-weight-bold">Apartamento: *</label>
-                <select class="form-control" id="id_apartamento" name="id_apartamento">
-                        <option value="">Selecione</option>
-                    <?php foreach ($apartamentos as $apt): ?>
-                    <?php $selecionado = ($apt->id_apartamento == $obj->id_apartamento) ? 'selected' : '' ?>
-                        <option value="<?php echo $apt->id_apartamento; ?>" <?php echo $selecionado; ?>><?php echo $apt->no_apartamento; ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <div class="ui input col-md-3">
+                <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
+                <input type="text" id="no_apartamento" value="{{ $obj->no_apartamento }}">
+                <?php echo App\Helpers\Html::listaApt(); ?>
             </div>
-            <div class="col-md-5">
-                <label for="no_morador" class="font-weight-bold">Nome do Morador: *</label>
+            <div class="col-md-4">
+                <label for="id_morador" class="font-weight-bold">Morador: *</label>
                 <input type="text" class="form-control" id="no_morador" name="no_morador" value="{{ $obj->no_morador }}">
             </div>
             <div class="col-md-4">
@@ -73,8 +68,10 @@
                 <label for="ds_email_morador" class="font-weight-bold">E-mail:</label>
                 <input type="text" class="form-control" id="ds_email_morador" name="ds_email_morador" value="{{ $obj->ds_email_morador }}">
             </div>
-            <div class="col-md-12 my-5">
-                <button id="btn-option-save" type ="submit" class="ui positive button" style=" float: right; right: 0;">
+        </div>
+        <div class="row"> 
+            <div class="col-md-3 offset-md-4 my-5">
+                <button id="btn-option-save" type="submit" class="ui positive fluid button" style=" float: right; right: 0;">
                     <i class="fa fa-check"></i>
                     Salvar
                 </button>
@@ -85,6 +82,9 @@
 
 <script>
     $(document).ready(function() {
+        //Lista apt's
+        carregarListaApt();
+
         $('#btn-option-back').unbind('click').click(function(e){
             e.preventDefault();
             $('#btn-option-back').hide();
@@ -98,7 +98,7 @@
         //FORMULÁRIO => salvar
         $('#form-morador').unbind('submit').submit(function(e){
             e.preventDefault();
-            let apartamento = $('#id_apartamento').val();
+            let apartamento = $('#lista-apt').val();
             let nomeMorador = $('#no_morador').val();
             let tipoMorador = $('#id_morador_tipo').val();
             let sexo = $('#sg_sexo_morador').val();

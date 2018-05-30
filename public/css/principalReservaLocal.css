@@ -1,0 +1,16 @@
+#principal-reserva-local {
+    width: calc(100% - 300px);
+    margin-left: 277px;
+    margin-right: 20px;
+    padding: 30px;
+    background-color: white !important;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#novo:hover {
+    color: white;
+}
+.ui.grid>.row {
+    display: flex !important;
+}

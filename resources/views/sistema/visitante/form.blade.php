@@ -1,19 +1,27 @@
-<?php 
-    if ($obj->dt_nascimento_funcionario) {
-        $dataNascimento = date('d/m/Y', strtotime($obj->dt_nascimento_funcionario));
-    } else {
-        $dataNascimento = '';
-    }
-?>
-
 <!-- Form -->
 <form id="form-visitante" action="{{ route('visitante-gravar') }}" method="POST">
     <input type="hidden" name="id_visitante" value="{{ $obj->id_visitante }}">
     <hr>
     <div class="row">
-        <div class="col-md-5">
+        <div class="ui input col-md-3">
+            <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
+            <input type="text" id="no_apartamento" value="{{ $obj->no_apartamento }}">
+            <?php echo App\Helpers\Html::listaApt(); ?>
+        </div>
+        <div class="col-md-4">
+            <label for="id_morador" class="font-weight-bold">Morador: *</label>
+            <select name="id_morador" id="id_morador" class="custom-select">
+                <?php if (!empty($listaMoradores)): ?>
+                <?php foreach ($listaMoradores as $value): ?>
+                <?php $selecionado = ($value->id_morador == $obj->id_morador) ? 'selected' : '' ?>
+                    <option value="<?php echo $value->id_morador; ?>" <?php echo $selecionado; ?>><?php echo $value->no_morador; ?></option>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </select>
+        </div>
+        <div class="ui input col-md-5">
             <label for="no_visitante" class="font-weight-bold">Nome do visitante: *</label>
-            <input type="text" class="form-control" id="no_visitante" name="no_visitante" value="{{ $obj->no_visitante }}">
+            <input type="text" id="no_visitante" name="no_visitante" value="{{ $obj->no_visitante }}">
         </div>
     </div>
     <div class="row my-3">
@@ -26,26 +34,32 @@
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="col-md-3">
+        <div class="ui input col-md-3">
             <label for="nu_rg" class="font-weight-bold">RG: *</label>
-            <input type="text" class="form-control" id="nu_rg" name="nu_rg" value="{{ $obj->nu_rg }}">
+            <input type="text" id="nu_rg" name="nu_rg" value="{{ $obj->nu_rg }}">
         </div>
-        <div class="col-md-3">
+        <div class="ui input col-md-3">
             <label for="nu_cpf" class="font-weight-bold">CPF: </label>
-            <input type="text" class="form-control" id="nu_cpf" name="nu_cpf" value="{{ $obj->nu_cpf }}">
+            <input type="text" id="nu_cpf" name="nu_cpf" value="{{ $obj->nu_cpf }}">
         </div>
     </div>
     <div class="row my-3">
-        <div class="col-md-4">
+        <div class="ui input col-md-4">
+            <label for="nu_telefone" class="font-weight-bold">Celular:</label>
+            <input type="text" id="nu_telefone" name="nu_telefone" value="{{ $obj->nu_telefone }}">
+        </div>
+        <div class="ui input col-md-4">
             <label for="nu_celular" class="font-weight-bold">Celular:</label>
-            <input type="text" class="form-control" id="nu_celular" name="nu_celular" value="{{ $obj->nu_celular }}">
+            <input type="text" id="nu_celular" name="nu_celular" value="{{ $obj->nu_celular }}">
         </div>
-        <div class="col-md-5">
+        <div class="ui input col-md-5">
             <label for="ds_email" class="font-weight-bold">E-mail:</label>
-            <input type="text" class="form-control" id="ds_email" name="ds_email" value="{{ $obj->ds_email }}">
+            <input type="text" id="ds_email" name="ds_email" value="{{ $obj->ds_email }}">
         </div>
-        <div class="col-md-12 my-5">
-            <button id="btn-option-save" type="submit" class="ui positive button" style=" float: right; right: 0;">
+    </div>
+    <div class="row"> 
+        <div class="col-md-3 offset-md-4 my-5">
+            <button id="btn-option-save" type="submit" class="ui positive fluid button" style=" float: right; right: 0;">
                 <i class="fa fa-check"></i>
                 Salvar
             </button>
@@ -55,6 +69,9 @@
 
 <script>
     $(document).ready(function() {
+        //Lista apt's
+        carregarListaApt();
+
         /*Voltar*/
         $('#btn-option-back-visitante').unbind('click').click(function(e){
             e.preventDefault();
@@ -64,8 +81,6 @@
             $('#grid-visitantes').show();
             $('h1').html('Visitantes');
         });
-
-       
 
         //Mask
         $('#nu_cpf').mask('999.999.999-99');
@@ -88,12 +103,9 @@
                     $('#grid-visitantes').show();
                     $('h1').html('Visitantes');
                     $('#btn-consultar-visitante').click();
+
                     //mensagem
-                    if (!$('[name="id_funcionario"]').val()) {
-                        return message('success', 'Cadastro efetuado com sucesso!');
-                    } else {
-                        return message('success', 'Funcionário editado com sucesso!');
-                    }
+                    return message('success', 'Cadastro efetuado com sucesso!');
                 }
             });
         });

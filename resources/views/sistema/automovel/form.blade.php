@@ -39,8 +39,10 @@
                 <label for="no_cor" class="font-weight-bold">Cor: </label>
                 <input type="text" class="form-control" id="no_cor" name="no_cor" value="{{ $obj->no_cor }}">
             </div>
-            <div class="col-md-12 my-5">
-                <button id="btn-option-save" type ="submit" class="ui positive button" style=" float: right; right: 0;">
+        </div>
+        <div class="row"> 
+            <div class="col-md-3 offset-md-4 my-5">
+                <button id="btn-option-save" type="submit" class="ui positive fluid button" style=" float: right; right: 0;">
                     <i class="fa fa-check"></i>
                     Salvar
                 </button>

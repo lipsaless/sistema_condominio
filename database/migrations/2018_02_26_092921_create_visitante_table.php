@@ -18,11 +18,11 @@ class CreateVisitanteTable extends Migration
             $table->integer('id_visitante_tipo');
             $table->integer('id_morador');
             $table->string('no_visitante');
-            $table->string('nu_cpf');
+            $table->string('nu_cpf')->nullable();
             $table->string('nu_rg');
-            $table->string('nu_telefone');
-            $table->string('nu_celular');
-            $table->string('ds_email');
+            $table->string('nu_telefone')->nullable();
+            $table->string('nu_celular')->nullable();
+            $table->string('ds_email')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();

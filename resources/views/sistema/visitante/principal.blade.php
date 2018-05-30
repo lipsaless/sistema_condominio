@@ -31,7 +31,7 @@
     <div id="form-visitantes"></div>
 
     <!-- Consultar -->
-    <form id="principal-visitante-consultar" action="{{ route('funcionario-grid') }}" method="POST" style="display:none;">
+    <form id="principal-visitante-consultar" action="{{ route('visitante-grid') }}" method="POST" style="display:none;">
         <div class="row">
             <div class="col-md-4">
                 <label for="" class="font-weight-bold">Nome:</label>
@@ -50,9 +50,6 @@
 
 <script>
     $(document).ready(function(){
-        //START AJAX E STOP AJAX
-        // ajax();
-
         /*Form*/
         $(document).on('click', '#btn-option-new-visitante', function(e){
             e.preventDefault();
@@ -67,25 +64,6 @@
                     $('#btn-option-back-visitante').css("display", "block");
                     $('#btn-option-save').css("display", "block");
                     $('h1').html('Cadastro de visitante');
-                    $('#form-visitantes').html(formHtml);
-                    $('#form-visitantes').show();
-                }
-            });
-        });
-
-        /*Edit*/
-        $(document).on('click', '.visitante-editar', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "GET",
-                url: '{{ route("visitante-editar") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#grid-visitantes').hide();
-                    $('#btn-option-new-visitante').css("display", "none");
-                    $('#btn-option-back-visitante').css("display", "block");
-                    $('#btn-option-save').css("display", "block");
-                    $('h1').html('Editar visitante');
                     $('#form-visitantes').html(formHtml);
                     $('#form-visitantes').show();
                 }
@@ -110,7 +88,7 @@
         });
 
         /*Consultar*/
-        $('#principal-visitante-consultar').unbind.submit(function(e) {
+        $('#principal-visitante-consultar').unbind('submit').submit(function(e) {
             e.preventDefault();
 
             $.ajax({
@@ -125,9 +103,9 @@
                     text += '	<table id="info-visitantes" class="ui table">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '            	<th><span><i class="fas fa-user"></i> Funcionário</span></th>';
-                    text += '            	<th><span><i class="fas fa-cart"></i> E-mail</span></th>';
-                    text += '            	<th><span><i class="fas fa-phone"></i> Telefone/Celular</span></th>';
+                    text += '            	<th><span><i class="fas fa-user-circle"></i> Visitante</span></th>';
+                    text += '            	<th><span><i class="fas fa-home"></i> Apartamento visitado</span></th>';
+                    text += '            	<th><span><i class="fas fa-user"></i> Morador<span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
@@ -138,9 +116,10 @@
 
                             text += '           <tr id="'+id+'">';
                             text += '               <td>'+rs.no_visitante+'</td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td>'+rs.no_morador+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="funcionario-editar" class="ui blue button funcionario-editar" data-action="'+id+'" style="text-align: center;"><i class="fas fa-pencil-alt"></i></button>';
-                            text += '                   <button id="funcionario-excluir" class="ui red button funcionario-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
+                            text += '                   <button id="visitante-excluir" class="ui red button visitante-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -165,7 +144,7 @@
                         "sLoadingRecords": "Carregando...",
                         "sProcessing": "Processando...",
                         "sZeroRecords": "Nenhum registro encontrado",
-                        "sSearch": "Nome ou E-mail",
+                        "sSearch": "Nome",
                         "oPaginate": {
                             "sNext": "Próximo",
                             "sPrevious": "Anterior",

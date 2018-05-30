@@ -2,10 +2,6 @@ button {
     cursor: pointer;
 }
 
-#form-morador {
-    padding: 30px;
-}
-
 legend {
     width: 70px !important;
     padding: 3px !important;

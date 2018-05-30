@@ -11,29 +11,54 @@ class ReservaController extends Controller
 {
     public function principal()
     {
-        $model = new Reserva();
-        $moradores = Reserva::all()->toArray();
         return view('sistema.reserva.principal');
     }
 
     public function form()
     {
         $model = new Reserva();
-        $moradores = Reserva::all()->toArray();
-        return view('sistema.reserva.form');
+        $modelReservaLocal = new ReservaLocal;
+
+        $obj = $model;
+
+        $locaisDeReserva = $modelReservaLocal->getAll();
+
+        return view('sistema.reserva.form', ['obj' => $obj, 'locaisDeReserva' => $locaisDeReserva]);
+    }
+
+    public function grid()
+    {
+        $model = new Reserva;
+        return $model->getAll();
     }
 
     public function gravar(Request $request)
     {
-        $model = new Reserva($request->all());
-        $model->limparDados();
+        $params = $request->all();
 
-       $model->save();
+        $model = new Reserva;
 
-        if ($model) {
-            echo 'inserido com sucesso';
+        if (!empty($params['id_reserva'])) {
+            $model = $model->find($params['id_reserva']);
         } else {
-            echo 'falha ao inserir';
+            unset($params['id_reserva']);
         }
+
+        $model->fill($params);
+        
+        $model->limparDados();
+        
+        $model->save();
+    }
+
+    public function excluir($id)
+    {
+        $model = new Reserva;
+        $obj = $model->find($id);
+        
+        $obj->dt_fim = date('Y-m-d H:i:s');
+        $obj->update();
+
+        return response([]);
     }
 }

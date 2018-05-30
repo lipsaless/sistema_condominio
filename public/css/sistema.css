@@ -61,3 +61,19 @@ h1::after {
     opacity: 1 !important;
 }
 
+th, td {
+    font-size: 10pt !important;
+}
+
+.container-fluid {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.ui.grid > .row > [class*="eight wide"].column, .ui.grid > .column.row > [class*="eight wide"].column, .ui.grid > [class*="eight wide"].column, .ui.column.grid > [class*="eight wide"].column {
+    width: 60% !important;
+}
+
+.right.aligned.eight.wide.column label {
+    text-align: center;
+}
