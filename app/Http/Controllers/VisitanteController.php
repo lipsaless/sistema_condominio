@@ -18,8 +18,14 @@ class VisitanteController extends Controller
     public function form()
     {
         $model = new Visitante();
+        $modelVisitanteTipo = new VisitanteTipo;
+
+        $tipos = $modelVisitanteTipo->getAll();
         $moradores = Visitante::all()->toArray();
-        return view('sistema.visitante.form');
+
+        $obj = $model;
+
+        return view('sistema.visitante.form', ['obj' => $obj, 'visitanteTipo' => $tipos]);
     }
 
     public function gravar(Request $request)

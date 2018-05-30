@@ -14,7 +14,11 @@ class CreateVisitanteTipoTable extends Migration
     public function up()
     {
         Schema::create('visitante_tipo', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_visitante');
+            $table->string('no_visitante_tipo');
+            $table->string('ref_visitante_tipo');
+            $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('dt_fim')->nullable();
             $table->timestamps();
         });
     }

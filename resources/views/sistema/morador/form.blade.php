@@ -96,7 +96,7 @@
         });
         
         //FORMULÁRIO => salvar
-        $('#form-morador').submit(function(e){
+        $('#form-morador').unbind('submit').submit(function(e){
             e.preventDefault();
             let apartamento = $('#id_apartamento').val();
             let nomeMorador = $('#no_morador').val();

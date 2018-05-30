@@ -11,6 +11,13 @@ class VisitanteTipoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $params = [
+            [
+                'no_visitante_tipo' => 'Normal',
+                'ref_visitante_tipo' => 'normal'
+            ]
+        ];
+
+        DB::table('visitante_tipo')->insert($params);
     }
 }

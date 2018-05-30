@@ -2,6 +2,7 @@
 <!--MY STYLE-->
 <link rel="stylesheet" href="{{ asset('css/sistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/principalVisitante.css') }}">
 <link rel="stylesheet" href="{{ asset('css/menuSistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/menuHomeSistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}">

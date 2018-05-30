@@ -59,7 +59,7 @@
     });
 
     //FORMULÁRIO => salvar
-        $(document).unbind('submit').on('submit', '#form-morador-automovel', function(e){
+        $('#form-morador-automovel').unbind('submit').submit(function(e){
             e.preventDefault();
             let apartamento = $('#no_apartamento').val();
             let nomeMorador = $('#id_morador').val();

@@ -27,6 +27,7 @@ class Apartamento extends Model
         $query = $this->newQuery();
         $query->join('morador', 'morador.id_apartamento', 'apartamento.id_apartamento');
         $query->where('apartamento.id_apartamento', '=', $idApt);
+        $query->whereNull('morador.dt_fim');
         
         $query->orderBy('morador.no_morador');
 

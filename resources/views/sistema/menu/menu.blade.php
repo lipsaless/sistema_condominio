@@ -17,7 +17,7 @@
                 <h3 style="text-align: center; color: white;">Condomínio 4Amigos</h3>
                 <hr style="">
                 <a id="a-menu" href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i>&nbsp;&nbsp; Home</a>
-                <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-user-circle"></i>&nbsp;&nbsp; Visitantes </a>
+                <a id="a-menu" href="{{ route('visitante-principal') }}" class="list-group-item" data-toggle="collapse"><i class="fas fa-user-circle"></i>&nbsp;&nbsp; Visitantes </a>
                 <a id="a-menu" href="#" class="list-group-item" data-toggle="collapse"><i class="fas fa-map-marker"></i>&nbsp;&nbsp; Reserva <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a>
                     <div class="collapse" id="reserva">
                         <a id="a-menu" href="{{ route('reserva-principal') }}" class="list-group-item">&nbsp;&nbsp; Reserva</a>

@@ -18,7 +18,7 @@ class Html
         $listaApt = json_encode($listaApt);
 
         return "
-            <input type='hidden' id='lista-apt' value='{$listaApt}'>
+            <input type='hidden' name='id_apartamento' id='lista-apt' value='{$listaApt}'>
             <input type='hidden' id='rota-morador-apt' value='".route('morador-apt')."'>
         ";
     }
