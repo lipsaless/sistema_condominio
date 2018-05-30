@@ -2,6 +2,16 @@ body {
     background-color: #E3E3E3 !important;
 }
 
+#menu-home {
+    width: calc(100% - 300px);
+    margin-left: 277px !important;
+    margin-right: 20px !important;
+    padding: 30px;
+    background-color: white !important;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 #toast-container
 {
     margin-top: 10px !important;
@@ -63,11 +73,6 @@ h1::after {
 
 th, td {
     font-size: 10pt !important;
-}
-
-.container-fluid {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
 }
 
 .ui.grid > .row > [class*="eight wide"].column, .ui.grid > .column.row > [class*="eight wide"].column, .ui.grid > [class*="eight wide"].column, .ui.column.grid > [class*="eight wide"].column {

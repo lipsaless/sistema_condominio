@@ -53,8 +53,6 @@
 <!--PRINCIPAL JS-->
 <script src="{{ asset('principal/principal.js') }}"></script>
 
-<div class="container-fluid">
-
 <!--CONTEÚDO-->
 <div id="nav-sistema">
     @include('sistema.nav.nav')
@@ -76,6 +74,4 @@
 <div id="menu-sistema">
     @include('sistema.menu.menu')
     @yield('view-principal')
-</div>
-
 </div>

@@ -357,7 +357,7 @@
         
         async function countReserva()
         {
-            for (var i = 0; i < 0; i++) {
+            for (var i = 0; i < <?php echo $contagemReserva; ?>; i++) {
                 await sleep(1);
                 $("#count-reserva").html(i + 1);
             }

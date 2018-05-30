@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use DB;
 use App\Model\BaseModel;
 
 class Reserva extends BaseModel
@@ -26,5 +27,11 @@ class Reserva extends BaseModel
     public function limparDados()
     {
         $this->dt_reserva = str_replace('/','-', $this->dt_reserva);
+    }
+
+    public function countReservas()
+    {
+        $reservas = DB::table('reserva')->whereNull('reserva.dt_fim')->count();
+        return $reservas;
     }
 }
