@@ -89,12 +89,6 @@
                 return false;
             }
 
-            //VALIDAÇÃO => nome morador
-            if (!sexo) {
-                return message('error', 'Sexo não foi informadO!');
-                return false;
-            }
-
             //VALIDAÇÃO => tipo do morador
             if (!rg) {
                 return message('error', 'RG não foi informado!');
