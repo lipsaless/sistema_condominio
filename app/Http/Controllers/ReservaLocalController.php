@@ -50,7 +50,7 @@ class ReservaLocalController extends Controller
 
         $model->fill($params);
         
-        // $model->limparDados();
+        $model->limparDados();
         
         $model->save();
     }

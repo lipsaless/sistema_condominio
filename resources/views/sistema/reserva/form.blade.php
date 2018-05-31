@@ -29,7 +29,7 @@
             </select>
         </div>
         <div class="ui input col-md-3">
-            <label for="no_morador" class="font-weight-bold">Espaço de reserva: *</label>
+            <label for="no_morador" class="font-weight-bold">Local de reserva: *</label>
             <select name="id_reserva_local" id="id_reserva_local" class="form-control">
                 <option value="">Selecione</option>
                 <?php foreach ($locaisDeReserva as $local): ?>

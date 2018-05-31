@@ -92,6 +92,42 @@
      $('#form-visitante').unbind('submit').submit(function(e){
             e.preventDefault();
 
+            let apartamento = $('#no_apartamento').val();
+            let nomeMorador = $('#id_morador').val();
+            let tipoVisitante = $('#id_visitante_tipo').val();
+            let nomeVisitante = $('#no_visitante').val();
+            let rg = $('#nu_rg').val();
+
+            //VALIDAÇÃO => apartamento
+            if (!apartamento) {
+                return message('error', 'Apartamento não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => nome morador
+            if (!nomeMorador) {
+                return message('error', 'Morador não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => tipo do morador
+            if (!nomeVisitante) {
+                return message('error', 'Nome do visitante não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => tipo do morador
+            if (!tipoVisitante) {
+                return message('error', 'Tipo do visitante não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => data de nascimento
+            if (!rg) {
+                return message('error', 'RG não foi informada!');
+                return false;
+            }
+
             $.ajax({
                 type: "POST",
                 url: $(this).attr("action"),

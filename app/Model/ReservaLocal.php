@@ -19,4 +19,9 @@ class ReservaLocal extends Model
 
         return $query->get();
     }
+
+    public function limparDados()
+    {
+        $this->vl_reserva_local = str_replace(',','.', $this->vl_reserva_local);
+    }
 }

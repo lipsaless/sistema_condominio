@@ -152,6 +152,13 @@
                     text += '		</thead>';
                     text += '		<tbody>';
                     $.each(data, function(key, rs) {
+
+                            if (rs.no_cor) {
+                                rs.no_cor = rs.no_cor;
+                            } else {
+                                rs.no_cor = '';
+                            }
+
                             text += '           <tr id="'+rs.id_automovel+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
                             text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';

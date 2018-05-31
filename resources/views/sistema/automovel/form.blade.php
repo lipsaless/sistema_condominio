@@ -1,3 +1,4 @@
+
 <!-- Form -->
 <form id="form-morador-automovel" action="{{ route('morador-automovel-gravar') }}" method="POST">
     <input type="hidden" name="id_automovel" value="{{ $obj->id_automovel }}">

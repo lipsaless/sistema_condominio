@@ -30,7 +30,7 @@
             <input type="text" class="form-control" id="nu_rg_funcionario" name="nu_rg_funcionario" value="{{ $obj->nu_rg_funcionario }}">
         </div>
         <div class="col-md-3">
-            <label for="nu_cpf_funcionario" class="font-weight-bold">CPF: *</label>
+            <label for="nu_cpf_funcionario" class="font-weight-bold">CPF:</label>
             <input type="text" class="form-control" id="nu_cpf_funcionario" name="nu_cpf_funcionario" value="{{ $obj->nu_cpf_funcionario }}">
         </div>
         <div class="col-md-3">
@@ -76,8 +76,30 @@
         });
 
         //FORMULÁRIO => salvar
-        $(document).unbind('submit').on('submit', '#form-funcionario', function(e){
+        $('#form-funcionario').unbind('submit').submit(function(e){
             e.preventDefault();
+
+            let nomeFuncionario = $('#no_funcionario').val();
+            let sexo = $('#sg_sexo_funcionario').val();
+            let rg = $('#nu_rg_funcionario').val();
+
+            //VALIDAÇÃO => apartamento
+            if (!nomeFuncionario) {
+                return message('error', 'Nome do funcionário não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => nome morador
+            if (!sexo) {
+                return message('error', 'Sexo não foi informadO!');
+                return false;
+            }
+
+            //VALIDAÇÃO => tipo do morador
+            if (!rg) {
+                return message('error', 'RG não foi informado!');
+                return false;
+            }
 
             $.ajax({
                 type: "POST",
