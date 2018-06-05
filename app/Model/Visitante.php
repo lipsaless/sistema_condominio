@@ -26,15 +26,24 @@ class Visitante extends BaseModel
 
     public function limparDados()
     {
-        $this->nu_cpf = str_replace('.','', $this->nu_cpf);
-        $this->nu_cpf = str_replace('-','', $this->nu_cpf);
         $this->nu_rg = str_replace('.','', $this->nu_rg);
-        $this->nu_telefone = str_replace('(','', $this->nu_telefone);
-        $this->nu_telefone = str_replace(')','', $this->nu_telefone);
-        $this->nu_telefone = str_replace('-','', $this->nu_telefone);
-        $this->nu_celular = str_replace('(','', $this->nu_celular);
-        $this->nu_celular = str_replace(')','', $this->nu_celular);
-        $this->nu_celular = str_replace('.','', $this->nu_celular);
-        $this->nu_celular = str_replace('-','', $this->nu_celular);
+
+        if ($this->nu_cpf) {
+            $this->nu_cpf = str_replace('.','', $this->nu_cpf);
+            $this->nu_cpf = str_replace('-','', $this->nu_cpf);
+        }
+
+        if ($this->nu_telefone) {
+            $this->nu_telefone = str_replace('(','', $this->nu_telefone);
+            $this->nu_telefone = str_replace(')','', $this->nu_telefone);
+            $this->nu_telefone = str_replace('-','', $this->nu_telefone);
+        }
+
+        if ($this->nu_celular) {
+            $this->nu_celular = str_replace('(','', $this->nu_celular);
+            $this->nu_celular = str_replace(')','', $this->nu_celular);
+            $this->nu_celular = str_replace('.','', $this->nu_celular);
+            $this->nu_celular = str_replace('-','', $this->nu_celular);
+        }
     }
 }

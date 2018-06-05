@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="{{ asset('css/formFuncionario.css') }}">
 <link rel="stylesheet" href="{{ asset('css/principalReserva.css') }}">
 <link rel="stylesheet" href="{{ asset('css/formReserva.css') }}">
+<link rel="stylesheet" href="{{ asset('css/configApt.css') }}">
 
 <!--BOOTSTRAP CSS-->
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">

@@ -102,5 +102,4 @@ class AutomovelController extends Controller
         
         return response([]);
     }
-
 }

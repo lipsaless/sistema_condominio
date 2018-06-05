@@ -96,9 +96,9 @@ function carregarListaApt() {
         source: JSON.parse($('#lista-apt').val()),
         select: function(evento, itemSelecionado) {
             if (!itemSelecionado.item) {
-                $("#leitura-id-apt").val(null);
+                $('[name="id_apartamento"]').val(null);
             } else {
-                $("#lista-apt").val(itemSelecionado.item.id);
+                $('[name="id_apartamento"]').val(itemSelecionado.item.id);
                 //AJAX
                 $.ajax({
                     type: 'GET'

@@ -6,7 +6,7 @@ use App\Model\Apartamento;
 
 class Html 
 {
-    public static function listaApt() 
+    public static function listaApt($idApt = null) 
     {
         $listaApt = (new Apartamento)->getAll();
 
@@ -18,7 +18,8 @@ class Html
         $listaApt = json_encode($listaApt);
 
         return "
-            <input type='hidden' name='id_apartamento' id='lista-apt' value='{$listaApt}'>
+            <input type='hidden' id='lista-apt' value='{$listaApt}'>
+            <input type='hidden' name='id_apartamento' value='{$idApt}'>
             <input type='hidden' id='rota-morador-apt' value='".route('morador-apt')."'>
         ";
     }

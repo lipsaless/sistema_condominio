@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use DB;
+use Carbon\Carbon;
 use App\Model\BaseModel;
 
 class Reserva extends BaseModel
@@ -33,5 +34,37 @@ class Reserva extends BaseModel
     {
         $reservas = DB::table('reserva')->whereNull('reserva.dt_fim')->count();
         return $reservas;
+    }
+
+    public function datasQueSeraoBloqueadas($idReservLocal)
+    {
+        return $this
+            ->newQuery()
+            ->where('id_reserva_local', $idReservLocal)
+            ->whereNull('dt_fim')
+            ->get();
+    }
+
+    public function save(array $options = [])
+    {
+        $dtFormulario = Carbon::parse($this->dt_reserva);
+        $idReservaLocal = $this->id_reserva_local;
+
+        $existente = $this->verificaSeExisteReservaNaMesmaData($idReservaLocal, $dtFormulario);
+
+        if ($existente) {
+            throw new \Exception('Já existe uma reserva nesta data');
+        }
+
+        return parent::save($options);
+    }
+
+    public function verificaSeExisteReservaNaMesmaData($idReservaLocal, $dataReserva)
+    {
+        return $this->newQuery()
+            ->where('id_reserva_local', $idReservaLocal)
+            ->where('dt_reserva', $dataReserva)
+            ->whereNull('dt_fim')
+            ->first();
     }
 }

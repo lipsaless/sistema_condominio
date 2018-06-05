@@ -66,7 +66,7 @@ class MoradorController extends Controller
         $sexo =  $sexoMorador;
 
         $obj = $model->find($id);
-        //$dataNascimento = implode("/",array_reverse(explode("-",$obj->dt_nascimento_morador)));
+        
         $tipos = $modelTipo->getAll();
         $apartamentos = $modelApartamento->getAll();
 
@@ -86,7 +86,6 @@ class MoradorController extends Controller
         }
 
         $model->fill($params);
-        // $model = new Morador($request->all());
         
         $model->limparDados();
         

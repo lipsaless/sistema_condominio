@@ -12,7 +12,7 @@
 <h1 class="text-center">Visitantes</h1>
 
 <!-- Principal -->
-<div id="principal-visitantes">
+<div id="principal">
     <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">

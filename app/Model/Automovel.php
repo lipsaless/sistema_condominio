@@ -32,11 +32,6 @@ class Automovel extends BaseModel
         return $query->get();
     }
 
-    public function find($id)
-    {
-        return $this->getAll(['id_automovel' => $id], true);
-    }
-
     public function limparDados()
     {
         $this->nu_placa = str_replace('-','', $this->nu_placa);

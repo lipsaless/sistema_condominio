@@ -120,36 +120,6 @@
 
             <hr>
 
-            <div class="row my-4">
-                <div id="table-info-home" class="col-lg-9 col-md-8">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Label</th>
-                                    <th>Header</th>
-                                    <th>Column</th>
-                                    <th>Data</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>responsive</td>
-                                    <td>bootstrap</td>
-                                    <td>cards</td>
-                                    <td>grid</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!--/row-->
-
-            <hr>
-
             <!-- Fotos -->
             <h2 class="mt-5">Fotos</h2>
 

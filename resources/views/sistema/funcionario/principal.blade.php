@@ -12,7 +12,7 @@
 <h1 class="text-center">Funcionários</h1>
 
 <!-- Principal -->
-<div id="principal-funcionario">
+<div id="principal">
     <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">

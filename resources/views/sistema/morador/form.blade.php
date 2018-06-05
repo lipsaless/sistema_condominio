@@ -15,7 +15,7 @@
             <div class="ui input col-md-3">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
                 <input type="text" id="no_apartamento" value="{{ $obj->no_apartamento }}">
-                <?php echo App\Helpers\Html::listaApt(); ?>
+                <?php echo App\Helpers\Html::listaApt($obj->id_apartamento); ?>
             </div>
             <div class="col-md-4">
                 <label for="id_morador" class="font-weight-bold">Morador: *</label>
@@ -98,7 +98,7 @@
         //FORMULÁRIO => salvar
         $('#form-morador').unbind('submit').submit(function(e){
             e.preventDefault();
-            let apartamento = $('#lista-apt').val();
+            let apartamento = $('[name="id_apartamento"]').val();
             let nomeMorador = $('#no_morador').val();
             let tipoMorador = $('#id_morador_tipo').val();
             let sexo = $('#sg_sexo_morador').val();
@@ -107,31 +107,31 @@
 
             //VALIDAÇÃO => apartamento
             if (!apartamento) {
-                return message('warning', 'Apartamento não foi informado!');
+                return message('error', 'Apartamento não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => nome morador
             if (!nomeMorador) {
-                return message('warning', 'Nome do morador não foi informado!');
+                return message('error', 'Nome do morador não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => tipo do morador
             if (!tipoMorador) {
-                return message('warning', 'Tipo de morador não foi informado!');
+                return message('error', 'Tipo de morador não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => CPF
             if (!cpf) {
-                return message('warning', 'CPF não foi informado!');
+                return message('error', 'CPF não foi informado!');
                 return false;
             }
 
             //VALIDAÇÃO => data de nascimento
             if (!dtNascimento) {
-                return message('warning', 'Data de nascimento não foi informada!');
+                return message('error', 'Data de nascimento não foi informada!');
                 return false;
             }
 

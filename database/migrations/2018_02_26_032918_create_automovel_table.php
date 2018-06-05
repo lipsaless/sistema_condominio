@@ -16,8 +16,8 @@ class CreateAutomovelTable extends Migration
         Schema::create('automovel', function (Blueprint $table) {
             $table->increments('id_automovel');
             $table->integer('id_morador');
-            $table->string('no_automovel');
-            $table->string('no_modelo')->nullable();
+            $table->string('no_modelo');
+            $table->string('no_marca')->nullable();
             $table->string('nu_placa');
             $table->string('no_cor')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));

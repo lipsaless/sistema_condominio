@@ -6,7 +6,7 @@
 <h1 class="text-center">Automóveis</h1>
 
 <!-- Principal -->
-<div id="principal-morador-automovel">
+<div id="principal">
     <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">
@@ -92,8 +92,8 @@
             $('h1').html('Automóveis');
         });
 
-         //TABELA => Editar
-         $(document).on('click', '.morador-automovel-editar',function(e){
+        //TABELA => Editar
+        $(document).on('click', '.morador-automovel-editar',function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
@@ -144,7 +144,7 @@
                     text += '           	<th width="40">Morador(a)</th>';
                     text += '            	<th><span>Apartamento</span></th>';
                     text += '            	<th><span>Bloco</span></th>';
-                    text += '            	<th><span>Automóvel</span></th>';
+                    text += '            	<th><span>Modelo</span></th>';
                     text += '            	<th><span>Placa</span></th>';
                     text += '            	<th><span>Cor</span></th>';
                     text += '            	<th>&nbsp;</th>';
@@ -153,17 +153,24 @@
                     text += '		<tbody>';
                     $.each(data, function(key, rs) {
 
+                            //Cor
                             if (rs.no_cor) {
                                 rs.no_cor = rs.no_cor;
                             } else {
                                 rs.no_cor = '';
+                            }
+                            //Marca
+                            if (rs.no_marca) {
+                                rs.no_marca = rs.no_marca;
+                            } else {
+                                rs.no_marca = '';
                             }
 
                             text += '           <tr id="'+rs.id_automovel+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
                             text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
-                            text += '               <td>'+rs.no_automovel+'</td>';
+                            text += '               <td>'+rs.no_modelo+'</td>';
                             text += '               <td><a class="ui circular label">'+rs.nu_placa+'</a></td>';
                             text += '               <td style="font-style:italic;">'+rs.no_cor+'</td>';
                             text += '               <td style="text-align: center;">';
@@ -205,7 +212,6 @@
                         }
                     }
                 });
-
             });
         });
          /*Submit conultar*/

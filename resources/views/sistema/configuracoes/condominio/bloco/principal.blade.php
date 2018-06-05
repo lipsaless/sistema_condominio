@@ -9,18 +9,18 @@
 </style>
 
 <!-- Title -->
-<h1 class="text-center">Locais de reserva</h1>
+<h1 class="text-center">Blocos</h1>
 
 <!-- Principal -->
 <div id="principal">
     <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">
-            <button id="btn-option-back-reserva-local" data-module="" data-action="{{ route('reserva-local-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none;">
+            <button id="btn-option-back-bloco" data-module="" data-action="{{ route('bloco-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none;">
                 <i class="fa fa-reply"></i>
                 <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
             </button>
-            <button id="btn-option-new-reserva-local" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('reserva-local-form') }}">
+            <button id="btn-option-new-bloco" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('bloco-form') }}">
                 <i class="fa fa-plus"></i>
                 <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
             </button>
@@ -28,10 +28,10 @@
     </div>
 
     <!-- Form -->
-    <div id="div-form-reserva-local"></div>
+    <div id="div-form-bloco"></div>
 
     <!-- Consultar -->
-    <form id="principal-reserva-local-consultar" action="{{ route('reserva-local-grid') }}" method="POST" style="display:none;">
+    <form id="principal-bloco-consultar" action="{{ route('bloco-grid') }}" method="POST" style="display:none;">
         <div class="row">
             <div class="col-md-4">
                 <label for="" class="font-weight-bold">Nome:</label>
@@ -39,19 +39,19 @@
             </div>
             <div class="col-md-2">
                 <div>&nbsp;</div>
-                <button id="btn-consultar-reserva-local" type="submit" class="ui black button">Consultar</button>
+                <button id="btn-consultar-bloco" type="submit" class="ui black button">Consultar</button>
             </div>
         </div>
     </form>
     <hr>
     <!-- Grid -->
-    <div id="grid-reserva-local"></div>
+    <div id="grid-bloco"></div>
 </div>
 
 <script>
     $(document).ready(function(){
         /*Form*/
-        $(document).on('click', '#btn-option-new-reserva-local', function(e){
+        $(document).on('click', '#btn-option-new-bloco', function(e){
             e.preventDefault();
 
             $.ajax({
@@ -59,66 +59,65 @@
                 url: $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#grid-reserva-local').hide();
-                    $('#btn-option-new-reserva-local').css("display", "none");
-                    $('#btn-option-back-reserva-local').css("display", "block");
+                    $('#grid-bloco').hide();
+                    $('#btn-option-new-bloco').css("display", "none");
+                    $('#btn-option-back-bloco').css("display", "block");
                     $('#btn-option-save').css("display", "block");
-                    $('h1').html('Cadastro de local de reserva');
-                    $('#div-form-reserva-local').html(formHtml);
-                    $('#div-form-reserva-local').show();
+                    $('h1').html('Cadastro de bloco');
+                    $('#div-form-bloco').html(formHtml);
+                    $('#div-form-bloco').show();
                 }
             });
         });
 
-        /*Voltar*/
-        $('#btn-option-back-reserva-local').unbind('click').click(function(e){
+         /*Voltar*/
+         $('#btn-option-back-bloco').unbind('click').click(function(e){
             e.preventDefault();
-            $('#btn-option-back-reserva-local').hide();
-            $('#btn-option-new-reserva-local').show();
-            $('#div-form-reserva-local').hide();
-            $('#grid-reserva-local').show();
-            $('h1').html('Locais de Reserva');
+            $('#btn-option-back-bloco').hide();
+            $('#btn-option-new-bloco').show();
+            $('#form-bloco').hide();
+            $('#grid-bloco').show();
+            $('h1').html('Blocos');
         });
 
-        
-         //TABELA => Editar
-         $(document).on('click', '.reserva-local-editar',function(e){
+        //TABELA => Editar
+        $(document).on('click', '.bloco-editar',function(e){
             e.preventDefault();
             $.ajax({
                 type: "GET",
-                url: '{{ route("reserva-local-editar") }}' + '/' + $(this).attr("data-action"),
+                url: '{{ route("bloco-editar") }}' + '/' + $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#grid-reserva-local').hide();
-                    $('#btn-option-new-reserva-local').css("display", "none");
-                    $('#btn-option-back-reserva-local').css('display','block');
+                    $('#grid-bloco').hide();
+                    $('#btn-option-new-bloco').css("display", "none");
+                    $('#btn-option-back-bloco').css('display','block');
                     $('#btn-option-save').css("display", "block");
-                    $('h1').html('Editar local de reserva');
-                    $('#div-form-reserva-local').html(formHtml);
-                    $('#div-form-reserva-local').show();
+                    $('h1').html('Editar bloco');
+                    $('#div-form-bloco').html(formHtml);
+                    $('#div-form-bloco').show();
                 }
             });
         });
 
         /*Excluir*/
-        $(document).on('click', '.reserva-local-excluir', function(e){
+        $(document).on('click', '.bloco-excluir', function(e){
             e.preventDefault();
 
             $.ajax({
                 type: "GET",
-                url: '{{ route("reserva-local-excluir") }}' + '/' + $(this).attr("data-action"),
+                url: '{{ route("bloco-excluir") }}' + '/' + $(this).attr("data-action"),
                 data: $(this).serialize()
             }).done(function() {
                 /*Submit conultar*/
-                $('#btn-consultar-reserva-local').unbind('click').click();
+                $('#btn-consultar-bloco').unbind('click').click();
 
                 //msg
-                return message('success', 'Local de reserva excluído com sucesso!');
+                return message('success', 'Bloco excluído com sucesso!');
             });
         });
 
         /*Consultar*/
-        $('#principal-reserva-local-consultar').unbind('submit').submit(function(e) {
+        $('#principal-bloco-consultar').unbind('submit').submit(function(e) {
             e.preventDefault();
 
             $.ajax({
@@ -130,27 +129,23 @@
                 //MONTAR GRID
                 text = '';
 
-                    text += '	<table id="info-reserva-local" class="ui table">';
+                    text += '	<table id="info-bloco" class="ui selectable table">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '            	<th><span><i class="fas fa-home"></i> Local</span></th>';
-                    text += '            	<th><span><i class="fas fa-cash"></i> Valor</span></th>';
-                    text += '            	<th><span><i class="fas fa-user"></i> Nº Convidados<span></th>';
+                    text += '            	<th><span><i class="fas fa-user-circle"></i> Bloco</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
                     text += '		<tbody>';
 
                         $.each(data, function(key, rs) {
-                            let id = rs.id_reserva_local;
+                            let id = rs.id_bloco;
 
                             text += '           <tr id="'+id+'">';
-                            text += '               <td>'+rs.no_reserva_local+'</td>';
-                            text += '               <td>'+rs.vl_reserva_local+'</td>';
-                            text += '               <td>'+rs.nu_convidados+'</td>';
+                            text += '               <td>'+rs.no_bloco+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="reserva-local-editar" class="ui blue button reserva-local-editar" data-action="'+id+'" style="text-align: center;" title="Editar local"><i class="fas fa-pencil-alt"></i></button>';
-                            text += '                   <button id="reserva-local-excluir" class="ui red button reserva-local-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
+                            text += '                   <button id="bloco-editar" class="ui blue button bloco-editar" data-action="'+id+'" style="text-align: center;" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
+                            text += '                   <button id="bloco-excluir" class="ui red button bloco-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });
@@ -159,10 +154,10 @@
                     text += '    </table>';
 
                 /*Grid*/
-                $('#grid-reserva-local').html(text);
+                $('#grid-bloco').html(text);
 
                 /*Data-Table*/
-                $('#info-reserva-local').DataTable({
+                $('#info-bloco').DataTable({
                     //Tradução
                     "language": {
                         "sEmptyTable": "Nenhum registro encontrado",
@@ -175,7 +170,7 @@
                         "sLoadingRecords": "Carregando...",
                         "sProcessing": "Processando...",
                         "sZeroRecords": "Nenhum registro encontrado",
-                        "sSearch": "Nome do local",
+                        "sSearch": "Nome",
                         "oPaginate": {
                             "sNext": "Próximo",
                             "sPrevious": "Anterior",
@@ -191,7 +186,7 @@
             });
         });
         /*Submit consultar*/
-        $('#btn-consultar-reserva-local').click();
+        $('#btn-consultar-bloco').click();
     });
 </script>
 @stop

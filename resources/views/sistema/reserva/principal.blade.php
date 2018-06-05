@@ -12,7 +12,7 @@
 <h1 class="text-center">Reservas</h1>
 
     <!-- Principal -->
-    <div id="principal-reserva">
+    <div id="principal">
         <!--Buttons-->
         <div id="buttons">
             <div class="col-md-12 row">
@@ -105,6 +105,18 @@
                 return message('success', 'Reserva excluída com sucesso!');
             });
         });
+
+        function getFormattedDate(date) {
+            var year = date.getFullYear();
+
+            var month = (1 + date.getMonth()).toString();
+            month = month.length > 1 ? month : '0' + month;
+
+            var day = date.getDate().toString();
+            day = day.length > 1 ? day : '0' + day;
+            
+            return month + '/' + day + '/' + year;
+        }
 
         /*Form*/
         $('#principal-reserva-consultar').submit(function() {

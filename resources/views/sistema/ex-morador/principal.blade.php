@@ -5,7 +5,7 @@
 <!-- Title -->
 <h1 class="text-center">Ex - Moradores</h1>
     <!-- Principal -->
-    <div id="principal-ex-morador">
+    <div id="principal">
         <!-- Form -->
         <form id="principal-ex-morador-consultar" action="{{ route('ex-morador-grid') }}" method="POST" style="display: none;">
             <div class="row">
@@ -140,27 +140,6 @@
 
                 /*Excluir*/
                 $('.ex-morador-recuperar').unbind('click').click(function(e){
-
-                    /*Message*/
-                    Command: toastr["success"]("Morador recuperado!")
-                    toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": true,
-                    "positionClass": "toast-top-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "5000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                    }
-
                     e.preventDefault();
                     $.ajax({
                         type: "GET",
@@ -168,6 +147,9 @@
                         data: $(this).serialize()
                     }).done(function() {
                         $('#btn-consultar-ex-morador').unbind('click').click();
+
+                        //msg
+                        return message('success', 'Morador realocado com sucesso!');
                     });
                 });
             });

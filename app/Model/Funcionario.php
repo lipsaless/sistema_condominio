@@ -23,16 +23,25 @@ class Funcionario extends Model
 
     public function limparDados()
     {
-        $this->nu_cpf_funcionario = str_replace('.','', $this->nu_cpf_funcionario);
-        $this->nu_cpf_funcionario = str_replace('-','', $this->nu_cpf_funcionario);
+        if ($this->nu_cpf_funcionario) {
+            $this->nu_cpf_funcionario = str_replace('.','', $this->nu_cpf_funcionario);
+            $this->nu_cpf_funcionario = str_replace('-','', $this->nu_cpf_funcionario);
+        }
+        
         $this->nu_rg_funcionario = str_replace('.','', $this->nu_rg_funcionario);
-        $this->nu_telefone_funcionario = str_replace('(','', $this->nu_telefone_funcionario);
-        $this->nu_telefone_funcionario = str_replace(')','', $this->nu_telefone_funcionario);
-        $this->nu_telefone_funcionario = str_replace('-','', $this->nu_telefone_funcionario);
-        $this->nu_celular_funcionario = str_replace('(','', $this->nu_celular_funcionario);
-        $this->nu_celular_funcionario = str_replace(')','', $this->nu_celular_funcionario);
-        $this->nu_celular_funcionario = str_replace('.','', $this->nu_celular_funcionario);
-        $this->nu_celular_funcionario = str_replace('-','', $this->nu_celular_funcionario);
+
+        if ($this->nu_telefone_funcionario) {
+            $this->nu_telefone_funcionario = str_replace('(','', $this->nu_telefone_funcionario);
+            $this->nu_telefone_funcionario = str_replace(')','', $this->nu_telefone_funcionario);
+            $this->nu_telefone_funcionario = str_replace('-','', $this->nu_telefone_funcionario);
+        }
+
+        if ($thos->nu_celular_funcionario) {
+            $this->nu_celular_funcionario = str_replace('(','', $this->nu_celular_funcionario);
+            $this->nu_celular_funcionario = str_replace(')','', $this->nu_celular_funcionario);
+            $this->nu_celular_funcionario = str_replace('.','', $this->nu_celular_funcionario);
+            $this->nu_celular_funcionario = str_replace('-','', $this->nu_celular_funcionario);
+        }
         $this->dt_nascimento_funcionario = str_replace('/','-', $this->dt_nascimento_funcionario);
     }
 

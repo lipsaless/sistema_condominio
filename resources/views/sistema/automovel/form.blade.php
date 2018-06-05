@@ -6,7 +6,7 @@
     <hr>
     <fieldset id="fieldset">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
                 <input type="text" id="no_apartamento" class="form-control" value="{{ $obj->no_apartamento }}">
                 <?php echo App\Helpers\Html::listaApt(); ?>
@@ -23,20 +23,20 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label for="no_automovel" class="font-weight-bold">Nome do veículo: *</label>
-                <input type="text" class="form-control" id="no_automovel" name="no_automovel" value="{{ $obj->no_automovel }}">
-            </div>
-        </div>
-        <div class="row my-3">
-            <div class="col-md-3">
                 <label for="no_modelo" class="font-weight-bold">Modelo do veículo: </label>
                 <input type="text" class="form-control" id="no_modelo" name="no_modelo" value="{{ $obj->no_modelo }}">
             </div>
-            <div class="col-md-3">
+        </div>
+        <div class="row my-3">
+            <div class="col-md-4">
+                <label for="no_marca" class="font-weight-bold">Marca do veículo: *</label>
+                <input type="text" class="form-control" id="no_marca" name="no_marca" value="{{ $obj->no_marca }}">
+            </div>
+            <div class="col-md-4">
                 <label for="nu_placa" class="font-weight-bold">Placa:</label>
                 <input type="text" class="form-control" id="nu_placa" name="nu_placa" value="{{ $obj->nu_placa }}">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="no_cor" class="font-weight-bold">Cor: </label>
                 <input type="text" class="form-control" id="no_cor" name="no_cor" value="{{ $obj->no_cor }}">
             </div>
@@ -58,7 +58,7 @@
         carregarListaApt();
 
         /*Mask*/
-        $('#nu_placa').mask({mask: 'AAA-9999'});
+        $('#nu_placa').inputmask("ZZZ-9999");
     });
 
     //FORMULÁRIO => salvar
@@ -66,7 +66,6 @@
             e.preventDefault();
             let apartamento = $('#no_apartamento').val();
             let nomeMorador = $('#id_morador').val();
-            let nomeAutomovel = $('#no_automovel').val();
             let nomeModelo = $('#no_modelo').val();
             let nuPlaca = $('#nu_placa').val();
             let noCor = $('#no_cor').val();
@@ -77,19 +76,19 @@
                 return false;
             }
 
-            //VALIDAÇÃO => nome morador
+            //VALIDAÇÃO => morador
             if (!nomeMorador) {
                 return message('error', 'Morador não foi informado!');
                 return false;
             }
 
-            //VALIDAÇÃO => tipo do morador
-            if (!nomeAutomovel) {
-                return message('error', 'Nome do automóvel não foi informado!');
+            //VALIDAÇÃO => modelo
+            if (!nomeModelo) {
+                return message('error', 'Modelo não foi informado!');
                 return false;
             }
 
-            //VALIDAÇÃO => data de nascimento
+            //VALIDAÇÃO => placa
             if (!nuPlaca) {
                 return message('error', 'Placa do automóvel não foi informada!');
                 return false;

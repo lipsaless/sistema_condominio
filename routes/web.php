@@ -66,6 +66,7 @@ Route::post('/sistema/reserva/gravar', ['as' => 'reserva-gravar', 'uses' => 'Res
 Route::post('/sistema/reserva/grid', ['as' => 'reserva-grid', 'uses' => 'ReservaController@grid']);
 Route::get('/sistema/reserva/editar/{id?}', ['as' => 'reserva-editar', 'uses' => 'ReservaController@editar']);
 Route::get('/sistema/reserva/excluir/{id?}', ['as' => 'reserva-excluir', 'uses' => 'ReservaController@excluir']);
+Route::get('/sistema/reserva/datas-bloqueio', ['as' => 'datas-bloqueio', 'uses' => 'ReservaController@datasBloqueadas']);
 
 //RESERVA-LOCAL
 Route::get('/sistema/reserva-local', ['as' => 'reserva-local-principal', 'uses' => 'ReservaLocalController@principal']);
@@ -75,6 +76,18 @@ Route::post('/sistema/reserva-local/grid', ['as' => 'reserva-local-grid', 'uses'
 Route::get('/sistema/reserva-local/editar/{id?}', ['as' => 'reserva-local-editar', 'uses' => 'ReservaLocalController@editar']);
 Route::get('/sistema/reserva-local/excluir/{id?}', ['as' => 'reserva-local-excluir', 'uses' => 'ReservaLocalController@excluir']);
 
+//CONFIGURAÇÕES - APT
+Route::get('/sistema/apartamento', ['as' => 'apt-principal', 'uses' => 'ApartamentoController@principal']);
+Route::get('/sistema/apartamento/cadastro', ['as' => 'apt-form', 'uses' => 'ApartamentoController@form']);
+Route::post('/sistema/apartamento/gravar', ['as' => 'apt-gravar', 'uses' => 'ApartamentoController@gravar']);
+Route::post('/sistema/apartamento/grid', ['as' => 'apt-grid', 'uses' => 'ApartamentoController@grid']);
+Route::get('/sistema/apartamento/editar/{id?}', ['as' => 'apt-editar', 'uses' => 'ApartamentoController@editar']);
+Route::get('/sistema/apartamento/excluir/{id?}', ['as' => 'apt-excluir', 'uses' => 'ApartamentoController@excluir']);
 
-
-
+//CONFIGURAÇÕES - BLOCO
+Route::get('/sistema/bloco', ['as' => 'bloco-principal', 'uses' => 'BlocoController@principal']);
+Route::get('/sistema/bloco/cadastro', ['as' => 'bloco-form', 'uses' => 'BlocoController@form']);
+Route::post('/sistema/bloco/gravar', ['as' => 'bloco-gravar', 'uses' => 'BlocoController@gravar']);
+Route::post('/sistema/bloco/grid', ['as' => 'bloco-grid', 'uses' => 'BlocoController@grid']);
+Route::get('/sistema/bloco/editar/{id?}', ['as' => 'bloco-editar', 'uses' => 'BlocoController@editar']);
+Route::get('/sistema/bloco/excluir/{id?}', ['as' => 'bloco-excluir', 'uses' => 'BlocoController@excluir']);

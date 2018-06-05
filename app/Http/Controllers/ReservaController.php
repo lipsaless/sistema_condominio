@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class ReservaController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+        $this->model = new Reserva;
+    }
+
     public function principal()
     {
         return view('sistema.reserva.principal');
@@ -16,7 +22,7 @@ class ReservaController extends Controller
 
     public function form()
     {
-        $model = new Reserva();
+        $model = new Reserva;
         $modelReservaLocal = new ReservaLocal;
 
         $obj = $model;
@@ -30,6 +36,28 @@ class ReservaController extends Controller
     {
         $model = new Reserva;
         return $model->getAll();
+    }
+
+    public function datasBloqueadas() 
+    {
+        $model = new Reserva;
+        $idReservaLocal = $this->request->query('id_reserva_local');
+
+        $reservas = $model->datasQueSeraoBloqueadas($idReservaLocal);
+
+        $datasReservadas = null;
+
+        if(count($reservas) > 1) {
+
+            foreach ($reservas as $key => $info) {
+                $dt[$key] = $info->dt_reserva;
+            }
+            $datasReservadas = implode(',', $dt);
+        }
+
+        return response()->json([
+            'datas_reservadas' => $datasReservadas
+        ]);
     }
 
     public function gravar(Request $request)
@@ -47,7 +75,7 @@ class ReservaController extends Controller
         $model->fill($params);
         
         $model->limparDados();
-        
+
         $model->save();
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Apartamento;
 use App\Model\Bloco;
 use App\Model\Morador;
+use App\Model\ExMorador;
 use App\Model\MoradorTipo;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,8 @@ class ExMoradorController extends Controller
         $obj = $model->find($id);
         
         $obj->dt_fim = null;
-        $obj->update();
-
+        $obj->save();
+        
         return response([]);
     }
 }

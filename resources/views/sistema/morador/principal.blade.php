@@ -6,7 +6,7 @@
 <h1 class="text-center">Moradores</h1>
         
     <!-- Principal -->
-    <div id="principal-morador">
+    <div id="principal">
         <!--Buttons-->
         <div id="buttons">
             <div class="col-md-12 row">
@@ -136,7 +136,8 @@
                     text += '   	<thead>';
                     text += '       	<tr>';
                     text += '            	<th><span><i class="fas fa-user"></i> <?php echo $title; ?></span></th>';
-                    text += '            	<th><span><i class="fas fa-building"></i> Apartamento/Bloco</span></th>';
+                    text += '            	<th><span><i class="fas fa-building"></i> Apartamento</span></th>';
+                    text += '            	<th><span><i class="fas fa-building"></i> Bloco</span></th>';
                     text += '            	<th><span>Tipo</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
@@ -146,10 +147,11 @@
                         $.each(data, function(key, rs) {
                             text += '           <tr id="'+rs.id_morador+'">';
                             text += '               <td>'+ rs.no_morador+'</td>';
-                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
+                            text += '               <td><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
                             text += '               <td>'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="morador-editar" class="ui green button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" title="Visualizar dados"><i class="fas fa-search" data-remodal="1"></i></button>';
+                            // text += '                   <button id="morador-dados" class="ui green button morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" title="Visualizar dados"><i class="fas fa-search" data-remodal="1"></i></button>';
                             text += '                   <button id="morador-editar" class="ui blue button morador-editar" data-action="'+rs.id_morador+'" style="text-align: center;" title="Editar morador"><i class="fas fa-pencil-alt"></i></button>';
                             text += '                   <button id="morador-excluir" class="ui red button morador-excluir" data-action="'+rs.id_morador+'" style="text-align: center;" title="Excluir morador"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
@@ -189,39 +191,6 @@
                         }
                     }
                 });
-
-                //PRINCIPAL => Editar
-                // $('.morador-editar').unbind('click').click(function(e){
-                //     e.preventDefault();
-                //     $.ajax({
-                //         type: "GET",
-                //         url: '{{ route("morador-editar") }}' + '/' + $(this).attr("data-action"),
-                //         data: $(this).serialize(),
-                //         success: function(formHtml) {
-                //             $('#principal-morador').hide();
-                //             $('#btn-option-new').css("display", "none");
-                //             $('#btn-option-back').css("display", "block");
-                //             $('#btn-option-save').css("display", "block");
-                //             $('h1').css("display", "none");
-                //             $('#form-morador-cadastro').html(formHtml);
-                //         }
-                //     });
-                // });
-
-                //PRINCIPAL => Excluir
-                // $('.morador-excluir').unbind('click').click(function(e){
-
-                //     e.preventDefault();
-
-                //     $.ajax({
-                //         type: "GET",
-                //         url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
-                //         data: $(this).serialize()
-                //     }).done(function() {
-                //         /*Submit conultar*/
-                //         $('#btn-consultar-morador').unbind('click').click();
-                //     });
-                // });
             });
         });
         /*Submit conultar*/

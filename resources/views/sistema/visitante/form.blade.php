@@ -3,7 +3,7 @@
     <input type="hidden" name="id_visitante" value="{{ $obj->id_visitante }}">
     <hr>
     <div class="row">
-        <div class="ui input col-md-3">
+        <div class="ui input col-md-4">
             <label for="no_apartamento" class="font-weight-bold">Apartamento: *</label>
             <input type="text" id="no_apartamento" value="{{ $obj->no_apartamento }}">
             <?php echo App\Helpers\Html::listaApt(); ?>
@@ -19,13 +19,13 @@
                 <?php endif; ?>
             </select>
         </div>
-        <div class="ui input col-md-5">
+        <div class="ui input col-md-4">
             <label for="no_visitante" class="font-weight-bold">Nome do visitante: *</label>
             <input type="text" id="no_visitante" name="no_visitante" value="{{ $obj->no_visitante }}">
         </div>
     </div>
     <div class="row my-3">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label for="id_visitante_tipo" class="font-weight-bold">Tipo: *</label>
             <select id="id_visitante_tipo" name="id_visitante_tipo" class="form-control">
                 <option value=""> Selecione</option>
@@ -34,11 +34,11 @@
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="ui input col-md-3">
+        <div class="ui input col-md-4">
             <label for="nu_rg" class="font-weight-bold">RG: *</label>
             <input type="text" id="nu_rg" name="nu_rg" value="{{ $obj->nu_rg }}">
         </div>
-        <div class="ui input col-md-3">
+        <div class="ui input col-md-4">
             <label for="nu_cpf" class="font-weight-bold">CPF: </label>
             <input type="text" id="nu_cpf" name="nu_cpf" value="{{ $obj->nu_cpf }}">
         </div>
@@ -52,7 +52,7 @@
             <label for="nu_celular" class="font-weight-bold">Celular:</label>
             <input type="text" id="nu_celular" name="nu_celular" value="{{ $obj->nu_celular }}">
         </div>
-        <div class="ui input col-md-5">
+        <div class="ui input col-md-4">
             <label for="ds_email" class="font-weight-bold">E-mail:</label>
             <input type="text" id="ds_email" name="ds_email" value="{{ $obj->ds_email }}">
         </div>
@@ -85,6 +85,7 @@
         //Mask
         $('#nu_cpf').mask('999.999.999-99');
         $('#nu_rg').mask('9.999.999');
+        $('#nu_telefone').mask('(99)9999-9999');
         $('#nu_celular').mask('(99)9.9999-9999');
     });
 

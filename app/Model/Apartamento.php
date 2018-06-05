@@ -2,22 +2,31 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Model\BaseModel;
 
-class Apartamento extends Model
+class Apartamento extends BaseModel
 {
     protected $table = 'apartamento';
     protected $primaryKey = 'id_apartamento';
     protected $guarded = [];
 
-    public function getAll()
+    public function getAll($allParams = null, $fetchRow = false)
     {
         $query = $this->newQuery();
         $query->join('bloco', 'bloco.id_bloco', 'apartamento.id_bloco');
         $query->select('apartamento.*','bloco.*');
-        $query->whereNull('apartamento.dt_fim');
 
         $query->orderBy('apartamento.id_bloco','ASC','apartamento.no_apartamento', 'ASC');
+
+        if (!empty($allParams['id_apartamento'])) {
+            $query->where('apartamento.id_apartamento', $allParams['id_apartamento']);
+        } else {
+            $query->whereNull('apartamento.dt_fim');
+        }
+
+        if ($fetchRow) {
+            return $query->first();
+        }
 
         return $query->get();
     }

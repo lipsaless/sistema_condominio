@@ -3,16 +3,14 @@
     <input type="hidden" name="id_reserva_local" value="{{ $obj->id_reserva_local }}">
     <hr>
     <div class="row">
-        <div class="ui input col-md-5">
+        <div class="ui input col-md-3">
             <label for="no_reserva_local" class="font-weight-bold">Nome do local: *</label>
             <input type="text" id="no_reserva_local" name="no_reserva_local" value="{{ $obj->no_reserva_local }}">
         </div>
-        <div class="ui input col-md-5">
+        <div class="ui input col-md-3">
             <label for="ref_reserva_local" class="font-weight-bold">Referência: *</label>
             <input type="text" id="ref_reserva_local" name="ref_reserva_local" value="{{ $obj->ref_reserva_local }}">
         </div>
-    </div>
-    <div class="row my-2">
         <div class="ui input col-md-3">
             <label for="vl_reserva_local" class="font-weight-bold">Valor do local: *</label>
             <input type="text" id="vl_reserva_local" name="vl_reserva_local" value="{{ $obj->vl_reserva_local }}">

@@ -4,7 +4,7 @@
 }
 #sidebar .list-group {
   /*min-width: 150px;*/
-  width: 258px;
+  width: 220px;
   min-height: 400vh;
   background-color: #393E46;
 }
@@ -479,6 +479,7 @@ a['data-toggle="collapse"'] {
   color: white !important;
   background-color: #393E46 !important;
   padding: 18px;
+  font-size: 9pt;
 }
 
 #a-menu:hover {

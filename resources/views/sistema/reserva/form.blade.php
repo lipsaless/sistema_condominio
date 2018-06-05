@@ -8,7 +8,6 @@
 
 <!-- Form -->
 <form id="form-reserva" action="{{ route('reserva-gravar') }}" method="POST">
-    <h2 class="text-center">Cadastro de Reserva</h2>
     <hr>
     <div class="row">
         <div class="ui input col-md-3">
@@ -40,6 +39,7 @@
         <div class="ui input col-md-3">
             <label for="dt_reserva" class="font-weight-bold">Data da reserva: *</label>
             <input type="text" id="dt_reserva" name="dt_reserva">
+            <input type="hidden" id="datas-reservadas">
         </div>
     </div>
     <div class="row"> 
@@ -57,6 +57,52 @@
          //Lista apt's
          carregarListaApt();
 
+        $('#id_reserva_local').change(function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: 'GET',
+                url: '<?php echo route('datas-bloqueio') ?>',
+                data: {
+                    'id_reserva_local': $('#id_reserva_local').val()
+                },
+                dataType: 'json',
+                success: function(json) {
+
+                    if (json.datas_reservadas) {
+                        $('#datas-reservadas').val(json.datas_reservadas);
+                    } else {
+                        $('#datas-reservadas').removeAttr('value');
+                    }
+                }
+            })
+        });
+
+        //Formatar data
+        function toTimesTamp(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+        function desabilitarAlgunsDias(date) 
+        {
+            let arrDatasFormatadas = $('#datas-reservadas').val().split(',');
+
+        // Se for uma data ja reservada
+            if ($.inArray(toTimesTamp(date), arrDatasFormatadas) != -1 ) {
+                return [false]
+            }
+
+            return [true];
+        }
+
         //Mask
         $("#dt_reserva").mask('99/99/9999');
          $("#dt_reserva").datepicker({
@@ -67,7 +113,8 @@
             monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
             monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
             nextText: 'Próximo',
-            prevText: 'Anterior'
+            prevText: 'Anterior',
+            beforeShowDay: desabilitarAlgunsDias
         });
     });
 
@@ -117,8 +164,12 @@
                     $('h1').html('Reservas');
                     $('#btn-consultar-reserva').click();
 
-                    //mensagem
+                    //mensagem sucesso
                     return message('success', 'Cadastro efetuado com sucesso!');
+                },
+                error: function(error) {
+                    //mensagem erro
+                    return message('error', 'Já existe uma reserva nesta data!');
                 }
             });
         });

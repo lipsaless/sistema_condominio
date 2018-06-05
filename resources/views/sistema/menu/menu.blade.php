@@ -31,7 +31,12 @@
                     <a id="a-menu" href="{{ route('ex-morador-principal') }}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user"></i>&nbsp;&nbsp;Ex - Morador</a>
                 </div>
                 <a id="a-menu" href="{{ route('funcionario-principal') }}" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Funcionários</span></a>
-                <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-cogs"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Configurações</span></a>
+                <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-toggle="collapse"><i class="fa fa-cogs"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Configurações <i id="seta" class="fas fa-angle-down" style="float: right; right:0;"></i></a></span></a>
+                    <div class="collapse" id="reserva">
+                        <a id="a-menu" href="{{ route('bloco-principal') }}" class="list-group-item">&nbsp;&nbsp; Blocos</a>
+                        <a id="a-menu" href="{{ route('apt-principal') }}" class="list-group-item">&nbsp;&nbsp; Apartamentos</a>
+                        <a id="a-menu" href="{{ route('morador-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Apartamentos</a>
+                    </div>
             </div>
         </div>
     </div>
