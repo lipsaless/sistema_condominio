@@ -36,18 +36,30 @@ class Funcionario extends Model
             $this->nu_telefone_funcionario = str_replace('-','', $this->nu_telefone_funcionario);
         }
 
-        if ($thos->nu_celular_funcionario) {
+        if ($this->nu_celular_funcionario) {
             $this->nu_celular_funcionario = str_replace('(','', $this->nu_celular_funcionario);
             $this->nu_celular_funcionario = str_replace(')','', $this->nu_celular_funcionario);
             $this->nu_celular_funcionario = str_replace('.','', $this->nu_celular_funcionario);
             $this->nu_celular_funcionario = str_replace('-','', $this->nu_celular_funcionario);
         }
         $this->dt_nascimento_funcionario = str_replace('/','-', $this->dt_nascimento_funcionario);
+        $this->ds_senha_funcionario = md5($this->ds_senha_funcionario);
     }
 
     public function countFuncionarios()
     {
         $funcionarios = DB::table('funcionario')->whereNull('funcionario.dt_fim')->count();
         return $funcionarios;
+    }
+
+    public function autenticaUsuario($email, $senha)
+    {
+        return $this->newQuery()
+            ->select('funcionario.*')
+            ->where('ds_email_funcionario', $email)
+            ->where('ds_senha_funcionario', $senha)
+            ->whereNull('dt_fim')
+            ->orderBy('no_funcionario')
+            ->first();
     }
 }

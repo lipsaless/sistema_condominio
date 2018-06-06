@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Model\Morador;
 use App\Model\MoradorTipo;
 use App\Model\Bloco;

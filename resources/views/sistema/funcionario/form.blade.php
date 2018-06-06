@@ -43,13 +43,17 @@
             <label for="nu_telefone_funcionario" class="font-weight-bold">Telefone: </label>
             <input type="text" class="form-control" id="nu_telefone_funcionario" name="nu_telefone_funcionario" value="{{ $obj->nu_telefone_funcionario }}">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="nu_celular_funcionario" class="font-weight-bold">Celular:</label>
             <input type="text" class="form-control" id="nu_celular_funcionario" name="nu_celular_funcionario" value="{{ $obj->nu_celular_funcionario }}">
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
             <label for="ds_email_funcionario" class="font-weight-bold">E-mail:</label>
             <input type="text" class="form-control" id="ds_email_funcionario" name="ds_email_funcionario" value="{{ $obj->ds_email_funcionario }}">
+        </div>
+        <div class="col-md-3">
+            <label for="ds_senha_funcionario" class="font-weight-bold">Senha:</label>
+            <input type="text" class="form-control" id="ds_senha_funcionario" name="ds_senha_funcionario" value="{{ $obj->ds_senha_funcionario }}">
         </div>
     </div>
     <div class="row"> 

@@ -35,7 +35,7 @@
                     <div class="collapse" id="reserva">
                         <a id="a-menu" href="{{ route('bloco-principal') }}" class="list-group-item">&nbsp;&nbsp; Blocos</a>
                         <a id="a-menu" href="{{ route('apt-principal') }}" class="list-group-item">&nbsp;&nbsp; Apartamentos</a>
-                        <a id="a-menu" href="{{ route('morador-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Apartamentos</a>
+                        <a id="a-menu" href="{{ route('morador-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Tipo de morador</a>
                     </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Model\Morador;
 use App\Model\Automovel;
 use App\Model\Funcionario;
@@ -12,6 +13,7 @@ class HomeController extends Controller
 {
     public function principal()
     {
+        dd($_SESSION['usuario']);
         $modelMorador = new Morador;
         $modelAutomovel = new Automovel;
         $modelFuncionario = new Funcionario;

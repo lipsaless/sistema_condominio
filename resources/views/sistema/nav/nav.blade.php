@@ -25,11 +25,11 @@
                     </a>
                     <div id="perfil" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Perfil</a>
-                        <a class="dropdown-item" href="{{ route('login') }}">Sair</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Sair</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Sair  <i class="fas fa-sign-out-alt" style="color: red;"></i></a>
+                    <a class="nav-link" href="{{ route('logout') }}">Sair  <i class="fas fa-sign-out-alt" style="color: red;"></i></a>
                 </li>
             </ul>
         </div>
