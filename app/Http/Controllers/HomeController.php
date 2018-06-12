@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function principal()
     {
-        dd($_SESSION['usuario']);
+        // dd($_SESSION['usuario']);
         $modelMorador = new Morador;
         $modelAutomovel = new Automovel;
         $modelFuncionario = new Funcionario;

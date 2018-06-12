@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function() {
-    return view('template.conteudo.conteudo');
+    return view('template.template');
 });
 
 Route::group(['middleware' => 'auth.role'], function() {
@@ -103,6 +103,7 @@ Route::group(['middleware' => 'auth.role'], function() {
 
 //ROTAS DE LOGIN
 Route::get('/Login',['as' => 'login', 'uses' => 'LoginController@principal']);
+Route::get('/login-index',['as' => 'login-index', 'uses' => 'LoginController@loginIndex']);
 Route::post('/Login/autenticar',['as' => 'login/autenticar', 'uses' => 'LoginController@realizarLogin']);
 
 

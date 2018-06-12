@@ -97,3 +97,8 @@ section#conteudo-view input[type="submit"] {
 div#text-login-img {
     padding: 50px;
 }
+
+#conteudo-view .form {
+    width: 60%;
+    margin-left: 20%;
+}

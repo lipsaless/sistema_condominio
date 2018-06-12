@@ -45,7 +45,7 @@ class AnimalController extends Controller
         $modelApartamento = new Apartamento;
 
         $obj = $model->find($id);
-        // dd($obj);
+        
         $tipos = $modelAnimalTipo->getAll();
         $listaMoradores = $modelApartamento->moradorPorApartamento($obj->id_apartamento);
 

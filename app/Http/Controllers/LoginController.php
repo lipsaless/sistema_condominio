@@ -15,6 +15,10 @@ class LoginController extends Controller
         return view('login.login');
     }
 
+    public function loginIndex() {
+        return view('login-index.index');
+    }
+
     public function realizarLogin(Request $request)
     {
         $model = new Funcionario;
@@ -27,9 +31,9 @@ class LoginController extends Controller
 
         if ($usuarioEncontrado) {
             $_SESSION['usuario'] = $usuarioEncontrado;
-            return redirect('sistema');
+            return json_encode(['type' => 'success', 'msg' => 'Usuário autenticado com sucesso', 'redirect' => route('sistema')]);
         } else {
-            return redirect('Login');
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar autenticar usuário']);
         }
     }
 
