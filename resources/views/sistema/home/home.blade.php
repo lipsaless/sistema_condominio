@@ -31,7 +31,7 @@
 
 <body>
 
-<h1 id="no_condominio" class="display-3 hidden-xs-down" style="text-align: center;">Condomínio 4 Amigos </h1>
+<h1 id="no_condominio" class="display-3 hidden-xs-down" style="text-align: center;">CondMin </h1>
 <main id="menu-home" class="col-md-10">
             <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
@@ -53,15 +53,15 @@
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-info">
                         <div class="card-block bg-info">
-                            <h6 class="text-info text-center">Automóveis</h6>
-                            <h1 id="count-automovel" class="display-1 text-center">0</h1>
+                            <h6 class="text-info text-center">Visitantes</h6>
+                            <h1 id="count-visitante" class="display-1 text-center">0</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-inverse card-danger">
                         <div class="card-block bg-info">
-                            <h6 class="text-info text-center">Visitantes</h6>
+                            <h6 class="text-info text-center">Reservas</h6>
                             <h1 id="count-reserva" class="display-1 text-center">0</h1>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
         }
 
         async function countMorador() {
-            for (var i = 0; i < <?php echo $contagemMorador ?>; i++) {
+            for (var i = 0; i < <?php echo $contagemMorador; ?>; i++) {
                 await sleep(0.5);
                 $("#count-morador").html(i + 1);
             }
@@ -153,9 +153,9 @@
 
         async function countAutomovel()
         {
-            for (var i = 0; i < <?php echo $contagemAutomovel ?>; i++) {
+            for (var i = 0; i < <?php echo $contagemVisitante; ?>; i++) {
                 await sleep(1);
-                $("#count-automovel").html(i + 1);
+                $("#count-visitante").html(i + 1);
             }
         }
         

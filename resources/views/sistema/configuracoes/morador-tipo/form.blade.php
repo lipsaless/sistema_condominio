@@ -45,7 +45,11 @@
                         $('h1').html('Tipos de moradores');
                         $('#btn-consultar-morador-tipo').click();
 
-                        return message('success', json.msg);
+                        if (!$('[name="id_morador_tipo"]').val()) {
+                            return message('success', json.msg);
+                        } else {
+                            return message('success', 'Edição realizada com sucesso.');
+                        }
                     } else {
                         return message('error', json.msg);
                         return false;

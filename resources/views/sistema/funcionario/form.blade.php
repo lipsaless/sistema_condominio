@@ -53,7 +53,7 @@
         </div>
         <div class="col-md-3">
             <label for="ds_senha_funcionario" class="font-weight-bold">Senha:</label>
-            <input type="text" class="form-control" id="ds_senha_funcionario" name="ds_senha_funcionario" value="{{ $obj->ds_senha_funcionario }}">
+            <input type="password" class="form-control" id="ds_senha_funcionario" name="ds_senha_funcionario" value="{{ $obj->ds_senha_funcionario }}">
         </div>
     </div>
     <div class="row"> 
@@ -86,16 +86,23 @@
             let nomeFuncionario = $('#no_funcionario').val();
             let sexo = $('#sg_sexo_funcionario').val();
             let rg = $('#nu_rg_funcionario').val();
+            let dtNascimento = $('#dt_nascimento_funcionario').val();
 
-            //VALIDAÇÃO => apartamento
+            //VALIDAÇÃO => nome funcionário
             if (!nomeFuncionario) {
                 return message('error', 'Nome do funcionário não foi informado!');
                 return false;
             }
 
-            //VALIDAÇÃO => tipo do morador
+            //VALIDAÇÃO => RG funcionário
             if (!rg) {
                 return message('error', 'RG não foi informado!');
+                return false;
+            }
+
+            //VALIDAÇÃO => data de nascimento
+            if (!dtNascimento) {
+                return message('error', 'Data de nascimento não foi informada!');
                 return false;
             }
 
@@ -103,19 +110,28 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#btn-option-back-funcionario').hide();
-                    $('#btn-option-new-funcionario').show();
-                    $('#form-funcionario').hide();
-                    $('#grid-funcionarios').show();
-                    $('h1').html('Funcionarios');
-                    $('#btn-consultar-funcionario').click();
-                    //mensagem
-                    if (!$('[name="id_funcionario"]').val()) {
-                        return message('success', 'Cadastro efetuado com sucesso!');
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-option-back-funcionario').hide();
+                        $('#btn-option-new-funcionario').show();
+                        $('#form-funcionario').hide();
+                        $('#grid-funcionarios').show();
+                        $('h1').html('Funcionarios');
+                        $('#btn-consultar-funcionario').click();
+
+                        //mensagem
+                        if (!$('[name="id_funcionario"]').val()) {
+                            return message('success', json.msg);
+                        } else {
+                            return message('success', 'Edição realizada com sucesso');
+                        }
                     } else {
-                        return message('success', 'Funcionário editado com sucesso!');
+                        //mensagem
+                        return message('error', json.msg);
+                        return false;
                     }
+                    
                 }
             });
         });

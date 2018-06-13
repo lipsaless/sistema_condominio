@@ -117,13 +117,20 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("morador-automovel-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                /*Submit conultar*/
-                $('#btn-consultar-morador-automovel').unbind('click').click();
-                //msg
-                return message('success', 'Automóvel excluído com sucesso!');
-            });
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+
+                        $('#btn-consultar-morador-automovel').unbind('click').click();
+                        //msg
+                        return message('success', json.msg);
+                    } else {
+                        return message('error', json.msg);
+                        return false;
+                    }
+                }
+            })
         });
 
         /*Consultar*/

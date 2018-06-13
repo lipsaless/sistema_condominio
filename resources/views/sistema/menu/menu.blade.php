@@ -14,7 +14,7 @@
                 <!-- <div id="img">
                     <img id="img-menu" src="{{ asset('assets/img/img-condominio.jpg') }}" alt="">
                 </div> -->
-                <h3 style="text-align: center; color: white;">Condomínio 4Amigos</h3>
+                <h3 style="text-align: center; color: white;">CondMin</h3>
                 <hr style="">
                 <a id="a-menu" href="{{ route('sistema') }}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fas fa-home"></i>&nbsp;&nbsp; Home</a>
                 <a id="a-menu" href="{{ route('visitante-principal') }}" class="list-group-item" data-toggle="collapse"><i class="fas fa-user-circle"></i>&nbsp;&nbsp; Visitantes </a>

@@ -107,14 +107,21 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("reserva-local-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                /*Submit conultar*/
-                $('#btn-consultar-reserva-local').unbind('click').click();
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-reserva-local').unbind('click').click();
 
-                //msg
-                return message('success', 'Local de reserva excluído com sucesso!');
-            });
+                        //mensagem
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem
+                        return message('success', json.msg);
+                        return false;
+                    }
+                }
+            })
         });
 
         /*Consultar*/

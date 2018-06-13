@@ -60,6 +60,8 @@
 
 <script>
     $(document).ready(function(){
+        $(document).tooltip();
+        
         /*Form*/
         $('#btn-option-new-reserva').unbind('click').click(function(e){
             e.preventDefault();
@@ -96,27 +98,22 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("reserva-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                /*Submit conultar*/
-                $('#btn-consultar-reserva').unbind('click').click();
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-reserva').unbind('click').click();
 
-                //msg
-                return message('success', 'Reserva excluída com sucesso!');
-            });
+                        //mensagem
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem
+                        return message('error', json.msg);
+                        return false;
+                    }
+                }
+            })
         });
-
-        function getFormattedDate(date) {
-            var year = date.getFullYear();
-
-            var month = (1 + date.getMonth()).toString();
-            month = month.length > 1 ? month : '0' + month;
-
-            var day = date.getDate().toString();
-            day = day.length > 1 ? day : '0' + day;
-            
-            return month + '/' + day + '/' + year;
-        }
 
         /*Form*/
         $('#principal-reserva-consultar').submit(function() {
@@ -135,21 +132,22 @@
                     text += '           	<th width="40"><span>Reserva</span></th>';
                     text += '            	<th><span>Apartamento/Bloco</span></th>';
                     text += '            	<th><span>Morador</span></th>';
-                    text += '            	<th><span>Data</span></th>';
+                    text += '            	<th><span>Data da reserva</span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
                     text += '		<tbody>';
                         $.each(data, function(key, rs) {
                             let id = rs.id_reserva;
+                            let dataFormatada = moment(rs.dt_reserva).format('DD/MM/YYYY');
 
                             text += '           <tr id="'+id+'">';
                             text += '               <td>'+rs.no_reserva_local+'</td>';
                             text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td>'+rs.no_morador+'</td>';
-                            text += '               <td id="dt_reserva">'+rs.dt_reserva+'</td>';
+                            text += '               <td id="dt_reserva">'+dataFormatada+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="reserva-excluir" class="ui red button reserva-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
+                            text += '                   <button id="reserva-excluir" class="ui red button reserva-excluir" data-action="'+id+'" style="text-align: center;" title="Cancelar reserva"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });

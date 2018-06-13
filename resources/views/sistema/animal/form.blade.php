@@ -104,16 +104,29 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#form-morador-animal').hide();
-                    $('#btn-option-back-morador-animal').hide();
-                    $('#btn-option-new-animal-form').show();
-                    $('#grid-morador-animal').show();
-                    $('h1').html('Animais');
-                    $('#btn-consultar-morador-animal').click();
-                    
-                    //mensagem
-                    return message('success', 'Cadastro efetuado com sucesso!');
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+
+                        $('#form-morador-animal').hide();
+                        $('#btn-option-back-morador-animal').hide();
+                        $('#btn-option-new-animal-form').show();
+                        $('#grid-morador-animal').show();
+                        $('h1').html('Animais');
+                        $('#btn-consultar-morador-animal').click();
+
+                        if (!$('[name="id_animal"]').val()) {
+                            //mensagem
+                            return message('success', json.msg);
+                        } else {
+                            //mensagem
+                            return message('success', 'Edição realizada com sucesso.');
+                        }
+                    } else {
+                        //mensagem
+                        return message('success', json.msg);
+                        return false;
+                    }
                 }
             });
         });

@@ -50,16 +50,29 @@ class VisitanteController extends Controller
         
         $model->limparDados();
         
-        $model->save();
+        $salvou = $model->save();
+
+        if ($salvou) {
+            return json_encode(['type' => 'success', 'msg' => 'Cadastrado com sucesso!']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar cadastrar visitante!']);
+        }
     }
 
     public function excluir($id)
     {
         $model = new Visitante;
-        $obj = $model->find($id);
-        
+
+        $obj = $model->findVisitante($id);
         $obj->dt_fim = date('Y-m-d H:i:s');
-        $obj->update();
+        
+        $excluir = $obj->update();
+        
+        if ($excluir) {
+            return json_encode(['type' => 'success', 'msg' => 'Visitante excluído com sucesso!']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar excluir Visitante!']);
+        }
 
         return response([]);
     }

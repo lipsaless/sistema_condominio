@@ -99,14 +99,21 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("funcionario-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                /*Submit conultar*/
-                $('#btn-consultar-funcionario').unbind('click').click();
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-funcionario').unbind('click').click();
 
-                //msg
-                return message('success', 'Funcionário excluído com sucesso!');
-            });
+                        //mensagem
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem
+                        return message('success', json.msg);
+                        return false;
+                    }
+                }
+            })
         });
 
         /*Consultar*/
@@ -121,7 +128,7 @@
             }).done(function(data){
                 //MONTAR GRID
                 text = '';
-
+                    
                     text += '	<table id="info-funcionarios" class="ui table">';
                     text += '   	<thead>';
                     text += '       	<tr>';
@@ -136,10 +143,28 @@
                         $.each(data, function(key, rs) {
                             let id = rs.id_funcionario;
 
+                            if (rs.ds_email_funcionario) {
+                                rs.ds_email_funcionario = rs.ds_email_funcionario
+                            } else {
+                                rs.ds_email_funcionario = ''
+                            }
+
+                            if (rs.nu_telefone_funcionario) {
+                                rs.nu_telefone_funcionario = '<a class="ui yellow circule label" style="color:black !important;">'+rs.nu_telefone_funcionario+'</a> /' ;
+                            } else {
+                                rs.nu_telefone_funcionario = ''
+                            }
+
+                            if (rs.nu_celular_funcionario) {
+                                rs.nu_celular_funcionario = '<a class="ui yellow circule label" style="color:black !important;">'+rs.nu_celular_funcionario+'</a>';
+                            } else {
+                                rs.nu_celular_funcionario = ''
+                            }
+
                             text += '           <tr id="'+id+'">';
                             text += '               <td>'+rs.no_funcionario+'</td>';
                             text += '               <td style="font-style:italic; font-weight:bold;">'+rs.ds_email_funcionario+'</td>';
-                            text += '               <td><a class="ui yellow circule label" style="color:black !important;">'+rs.nu_telefone_funcionario+'</a> / <a class="ui yellow circule label" style="color:black !important;">'+rs.nu_celular_funcionario+'</a></td>';
+                            text += '               <td>'+rs.nu_telefone_funcionario + rs.nu_celular_funcionario+'</td>';
                             text += '               <td style="text-align: center;">';
                             text += '                   <button id="funcionario-editar" class="ui blue button funcionario-editar" data-action="'+id+'" style="text-align: center;"><i class="fas fa-pencil-alt"></i></button>';
                             text += '                   <button id="funcionario-excluir" class="ui red button funcionario-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';

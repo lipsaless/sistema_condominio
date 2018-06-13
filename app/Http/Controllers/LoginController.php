@@ -14,11 +14,7 @@ class LoginController extends Controller
     {
         return view('login.index');
     }
-
-    public function loginIndex() {
-        return view('login-index.index');
-    }
-
+    
     public function realizarLogin(Request $request)
     {
         $model = new Funcionario;

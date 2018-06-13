@@ -101,15 +101,23 @@
                 dataType: 'json',
                 success: function(json) {
                     if (json.type == 'success' ) {
+
                         $('#form-morador-automovel').hide();
                         $('#btn-option-back-morador-automovel').hide();
                         $('#btn-option-new-automovel-form').show();
                         $('#grid-morador-automovel').show();
                         $('h1').html('Automóveis');
                         $('#btn-consultar-morador-automovel').click();
+
+                        if (!$('[name="id_automovel"]').val()) {
+                            return message('success', json.msg);
+                        } else {
+                            return message('success', 'Edição realizada com sucesso.');
+                        }
+                       
+                    } else {
+                        return message('error', json.msg);
                     }
-                     //mensagem
-                     return msg(json);
                 }
             });
         });

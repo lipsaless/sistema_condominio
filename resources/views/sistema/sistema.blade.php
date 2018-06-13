@@ -2,6 +2,8 @@
 
 <link rel="shortcut icon" type="image/png" href="{{ asset('logo/oie_transparent.png') }}"/>
 
+<link rel="icon" type="image/png" href="{{ asset('login-style/images/icons/favicon.ico') }}"/>
+
 <!--MY STYLE-->
 <link rel="stylesheet" href="{{ asset('css/sistema.css') }}">
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -55,6 +57,8 @@
 
 <!--PRINCIPAL JS-->
 <script src="{{ asset('principal/principal.js') }}"></script>
+
+<script src="{{ asset('principal/moment.js') }}"></script>
 
 <!--CONTEÚDO-->
 <div id="nav-sistema">

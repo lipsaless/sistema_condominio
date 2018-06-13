@@ -52,7 +52,13 @@ class ReservaLocalController extends Controller
         
         $model->limparDados();
         
-        $model->save();
+        $salvou = $model->save();
+
+        if ($salvou) {
+            return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar cadastrar local de reserva.']);
+        }
     }
 
     public function excluir($id)
@@ -61,7 +67,13 @@ class ReservaLocalController extends Controller
         $obj = $model->find($id);
         
         $obj->dt_fim = date('Y-m-d H:i:s');
-        $obj->update();
+        $excluir = $obj->update();
+
+        if ($excluir) {
+            return json_encode(['type' => 'success', 'msg' => 'Local de Reserva excluído com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar excluir Local de Reserva.']);
+        }
 
         return response([]);
     }

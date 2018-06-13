@@ -68,17 +68,30 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#btn-option-back-reserva-local').hide();
-                    $('#btn-option-new-reserva-local').show();
-                    $(this).hide();
-                    $('#form-reserva-local').hide();
-                    $('#grid-reserva-local').show();
-                    $('h1').html('Locais de Reserva');
-                    $('#btn-consultar-reserva-local').click();
-
-                    //mensagem
-                    return message('success', 'Cadastro efetuado com sucesso!');
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-option-back-reserva-local').hide();
+                        $('#btn-option-new-reserva-local').show();
+                        $(this).hide();
+                        $('#form-reserva-local').hide();
+                        $('#grid-reserva-local').show();
+                        $('h1').html('Locais de Reserva');
+                        $('#btn-consultar-reserva-local').click();
+                        
+                        if (!$('[name="id_reserva_local"]').val()) {
+                            //mensagem
+                            return message('success', json.msg);
+                        } else {
+                            //mensagem
+                            return message('success', 'Edição realizada com sucesso.');
+                        }
+                    } else {
+                        //mensagem
+                        return message('success', json.msg);
+                        return false;
+                    }
+                    
                 }
             });
         });

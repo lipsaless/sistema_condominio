@@ -72,19 +72,8 @@
         //Lista apt's
         carregarListaApt();
 
-        /*Voltar*/
-        $('#btn-option-back-visitante').unbind('click').click(function(e){
-            e.preventDefault();
-            $('#btn-option-back-visitante').hide();
-            $('#btn-option-new-visitante').show();
-            $('#form-visitante').hide();
-            $('#grid-visitantes').show();
-            $('h1').html('Visitantes');
-        });
-
         //Mask
         $('#nu_cpf').mask('999.999.999-99');
-        $('#nu_rg').mask('9.999.999');
         $('#nu_telefone').mask('(99)9999-9999');
         $('#nu_celular').mask('(99)9.9999-9999');
     });
@@ -133,16 +122,24 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#btn-option-back-visitante').hide();
-                    $('#btn-option-new-visitante').show();
-                    $('#form-visitante').hide();
-                    $('#grid-visitantes').show();
-                    $('h1').html('Visitantes');
-                    $('#btn-consultar-visitante').click();
-
-                    //mensagem
-                    return message('success', 'Cadastro efetuado com sucesso!');
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-option-back-visitante').hide();
+                        $('#btn-option-new-visitante').show();
+                        $('#form-visitante').hide();
+                        $('#grid-visitantes').show();
+                        $('h1').html('Visitantes');
+                        $('#btn-consultar-visitante').click();
+                        
+                        //mensagem
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem
+                        return message('error', json.msg);
+                        return false;
+                    }
+                    
                 }
             });
         });

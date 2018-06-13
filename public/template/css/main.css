@@ -295,7 +295,7 @@ ul li {
 -------------------------------------------------------------------------------*/
 
 .banner {
-	background-image: url(../images/banner.jpg);
+	background-image: url(../../assets/img/img-site.jpg);
 	background-position: center top;
 	background-repeat: no-repeat;
 	-moz-background-size: cover;

@@ -70,6 +70,16 @@
             });
         });
 
+        /*Voltar*/
+        $('#btn-option-back-visitante').unbind('click').click(function(e){
+            e.preventDefault();
+            $('#btn-option-back-visitante').hide();
+            $('#btn-option-new-visitante').show();
+            $('#form-visitante').hide();
+            $('#grid-visitantes').show();
+            $('h1').html('Visitantes');
+        });
+
         /*Excluir*/
         $(document).on('click', '.visitante-excluir', function(e){
             e.preventDefault();
@@ -77,14 +87,21 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("visitante-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                /*Submit conultar*/
-                $('#btn-consultar-visitante').unbind('click').click();
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-visitante').unbind('click').click()
 
-                //msg
-                return message('success', 'Visitante excluído com sucesso!');
-            });
+                        //mensagem
+                        return message('success', json.msg)
+                    } else {
+                         //mensagem
+                         return message('error', json.msg)
+                         return false;
+                    }
+                }
+            })
         });
 
         /*Consultar*/

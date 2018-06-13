@@ -139,18 +139,25 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#btn-option-back').hide();
-                    $('#btn-option-new').show();
-                    $('#form-morador').hide();
-                    $('#grid-moradores').show();
-                    $('h1').html('Moradores');
-                    $('#btn-consultar-morador').click();
-                    //mensagem
-                    if (!$('[name="id_morador"]').val()) {
-                        return message('success', 'Cadastro efetuado com sucesso!');
-                    } else {
-                        return message('success', 'Morador editado com sucesso!');
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+
+                        $('#btn-option-back').hide();
+                        $('#btn-option-new').show();
+                        $('#form-morador').hide();
+                        $('#grid-moradores').show();
+                        $('h1').html('Moradores');
+                        $('#btn-consultar-morador').click();
+                        
+                        if (!$('[name="id_morador"]').val()) { //Se não tiver dados no formulário
+                            return message('success', json.msg);
+                        } else { //Se tiver
+                            return message('success', 'Edição realizada com sucesso.');
+                        }
+                    } else { //Caso dê erro na edição ou cadastro
+                        return message('error', json.msg);
+                        return false;
                     }
                 }
             });

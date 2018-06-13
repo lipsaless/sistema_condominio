@@ -63,7 +63,7 @@ class ReservaController extends Controller
     public function gravar(Request $request)
     {
         $params = $request->all();
-
+        
         $model = new Reserva;
 
         if (!empty($params['id_reserva'])) {
@@ -76,16 +76,29 @@ class ReservaController extends Controller
         
         $model->limparDados();
 
-        $model->save();
+        $salvou = $model->save();
+
+        if ($salvou) {
+            return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar cadastrar reserva.']);
+        }
     }
 
     public function excluir($id)
     {
         $model = new Reserva;
-        $obj = $model->find($id);
-        
+
+        $obj = $model->findReserva($id);
         $obj->dt_fim = date('Y-m-d H:i:s');
-        $obj->update();
+
+        $excluir = $obj->update();
+
+        if ($excluir) {
+            return json_encode(['type' => 'success', 'msg' => 'Reserva excluída com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar excluir Reserva.']);
+        }
 
         return response([]);
     }

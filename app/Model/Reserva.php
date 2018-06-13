@@ -47,13 +47,16 @@ class Reserva extends BaseModel
 
     public function save(array $options = [])
     {
-        $dtFormulario = Carbon::parse($this->dt_reserva);
-        $idReservaLocal = $this->id_reserva_local;
+        //Se a reserva excluída não tiver id verificar se tem reserva com a mesma data
+        if (!$this->id_reserva_local) {
+            $dtFormulario = Carbon::parse($this->dt_reserva);
+            $idReservaLocal = $this->id_reserva_local;
 
-        $existente = $this->verificaSeExisteReservaNaMesmaData($idReservaLocal, $dtFormulario);
+            $existente = $this->verificaSeExisteReservaNaMesmaData($idReservaLocal, $dtFormulario);
 
-        if ($existente) {
-            throw new \Exception('Já existe uma reserva nesta data');
+            if ($existente) {
+                throw new \Exception('Já existe uma reserva nesta data');
+            }
         }
 
         return parent::save($options);
@@ -65,6 +68,16 @@ class Reserva extends BaseModel
             ->where('id_reserva_local', $idReservaLocal)
             ->where('dt_reserva', $dataReserva)
             ->whereNull('dt_fim')
+            ->first();
+    }
+
+    public function findReserva($idReserva) 
+    {
+        return $this->newQuery()
+            ->where('reserva.id_reserva', $idReserva)
+            ->join('morador', 'morador.id_morador', 'reserva.id_morador')
+            ->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento')
+            ->whereNull('reserva.dt_fim')
             ->first();
     }
 }

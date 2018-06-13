@@ -25,11 +25,16 @@
 <!--===============================================================================================-->
 
 <style>
-	#msg-error {
+	#msg-error, #msg-sucesso {
 		width: 100%;
 	}
 	#loader-login {
 		margin-left: 8px;
+	}
+	.alert-danger {
+		color: #ffffff;
+		background-color: #f9717d;
+		border-color: #d4bcbf00;
 	}
 </style>
 
@@ -47,6 +52,11 @@
 					<span class="login100-form-title p-t-20 p-b-45">
 						CondMin
 					</span>
+
+					<!-- Mensagem sucesso -->
+					<div id="msg-sucesso" class="alert alert-success" role="alert" style="display:none;">
+						<strong>Validando dados...</strong>
+					</div>
 
 					<!-- Mensagem erro -->
 					<div id="msg-error" class="alert alert-danger" role="alert" style="display:none;">
@@ -74,9 +84,7 @@
 					</div>
 
 					<div class="text-center w-full p-t-25 p-b-230">
-						<a href="#" class="txt1">
-							Versão 1.0
-						</a>
+						<p class="txt1">Versão 1.0</p>
 					</div>
 
 					<!-- <div class="text-center w-full">
@@ -122,6 +130,7 @@
                 dataType: 'json',
                 success: function(json) {
                     if (json.type == 'success') { 
+						$('#msg-sucesso').css('display', 'block')
                         window.location.href = json.redirect; // Caso seja autenticado o usuário redireciona para o sistema
                     } else {
                         $('#msg-error').css('display', 'block') // Caso não seja autenticado mostrar mensagem de erro

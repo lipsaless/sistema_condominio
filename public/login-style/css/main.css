@@ -193,6 +193,9 @@ iframe {
 .wrap-login100 {
   width: 390px;
   background: transparent;
+  padding: 20px;
+  background-color: rgba(10, 10, 10, 0.25098039215686274);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.4588235294117647);
 }
 
 
@@ -210,8 +213,11 @@ iframe {
   flex-wrap: wrap;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 .login100-form-title {
-  font-family: Montserrat-ExtraBold;
   font-size: 24px;
   color: #fff;
   line-height: 1.2;

@@ -6,6 +6,14 @@
     }
 ?>
 
+<style>
+    .disabled {
+        opacity: 0.5;
+        cursor: inherit;
+        pointer-events: none;
+    }
+</style>
+
 <!-- Form -->
 <form id="form-reserva" action="{{ route('reserva-gravar') }}" method="POST">
     <hr>
@@ -38,7 +46,7 @@
         </div>
         <div class="ui input col-md-3">
             <label for="dt_reserva" class="font-weight-bold">Data da reserva: *</label>
-            <input type="text" id="dt_reserva" name="dt_reserva">
+            <input class="disabled" type="text" id="dt_reserva" name="dt_reserva" tabindex="-1">
             <input type="hidden" id="datas-reservadas">
         </div>
     </div>
@@ -60,11 +68,21 @@
         $('#id_reserva_local').change(function(e) {
             e.preventDefault();
 
+            let localReserva = $('#id_reserva_local').val()
+            
+            if (!localReserva) {
+                $('#dt_reserva').addClass('disabled')
+                return false;
+            } else {
+                $('#dt_reserva').removeClass('disabled')
+                $('#dt_reserva').html('')
+            }
+
             $.ajax({
                 type: 'GET',
                 url: '<?php echo route('datas-bloqueio') ?>',
                 data: {
-                    'id_reserva_local': $('#id_reserva_local').val()
+                    'id_reserva_local': localReserva
                 },
                 dataType: 'json',
                 success: function(json) {
@@ -155,21 +173,24 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#form-reserva').hide();
-                    $('#btn-option-back-reserva').hide();
-                    $('#btn-option-new-reserva').show();
-                    $('#form-visitante').hide();
-                    $('#grid-reservas').show();
-                    $('h1').html('Reservas');
-                    $('#btn-consultar-reserva').click();
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#form-reserva').hide();
+                        $('#btn-option-back-reserva').hide();
+                        $('#btn-option-new-reserva').show();
+                        $('#form-visitante').hide();
+                        $('#grid-reservas').show();
+                        $('h1').html('Reservas');
+                        $('#btn-consultar-reserva').click();
 
-                    //mensagem sucesso
-                    return message('success', 'Cadastro efetuado com sucesso!');
-                },
-                error: function(error) {
-                    //mensagem erro
-                    return message('error', 'Já existe uma reserva nesta data!');
+                        //mensagem sucesso
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem error
+                        return message('error', json.msg);
+                        return false
+                    }
                 }
             });
         });

@@ -87,9 +87,13 @@ class AutomovelController extends Controller
 
         $model->limparDados();
         
-        $model->save();
+        $salvou = $model->save();
 
-        return response()->json(['type' => 'success', 'msg' => 'Automóvel salvo com sucesso']);
+        if ($salvou) {
+            return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar cadastrar automóvel.']);
+        }
     }
 
     public function excluir($id)
@@ -98,7 +102,13 @@ class AutomovelController extends Controller
         $obj = $model->find($id);
         
         $obj->dt_fim = date('Y-m-d H:i:s');
-        $obj->update();
+        $excluir = $obj->update();
+
+        if ($excluir) {
+            return json_encode(['type' => 'success', 'msg' => 'Automóvel excluído com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar excluir automóvel.']);
+        }
         
         return response([]);
     }

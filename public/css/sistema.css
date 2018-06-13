@@ -33,6 +33,22 @@ body {
     padding: 21px;
 }
 
+/* tbody td .ui.blue.button {
+    background-color: #1881da;
+}
+
+tbody td .ui.blue.button:hover {
+    background-color: #1881da;
+} */
+/* 
+tbody td .ui.red.button {
+    background-color: #ff2f2f;
+}
+
+tbody td .ui.red.button:hover {
+    background-color: #ff2f2f;
+} */
+
 #btn-option-save {
     background-color: #12bb3a !important;
 }

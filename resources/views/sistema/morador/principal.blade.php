@@ -63,8 +63,6 @@
 <script>
     $(document).ready(function(){
         $(document).tooltip();
-        //START AJAX E STOP AJAX
-        // ajax();
         
         //PRINCIPAL => novo cadastro
         $(document).on('click', '#btn-option-new', function(e){
@@ -110,13 +108,21 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("morador-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                /*Submit conultar*/
-                $('#btn-consultar-morador').unbind('click').click();
-                //msg
-                return message('success', 'Morador excluído com sucesso!');
-            });
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-morador').unbind('click').click();
+
+                        //mensagem
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem
+                        return message('error', json.msg);
+                        return false;
+                    }
+                }
+            })
         });
 
         //CONSULTAR
