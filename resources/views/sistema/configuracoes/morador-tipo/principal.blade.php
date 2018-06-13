@@ -16,11 +16,11 @@
     <!-- Buttons -->
     <div id="buttons">
         <div class="col-md-12 row">
-            <button id="btn-option-back-bloco" data-module="" data-action="{{ route('morador-tipo-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none;">
+            <button id="btn-option-back-morador-tipo" data-module="" data-action="{{ route('morador-tipo-principal') }}" class="ui basic button btn-resp col-xs-12" style="display:none;">
                 <i class="fa fa-reply"></i>
                 <a id="voltar" href="" style="color: black !important; text-decoration: none !important;">Voltar</a>
             </button>
-            <button id="btn-option-new-bloco" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-tipo-form') }}">
+            <button id="btn-option-new-morador-tipo" data-module="" class="ui blue button btn-resp col-xs-12" title="Novo" data-action="{{ route('morador-tipo-form') }}">
                 <i class="fa fa-plus"></i>
                 <a id="novo" href="" style="color: white !important; text-decoration: none !important;">Novo</a>
             </button>
@@ -59,7 +59,7 @@
                 url: $(this).attr("data-action"),
                 data: $(this).serialize(),
                 success: function(formHtml) {
-                    $('#grid-bloco').hide();
+                    $('#grid-morador-tipo').hide();
                     $('#btn-option-new-morador-tipo').css("display", "none");
                     $('#btn-option-back-morador-tipo').css("display", "block");
                     $('#btn-option-save').css("display", "block");
@@ -106,13 +106,24 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("morador-tipo-excluir") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function (json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-morador-tipo').unbind('click').click();
+
+                        return message('success', json.msg);
+                    } else {
+                        return message('error', json.msg);
+                        return false;
+                    }
+                }
             }).done(function() {
                 /*Submit conultar*/
-                $('#btn-consultar-morador-tipo').unbind('click').click();
+               
 
                 //msg
-                return message('success', 'Tipo de morador excluído com sucesso!');
+                
             });
         });
 

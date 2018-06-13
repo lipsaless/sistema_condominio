@@ -16,7 +16,7 @@ class CreateMoradorTipoTable extends Migration
         Schema::create('morador_tipo', function (Blueprint $table) {
             $table->increments('id_morador_tipo');
             $table->string('no_morador_tipo');
-            $table->string('ref_morador_tipo');
+            $table->string('ref_morador_tipo')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();

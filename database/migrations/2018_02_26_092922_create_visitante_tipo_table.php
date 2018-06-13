@@ -16,7 +16,7 @@ class CreateVisitanteTipoTable extends Migration
         Schema::create('visitante_tipo', function (Blueprint $table) {
             $table->increments('id_visitante_tipo');
             $table->string('no_visitante_tipo');
-            $table->string('ref_visitante_tipo');
+            $table->string('ref_visitante_tipo')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();

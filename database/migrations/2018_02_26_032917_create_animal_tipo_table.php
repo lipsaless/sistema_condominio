@@ -16,7 +16,7 @@ class CreateAnimalTipoTable extends Migration
         Schema::create('animal_tipo', function (Blueprint $table) {
             $table->increments('id_animal_tipo');
             $table->string('no_animal_tipo');
-            $table->string('ref_animal_tipo');
+            $table->string('ref_animal_tipo')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();

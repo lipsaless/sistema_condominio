@@ -36,6 +36,8 @@
                         <a id="a-menu" href="{{ route('bloco-principal') }}" class="list-group-item">&nbsp;&nbsp; Blocos</a>
                         <a id="a-menu" href="{{ route('apt-principal') }}" class="list-group-item">&nbsp;&nbsp; Apartamentos</a>
                         <a id="a-menu" href="{{ route('morador-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Tipo de morador</a>
+                        <a id="a-menu" href="{{ route('visitante-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Tipo de visitante</a>
+                        <a id="a-menu" href="{{ route('animal-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Tipo de animal</a>
                     </div>
             </div>
         </div>

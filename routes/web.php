@@ -92,13 +92,29 @@ Route::group(['middleware' => 'auth.role'], function() {
     Route::get('/sistema/bloco/editar/{id?}', ['as' => 'bloco-editar', 'uses' => 'BlocoController@editar']);
     Route::get('/sistema/bloco/excluir/{id?}', ['as' => 'bloco-excluir', 'uses' => 'BlocoController@excluir']);
 
-    //MORADOR-AUTOMOVEL
+    //CONFIGURACOES = MORADOR-TIPO
     Route::get('/sistema/configuracoes/morador-tipo', ['as' => 'morador-tipo-principal', 'uses' => 'MoradorTipoController@principal']);
     Route::get('/sistema/configuracoes/morador-tipo/cadastro', ['as' => 'morador-tipo-form', 'uses' => 'MoradorTipoController@form']);
-    Route::post('/sistema/morador/automovel/grid', ['as' => 'morador-tipo-grid', 'uses' => 'MoradorTipoController@grid']);
-    Route::post('/sistema/morador/automovel/gravar', ['as' => 'morador-tipo-gravar', 'uses' => 'MoradorTipoController@gravar']);
-    Route::get('/sistema/morador/automovel/editar/{id?}', ['as' => 'morador-tipo-editar', 'uses' => 'MoradorTipoController@editar']);
-    Route::get('/sistema/morador/automovel/excluir/{id?}', ['as' => 'morador-tipo-excluir', 'uses' => 'MoradorTipoController@excluir']);
+    Route::post('/sistema/configuracoes/morador-tipo/grid', ['as' => 'morador-tipo-grid', 'uses' => 'MoradorTipoController@grid']);
+    Route::post('/sistema/configuracoes/morador-tipo/gravar', ['as' => 'morador-tipo-gravar', 'uses' => 'MoradorTipoController@gravar']);
+    Route::get('/sistema/configuracoes/morador-tipo/editar/{id?}', ['as' => 'morador-tipo-editar', 'uses' => 'MoradorTipoController@editar']);
+    Route::get('/sistema/configuracoes/morador-tipo/excluir/{id?}', ['as' => 'morador-tipo-excluir', 'uses' => 'MoradorTipoController@excluir']);
+
+    //CONFIGURACOES = VISITANTE-TIPO
+    Route::get('/sistema/configuracoes/visitante-tipo', ['as' => 'visitante-tipo-principal', 'uses' => 'VisitanteTipoController@principal']);
+    Route::get('/sistema/configuracoes/visitante-tipo/cadastro', ['as' => 'visitante-tipo-form', 'uses' => 'VisitanteTipoController@form']);
+    Route::post('/sistema/configuracoes/visitante-tipo/grid', ['as' => 'visitante-tipo-grid', 'uses' => 'VisitanteTipoController@grid']);
+    Route::post('/sistema/configuracoes/visitante-tipo/gravar', ['as' => 'visitante-tipo-gravar', 'uses' => 'VisitanteTipoController@gravar']);
+    Route::get('/sistema/configuracoes/visitante-tipo/editar/{id?}', ['as' => 'visitante-tipo-editar', 'uses' => 'VisitanteTipoController@editar']);
+    Route::get('/sistema/configuracoes/visitante-tipo/excluir/{id?}', ['as' => 'visitante-tipo-excluir', 'uses' => 'VisitanteTipoController@excluir']);
+
+    //CONFIGURACOES = ANIMAL-TIPO
+    Route::get('/sistema/configuracoes/animal-tipo', ['as' => 'animal-tipo-principal', 'uses' => 'AnimalTipoController@principal']);
+    Route::get('/sistema/configuracoes/animal-tipo/cadastro', ['as' => 'animal-tipo-form', 'uses' => 'AnimalTipoController@form']);
+    Route::post('/sistema/configuracoes/animal-tipo/grid', ['as' => 'animal-tipo-grid', 'uses' => 'AnimalTipoController@grid']);
+    Route::post('/sistema/configuracoes/animal-tipo/gravar', ['as' => 'animal-tipo-gravar', 'uses' => 'AnimalTipoController@gravar']);
+    Route::get('/sistema/configuracoes/animal-tipo/editar/{id?}', ['as' => 'animal-tipo-editar', 'uses' => 'AnimalTipoController@editar']);
+    Route::get('/sistema/configuracoes/animal-tipo/excluir/{id?}', ['as' => 'animal-tipo-excluir', 'uses' => 'AnimalTipoController@excluir']);
 });
 
 //ROTAS DE LOGIN
