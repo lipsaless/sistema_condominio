@@ -34,7 +34,6 @@
                 <li><a href="#works">Trabalhos</a></li>
                 <li><a href="#teams">Sobre o sistema</a></li>
                 <li><a href="#testimonials">Mais informações</a></li>
-                <li><a href="#contact"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contato</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </nav>
@@ -46,7 +45,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="banner-text text-center">
                 <h1>CondMin</h1>
-                <p>Tatuador</p>
+                <p>sistema administrativo</p>
                 <nav role="navigation"> <a href="#services" class="banner-btn"><img src="{{ asset('template/images/down-arrow.png') }}" alt=""></a></nav>
             </div>
         <!-- banner text --> 

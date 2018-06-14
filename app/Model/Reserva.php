@@ -27,7 +27,7 @@ class Reserva extends BaseModel
 
     public function limparDados()
     {
-        $this->dt_reserva = str_replace('/','-', $this->dt_reserva);
+        $this->dt_reserva = Carbon::parse($this->dt_reserva);
     }
 
     public function countReservas()
@@ -47,10 +47,10 @@ class Reserva extends BaseModel
 
     public function save(array $options = [])
     {
-        if (!$this->id_reserva) {
-            $dtFormulario = Carbon::parse($this->dt_reserva);
+        if (!$this->id_reserva) { //Se não tiver id reserva verificar se tem reserva na data escolhida
+            $dtFormulario = $this->dt_reserva;
             $idReservaLocal = $this->id_reserva_local;
-            
+
             $existente = $this->verificaSeExisteReservaNaMesmaData($idReservaLocal, $dtFormulario);
             if ($existente) {
                 throw new \Exception('Já existe uma reserva nesta data');

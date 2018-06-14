@@ -31,12 +31,9 @@ class ExMoradorController extends Controller
 
     public function recuperar($id)
     {
-        $model = new Morador;
+        $sql = "UPDATE morador SET dt_fim = null WHERE id_morador = {$id}";
 
-        $obj = $model->findExMorador($id);
-        $obj->dt_fim = null;
-
-        $recuperou = $obj->save();
+        $recuperou = \DB::statement($sql);
 
         if ($recuperou) {
             return json_encode(['type' => 'success', 'msg' => 'Morador realocado com sucesso.']);

@@ -40,7 +40,7 @@ h5 {
 	font-weight: 700;
 }
 .btn {
-	background-color: #FF0000;
+	background-color: #007eff;
 	color: #fff;
 	font-size: 13px;
 	font-weight: 600;
@@ -63,7 +63,7 @@ h5 {
 	Global Styles
 -------------------------------------------------------------------------------*/
 a {
-	color: #e84545;
+	color: #007eff;
 }
 a:hover, a:focus {
 	text-decoration: none;
@@ -143,15 +143,15 @@ ul li {
 	display: inline-block;
 }
 .navigation a {
-	color: rgba(255, 255, 255, 0.75);
+	color: white;
 	font-size: 13px;
 	font-weight: 400;
 	margin-left: 40px;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 	text-transform: uppercase;
 }
 .navigation a:hover, .navigation a.active {
-	color: #FF0000;
+	color: white;
 	font-style: bold !important;
 }
 .nav-toggle {
@@ -191,7 +191,7 @@ ul li {
 	transition-property: transform;
 }
 .nav-toggle:before {
-	background-color: #FF0000;
+	background-color: #007eff;
 	-moz-transform: scale(1);
 	-ms-transform: scale(1);
 	-webkit-transform: scale(1);
@@ -202,7 +202,7 @@ ul li {
 	transition-duration: 0.3s;
 }
 .nav-toggle:after {
-	background-color:#FF0000;
+	background-color:#007eff;
 	-moz-transform: scale(0);
 	-ms-transform: scale(0);
 	-webkit-transform: scale(0);
@@ -295,7 +295,7 @@ ul li {
 -------------------------------------------------------------------------------*/
 
 .banner {
-	background-image: url(../../assets/img/img-site.jpg);
+	background-image: url(../../assets/img/img-fundo.jpg);
 	background-position: center top;
 	background-repeat: no-repeat;
 	-moz-background-size: cover;
@@ -319,7 +319,7 @@ ul li {
 	text-transform: uppercase;
 }
 .banner-text p {
-	color: #8d8d8d;
+	color: #ffffff;
 	font-size: 12px;
 	font-weight: 400;
 	letter-spacing: 3px;
@@ -341,7 +341,7 @@ ul li {
 	padding: 100px 15% 0;
 }
 .sobre h1 {
-	color:red;
+	color: #007eff;
 	font: 27px "Source Sans Pro";
 }
 .sobre p {
@@ -366,7 +366,7 @@ ul li {
 	margin-top: 30px;
 }
 .services .icon {
-	color: #FF0000;
+	color: #007eff;
 	font-size: 36px;
 	padding-left: 15px;
 }
@@ -385,7 +385,7 @@ ul li {
 	height: 100%;
 }
 .work .overlay {
-	background: #e813137d;
+	background: #027cf97d;
 	height: 100%;
 	left: 0;
 	opacity: 0;
@@ -491,8 +491,8 @@ ul li {
 	width: 32px;
 }
 .social-icons a:hover, .footer .footer-share a:hover {
-	background-color: #FF0000;
-	border-color: #FF0000;
+	background-color: #007eff;
+	border-color: #007eff;
 	color: #fff;
 }
 /* ------------------------------------------------------------------------------
@@ -567,7 +567,7 @@ ul li {
 	color: rgba(255, 255, 255, 0.50);
 }
 .footer a:hover {
-	color: #FF0000;
+	color: #007eff;
 }
 .footer .footer-share {
 	margin-top: 0;
@@ -582,7 +582,7 @@ ul li {
 	color: rgba(255, 255, 255, 0.25);
 }
 .footer .fa-heart {
-	color: #FF0000;
+	color: #007eff;
 	font-size: 11px;
 	margin: 0 2px;
 }

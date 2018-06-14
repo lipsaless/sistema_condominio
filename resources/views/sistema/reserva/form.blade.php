@@ -16,6 +16,7 @@
 
 <!-- Form -->
 <form id="form-reserva" action="{{ route('reserva-gravar') }}" method="POST">
+    <input type="hidden" name="id_reserva" value="{{ $obj->id_reserva }}">
     <hr>
     <div class="row">
         <div class="ui input col-md-3">
@@ -37,7 +38,7 @@
         </div>
         <div class="ui input col-md-3">
             <label for="no_morador" class="font-weight-bold">Local de reserva: *</label>
-            <select name="id_reserva_local" id="id_reserva_local" class="form-control">
+            <select id="id_reserva_local" name="id_reserva_local" class="form-control">
                 <option value="">Selecione</option>
                 <?php foreach ($locaisDeReserva as $local): ?>
                 <option value="<?php echo $local->id_reserva_local; ?>"><?php echo $local->no_reserva_local; ?></option>
@@ -46,7 +47,7 @@
         </div>
         <div class="ui input col-md-3">
             <label for="dt_reserva" class="font-weight-bold">Data da reserva: *</label>
-            <input class="disabled" type="text" id="dt_reserva" name="dt_reserva" tabindex="-1">
+            <input class="disabled" id="dt_reserva" name="dt_reserva" tabindex="-1">
             <input type="hidden" id="datas-reservadas">
         </div>
     </div>

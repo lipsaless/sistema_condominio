@@ -214,7 +214,7 @@ html[xmlns] .flexslider .slides {
   background: rgba(255,255,255, 1);
 }
 .flex-control-paging li a.flex-active {
-  background: red;
+  background: #007eff;
   cursor: default;
 }
 .flex-control-thumbs {

@@ -17,7 +17,7 @@ class CreateReservaTable extends Migration
             $table->increments('id_reserva');
             $table->integer('id_reserva_local');
             $table->integer('id_morador');
-            $table->date('dt_reserva');
+            $table->dateTime('dt_reserva');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('dt_fim')->nullable();
             $table->timestamps();

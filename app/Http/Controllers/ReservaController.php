@@ -65,19 +65,19 @@ class ReservaController extends Controller
         $params = $request->all();
 
         $model = new Reserva;
-
+        
         if (!empty($params['id_reserva'])) {
             $model = $model->find($params['id_reserva']);
         } else {
             unset($params['id_reserva']);
         }
-
+       
         $model->fill($params);
         
         $model->limparDados();
-
+        
         $salvou = $model->save();
-
+        
         if ($salvou) {
             return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
         } else {
