@@ -36,29 +36,26 @@ class Reserva extends BaseModel
         return $reservas;
     }
 
-    public function datasQueSeraoBloqueadas($idReservLocal)
+    public function datasQueSeraoBloqueadas($idReservaLocal)
     {
         return $this
             ->newQuery()
-            ->where('id_reserva_local', $idReservLocal)
+            ->where('id_reserva_local', $idReservaLocal)
             ->whereNull('dt_fim')
             ->get();
     }
 
     public function save(array $options = [])
     {
-        //Se a reserva excluída não tiver id verificar se tem reserva com a mesma data
-        if (!$this->id_reserva_local) {
+        if (!$this->id_reserva) {
             $dtFormulario = Carbon::parse($this->dt_reserva);
             $idReservaLocal = $this->id_reserva_local;
-
+            
             $existente = $this->verificaSeExisteReservaNaMesmaData($idReservaLocal, $dtFormulario);
-
             if ($existente) {
                 throw new \Exception('Já existe uma reserva nesta data');
             }
         }
-
         return parent::save($options);
     }
 

@@ -121,8 +121,9 @@
                     text += '   	<thead>';
                     text += '       	<tr>';
                     text += '            	<th><span><i class="fas fa-user-circle"></i> Visitante</span></th>';
+                    text += '            	<th><span><i class="fas fa-user-circle"></i> RG</span></th>';
                     text += '            	<th><span><i class="fas fa-home"></i> Apartamento visitado</span></th>';
-                    text += '            	<th><span><i class="fas fa-user"></i> Morador<span></th>';
+                    text += '            	<th><span><i class="fas fa-user"></i> Morador visitado<span></th>';
                     text += '            	<th>&nbsp;</th>';
                     text += '			</tr>';
                     text += '		</thead>';
@@ -133,6 +134,7 @@
 
                             text += '           <tr id="'+id+'">';
                             text += '               <td>'+rs.no_visitante+'</td>';
+                            text += '               <td>'+rs.nu_rg+'</td>';
                             text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td>'+rs.no_morador+'</td>';
                             text += '               <td style="text-align: center;">';

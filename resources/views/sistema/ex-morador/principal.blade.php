@@ -2,6 +2,12 @@
 
 @section('view-principal')
 
+<style>
+    .tooltip {
+        position: relative;
+    }
+</style>
+
 <!-- Title -->
 <h1 class="text-center">Ex - Moradores</h1>
     <!-- Principal -->
@@ -52,13 +58,20 @@
             $.ajax({
                 type: "GET",
                 url: '{{ route("ex-morador-recuperar") }}' + '/' + $(this).attr("data-action"),
-                data: $(this).serialize()
-            }).done(function() {
-                $('#btn-consultar-ex-morador').unbind('click').click();
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-consultar-ex-morador').unbind('click').click();
 
-                 //msg
-                 return message('success', 'Morador realocado com sucesso!');
-            });
+                        //msg
+                        return message('success', 'Morador realocado com sucesso!');
+                    } else {
+                        //msg
+                        return message('error', 'Morador realocado com sucesso!');
+                    }     
+                }
+            })
         });
 
         /*Consultar*/
@@ -93,7 +106,7 @@
                             text += '               <td><a class="ui black circular label">'+rs.no_bloco+'</a></td>';
                             text += '               <td style="font-weight: bold;">'+rs.no_morador_tipo+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-search"></i>  Dados</button>';
+                            // text += '                   <button id="ex-morador-dados" class="ui blue button ex-morador-dados" data-action="'+rs.id_morador+'" style="text-align: center;" data-html="Clique para editar"><i class="fas fa-search"></i>  Dados</button>';
                             text += '                   <button id="ex-morador-recuperar" class="ui red button ex-morador-realocar tooltip" data-action="'+rs.id_morador+'" title="Realocar morador" style="text-align: center;"><i class="fas fa-undo"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'

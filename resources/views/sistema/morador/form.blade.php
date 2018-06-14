@@ -165,7 +165,6 @@
 
         //Mask
         $('#nu_cpf_morador').mask('999.999.999-99');
-        $('#nu_rg_morador').mask('9.999.999');
         $('#nu_telefone_morador').mask('(99)9999-9999');
         $('#nu_celular_morador').mask('(99)9.9999-9999');
         $("#dt_nascimento_morador").mask('99/99/9999');

@@ -4,6 +4,9 @@
     #novo:hover {
         color: white;
     }
+    th {
+        width: 25%;
+    }
 </style>
 
 @section('view-principal')
@@ -129,7 +132,7 @@
                     text += '	<table id="info-reserva" class="table user-list">';
                     text += '   	<thead>';
                     text += '       	<tr>';
-                    text += '           	<th width="40"><span>Reserva</span></th>';
+                    text += '           	<th width="40"><span>Local reservado</span></th>';
                     text += '            	<th><span>Apartamento/Bloco</span></th>';
                     text += '            	<th><span>Morador</span></th>';
                     text += '            	<th><span>Data da reserva</span></th>';

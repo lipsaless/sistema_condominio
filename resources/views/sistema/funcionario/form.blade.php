@@ -138,9 +138,9 @@
 
         /*Mask*/
         $('#nu_cpf_funcionario').mask('999.999.999-99');
-        $('#nu_rg_funcionario').mask('9.999.999');
         $('#nu_telefone_funcionario').mask('(99)9999-9999');
         $('#nu_celular_funcionario').mask('(99)9.9999-9999');
+        $("#dt_nascimento_funcionario").mask('99/99/9999')
         $("#dt_nascimento_funcionario").datepicker({
             dateFormat: 'dd/mm/yy',
             dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],

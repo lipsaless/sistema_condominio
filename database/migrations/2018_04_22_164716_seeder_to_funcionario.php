@@ -14,6 +14,7 @@ class SeederToFuncionario extends Migration
     public function up()
     {
         (new FuncionarioSeeder)->run();
+        (new AdmSeeder)->run();
     }
 
     /**

@@ -86,7 +86,7 @@
                 },
                 dataType: 'json',
                 success: function(json) {
-
+                    console.log(json)
                     if (json.datas_reservadas) {
                         $('#datas-reservadas').val(json.datas_reservadas);
                     } else {
@@ -187,10 +187,14 @@
                         //mensagem sucesso
                         return message('success', json.msg);
                     } else {
-                        //mensagem error
+                        //mensagem sucesso
                         return message('error', json.msg);
-                        return false
+                        return false;
                     }
+                },
+                error: function(error) {
+                    //mensagem erro
+                    return message('error', 'Já existe uma reserva nesta data!');
                 }
             });
         });

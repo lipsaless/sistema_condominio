@@ -39,6 +39,7 @@
                         <a id="a-menu" href="{{ route('visitante-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Tipo de visitante</a>
                         <a id="a-menu" href="{{ route('animal-tipo-principal') }}" class="list-group-item">&nbsp;&nbsp; Tipo de animal</a>
                     </div>
+                    <a id="a-menu" href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-users"></i> <span class="hidden-sm-down">&nbsp;&nbsp; Sobre</span></a>
             </div>
         </div>
     </div>

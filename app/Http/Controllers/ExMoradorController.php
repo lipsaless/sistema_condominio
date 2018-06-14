@@ -32,10 +32,17 @@ class ExMoradorController extends Controller
     public function recuperar($id)
     {
         $model = new Morador;
-        $obj = $model->find($id);
-        
+
+        $obj = $model->findExMorador($id);
         $obj->dt_fim = null;
-        $obj->save();
+
+        $recuperou = $obj->save();
+
+        if ($recuperou) {
+            return json_encode(['type' => 'success', 'msg' => 'Morador realocado com sucesso.']);
+        } else {
+            return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar realocar morador.']);
+        }
         
         return response([]);
     }

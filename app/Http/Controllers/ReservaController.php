@@ -47,7 +47,7 @@ class ReservaController extends Controller
 
         $datasReservadas = null;
 
-        if(count($reservas) > 1) {
+        if(count($reservas) > 0) {
 
             foreach ($reservas as $key => $info) {
                 $dt[$key] = $info->dt_reserva;
@@ -63,7 +63,7 @@ class ReservaController extends Controller
     public function gravar(Request $request)
     {
         $params = $request->all();
-        
+
         $model = new Reserva;
 
         if (!empty($params['id_reserva'])) {
@@ -91,9 +91,9 @@ class ReservaController extends Controller
 
         $obj = $model->findReserva($id);
         $obj->dt_fim = date('Y-m-d H:i:s');
-
+        
         $excluir = $obj->update();
-
+        
         if ($excluir) {
             return json_encode(['type' => 'success', 'msg' => 'Reserva excluída com sucesso.']);
         } else {

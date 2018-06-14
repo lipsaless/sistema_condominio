@@ -77,4 +77,13 @@ class Morador extends BaseModel
         ->whereNotNull('morador.dt_fim'); 
         return $moradores->get();
     }
+
+    public function findExMorador($idExMorador) 
+    {
+        return $this->newQuery()
+            ->where('morador.id_morador', $idExMorador)
+            ->join('apartamento', 'apartamento.id_apartamento', 'morador.id_apartamento')
+            ->whereNotNull('morador.dt_fim')
+            ->first();
+    }
 }
