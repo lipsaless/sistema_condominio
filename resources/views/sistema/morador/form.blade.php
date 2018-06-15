@@ -35,10 +35,11 @@
         <div class="row my-3">
             <div class="col-md-3">
                 <label for="sg_sexo_morador" class="font-weight-bold">Sexo: *</label>
-                <select id="sg_sexo_morador" name="sg_sexo_morador" class="form-control" value="">
-                    <option value="">Selecione</option>
-                    <?php foreach ($sexo as $value): ?>
-                        <option value="{{ $obj->sg_sexo_morador }}"><?php echo $value; ?></option>
+                <select id="sg_sexo_morador" name="sg_sexo_morador" class="form-control">
+                        <option value="">Selecione</option>
+                    <?php foreach ($sexo as $key => $value): ?>
+                    <?php $selecionado = ($key == $obj->sg_sexo_morador) ? 'selected' : '' ?>
+                        <option value="<?php echo $key; ?>" <?php echo $selecionado; ?>><?php echo $value; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -95,9 +96,16 @@
             $('h1').html('Moradores');
         });
         
+        $('#no_apartamento').keyup(function() {
+            if (!$('#no_apartamento').val()) {
+                $('[name="id_apartamento"]').val('');
+            }
+        })
+
         //FORMULÁRIO => salvar
         $('#form-morador').unbind('submit').submit(function(e){
             e.preventDefault();
+
             let apartamento = $('[name="id_apartamento"]').val();
             let nomeMorador = $('#no_morador').val();
             let tipoMorador = $('#id_morador_tipo').val();

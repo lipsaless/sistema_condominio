@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CondMin</title>
+    <link rel="icon" type="image/png" href="{{ asset('login-style/images/icons/favicon.ico') }}"/>
     <link rel="stylesheet" href="{{ asset('template/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/css/flexslider.css') }}">
     <link rel="stylesheet" href="{{ asset('template/css/jquery.fancybox.css') }}">
@@ -25,7 +26,7 @@
     <section class="banner" role="banner"> 
     <!--header navigation -->
     <header id="header">
-        <div class="header-content clearfix"> <a class="logo" href="#"><img src="{{ asset('logo/oie_transparent.ico') }}" alt="" width="40"></a>
+        <div class="header-content clearfix"> <a class="logo" href="#"><img src="{{ asset('login-style/images/icons/favicon.ico') }}" alt="" width="40"></a>
         <nav class="navigation" role="navigation">
             <ul class="primary-nav">
                 <li><a href="#">Home</a></li>

@@ -31,7 +31,7 @@
 
 <body>
 
-<h1 id="no_condominio" class="display-3 hidden-xs-down" style="text-align: center;">CondMin </h1>
+<h2>Seja bem-vindo(a), <?php echo $_SESSION['usuario']['no_funcionario']; ?></h2>
 <main id="menu-home" class="col-md-10">
             <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
@@ -139,6 +139,11 @@
 
 <script>
     $(document).ready(function() {
+        let msg = '<?php echo (session("msg")) ? session("msg")[0] : null ?>';
+        if (msg) {
+            message('error', msg);
+        }
+
         //Carregar contagem da home
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));

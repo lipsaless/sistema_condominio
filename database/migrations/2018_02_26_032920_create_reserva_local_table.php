@@ -16,7 +16,7 @@ class CreateReservaLocalTable extends Migration
         Schema::create('reserva_local', function (Blueprint $table) {
             $table->increments('id_reserva_local');
             $table->string('no_reserva_local');
-            $table->string('ref_reserva_local');
+            $table->string('ref_reserva_local')->nullable();
             $table->decimal('vl_reserva_local');
             $table->integer('nu_convidados');
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));

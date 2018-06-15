@@ -13,11 +13,13 @@ class AdmSeeder extends Seeder
     {
         $params = [
             [
+                'tipo_perfil' => 'Master',
                 'no_funcionario' => 'Administrador',
                 'nu_cpf_funcionario' => '12345678910',
                 'nu_rg_funcionario' => '12345678910',
+                'sg_sexo_funcionario' => 'M',
                 'ds_email_funcionario' => 'adm@adm.com',
-                'ds_senha_funcionario' => md5('administrador')
+                'ds_senha_funcionario' => md5('adm')
             ]
         ];
 

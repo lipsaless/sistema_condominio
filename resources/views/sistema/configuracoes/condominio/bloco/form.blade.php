@@ -36,16 +36,23 @@
                 type: "POST",
                 url: $(this).attr("action"),
                 data: $(this).serialize(),
-                success: function(formHtml) {
-                    $('#btn-option-back-bloco').hide();
-                    $('#btn-option-new-bloco').show();
-                    $('#form-bloco').hide();
-                    $('#grid-bloco').show();
-                    $('h1').html('Blocos');
-                    $('#btn-consultar-bloco').click();
+                dataType: 'json',
+                success: function(json) {
+                    if (json.type == 'success') {
+                        $('#btn-option-back-bloco').hide();
+                        $('#btn-option-new-bloco').show();
+                        $('#form-bloco').hide();
+                        $('#grid-bloco').show();
+                        $('h1').html('Blocos');
+                        $('#btn-consultar-bloco').click();
 
-                    //mensagem
-                    return message('success', 'Cadastro efetuado com sucesso!');
+                        //mensagem
+                        return message('success', json.msg);
+                    } else {
+                        //mensagem
+                        return message('error', json.msg);
+                        return false;
+                    }
                 }
             });
         });

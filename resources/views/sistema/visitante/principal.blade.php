@@ -50,6 +50,8 @@
 
 <script>
     $(document).ready(function(){
+        $(document).tooltip();
+
         /*Form*/
         $(document).on('click', '#btn-option-new-visitante', function(e){
             e.preventDefault();
@@ -138,7 +140,7 @@
                             text += '               <td><a class="ui black circular label">'+rs.no_apartamento+'</a></td>';
                             text += '               <td>'+rs.no_morador+'</td>';
                             text += '               <td style="text-align: center;">';
-                            text += '                   <button id="visitante-excluir" class="ui red button visitante-excluir" data-action="'+id+'" style="text-align: center;"><i class="fas fa-times"></i></button>';
+                            text += '                   <button id="visitante-excluir" class="ui red button visitante-excluir" data-action="'+id+'" style="text-align: center;" title="Registrar saída"><i class="fas fa-times"></i></button>';
                             text += '               </td>';
                             text += '           </tr>'
                         });

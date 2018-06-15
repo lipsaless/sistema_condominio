@@ -8,10 +8,6 @@
             <input type="text" id="no_reserva_local" name="no_reserva_local" value="{{ $obj->no_reserva_local }}">
         </div>
         <div class="ui input col-md-3">
-            <label for="ref_reserva_local" class="font-weight-bold">Referência: *</label>
-            <input type="text" id="ref_reserva_local" name="ref_reserva_local" value="{{ $obj->ref_reserva_local }}">
-        </div>
-        <div class="ui input col-md-3">
             <label for="vl_reserva_local" class="font-weight-bold">Valor do local: *</label>
             <input type="text" id="vl_reserva_local" name="vl_reserva_local" value="{{ $obj->vl_reserva_local }}">
         </div>
@@ -46,11 +42,6 @@
                 return false;
             }
 
-            //VALIDAÇÃO => nome morador
-            if (!nomeReferencia) {
-                return message('error', 'Referencia não foi informada!');
-                return false;
-            }
 
             //VALIDAÇÃO => tipo do morador
             if (!valorReserva) {

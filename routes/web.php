@@ -1,12 +1,10 @@
 <?php
 
-Route::get('/', function() {
+Route::get('/', ['as' => '/'], function() {
     return view('template.template');
 });
 
-Route::group(['middleware' => 'auth.role'], function() {
-
-    Route::get('/logout',['as' => 'logout', 'uses' => 'LoginController@realizarLogout']);
+Route::group(['middleware' => ['auth.role', 'auth.routes']], function() {
 
     //ROTAS DO SISTEMA
     Route::get('/sistema', ['as' => 'sistema', 'uses' => 'HomeController@principal']);
@@ -77,20 +75,20 @@ Route::group(['middleware' => 'auth.role'], function() {
     Route::get('/sistema/reserva-local/excluir/{id?}', ['as' => 'reserva-local-excluir', 'uses' => 'ReservaLocalController@excluir']);
 
     //CONFIGURAÇÕES - APT
-    Route::get('/sistema/apartamento', ['as' => 'apt-principal', 'uses' => 'ApartamentoController@principal']);
-    Route::get('/sistema/apartamento/cadastro', ['as' => 'apt-form', 'uses' => 'ApartamentoController@form']);
-    Route::post('/sistema/apartamento/gravar', ['as' => 'apt-gravar', 'uses' => 'ApartamentoController@gravar']);
-    Route::post('/sistema/apartamento/grid', ['as' => 'apt-grid', 'uses' => 'ApartamentoController@grid']);
-    Route::get('/sistema/apartamento/editar/{id?}', ['as' => 'apt-editar', 'uses' => 'ApartamentoController@editar']);
-    Route::get('/sistema/apartamento/excluir/{id?}', ['as' => 'apt-excluir', 'uses' => 'ApartamentoController@excluir']);
+    Route::get('/sistema/configuracoes/apartamento', ['as' => 'apt-principal', 'uses' => 'ApartamentoController@principal']);
+    Route::get('/sistema/configuracoes/apartamento/cadastro', ['as' => 'apt-form', 'uses' => 'ApartamentoController@form']);
+    Route::post('/sistema/configuracoes/apartamento/gravar', ['as' => 'apt-gravar', 'uses' => 'ApartamentoController@gravar']);
+    Route::post('/sistema/configuracoes/apartamento/grid', ['as' => 'apt-grid', 'uses' => 'ApartamentoController@grid']);
+    Route::get('/sistema/configuracoes/apartamento/editar/{id?}', ['as' => 'apt-editar', 'uses' => 'ApartamentoController@editar']);
+    Route::get('/sistema/configuracoes/apartamento/excluir/{id?}', ['as' => 'apt-excluir', 'uses' => 'ApartamentoController@excluir']);
 
     //CONFIGURAÇÕES - BLOCO
-    Route::get('/sistema/bloco', ['as' => 'bloco-principal', 'uses' => 'BlocoController@principal']);
-    Route::get('/sistema/bloco/cadastro', ['as' => 'bloco-form', 'uses' => 'BlocoController@form']);
-    Route::post('/sistema/bloco/gravar', ['as' => 'bloco-gravar', 'uses' => 'BlocoController@gravar']);
-    Route::post('/sistema/bloco/grid', ['as' => 'bloco-grid', 'uses' => 'BlocoController@grid']);
-    Route::get('/sistema/bloco/editar/{id?}', ['as' => 'bloco-editar', 'uses' => 'BlocoController@editar']);
-    Route::get('/sistema/bloco/excluir/{id?}', ['as' => 'bloco-excluir', 'uses' => 'BlocoController@excluir']);
+    Route::get('/sistema/configuracoes/bloco', ['as' => 'bloco-principal', 'uses' => 'BlocoController@principal']);
+    Route::get('/sistema/configuracoes/bloco/cadastro', ['as' => 'bloco-form', 'uses' => 'BlocoController@form']);
+    Route::post('/sistema/configuracoes/bloco/gravar', ['as' => 'bloco-gravar', 'uses' => 'BlocoController@gravar']);
+    Route::post('/sistema/configuracoes/bloco/grid', ['as' => 'bloco-grid', 'uses' => 'BlocoController@grid']);
+    Route::get('/sistema/configuracoes/bloco/editar/{id?}', ['as' => 'bloco-editar', 'uses' => 'BlocoController@editar']);
+    Route::get('/sistema/configuracoes/bloco/excluir/{id?}', ['as' => 'bloco-excluir', 'uses' => 'BlocoController@excluir']);
 
     //CONFIGURACOES = MORADOR-TIPO
     Route::get('/sistema/configuracoes/morador-tipo', ['as' => 'morador-tipo-principal', 'uses' => 'MoradorTipoController@principal']);
@@ -121,5 +119,6 @@ Route::group(['middleware' => 'auth.role'], function() {
 Route::get('/Login',['as' => 'login', 'uses' => 'LoginController@principal']);
 Route::get('/login-index',['as' => 'login-index', 'uses' => 'LoginController@loginIndex']);
 Route::post('/Login/autenticar',['as' => 'login/autenticar', 'uses' => 'LoginController@realizarLogin']);
+Route::get('/logout',['as' => 'logout', 'uses' => 'LoginController@realizarLogout']);
 
 

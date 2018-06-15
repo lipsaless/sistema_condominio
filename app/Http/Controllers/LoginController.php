@@ -25,8 +25,9 @@ class LoginController extends Controller
 
         $usuarioEncontrado = $model->autenticaUsuario($email, $senhacrypt);
 
+        //Se encontrar usuário direcionar para o sistema
         if ($usuarioEncontrado) {
-            $_SESSION['usuario'] = $usuarioEncontrado;
+            $_SESSION['usuario'] = $usuarioEncontrado->toArray();
             return json_encode(['type' => 'success', 'msg' => 'Usuário autenticado com sucesso', 'redirect' => route('sistema')]);
         } else {
             return json_encode(['type' => 'error', 'msg' => 'Erro ao tentar autenticar usuário']);

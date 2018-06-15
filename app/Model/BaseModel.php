@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class BaseModel extends Eloquent
 {
     protected $guarded = [];
-    protected $fillable = ['dt_fim'];
 
     public function save(array $options = []) 
     {
         //Todos os atributos
         $atributos = $this->getAttributes();
-
+        
         $colunas = DB::getSchemaBuilder()->getColumnListing($this->getTable());
         
         foreach ($atributos as $nomeAtributo => $atributo) {

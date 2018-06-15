@@ -20,12 +20,19 @@ class FuncionarioController extends Controller
     public function form()
     {
         $model = new Funcionario();
-        $funcionarios = Funcionario::all()->toArray();
+        $funcionarios = Funcionario::first()->toArray();
 
         $obj = $model;
-        $sexoFuncionario = ['Masculino', 'Feminino'];
+        $sexoFuncionario = [
+            'M' => 'Masculino',
+            'F' =>'Feminino'
+        ];
+
         $sexo =  $sexoFuncionario;
-        return view('sistema.funcionario.form', ['sexo' => $sexo, 'obj' => $obj]);
+
+        $perfis = ['Portaria','Master'];
+
+        return view('sistema.funcionario.form', ['sexo' => $sexo, 'obj' => $obj, 'perfis' => $perfis]);
     }
 
     public function grid()
@@ -38,12 +45,17 @@ class FuncionarioController extends Controller
     {
         $model = new Funcionario;
 
-        $sexoFuncionario = ['Masculino', 'Feminino'];
+        $sexoFuncionario = [
+            'M' => 'Masculino',
+            'F' => 'Feminino'
+        ];
+
         $sexo =  $sexoFuncionario;
+        $perfis = ['Portaria','Master'];
 
-        $obj = $model->find($id);        
+        $obj = $model->find($id);
 
-        return view('sistema.funcionario.form',['obj' => $obj, 'sexo' => $sexo]);
+        return view('sistema.funcionario.form',['obj' => $obj, 'sexo' => $sexo, 'perfis' => $perfis]);
     }
 
     public function gravar(Request $request)
@@ -51,6 +63,10 @@ class FuncionarioController extends Controller
         $params = $request->all();
 
         $model = new Funcionario;
+        
+        // if (!$params['ds_senha_funcionario']) {
+        //     $params['ds_senha_funcionario'] = $params['ds_senha_funcionario_antiga'];
+        // }
 
         if (!empty($params['id_funcionario'])) {
             $model = $model->find($params['id_funcionario']);
@@ -61,9 +77,9 @@ class FuncionarioController extends Controller
         $model->fill($params);
         
         $model->limparDados();
+       
+        $salvou = $model->save($params);
         
-        $salvou = $model->save();
-
         if ($salvou) {
             return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
         } else {

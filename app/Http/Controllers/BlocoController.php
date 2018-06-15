@@ -42,7 +42,6 @@ class BlocoController extends Controller
     public function gravar(Request $request)
     {
         $params = $request->all();
-
         $model = new Bloco;
 
         if (!empty($params['id_bloco'])) {
@@ -50,11 +49,11 @@ class BlocoController extends Controller
         } else {
             unset($params['id_bloco']);
         }
-
+        
         $model->fill($params);
         
         $salvou = $model->save();
-
+        
         if ($salvou) {
             return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
         } else {

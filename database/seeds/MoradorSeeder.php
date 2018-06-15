@@ -11,6 +11,8 @@ class MoradorSeeder extends Seeder
         
         $apartamentos = DB::table('apartamento')->get();
 
+        $sexo = ['M', 'F'];
+
          // Array que será inserido no banco
         $data = array();
 
@@ -26,6 +28,7 @@ class MoradorSeeder extends Seeder
                     'nu_rg_morador' => $faker->rg(false),
                     'nu_telefone_morador' => '61'.$faker->landline(false),
                     'nu_celular_morador' => '61'.$faker->cellphone(false),
+                    'sg_sexo_morador' => $sexo[rand(0,1)],
                     'ds_email_morador' => $faker->safeEmail,
                     'ds_senha_morador' => md5($faker->password),
                     'dt_nascimento_morador' => $faker->date,

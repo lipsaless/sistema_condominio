@@ -37,7 +37,7 @@ class VisitanteController extends Controller
     public function gravar(Request $request)
     {
         $params = $request->all();
-
+        
         $model = new Visitante;
 
         if (!empty($params['id_visitante'])) {
@@ -51,7 +51,7 @@ class VisitanteController extends Controller
         $model->limparDados();
         
         $salvou = $model->save();
-
+        
         if ($salvou) {
             return json_encode(['type' => 'success', 'msg' => 'Cadastrado com sucesso!']);
         } else {

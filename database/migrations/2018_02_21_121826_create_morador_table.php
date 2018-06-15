@@ -22,8 +22,8 @@ class CreateMoradorTable extends Migration
             $table->string('nu_rg_morador',11);
             $table->string('nu_celular_morador',11)->nullable();
             $table->string('nu_telefone_morador',10)->nullable();
-            $table->char('sg_sexo_morador')->nullable();
-            $table->date('dt_nascimento_morador');
+            $table->char('sg_sexo_morador',1)->nullable();
+            $table->dateTime('dt_nascimento_morador');
             $table->string('ds_email_morador')->nullable();
             $table->string('ds_senha_morador')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;

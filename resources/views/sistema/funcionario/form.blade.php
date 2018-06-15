@@ -11,17 +11,29 @@
     <input type="hidden" name="id_funcionario" value="{{ $obj->id_funcionario }}">
     <hr>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label for="no_funcionario" class="font-weight-bold">Nome do Funcionário: *</label>
             <input type="text" class="form-control" id="no_funcionario" name="no_funcionario" value="{{ $obj->no_funcionario }}">
+        </div>
+        <div class="col-md-4">
+            <label for="tipo_perfil" class="font-weight-bold">Perfil: *</label>
+            <select id="tipo_perfil" name="tipo_perfil" class="form-control">
+                    <option>Selecione</option>
+                <?php foreach ($perfis as $value): ?>
+                <?php $selecionado = ($value == $obj->tipo_perfil) ? 'selected' : '' ?>
+                    <option value="<?php echo $value; ?>" <?php echo $selecionado; ?>><?php echo $value; ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
     </div>
     <div class="row my-3">
         <div class="col-md-3">
             <label for="sg_sexo_funcionario" class="font-weight-bold">Sexo: *</label>
             <select id="sg_sexo_funcionario" name="sg_sexo_funcionario" class="form-control">
-                <?php foreach ($sexo as $value): ?>
-                    <option value="{{ $obj->sg_sexo_funcionario }}"><?php echo $value; ?></option>
+                    <option>Selecione</option>
+                <?php foreach ($sexo as $key => $value): ?>
+                <?php $selecionado = ($key == $obj->sg_sexo_funcionario) ? 'selected' : '' ?>
+                    <option value="<?php echo $key; ?>" <?php echo $selecionado; ?>><?php echo $value; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -53,7 +65,8 @@
         </div>
         <div class="col-md-3">
             <label for="ds_senha_funcionario" class="font-weight-bold">Senha:</label>
-            <input type="password" class="form-control" id="ds_senha_funcionario" name="ds_senha_funcionario" value="{{ $obj->ds_senha_funcionario }}">
+            <input type="password" class="form-control" id="ds_senha_funcionario" name="ds_senha_funcionario">
+            <input type="hidden" class="form-control" id="ds_senha_funcionario_antiga" name="ds_senha_funcionario_antiga" value="{{ $obj->ds_senha_funcionario }}">
         </div>
     </div>
     <div class="row"> 

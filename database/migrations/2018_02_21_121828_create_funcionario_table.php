@@ -15,13 +15,14 @@ class CreateFuncionarioTable extends Migration
     {
         Schema::create('funcionario', function (Blueprint $table) {
             $table->increments('id_funcionario');
+            $table->string('tipo_perfil');
             $table->string('no_funcionario');
             $table->string('nu_cpf_funcionario')->nullable();
             $table->string('nu_rg_funcionario');
             $table->string('nu_celular_funcionario')->nullable();
             $table->string('nu_telefone_funcionario')->nullable();
-            $table->char('sg_sexo_funcionario')->nullable();
-            $table->date('dt_nascimento_funcionario')->nullable();
+            $table->char('sg_sexo_funcionario',1)->nullable();
+            $table->dateTime('dt_nascimento_funcionario')->nullable();
             $table->string('ds_email_funcionario')->nullable()->nullable();
             $table->string('ds_senha_funcionario')->nullable();
             $table->dateTime('dt_inicio')->default(DB::raw('CURRENT_TIMESTAMP'));;

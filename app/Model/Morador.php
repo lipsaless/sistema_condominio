@@ -40,6 +40,8 @@ class Morador extends BaseModel
 
     public function limparDados()
     {
+        $this->sg_sexo_morador = str_replace(' ', '', $this->sg_sexo_morador);
+
         $this->nu_cpf_morador = str_replace('.','', $this->nu_cpf_morador);
         $this->nu_cpf_morador = str_replace('-','', $this->nu_cpf_morador);
         $this->nu_rg_morador = str_replace('.','', $this->nu_rg_morador);

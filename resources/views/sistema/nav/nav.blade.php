@@ -21,12 +21,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
-                      Perfil
+                        <?php echo $_SESSION['usuario']['no_funcionario']; ?>
                     </a>
-                    <div id="perfil" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <!-- <div id="perfil" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Perfil</a>
                         <a class="dropdown-item" href="{{ route('logout') }}">Sair</a>
-                    </div>
+                    </div> -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Sair  <i class="fas fa-sign-out-alt" style="color: red;"></i></a>

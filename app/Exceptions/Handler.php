@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Support\Facades\Log;
 use Exception;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -50,6 +51,10 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         Log::info($exception->getMessage());
+
+        if ($exception instanceof NotFoundHttpException) {
+            return redirect('sistema');
+        }
 
         if ($request->wantsJson()) {
             return response()->json(['type' => 'error', 'msg' => $exception->getMessage()]);

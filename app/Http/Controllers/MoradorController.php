@@ -45,7 +45,11 @@ class MoradorController extends Controller
         $apartamentos = $modelApartamento->getAll();
 
         $obj = $model;
-        $sexoMorador = ['Masculino', 'Feminino'];
+        $sexoMorador = [
+            'M' => 'Masculino',
+            'F' => 'Feminino'
+        ];
+        
         $sexo =  $sexoMorador;
 
         return view('sistema.morador.form', ['title' => $title, 'tipos' => $tipos, 'obj' => $obj, 'apartamentos' => $apartamentos, 'sexo' => $sexo]);
@@ -63,11 +67,15 @@ class MoradorController extends Controller
         $modelTipo = new MoradorTipo;
         $modelApartamento = new Apartamento;
 
-        $sexoMorador = ['Masculino', 'Feminino'];
+        $sexoMorador = [
+            'M' => 'Masculino',
+            'F' =>'Feminino'
+        ];
+
         $sexo =  $sexoMorador;
 
         $obj = $model->find($id);
-        
+    
         $tipos = $modelTipo->getAll();
         $apartamentos = $modelApartamento->getAll();
 
@@ -79,7 +87,7 @@ class MoradorController extends Controller
         $params = $request->all();
 
         $model = new Morador;
-
+        
         if (!empty($params['id_morador'])) {
             $model = $model->find($params['id_morador']);
         } else {
@@ -89,9 +97,9 @@ class MoradorController extends Controller
         $model->fill($params);
         
         $model->limparDados();
+       
+        $salvou = $model->save($params);
         
-        $salvou = $model->save();
-
         if ($salvou) {
             return json_encode(['type' => 'success', 'msg' => 'Cadastro efetuado com sucesso.']);
         } else {
