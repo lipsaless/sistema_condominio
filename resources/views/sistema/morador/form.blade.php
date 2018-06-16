@@ -106,7 +106,7 @@
         $('#form-morador').unbind('submit').submit(function(e){
             e.preventDefault();
 
-            let apartamento = $('[name="id_apartamento"]').val();
+            let apartamento = $('#no_apartamento').val();
             let nomeMorador = $('#no_morador').val();
             let tipoMorador = $('#id_morador_tipo').val();
             let sexo = $('#sg_sexo_morador').val();
