@@ -23,10 +23,6 @@
                     <i class="fas fa-user"></i>
                         <?php echo $_SESSION['usuario']['no_funcionario']; ?>
                     </a>
-                    <!-- <div id="perfil" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Perfil</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}">Sair</a>
-                    </div> -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Sair  <i class="fas fa-sign-out-alt" style="color: red;"></i></a>
