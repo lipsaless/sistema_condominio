@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', ['as' => '/'], function() {
+Route::get('/', function() {
     return view('template.template');
 });
 
