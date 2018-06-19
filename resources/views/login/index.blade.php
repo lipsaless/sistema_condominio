@@ -42,7 +42,7 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
+		<div class="container-login100">
 			<div class="wrap-login100 p-t-190 p-b-30">
 				<form id="form-login" class="login100-form validate-form" action="{{ route('login/autenticar') }}" method="POST">
 					<div class="login100-form-avatar">

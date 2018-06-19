@@ -154,6 +154,7 @@ iframe {
 }
 
 .container-login100 {
+  background-image: url('../images/img-01.jpg');
   width: 100%;  
   min-height: 100vh;
   display: -webkit-box;
@@ -193,7 +194,7 @@ iframe {
 .wrap-login100 {
   width: 390px;
   background: transparent;
-  padding: 20px;
+  padding: 20px 12px;
   background-color: rgba(10, 10, 10, 0.25098039215686274);
   box-shadow: 5px 5px rgba(0, 0, 0, 0.4588235294117647);
 }

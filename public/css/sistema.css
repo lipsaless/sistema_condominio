@@ -1,5 +1,21 @@
 body {
-    background-color: #E3E3E3 !important;
+    /* background-color: #f7f7f740 !important; */
+    background-image: url('../login-style/images/img-01.jpg');
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    #principal {
+        margin-left: 20px;
+    }
+    #menu-home {
+        width: 88% !important;
+        margin-left: 65px !important;
+    }
+    #sidebar {
+        margin-top: 23px;
+        max-width: 180px;
+    }
 }
 
 #principal {

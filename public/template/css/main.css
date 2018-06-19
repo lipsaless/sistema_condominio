@@ -148,8 +148,16 @@ ul li {
 	font-weight: 400;
 	margin-left: 40px;
 	letter-spacing: 2px;
-	text-transform: uppercase;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
 }
+
+#login-style {
+	background-color: #02020280;
+    padding: 13px;
+    border-radius: 3px;
+    box-shadow: 3px 3px #08080847;
+}
+
 .navigation a:hover, .navigation a.active {
 	color: white;
 	font-style: bold !important;

@@ -6,7 +6,7 @@
 <h1 class="text-center">Moradores</h1>
         
     <!-- Principal -->
-    <div id="principal">
+    <div id="principal" class="container-fluid">
         <!--Buttons-->
         <div id="buttons">
             <div class="col-md-12 row">

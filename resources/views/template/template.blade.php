@@ -19,6 +19,14 @@
     <link rel="stylesheet" href="{{ asset('template/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/css/font-icon.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      .header-content {
+        font-size: 14pt;
+        color: white;
+        font-weight: bold;
+      }
+    </style>
 </head>
 
 <body>
@@ -26,7 +34,7 @@
     <section class="banner" role="banner"> 
     <!--header navigation -->
     <header id="header">
-        <div class="header-content clearfix"> <a class="logo" href="#"><img src="{{ asset('login-style/images/icons/favicon.ico') }}" alt="" width="40"></a>
+        <div class="header-content clearfix"> Condmin 
         <nav class="navigation" role="navigation">
             <ul class="primary-nav">
                 <li><a href="#">Home</a></li>
@@ -35,7 +43,7 @@
                 <li><a href="#works">Trabalhos</a></li>
                 <li><a href="#teams">Sobre o sistema</a></li>
                 <li><a href="#testimonials">Mais informações</a></li>
-                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a id="login-style" href="{{ route('login') }}">Login</a></li>
             </ul>
         </nav>
         <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -62,25 +70,12 @@
         <ul class="slides">
           <li>
             <div class="col-md-6">
-              <div class="avatar"> <img src="{{ asset('template/images/intro-img1.jpg') }}" alt="s" class="img-responsive" data-zoom-image="large/image1.jpg"> </div>
+              <div class="avatar"> <img src="{{ asset('template/images/tech-copia.jpg') }}" alt="s" class="img-responsive" data-zoom-image="large/image1.jpg"> </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-top: 10%;">
               <blockquote>
-                <h1>Como eu comecei? Leia   <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></h1>
-                <p>Susan Sims, Interaction Designer at XYZCras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.Cras mattis consectetur purus sit amet fermentum.Interaction Designer at XYZCras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.Cras mattis consectetur purus sit amet fermentum. </p>
-                <p>Susan Sims, Interaction Designer at XYZCras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.Cras mattis consectetur purus sit amet fermentum. </p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-6">
-              <div class="avatar"> <img src="{{ asset('template/images/intro-img2.jpg') }}" alt="" class="img-responsive"> </div>
-            </div>
-            <div class="col-md-6">
-              <blockquote>
-                <h1>We create Digital Experience </h1>
-                <p>Susan Sims, Interaction Designer at XYZCras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.Cras mattis consectetur purus sit amet fermentum.Interaction Designer at XYZCras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.Cras mattis consectetur purus sit amet fermentum. </p>
-                <p>Susan Sims, Interaction Designer at XYZCras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.Cras mattis consectetur purus sit amet fermentum. </p>
+                <h1>Sistema administrativo de condomínio</h1>
+                <p>Apresentamos o sistema CondMin - Sistema de Gestão de Condomínios, ele foi desenvolvido para melhorar a qualidade de vida de síndicos, administradores de condomínios e moradores, com uma interface amigável e intuitiva, está sempre um passo a frente de seus concorrentes de mercado, oferecendo uma ferramenta de trabalho capaz de economizar tempo e dinheiro aliado a um visual limpo e inovador. </p>
               </blockquote>
             </div>
           </li>
@@ -97,38 +92,20 @@
     <div class="row">
       <div class="col-md-4 col-sm-6 services"> <span class="icon icon-strategy"></span>
         <div class="services-content">
-          <h5>Strategy & Consulting</h5>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <h5>Moderno</h5>
+          <p>Desenvolvido com tecnologia de ponta (Cloud Computing), utilizada pelas principais instituições financeiras do mundo, garantindo a integridade e a segurança de suas informações.</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 services"> <span class="icon icon-briefcase"></span>
         <div class="services-content">
-          <h5>corporate identity</h5>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <h5>Fácil de ser usado</h5>
+          <p>Execute tarefas diversas de administração de um ou vários condomínios em poucos cliques. Seja síndico ou administradora de condomínios.</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 services"> <span class="icon icon-tools"></span>
         <div class="services-content">
-          <h5>web design and development</h5>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services"> <span class="icon icon-genius"></span>
-        <div class="services-content">
-          <h5>Branding</h5>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services"> <span class="icon icon-megaphone"></span>
-        <div class="services-content">
-          <h5>Digital marketing</h5>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services"> <span class="icon icon-trophy"></span>
-        <div class="services-content">
-          <h5>Promotion material</h5>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <h5>BACKUP E SEGURANÇA</h5>
+          <p>Não se preocupe com instalações e atualizações. Deixe a responsabilidade dos backups e segurança por nossa conta.</p>
         </div>
       </div>
     </div>
@@ -312,32 +289,24 @@
           <li>
             <div class="col-md-12">
               <blockquote>
-                <h1>"Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Phasellus non dolor nibh. Nullam elementum Aenean eu leo quam..." </h1>
-                <p>Rene Brown, Open Window production</p>
+                <h1>" Revolucione sua administração de condomínios com o sistema online mais inteligente do mercado.."</h1>
+                <p></p>
               </blockquote>
             </div>
           </li>
           <li>
             <div class="col-md-12">
               <blockquote>
-                <h1>"Cras dictum tellus dui, vitae sollicitudin ipsum. Phasellus non dolor nibh. Nullam elementum tellus pretium feugiat shasellus non dolor nibh. Nullam elementum tellus pretium feugiat." </h1>
-                <p>Brain Rice, Lexix Private Limited.</p>
+                <h1>"O sistema que se adapta a você!." </h1>
+                <p></p>
               </blockquote>
             </div>
           </li>
           <li>
             <div class="col-md-12">
               <blockquote>
-                <h1>"Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur...." </h1>
-                <p>Andi Simond, Global Corporate Inc</p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Lorem ipsum dolor sit amet, consectetur adipiscing elitPhasellus non dolor nibh. Nullam elementum tellus pretium feugiat. Cras dictum tellus dui sollcitudin." </h1>
-                <p>Kristy Gabbor, Martix Media</p>
+                <h1>"Faça mais com uma plataforma completa e moderna.." </h1>
+                <p></p>
               </blockquote>
             </div>
           </li>
@@ -367,17 +336,7 @@
           <h5>Localização</h5>
           <p>Brasília - DF.<br>
             Samambaia Norte<br>
-            marcos@gmail.com</p>
-        </div>
-        <div class="footer-col col-md-3">
-          <h5>Services We Offer</h5>
-          <p>
-          <ul>
-            <li><a href="#">Realismo</a></li>
-            <li><a href="#">Linhas tracejadas</a></li>
-            <li><a href="#">3D</a></li>
-          </ul>
-          </p>
+            suporte@gmail.com</p>
         </div>
         <div class="footer-col col-md-3">
           <h5>Redes Sociais</h5>
