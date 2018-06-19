@@ -33,7 +33,6 @@
 
 <h2>Seja bem-vindo(a), <?php echo $_SESSION['usuario']['no_funcionario']; ?></h2>
 <main id="menu-home" class="col-md-10">
-            <hr>
             <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>
@@ -76,41 +75,45 @@
                 </div>
             </div>
             <!--/row-->
-
-            <hr>
-
+            
             <h2 class="sub-header mt-5">Tópicos importantes</h2>
+            <hr>
             <div class="mb-3">
                 <div class="card-deck">
                     <div class="card card-inverse card-success text-center">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
-                                <p>It's really good news that the new Bootstrap 4 now has support for CSS 3 flexbox.</p>
-                                <footer>Makes flexible layouts <cite title="Source Title">Faster</cite></footer>
+                                <p>Conheça e respeite as regras que regem o seu condomínio. Por mais que você não concorde com algumas, terá que obedecê-las, pois foram aprovadas pela maioria
+Jamais chame a empregada ou babá do vizinho para trabalhar na sua casa
+Evite entrar em quaisquer tipos de fofocas ou boatos relacionados aos seus vizinhos
+Lembre-se, a conversa amigável será sempre a melhor saída para resolução de conflitos com seu vizinho.
+Procure sempre participar das assembleias e conhecer a pauta antecipadamente. É lá que os assuntos de interesse de todos são discutidos e votados. Quem não comparece fica sem condição de discutir depois.</p>
                             </blockquote>
                         </div>
                     </div>
                     <div class="card card-inverse card-danger text-center">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
-                                <p>The Bootstrap 3.x element that was called "Panel" before, is now called a "Card".</p>
-                                <footer>All of this makes more <cite title="Source Title">Sense</cite></footer>
+                                <p>O eficaz controle de visitantes no condomínio ajuda a manter a segurança dos moradores. Mas é preciso seguir regras para não haver falhas.</p>
                             </blockquote>
                         </div>
                     </div>
                     <div class="card card-inverse card-warning text-center">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
-                                <p>There are also some interesting new text classes for uppercase and capitalize.</p>
-                                <footer>These handy utilities make it <cite title="Source Title">Easy</cite></footer>
+                                <p>Respeite os horários de uso e não deixe a área toda suja após o uso – o ideal é retirar toda a parte principal do lixo e restos de comida e bebida
+Faça uma lista com os nomes dos convidados para deixar na portaria
+Informe-se e respeite as regras do local, principalmente em relação a barulho
+Na churrasqueira, tenha bom senso no uso de aparelhos sonoros, que propagam muito mais ruído quando estão ao ar livre.</p>
                             </blockquote>
                         </div>
                     </div>
                     <div class="card card-inverse card-info text-center">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
-                                <p>If you want to use cool icons in Bootstrap 4, you'll have to find your own such as Font Awesome or Ionicons.</p>
-                                <footer>The Glyphicons are not <cite title="Source Title">Included</cite></footer>
+                                <p>Trate-os sempre com cordialidade
+Se quiser fazer alguma reclamação, direcione-a ao zelador ou ao síndico
+Lembre-se que o funcionário do condomínio não é seu empregado. Evite pedir que execute serviços particulares.</p>
                             </blockquote>
                         </div>
                     </div>

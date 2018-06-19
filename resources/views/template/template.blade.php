@@ -40,8 +40,8 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#sobre">Começo</a></li>
                 <li><a href="#services">Curiosidades</a></li>
-                <li><a href="#works">Trabalhos</a></li>
-                <li><a href="#teams">Sobre o sistema</a></li>
+                <!-- <li><a href="#works">Trabalhos</a></li> -->
+                <!-- <li><a href="#teams">Sobre o sistema</a></li> -->
                 <li><a href="#testimonials">Mais informações</a></li>
                 <li><a id="login-style" href="{{ route('login') }}">Login</a></li>
             </ul>
@@ -93,7 +93,7 @@
       <div class="col-md-4 col-sm-6 services"> <span class="icon icon-strategy"></span>
         <div class="services-content">
           <h5>Moderno</h5>
-          <p>Desenvolvido com tecnologia de ponta (Cloud Computing), utilizada pelas principais instituições financeiras do mundo, garantindo a integridade e a segurança de suas informações.</p>
+          <p>Desenvolvido com tecnologia de ponta, utilizada pelas principais instituições financeiras do mundo, garantindo a integridade e a segurança de suas informações.</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 services"> <span class="icon icon-briefcase"></span>
@@ -113,6 +113,7 @@
 </section>
 <!-- services section --> 
 <!-- work section -->
+<!--
 <section id="works" class="works section no-padding">
   <div class="container-fluid">
     <div class="row no-gutter">
@@ -121,8 +122,8 @@
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
-        </div>
-        <!-- overlay --> 
+        </div>-->
+        <!-- overlay 
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/tattoo2.jpg') }}" class="work-box"> <img src="{{ asset('template/images/tattoo2.jpg') }}" alt="">
         <div class="overlay">
@@ -130,7 +131,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/tattoo3.jpg') }}" class="work-box"> <img src="{{ asset('template/images/tattoo3.jpg') }}" alt="">
         <div class="overlay">
@@ -138,7 +139,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/tattoo4.jpg') }}" class="work-box"> <img src="{{ asset('template/images/tattoo4.jpg') }}" alt="">
         <div class="overlay">
@@ -146,7 +147,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-5.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-5.jpg') }}" alt="">
         <div class="overlay">
@@ -154,7 +155,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-6.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-6.jpg') }}" alt="">
         <div class="overlay">
@@ -162,7 +163,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-7.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-7.jpg') }}" alt="">
         <div class="overlay">
@@ -170,7 +171,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay 
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-8.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-8.jpg') }}" alt="">
         <div class="overlay">
@@ -178,7 +179,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-9.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-9.jpg') }}" alt="">
         <div class="overlay">
@@ -186,7 +187,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-10.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-10.jpg') }}" alt="">
         <div class="overlay">
@@ -194,7 +195,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-11.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-11.jpg') }}" alt="">
         <div class="overlay">
@@ -202,7 +203,7 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay 
         </a> </div>
       <div class="col-lg-2 col-md-4 col-sm-4 work"> <a href="{{ asset('template/images/work-12.jpg') }}" class="work-box"> <img src="{{ asset('template/images/work-12.jpg') }}" alt="">
         <div class="overlay">
@@ -210,17 +211,17 @@
             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
-        <!-- overlay --> 
+        <!-- overlay 
         </a> </div>
     </div>
   </div>
 </section>
 <!-- work section --> 
-<!-- our team section -->
+<!-- our team section
 <section id="teams" class="section teams">
   <div class="container">
     <div class="row"> 
-      <!-- team member 1 -->
+      <!-- team member 1
       <div class="col-md-4 col-sm-8 hidden">
         <div class="person"> <img src="{{ asset('template/images/team-1.png') }}" alt="" class="img-responsive">
           <div class="person-content">
@@ -237,9 +238,9 @@
           </ul>
         </div>
       </div>
-      <!-- team member 1 --> 
+      <!-- team member 1
 
-      <!-- team member 2 -->
+      <!-- team member 2
       <div class="col-md-4 col-sm-8" style="float: center !important; ">
         <div class="person"> <img src="images/team-1.png" alt="" class="img-responsive">
           <div class="person-content">
@@ -256,9 +257,9 @@
           </ul>
         </div>
       </div>
-      <!-- team member 2 --> 
+      <!-- team member 2 
       
-      <!-- team member 3 -->
+      <!-- team member 3 
       <div class="col-md-4 col-sm-8 hidden">
         <div class="person"> <img src="{{ asset('template/images/team-3.png') }}" alt="" class="img-responsive">
           <div class="person-content">
@@ -275,7 +276,7 @@
           </ul>
         </div>
       </div>
-      <!-- team member 1 --> 
+      <!-- team member 1
     </div>
   </div>
 </section>
@@ -342,7 +343,7 @@
           <h5>Redes Sociais</h5>
           <ul class="footer-share">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://www.instagram.com/marcoznf/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
           </ul>
